@@ -1,57 +1,58 @@
-/**
- * /api/chat.js — Vercel Serverless Function
- * Proxies requests from the browser to OpenRouter,
- * injecting the API key from the environment variable.
- *
- * Environment variable required (set in Vercel dashboard):
- *   OPENROUTER_API_KEY = sk-or-v1-...
- */
+export default async function handler(req, res) {
 
-export const config = {
-  runtime: 'edge', // Use Edge Runtime for streaming support
-};
-
-export default async function handler(req) {
-  // Only allow POST
-  if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' },
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      error: "Method not allowed"
     });
   }
 
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) {
-    return new Response(
-      JSON.stringify({ error: 'Server misconfiguration: API key not set.' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+  try {
+
+    const { message } = req.body;
+
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-4o-mini",
+          messages:[
+            {
+              role:"system",
+              content:
+              "You are ANNEXE AI enterprise automation assistant."
+            },
+            {
+              role:"user",
+              content:message
+            }
+          ]
+        })
+      }
     );
+
+
+    const data = await response.json();
+
+
+    return res.status(200).json({
+      reply:
+      data.choices?.[0]?.message?.content ||
+      "No response generated."
+    });
+
+
+  } catch(error){
+
+    console.error(error);
+
+    return res.status(500).json({
+      error:"AI connection failed"
+    });
+
   }
-
-  // Forward the body from the browser unchanged
-  const body = await req.text();
-
-  // Forward select safe headers from the original request
-  const origin = req.headers.get('origin') || '';
-  const referer = req.headers.get('referer') || '';
-
-  const upstreamResp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-      'HTTP-Referer': referer || origin,
-      'X-Title': 'ANNEXE AI Chatbot',
-    },
-    body,
-  });
-
-  // Stream the response back to the browser as-is
-  return new Response(upstreamResp.body, {
-    status: upstreamResp.status,
-    headers: {
-      'Content-Type': upstreamResp.headers.get('Content-Type') || 'application/json',
-      'Cache-Control': 'no-store',
-    },
-  });
 }
