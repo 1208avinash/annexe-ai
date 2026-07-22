@@ -3780,10 +3780,10 @@
         let chatHistory = [];
 
         // â”€â”€ OPENROUTER CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-        // Model: meta-llama/llama-3.3-70b-instruct (free tier on OpenRouter)
+        // Model: nvidia/nemotron-3-ultra-550b-a55b:free
         // Swap model slug for any OpenRouter-supported model at any time.
         const OR_API_URL  = '/api/chat';
-        const OR_MODEL    = 'meta-llama/llama-3.3-70b-instruct:free';
+        const OR_MODEL    = 'nvidia/nemotron-3-ultra-550b-a55b:free';
 
 
         const SYSTEM_PROMPT = `You are ANNEXE, the intelligent AI guide for ANNEXE AI â€” an enterprise automation platform that deploys autonomous AI employees for sales, support, finance, and operations.
@@ -3924,74 +3924,112 @@ Once summary is confirmed, give a focused, specific recommendation:
         }
 
         async function handleSendMessage() {
-            const text = chatInput.value.trim();
-            if (!text) return;
 
-            detectLead(text);
-            appendMessage(renderMarkdown(text), 'user');
-            chatInput.value = '';
-            chatHistory.push({ role: 'user', content: text });
+    const text = chatInput.value.trim();
 
-            showTyping();
-
-            // â”€â”€ STREAMING call to OpenRouter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-            try {
-                const response = await fetch("/api/chat", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'HTTP-Referer': window.location.href,
-                        'X-Title': 'ANNEXE AI Chatbot',
-                    },
-                    body: JSON.stringify({
-                        model: OR_MODEL,
-                        stream: true,
-                        max_tokens: 500,
-                        messages: [
-                            { role: 'system', content: SYSTEM_PROMPT },
-                            ...chatHistory,
-                        ],
-                    }),
-                });
-
-                if (!response.ok) {
-                    const err = await response.json().catch(() => ({}));
-                    throw new Error(err.error?.message || `HTTP ${response.status}`);
-                }
-
-                removeTyping();
-                const botDiv = appendMessage('', 'bot');
-                triggerProcessPulse();
-                
-                const data = await response.json();
-
-const fullText =
-    data.reply ||
-    "Neural response unavailable.";
-
-botDiv.innerHTML =
-    renderMarkdown(fullText);
-
-chatMessages.scrollTop =
-    chatMessages.scrollHeight;
-
-chatHistory.push({
-    role: 'assistant',
-    content: fullText
-});
+    if (!text) return;
 
 
-            } catch (error) {
-                console.error('ANNEXE Chat error:', error);
-                removeTyping();
-                appendMessage(
-                    'Neural connection interrupted â€” please try again in a moment.',
-                    'bot'
-                );
-            }
+    detectLead(text);
+
+    appendMessage(renderMarkdown(text), "user");
+
+    chatInput.value = "";
+
+
+    chatHistory.push({
+        role: "user",
+        content: text
+    });
+
+
+    showTyping();
+
+
+    try {
+
+        const response = await fetch("/api/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: text
+            })
+
+        });
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+
         }
 
-        chatSend.addEventListener('click', handleSendMessage);
+
+        removeTyping();
+
+
+        const botDiv = appendMessage(
+            "",
+            "bot"
+        );
+
+
+        triggerProcessPulse();
+
+
+        const data = await response.json();
+
+
+        const fullText =
+            data.reply ||
+            "No response generated.";
+
+
+        botDiv.innerHTML =
+            renderMarkdown(fullText);
+
+
+        chatMessages.scrollTop =
+            chatMessages.scrollHeight;
+
+
+        chatHistory.push({
+
+            role: "assistant",
+
+            content: fullText
+
+        });
+
+
+    } catch(error) {
+
+
+        console.error(
+            "ANNEXE Chat error:",
+            error
+        );
+
+
+        removeTyping();
+
+
+        appendMessage(
+            "Neural connection interrupted â€” please try again in a moment.",
+            "bot"
+        );
+
+    }
+
+}
+chatSend.addEventListener('click', handleSendMessage);
         chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleSendMessage();
         });
