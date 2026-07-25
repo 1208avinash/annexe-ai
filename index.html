@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#020202]" style="overflow-x:clip;">
+<!-- PATCH 2.3: removed overflow-x:clip from <html> — it creates a containing block
+     for fixed elements in Safari/Chrome, trapping them. overflow-x clip stays on body only. -->
+<html lang="en" class="scroll-smooth bg-[#020202]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -175,7 +177,7 @@
     </style>
 
     <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
     <!-- Space Grotesk display font + keep mono -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -367,7 +369,15 @@
             overflow-y: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            perspective: 1500px;
+            /* ── PATCH 2.3 ROOT FIX ──────────────────────────────────────────
+               REMOVED: perspective: 1500px
+               Reason: any perspective/transform on a scrollable ancestor creates
+               a new stacking context that traps position:fixed children,
+               making them fixed to the stacking context instead of the viewport.
+               This is why #annexe-companion disappeared on scroll.
+               The tilt-card 3D effect uses inline JS transforms per-card, so
+               body-level perspective is not required for it to work.
+            ─────────────────────────────────────────────────────────────────── */
         }
 
         /* 3D Depth Buttons */
@@ -387,9 +397,19 @@
             position: fixed; 
             top: 0; left: 0; 
             width: 100vw; height: 100vh; 
-            z-index: -2; 
+            z-index: -1; 
             pointer-events: none;
         }
+
+        /* PATCH 2.3.3 HERO CORE RESTORE (merged into 2.3.4b)
+           isolation:isolate on hero header created a stacking context that
+           composited #webgl-canvas behind the page background. Fix: lift
+           canvas to z-index:0 and shift overlay layers up by 1. */
+        #webgl-canvas  { z-index:  0; }
+        .vignette      { z-index:  1; }
+        #warp-canvas   { z-index: -1; }
+        #rain-canvas   { z-index: -2; }
+        #aurora-canvas { z-index: -3; }
 
         /* Ambient cursor glow removed */
 
@@ -419,7 +439,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            z-index: -3;
+            z-index: -4;
             pointer-events: none;
             opacity: 0.55;
         }
@@ -429,7 +449,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            z-index: -1;
+            z-index: -3;
             pointer-events: none;
             opacity: 0.18;
         }
@@ -439,7 +459,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            z-index: 1;
+            z-index: -2;
             pointer-events: none;
             opacity: 0.6;
         }
@@ -1195,96 +1215,190 @@
         }
 
         /* AI Chatbot Styles */
+        /* ═══════════════════════════════════════════════════════
+           ANNEXE AI — PATCH 2.1-A
+           #chatbot-toggle: Persistent right-center intelligence node
+           Replaces: bottom-right consumer widget
+           Adds: holographic breathe, slow radar rings, enterprise glow
+        ═══════════════════════════════════════════════════════ */
         #chatbot-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            top: 50%;
+            right: 24px;
+            bottom: auto;
+            transform: translateY(-50%);
             z-index: 100;
             width: 68px;
             height: 68px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
-            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.5);
+            background: linear-gradient(145deg, rgba(6,20,48,0.97) 0%, rgba(3,10,24,0.99) 100%);
+            border: 1px solid rgba(56,189,248,0.35);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.07) inset,
+                0 0 28px rgba(56,189,248,0.20),
+                0 0 56px rgba(56,189,248,0.07),
+                0 8px 32px rgba(0,0,0,0.75);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
-            animation: chatbot-idle-bob 3s ease-in-out infinite;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s,
+                        border-color 0.35s;
+            animation: annexe-breathe 4s ease-in-out infinite;
         }
-        @keyframes chatbot-idle-bob {
-            0%,100% { transform: translateY(0) scale(1); }
-            50%      { transform: translateY(-5px) scale(1.03); }
+        /* Slow holographic breathing — enterprise intelligence pulse */
+        @keyframes annexe-breathe {
+            0%, 100% {
+                box-shadow:
+                    0 0 0 1px rgba(56,189,248,0.07) inset,
+                    0 0 22px rgba(56,189,248,0.16),
+                    0 0 44px rgba(56,189,248,0.05),
+                    0 8px 32px rgba(0,0,0,0.75);
+                border-color: rgba(56,189,248,0.28);
+            }
+            50% {
+                box-shadow:
+                    0 0 0 1px rgba(56,189,248,0.13) inset,
+                    0 0 38px rgba(56,189,248,0.34),
+                    0 0 76px rgba(56,189,248,0.12),
+                    0 8px 32px rgba(0,0,0,0.75);
+                border-color: rgba(56,189,248,0.58);
+            }
         }
+        /* Dual slow radar rings — enterprise readiness signal */
         #chatbot-toggle::before, #chatbot-toggle::after {
             content: '';
             position: absolute;
-            inset: -4px;
+            inset: -7px;
             border-radius: 50%;
-            border: 2px solid rgba(56,189,248,0.5);
-            animation: chatbot-ping 2s ease-out infinite;
+            border: 1px solid rgba(56,189,248,0.28);
+            animation: annexe-ring 3.6s ease-out infinite;
             pointer-events: none;
         }
         #chatbot-toggle::after {
-            inset: -10px;
-            border-color: rgba(56,189,248,0.25);
-            animation-delay: 0.7s;
+            inset: -16px;
+            border-color: rgba(56,189,248,0.13);
+            animation-delay: 1.3s;
         }
-        @keyframes chatbot-ping {
-            0%   { transform: scale(1); opacity: 0.9; }
-            100% { transform: scale(1.5); opacity: 0; }
+        @keyframes annexe-ring {
+            0%   { transform: scale(1);    opacity: 0.8; }
+            65%  { transform: scale(1.28); opacity: 0;   }
+            100% { transform: scale(1.28); opacity: 0;   }
         }
+        /* Hover: pause breathe, amplify glow, stay vertically centred */
         #chatbot-toggle:hover {
-            transform: scale(1.12) translateY(-3px);
-            box-shadow: 0 15px 40px -10px rgba(14, 165, 233, 0.7);
+            transform: translateY(-50%) scale(1.10);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.18) inset,
+                0 0 50px rgba(56,189,248,0.44),
+                0 0 100px rgba(56,189,248,0.15),
+                0 12px 40px rgba(0,0,0,0.85);
+            border-color: rgba(56,189,248,0.72);
             animation-play-state: paused;
         }
         #chatbot-toggle svg {
-            color: white;
+            color: #38bdf8;
             width: 32px;
             height: 32px;
+            filter: drop-shadow(0 0 6px rgba(56,189,248,0.65));
         }
+        /* ═══════════════════════════════════════════════════════
+           ANNEXE AI — PATCH 2.1-A
+           #chatbot-window: Aligned to right-center intelligence node
+           margin-top:-40px keeps window clear of hero CTA
+           Glass: deep navy, cyan border glow, strong backdrop blur
+        ═══════════════════════════════════════════════════════ */
         #chatbot-window {
             position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: min(380px, calc(100vw - 20px));
-            height: min(500px, calc(100svh - 140px));
-            z-index: 99;
+            /* PATCH 1.4: drop top-center anchor → bottom-right anchor.
+               Window now lives in the lower-right quadrant, fully below
+               the hero headline and CTA. Top of window at ~(100vh - 520px - 24px)
+               which on a 900px screen ≈ y=356 — well below the headline band. */
+            top: auto;
+            bottom: 24px;
+            right: 108px;
+            width: min(368px, calc(100vw - 124px));
+            height: min(520px, calc(100svh - 80px));
+            margin-top: 0;
+            /* PATCH 2.2: raised to match companion layer; below modals (200+) */
+            z-index: 149;
             display: flex;
             flex-direction: column;
             opacity: 0;
             pointer-events: none;
-            transform: translateY(20px) scale(0.95);
-            transform-origin: bottom right;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-radius: 24px;
+            /* Slide up from below on open rather than scaling from center */
+            transform: translateY(10px) scale(0.96);
+            transform-origin: right bottom;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 20px;
             overflow: hidden;
+            /* Deep enterprise glass */
+            background: linear-gradient(155deg, rgba(5,16,38,0.97) 0%, rgba(3,9,22,0.99) 100%);
+            border: 1px solid rgba(56,189,248,0.18);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.05) inset,
+                0 0 40px rgba(56,189,248,0.07) inset,
+                0 24px 80px rgba(0,0,0,0.88),
+                0 0 60px rgba(56,189,248,0.05);
+            backdrop-filter: blur(32px) saturate(180%);
+            -webkit-backdrop-filter: blur(32px) saturate(180%);
         }
+        /* PATCH 1.4: active state — settle to natural bottom position */
         #chatbot-window.active {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0) scale(1);
         }
+        /* ═══ PATCH 2.1-A — .chat-header upgrade ═══ */
         .chat-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 18px 14px 20px;
+            border-bottom: 1px solid rgba(56,189,248,0.12);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 10, 0.6);
+            background: linear-gradient(90deg, rgba(4,14,32,0.90) 0%, rgba(6,20,44,0.80) 100%);
+            box-shadow: 0 1px 0 0 rgba(56,189,248,0.12);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
         }
+        /* Cyan scan-line sweeps across header bottom edge */
+        .chat-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: -60%;
+            width: 55%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.70), transparent);
+            animation: annexe-header-scan 4.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes annexe-header-scan {
+            0%   { left: -60%; }
+            100% { left: 140%; }
+        }
+        /* ═══ PATCH 2.1-A — .chat-messages upgrade ═══ */
         .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 22px 20px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
             scroll-behavior: smooth;
         }
-        .chat-messages::-webkit-scrollbar { width: 4px; }
-        .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+        .chat-messages::-webkit-scrollbar { width: 5px; }
+        .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(56,189,248,0.18);
+            border-radius: 5px;
+        }
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(56,189,248,0.34);
+        }
         .message {
             max-width: 85%;
             padding: 14px 18px;
@@ -1298,12 +1412,17 @@
         @keyframes messagePop {
             to { opacity: 1; transform: translateY(0); }
         }
+        /* ═══ PATCH 2.1-A — .message.bot upgrade ═══ */
         .message.bot {
-            background: rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.9);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(5,18,42,0.72);
+            color: rgba(224,234,244,0.93);
+            border: 1px solid rgba(56,189,248,0.14);
+            border-left: 2px solid rgba(56,189,248,0.55);
             border-bottom-left-radius: 4px;
             align-self: flex-start;
+            line-height: 1.65;
+            font-size: 13.5px;
+            box-shadow: 0 0 18px rgba(56,189,248,0.04) inset;
         }
         .message.user {
             background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(99, 102, 241, 0.2));
@@ -1331,21 +1450,26 @@
             transition: border-color 0.3s;
         }
         .chat-input:focus { border-color: rgba(14, 165, 233, 0.5); }
+        /* ═══ PATCH 2.1-A — .chat-send upgrade ═══ */
         .chat-send {
             width: 46px;
             height: 46px;
             border-radius: 14px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-            color: rgba(255,255,255,0.6);
+            flex-shrink: 0;
+            transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            color: rgba(56,189,248,0.78);
         }
         .chat-send:hover {
-            background: rgba(14, 165, 233, 0.2);
+            background: rgba(56,189,248,0.20);
+            border-color: rgba(56,189,248,0.52);
             color: #38bdf8;
+            box-shadow: 0 0 16px rgba(56,189,248,0.28);
         }
         .typing-indicator {
             display: flex;
@@ -1370,6 +1494,281 @@
             0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
             40% { transform: scale(1); opacity: 1; }
         }
+
+        /* =======================================================
+           ANNEXE AI - PATCH 2.1 - Consultant Companion
+           Greeting bubble + node. Fixed right-center on desktop.
+        ======================================================= */
+        #annexe-companion {
+            position: fixed;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            z-index: 150;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* PATCH 2.3.2: gap removed — energy line element spans the connector space */
+            gap: 0;
+            pointer-events: none;
+            will-change: transform;
+            isolation: isolate;
+        }
+        #annexe-companion > * { pointer-events: auto; }
+        #annexe-energy-line   { pointer-events: none !important; }
+
+        /* ═══════════════════════════════════════════════════════
+           PATCH 2.3.2 — CHANGE 1: Living intelligence core motion
+           Shell breathing glow + border pulse on the orb node.
+           Hover pauses animation and amplifies glow (unchanged UX).
+        ═══════════════════════════════════════════════════════ */
+
+        /* PATCH 2.3.1 — neural orb node */
+        #chatbot-toggle {
+            position: relative !important;
+            top: auto !important; right: auto !important;
+            bottom: auto !important; transform: none !important;
+            will-change: transform, box-shadow;
+            width: 72px !important;
+            height: 72px !important;
+            border: 1px solid rgba(56,189,248,0.20) !important;
+            background: linear-gradient(145deg, rgba(4,12,30,0.96) 0%, rgba(2,6,18,0.98) 100%) !important;
+            /* Breathing glow animation — 5s slow cycle */
+            animation: orb-shell-breathe 5s ease-in-out infinite !important;
+        }
+        @keyframes orb-shell-breathe {
+            0%, 100% {
+                box-shadow:
+                    0 0 0 1px rgba(56,189,248,0.06) inset,
+                    0 0 22px rgba(56,189,248,0.18),
+                    0 0 48px rgba(56,189,248,0.06),
+                    0 8px 36px rgba(0,0,0,0.80);
+                border-color: rgba(56,189,248,0.18) !important;
+            }
+            50% {
+                box-shadow:
+                    0 0 0 1px rgba(56,189,248,0.14) inset,
+                    0 0 44px rgba(56,189,248,0.38),
+                    0 0 88px rgba(56,189,248,0.14),
+                    0 8px 36px rgba(0,0,0,0.80);
+                border-color: rgba(56,189,248,0.52) !important;
+            }
+        }
+        /* Dual radar rings — existing keyframe annexe-ring is preserved above */
+        #chatbot-toggle::before, #chatbot-toggle::after {
+            animation: annexe-ring 4.2s ease-out infinite !important;
+        }
+        #chatbot-toggle::after {
+            animation-delay: 1.8s !important;
+        }
+        #chatbot-toggle:hover {
+            transform: scale(1.08) !important;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.18) inset,
+                0 0 58px rgba(56,189,248,0.50),
+                0 0 120px rgba(56,189,248,0.18),
+                0 12px 44px rgba(0,0,0,0.88) !important;
+            border-color: rgba(56,189,248,0.70) !important;
+            animation-play-state: paused !important;
+        }
+        /* Orb SVG — drop-shadow on hover only to keep idle state clean */
+        #chatbot-toggle svg#annexe-orb-svg {
+            width: 44px !important;
+            height: 44px !important;
+            filter: none;
+            transition: filter 0.35s ease;
+        }
+        #chatbot-toggle:hover svg#annexe-orb-svg {
+            filter: drop-shadow(0 0 8px rgba(56,189,248,0.55));
+        }
+
+        /* CHANGE 4: Hide unrelated left-side floating sound button */
+        /* #sound-toggle is a standalone UI sound widget, not connected to chatbot */
+        #sound-toggle {
+            display: none !important;
+        }
+
+        /* Greeting bubble */
+        #annexe-greeting {
+            position: relative;
+            display: flex;
+            align-items: center;
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        #annexe-greeting.annexe-hidden {
+            opacity: 0;
+            transform: translateX(8px);
+            pointer-events: none;
+        }
+        /* PATCH 2.3.1 — upgraded bubble panel */
+        #annexe-greeting-inner {
+            position: relative;
+            background: linear-gradient(145deg, rgba(4,14,34,0.98) 0%, rgba(2,8,20,0.99) 100%);
+            /* Cyan edge glow on left + top */
+            border: 1px solid rgba(56,189,248,0.30);
+            border-left: 1px solid rgba(56,189,248,0.55);
+            border-top: 1px solid rgba(56,189,248,0.42);
+            border-radius: 14px;
+            padding: 13px 38px 13px 15px;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.08) inset,
+                0 0 20px rgba(56,189,248,0.14) inset,
+                -4px 0 28px rgba(56,189,248,0.12),
+                0 8px 40px rgba(0,0,0,0.82);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            min-width: 210px;
+            max-width: 240px;
+            /* CHANGE 3: 4-second delayed entrance */
+            animation: annexe-bubble-in 0.6s cubic-bezier(0.16,1,0.3,1) 4s both;
+        }
+        @keyframes annexe-bubble-in {
+            0%   { opacity: 0; transform: translateX(12px) scale(0.93); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+        #annexe-greeting-header {
+            display: flex; align-items: center;
+            gap: 7px; margin-bottom: 6px;
+        }
+        #annexe-greeting-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #38bdf8; flex-shrink: 0;
+            animation: annexe-dot-pulse 3s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(56,189,248,0.8);
+        }
+        @keyframes annexe-dot-pulse {
+            0%,100% { box-shadow: 0 0 6px rgba(56,189,248,0.7); opacity: 0.9; transform: scale(1); }
+            50%      { box-shadow: 0 0 16px rgba(56,189,248,1.0); opacity: 1; transform: scale(1.15); }
+        }
+        /* CHANGE 2: upgraded label — all-caps monospace status line */
+        #annexe-greeting-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px; font-weight: 600;
+            letter-spacing: 0.13em; text-transform: uppercase;
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56,189,248,0.5);
+        }
+        /* CHANGE 2: upgraded body text */
+        #annexe-greeting-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px; font-weight: 500;
+            color: rgba(224,234,244,0.95);
+            line-height: 1.45; margin: 0;
+            letter-spacing: -0.01em;
+        }
+        #annexe-greeting-dismiss {
+            position: absolute; top: 8px; right: 9px;
+            width: 18px; height: 18px;
+            background: none; border: none;
+            color: rgba(255,255,255,0.28);
+            font-size: 10px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s; padding: 0;
+        }
+        #annexe-greeting-dismiss:hover {
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.07);
+        }
+        /* Right-pointing tail toward node */
+        #annexe-greeting-tail {
+            width: 0; height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid rgba(56,189,248,0.22);
+            flex-shrink: 0; position: relative;
+        }
+        #annexe-greeting-tail::after {
+            content: '';
+            position: absolute; top: -6px; left: -11px;
+            width: 0; height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid rgba(3,10,24,0.99);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PATCH 2.3.2 — CHANGE 3: Energy connection line
+           Thin cyan SVG line between bubble and orb.
+           Sits inside #annexe-companion, pointer-events:none.
+        ═══════════════════════════════════════════════════════ */
+        #annexe-energy-line {
+            /* Sits between bubble tail and orb in the flex row */
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            /* Matches companion gap so line covers the 14px gap exactly */
+            width: 14px;
+            height: 2px;
+            position: relative;
+            overflow: visible;
+        }
+        #annexe-energy-line svg {
+            position: absolute;
+            left: -2px;
+            width: 18px;
+            height: 18px;
+            overflow: visible;
+        }
+        /* Hide connector when bubble is hidden */
+        #annexe-greeting.annexe-hidden ~ #annexe-energy-line {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        @keyframes energy-flow {
+            0%   { stroke-dashoffset: 24; opacity: 0.3; }
+            40%  { opacity: 1; }
+            100% { stroke-dashoffset: 0;  opacity: 0.3; }
+        }
+        @keyframes energy-glow-pulse {
+            0%, 100% { opacity: 0.18; }
+            50%       { opacity: 0.55; }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PATCH 2.3.2 — CHANGE 2: Bubble collapsed state
+           .annexe-collapsed = smaller pill, "May I help?" only
+        ═══════════════════════════════════════════════════════ */
+        #annexe-greeting.annexe-collapsed #annexe-greeting-inner {
+            min-width: 0;
+            padding: 8px 34px 8px 12px;
+            transition: padding 0.5s cubic-bezier(0.16,1,0.3,1),
+                        min-width 0.5s cubic-bezier(0.16,1,0.3,1),
+                        box-shadow 0.5s ease;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.05) inset,
+                0 0 12px rgba(56,189,248,0.08) inset,
+                -2px 0 16px rgba(56,189,248,0.07),
+                0 4px 20px rgba(0,0,0,0.70);
+        }
+        #annexe-greeting.annexe-collapsed #annexe-greeting-header {
+            display: none;
+        }
+        #annexe-greeting.annexe-collapsed #annexe-greeting-text {
+            font-size: 12px;
+            color: rgba(224,234,244,0.70);
+            transition: font-size 0.4s ease, color 0.4s ease;
+        }
+        /* Mobile */
+        @media (max-width: 480px) {
+            #annexe-companion {
+                top: auto; bottom: 20px; right: 16px;
+                transform: none;
+                flex-direction: column-reverse;
+                align-items: flex-end; gap: 10px;
+            }
+            #annexe-greeting-tail { display: none; }
+            /* Hide energy connector on mobile — column layout, no horizontal line */
+            #annexe-energy-line   { display: none; }
+            #annexe-greeting-inner { border-radius: 12px; min-width: 180px; }
+            /* PATCH 2.3.1: orb mobile size */
+            #chatbot-toggle { width: 60px !important; height: 60px !important; }
+            #chatbot-toggle svg#annexe-orb-svg { width: 38px !important; height: 38px !important; }
+        }
+
 
         /* ═══════════════════════════════════════
            BOOT SEQUENCE OVERLAY
@@ -1545,22 +1944,36 @@
 
         /* ── RESPONSIVE OVERRIDES ────────────────────────────────────── */
         @media (max-width: 480px) {
+            /* PATCH 2.1-A — Mobile: revert to bottom-right corner (standard mobile UX) */
             #chatbot-toggle {
-                width: 56px;
-                height: 56px;
+                top: auto;
                 bottom: 20px;
                 right: 16px;
+                width: 56px;
+                height: 56px;
+                transform: none;
+                animation: annexe-breathe 4s ease-in-out infinite;
             }
+            #chatbot-toggle:hover {
+                transform: scale(1.10);
+            }
+            /* Mobile chat window: full-width bottom-anchored sheet */
+            /* PATCH 1.3: height reduced proportionally from 520px → 480px */
             #chatbot-window {
+                top: auto;
+                bottom: 84px;
                 right: 10px;
-                bottom: 88px;
+                left: 10px;
+                width: auto;
+                height: min(480px, calc(100svh - 110px));
+                margin-top: 0;
+                transform: translateY(14px) scale(0.97);
+                transform-origin: bottom center;
             }
-            #sound-toggle {
-                bottom: 88px;
-                left: 16px;
-                width: 40px;
-                height: 40px;
+            #chatbot-window.active {
+                transform: translateY(0) scale(1);
             }
+            /* #sound-toggle hidden globally via PATCH 2.3.1 */
         }
         @media (max-width: 375px) {
             .savings-display { font-size: clamp(2rem, 10vw, 2.8rem); }
@@ -1569,6 +1982,917 @@
         @media (max-width: 768px) {
             #vs-table th, #vs-table td { padding: 10px 8px; }
             #world-section { min-height: 400px; }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+           PATCH 2.3.4 — ANNEXE INTELLIGENCE NETWORK / MODULE 1
+           Upcoming Systems cards. Pure CSS — no new JS.
+           Reuses existing reveal-up / cam-reveal / stagger-child
+           observer system already wired in the page.
+        ═══════════════════════════════════════════════════════ */
+
+        /* Section ambient background */
+        #intelligence-network {
+            background: radial-gradient(
+                ellipse 80% 50% at 50% 0%,
+                rgba(56,189,248,0.04) 0%,
+                transparent 70%
+            );
+        }
+
+        /* PATCH 2.3.5C — Intelligence Network anchor offset */
+        #intelligence-network {
+            scroll-margin-top: 120px;
+        }
+
+        /* Module header badge — matches existing section badge pattern */
+        .ain-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            border: 1px solid rgba(56,189,248,0.2);
+            background: rgba(56,189,248,0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--c-brand);
+        }
+        .ain-badge-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--c-brand);
+            box-shadow: 0 0 6px var(--c-brand);
+            animation: live-blink 2s ease-in-out infinite;
+        }
+
+        /* Module 1 container */
+        #ain-upcoming {
+            border: 1px solid rgba(56,189,248,0.1);
+            border-radius: 20px;
+            background: linear-gradient(160deg, rgba(4,12,28,0.7) 0%, rgba(2,6,16,0.6) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Subtle top-edge reactor glow on the module */
+        #ain-upcoming::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(56,189,248,0.5) 30%,
+                rgba(129,140,248,0.5) 70%,
+                transparent 100%
+            );
+        }
+
+        /* Module label */
+        .ain-module-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(56,189,248,0.6);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ain-module-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(56,189,248,0.2), transparent);
+        }
+
+        /* Product cards grid */
+        .ain-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .ain-cards-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Individual product card */
+        .ain-product-card {
+            background: linear-gradient(145deg, rgba(8,22,44,0.95) 0%, rgba(4,10,22,0.90) 100%);
+            border: 1px solid rgba(56,189,248,0.15);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            overflow: hidden;
+            transition:
+                border-color 0.4s cubic-bezier(0.16,1,0.3,1),
+                box-shadow   0.4s cubic-bezier(0.16,1,0.3,1),
+                transform    0.4s cubic-bezier(0.16,1,0.3,1);
+            cursor: default;
+        }
+        /* Corner accent — top-left bracket */
+        .ain-product-card::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px;
+            width: 14px; height: 14px;
+            border-top: 1.5px solid rgba(56,189,248,0.35);
+            border-left: 1.5px solid rgba(56,189,248,0.35);
+            border-radius: 2px 0 0 0;
+            transition: border-color 0.4s;
+        }
+        .ain-product-card:hover {
+            border-color: rgba(56,189,248,0.45);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.06) inset,
+                0 0 28px rgba(56,189,248,0.1),
+                0 8px 32px rgba(0,0,0,0.5);
+            transform: translateY(-3px);
+        }
+        .ain-product-card:hover::before {
+            border-color: rgba(56,189,248,0.7);
+        }
+
+        /* Status badge inside card */
+        .ain-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 999px;
+            width: fit-content;
+        }
+        .ain-status-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        /* Status colour variants */
+        .ain-status--beta {
+            color: var(--c-brand);
+            background: rgba(56,189,248,0.08);
+            border: 1px solid rgba(56,189,248,0.2);
+        }
+        .ain-status--beta .ain-status-dot {
+            background: var(--c-brand);
+            box-shadow: 0 0 5px var(--c-brand);
+            animation: live-blink 1.6s ease-in-out infinite;
+        }
+        .ain-status--dev {
+            color: var(--c-brand2);
+            background: rgba(129,140,248,0.08);
+            border: 1px solid rgba(129,140,248,0.2);
+        }
+        .ain-status--dev .ain-status-dot {
+            background: var(--c-brand2);
+            box-shadow: 0 0 5px var(--c-brand2);
+            animation: live-blink 2.4s ease-in-out infinite;
+        }
+        .ain-status--research {
+            color: var(--c-emerald);
+            background: rgba(52,211,153,0.07);
+            border: 1px solid rgba(52,211,153,0.18);
+        }
+        .ain-status--research .ain-status-dot {
+            background: var(--c-emerald);
+            box-shadow: 0 0 5px var(--c-emerald);
+            animation: live-blink 3.2s ease-in-out infinite;
+        }
+
+        /* Card title */
+        .ain-card-title {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: rgba(226,234,244,0.95);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        /* Card description */
+        .ain-card-desc {
+            font-size: 13px;
+            color: rgba(226,234,244,0.45);
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        /* Early access CTA button */
+        .ain-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: var(--c-brand);
+            background: rgba(56,189,248,0.07);
+            border: 1px solid rgba(56,189,248,0.2);
+            border-radius: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.25s, border-color 0.25s, color 0.25s;
+            text-decoration: none;
+            width: fit-content;
+            margin-top: auto;
+        }
+        .ain-cta-btn:hover {
+            background: rgba(56,189,248,0.15);
+            border-color: rgba(56,189,248,0.5);
+            color: #fff;
+        }
+        .ain-cta-btn svg {
+            transition: transform 0.2s;
+        }
+        .ain-cta-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ── PATCH 2.3.5B — MODULE 1 POLISH ─────────────────────────────
+           Scoped entirely to #intelligence-network. Zero global side-effects.
+        ──────────────────────────────────────────────────────────────────── */
+
+        /* Extra top spacing — separates from ROI calculator */
+        #intelligence-network {
+            padding-top: 9rem;
+        }
+
+        /* Badge: stronger brand presence */
+        #intelligence-network .ain-badge {
+            padding: 6px 18px;
+            border-color: rgba(56,189,248,0.35);
+            background: rgba(56,189,248,0.08);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            box-shadow: 0 0 16px rgba(56,189,248,0.08);
+        }
+
+        /* Cards: richer glass, brighter borders, better padding */
+        #intelligence-network .ain-product-card {
+            background: linear-gradient(145deg, rgba(6,18,40,0.98) 0%, rgba(3,9,22,0.96) 100%);
+            border-color: rgba(56,189,248,0.28);
+            padding: 30px;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.04) inset,
+                0 4px 24px rgba(0,0,0,0.4);
+        }
+        #intelligence-network .ain-product-card:hover {
+            border-color: rgba(56,189,248,0.55);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.08) inset,
+                0 0 32px rgba(56,189,248,0.12),
+                0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        /* Card title: full white, tighter tracking */
+        #intelligence-network .ain-card-title {
+            font-size: 16px;
+            color: rgba(255,255,255,0.97);
+            letter-spacing: -0.03em;
+        }
+
+        /* Card description: slightly brighter */
+        #intelligence-network .ain-card-desc {
+            color: rgba(226,234,244,0.62);
+        }
+
+        /* Status badges: higher opacity fill */
+        #intelligence-network .ain-status--dev {
+            background: rgba(56,189,248,0.12);
+            border-color: rgba(56,189,248,0.3);
+            color: rgba(56,189,248,0.95);
+        }
+        #intelligence-network .ain-status--beta {
+            background: rgba(129,140,248,0.12);
+            border-color: rgba(129,140,248,0.3);
+            color: rgba(129,140,248,0.95);
+        }
+        #intelligence-network .ain-status--research {
+            background: rgba(52,211,153,0.10);
+            border-color: rgba(52,211,153,0.28);
+            color: rgba(52,211,153,0.95);
+        }
+
+        /* Capability list text: full opacity */
+        #intelligence-network .ain-product-card ul li {
+            color: inherit;
+            opacity: 0.9;
+        }
+
+        /* ── PATCH 2.3.6 — MODULE 2: INTELLIGENCE FEED ──────────────────
+           All rules scoped to #intelligence-network #ain-feed.
+           Zero global side-effects.
+        ─────────────────────────────────────────────────────────────────── */
+
+        #intelligence-network #ain-feed {
+            margin-top: 20px;
+        }
+
+        /* Outer terminal panel */
+        #ain-feed-panel {
+            background: linear-gradient(160deg, rgba(3,10,24,0.97) 0%, rgba(2,6,16,0.95) 100%);
+            border: 1px solid rgba(56,189,248,0.22);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.04) inset,
+                0 0 60px rgba(56,189,248,0.05),
+                0 8px 40px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        #ain-feed-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 8%; right: 8%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(56,189,248,0.6) 25%,
+                rgba(129,140,248,0.5) 75%,
+                transparent 100%
+            );
+        }
+
+        /* Chrome header bar */
+        #ain-feed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(56,189,248,0.1);
+            background: rgba(56,189,248,0.03);
+        }
+        #ain-feed-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ain-feed-live-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--c-brand);
+            box-shadow: 0 0 8px var(--c-brand), 0 0 16px rgba(56,189,248,0.4);
+            animation: live-blink 1.8s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        #ain-feed-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(226,234,244,0.9);
+        }
+        #ain-feed-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--c-brand);
+            background: rgba(56,189,248,0.07);
+            border: 1px solid rgba(56,189,248,0.2);
+            border-radius: 999px;
+            padding: 3px 12px;
+        }
+
+        /* Log scroll area */
+        #ain-feed-log {
+            padding: 20px 22px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        /* Individual log entry */
+        .ain-log-entry {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(56,189,248,0.05);
+            transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .ain-log-entry:last-child { border-bottom: none; }
+        .ain-log-entry.ain-log-fading { opacity: 0; }
+        .ain-log-ts {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(56,189,248,0.45);
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .ain-log-icon {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 2px;
+            background: var(--c-brand);
+            box-shadow: 0 0 5px var(--c-brand);
+        }
+        .ain-log-icon--indigo  { background: var(--c-brand2);  box-shadow: 0 0 5px var(--c-brand2); }
+        .ain-log-icon--emerald { background: var(--c-emerald); box-shadow: 0 0 5px var(--c-emerald); }
+        .ain-log-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(226,234,244,0.72);
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+        }
+        .ain-log-text strong {
+            color: rgba(226,234,244,0.95);
+            font-weight: 500;
+        }
+
+        @keyframes ain-entry-in {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .ain-log-entry.ain-log-new {
+            animation: ain-entry-in 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        @media (max-width: 640px) {
+            #ain-feed-log { min-height: 260px; padding: 16px; }
+            .ain-log-ts   { display: none; }
+        }
+
+        /* ── PATCH 2.3.7 — MODULE 3: AI MARKET INTELLIGENCE ────────────
+           All rules scoped to #intelligence-network #ain-market.
+           Zero global side-effects.
+        ─────────────────────────────────────────────────────────────────── */
+
+        #intelligence-network #ain-market {
+            margin-top: 20px;
+        }
+
+        /* Market cards: deeper glass, colored top accent stripe */
+        #intelligence-network #ain-market .ain-product-card {
+            background: linear-gradient(155deg, rgba(4,12,30,0.98) 0%, rgba(2,6,16,0.96) 100%);
+            border-color: rgba(56,189,248,0.22);
+            padding: 30px 28px 26px;
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.04) inset,
+                0 4px 28px rgba(0,0,0,0.45);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #intelligence-network #ain-market .ain-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+        }
+        /* per-card accent stripe colors */
+        #intelligence-network #ain-market .ain-market-card--brand::before {
+            background: linear-gradient(90deg, transparent, var(--c-brand) 50%, transparent);
+        }
+        #intelligence-network #ain-market .ain-market-card--indigo::before {
+            background: linear-gradient(90deg, transparent, var(--c-brand2) 50%, transparent);
+        }
+        #intelligence-network #ain-market .ain-market-card--emerald::before {
+            background: linear-gradient(90deg, transparent, var(--c-emerald) 50%, transparent);
+        }
+
+        /* Hover glow: per-color */
+        #intelligence-network #ain-market .ain-market-card--brand:hover {
+            border-color: rgba(56,189,248,0.50);
+            box-shadow:
+                0 0 0 1px rgba(56,189,248,0.07) inset,
+                0 0 36px rgba(56,189,248,0.12),
+                0 8px 44px rgba(0,0,0,0.55);
+        }
+        #intelligence-network #ain-market .ain-market-card--indigo:hover {
+            border-color: rgba(129,140,248,0.50);
+            box-shadow:
+                0 0 0 1px rgba(129,140,248,0.07) inset,
+                0 0 36px rgba(129,140,248,0.12),
+                0 8px 44px rgba(0,0,0,0.55);
+        }
+        #intelligence-network #ain-market .ain-market-card--emerald:hover {
+            border-color: rgba(52,211,153,0.50);
+            box-shadow:
+                0 0 0 1px rgba(52,211,153,0.07) inset,
+                0 0 36px rgba(52,211,153,0.12),
+                0 8px 44px rgba(0,0,0,0.55);
+        }
+
+        /* MARKET SIGNAL label */
+        .ain-market-signal-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(226,234,244,0.35);
+            margin-bottom: 18px;
+        }
+
+        /* Large metric number */
+        .ain-market-metric {
+            font-family: 'Inter', sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 6px;
+        }
+        .ain-market-card--brand  .ain-market-metric { color: var(--c-brand); }
+        .ain-market-card--indigo .ain-market-metric { color: var(--c-brand2); }
+        .ain-market-card--emerald .ain-market-metric {
+            color: var(--c-emerald);
+            font-size: 38px;
+            letter-spacing: -0.03em;
+        }
+
+        /* Metric sub-label */
+        .ain-market-metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .ain-market-card--brand  .ain-market-metric-label { color: rgba(56,189,248,0.65); }
+        .ain-market-card--indigo .ain-market-metric-label { color: rgba(129,140,248,0.65); }
+        .ain-market-card--emerald .ain-market-metric-label { color: rgba(52,211,153,0.65); }
+
+        /* Card title */
+        #intelligence-network #ain-market .ain-card-title {
+            font-size: 15px;
+            color: rgba(255,255,255,0.95);
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        /* Description */
+        #intelligence-network #ain-market .ain-card-desc {
+            font-size: 13px;
+            color: rgba(226,234,244,0.52);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Indicator list */
+        .ain-market-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-top: auto;
+            padding-top: 4px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .ain-market-indicators li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+        .ain-market-indicators li span.ain-ind-dot {
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .ain-market-card--brand  .ain-market-indicators li { color: rgba(56,189,248,0.72); }
+        .ain-market-card--brand  .ain-ind-dot { background: var(--c-brand); }
+        .ain-market-card--indigo .ain-market-indicators li { color: rgba(129,140,248,0.72); }
+        .ain-market-card--indigo .ain-ind-dot { background: var(--c-brand2); }
+        .ain-market-card--emerald .ain-market-indicators li { color: rgba(52,211,153,0.72); }
+        .ain-market-card--emerald .ain-ind-dot { background: var(--c-emerald); }
+
+        @media (max-width: 640px) {
+            .ain-market-metric { font-size: 42px; }
+            .ain-market-card--emerald .ain-market-metric { font-size: 30px; }
+        }
+
+        /* ── PATCH 2.3.8 — INTELLIGENCE NETWORK PREMIUM REFINEMENT ─────────
+           All rules scoped to #intelligence-network or unique ain-238-* classes.
+           Zero contact with global classes, Three.js, chatbot, or nav.
+        ──────────────────────────────────────────────────────────────────── */
+
+        /* 1. Deeper section atmosphere — stronger ambient depth */
+        #intelligence-network {
+            padding-top: 11rem;
+            padding-bottom: 8rem;
+            background:
+                radial-gradient(ellipse 70% 40% at 50% 0%,   rgba(56,189,248,0.07) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 30% at 20% 60%,  rgba(129,140,248,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 25% at 80% 80%,  rgba(52,211,153,0.03)  0%, transparent 55%);
+        }
+
+        /* 2. Section eyebrow — research division identity */
+        #intelligence-network .ain-section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(56,189,248,0.55);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        #intelligence-network .ain-section-eyebrow::before,
+        #intelligence-network .ain-section-eyebrow::after {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.4));
+        }
+        #intelligence-network .ain-section-eyebrow::after {
+            background: linear-gradient(270deg, transparent, rgba(56,189,248,0.4));
+        }
+
+        /* 3. Section heading — increase weight of supporting text */
+        #intelligence-network .ain-section-sub {
+            color: rgba(226,234,244,0.48);
+            max-width: 520px;
+            margin: 0 auto;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        /* 4. Module spacing — breathing room between layers */
+        #ain-upcoming {
+            margin-top: 56px;
+        }
+        #ain-feed {
+            margin-top: 48px;
+        }
+        #ain-market {
+            margin-top: 48px;
+        }
+
+        /* 5. Module label — stronger lab division feel */
+        #intelligence-network .ain-module-label {
+            font-size: 9px;
+            letter-spacing: 0.28em;
+            color: rgba(226,234,244,0.3);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(56,189,248,0.08);
+            position: relative;
+        }
+        /* Left accent pip on module labels */
+        #intelligence-network .ain-module-label::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--c-brand);
+            box-shadow: 0 0 6px var(--c-brand);
+            margin-right: 10px;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* 6. Wrap #ain-feed and #ain-market in the same panel glass as #ain-upcoming */
+        #ain-feed,
+        #ain-market {
+            border: 1px solid rgba(56,189,248,0.09);
+            border-radius: 20px;
+            background: linear-gradient(160deg, rgba(4,12,28,0.65) 0%, rgba(2,6,16,0.55) 100%);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Top edge glow matching #ain-upcoming::before */
+        #ain-feed::before,
+        #ain-market::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(56,189,248,0.4) 30%,
+                rgba(129,140,248,0.4) 70%,
+                transparent 100%
+            );
+            pointer-events: none;
+        }
+
+        /* 7. Card status separator — adds metadata feel */
+        #intelligence-network .ain-product-card .ain-status {
+            margin-bottom: 4px;
+        }
+        #intelligence-network .ain-card-status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 14px;
+            margin-bottom: 2px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        #intelligence-network .ain-card-system-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.15em;
+            color: rgba(226,234,244,0.2);
+            text-transform: uppercase;
+        }
+
+        /* 8. Subtle section bottom separator */
+        #intelligence-network::after {
+            content: '';
+            display: block;
+            height: 1px;
+            margin-top: 72px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(56,189,248,0.12) 30%,
+                rgba(129,140,248,0.1) 70%,
+                transparent 100%
+            );
+        }
+
+        @media (max-width: 768px) {
+            #intelligence-network { padding-top: 7rem; padding-bottom: 5rem; }
+            #ain-upcoming, #ain-feed, #ain-market { margin-top: 32px; padding: 22px; }
+        }
+
+        /* ── PATCH 2.3.9 — INTELLIGENCE NETWORK STORYTELLING REFINEMENT ────
+           Scoped to #intelligence-network and unique ain-239-* / ain-core-* ids.
+           Zero contact with Three.js, chatbot, observer, global classes, other sections.
+        ──────────────────────────────────────────────────────────────────── */
+
+        /* 1. Module label — number-first infrastructure layer identity */
+        #intelligence-network .ain-module-label {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            font-size: 9px;
+            letter-spacing: 0.28em;
+        }
+        #intelligence-network .ain-module-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+            color: rgba(56,189,248,0.18);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        #intelligence-network .ain-module-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(226,234,244,0.35);
+        }
+
+        /* 2. Card capability micro-label */
+        #intelligence-network .ain-card-cap-label,
+        #intelligence-network .ain-card-status-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(226,234,244,0.22);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* 3. Closing bridge panel */
+        #ain-core-status {
+            margin-top: 64px;
+            background: linear-gradient(145deg, rgba(4,10,24,0.92) 0%, rgba(2,6,14,0.88) 100%);
+            border: 1px solid rgba(56,189,248,0.12);
+            border-radius: 18px;
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Top accent line */
+        #ain-core-status::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 8%; right: 8%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(56,189,248,0.35) 35%,
+                rgba(129,140,248,0.3) 65%,
+                transparent 100%
+            );
+            pointer-events: none;
+        }
+        /* Faint radial glow behind text */
+        #ain-core-status::after {
+            content: '';
+            position: absolute;
+            left: -10%; top: -60%;
+            width: 50%; height: 200%;
+            background: radial-gradient(ellipse, rgba(56,189,248,0.04) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        #ain-core-status-left {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        #ain-core-status-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(56,189,248,0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #ain-core-status-eyebrow::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--c-brand);
+            box-shadow: 0 0 8px var(--c-brand);
+            animation: live-blink 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        #ain-core-status-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(226,234,244,0.88);
+            letter-spacing: -0.02em;
+            line-height: 1.4;
+            max-width: 420px;
+        }
+        #ain-core-status-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--c-brand);
+            background: rgba(56,189,248,0.07);
+            border: 1px solid rgba(56,189,248,0.25);
+            border-radius: 12px;
+            padding: 12px 22px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        #ain-core-status-btn:hover {
+            background: rgba(56,189,248,0.13);
+            border-color: rgba(56,189,248,0.5);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(56,189,248,0.12);
+        }
+        #ain-core-status-btn svg {
+            transition: transform 0.2s;
+        }
+        #ain-core-status-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 640px) {
+            #ain-core-status {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 28px 24px;
+                gap: 24px;
+            }
+            #ain-core-status-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -1800,12 +3124,18 @@
         // ── END THEME TOGGLE ────────────────────────────────────────────────
     </script>
 
-    <div id="page-content" class="relative z-10 pt-36 px-6 max-w-7xl mx-auto flex flex-col items-center">
+    <div id="page-content" class="relative z-10 pt-28 px-6 max-w-7xl mx-auto flex flex-col items-center">
         
-        <header class="text-center flex flex-col justify-center items-center w-full max-w-5xl reveal-up">
+        <header class="text-center flex flex-col justify-center items-center w-full max-w-5xl reveal-up" style="position:relative;">
+            <!-- 1A.6b: Cinematic text-readability gradient — behind content, above neural bg -->
+            <div aria-hidden="true" style="
+                position:absolute;inset:-10% -20%;
+                background:radial-gradient(ellipse 72% 60% at 50% 42%, rgba(2,4,10,0.62) 0%, rgba(2,4,10,0.28) 55%, transparent 100%);
+                pointer-events:none;z-index:-1;
+            "></div>
             
             <!-- HUD Status Badge -->
-            <div class="mb-8 inline-flex items-center gap-3 px-4 py-2 rounded-xl border border-[rgba(56,189,248,0.2)] bg-[rgba(56,189,248,0.06)] backdrop-blur-md shadow-[0_0_20px_rgba(56,189,248,0.1)] relative">
+            <div class="mb-12 inline-flex items-center gap-3 px-4 py-2 rounded-xl border border-[rgba(56,189,248,0.2)] bg-[rgba(56,189,248,0.06)] backdrop-blur-md shadow-[0_0_20px_rgba(56,189,248,0.1)] relative">
                 <div class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-[#38bdf8] shadow-[0_0_6px_#38bdf8]"></span>
@@ -1826,38 +3156,48 @@
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                <button onclick="window.openBooking();" class="btn-3d burst-btn relative group overflow-hidden bg-white text-[#020408] px-8 py-4 rounded-xl font-semibold text-base shadow-[0_4px_24px_rgba(255,255,255,0.15)]">
+                <button onclick="window.openBooking();" class="btn-3d burst-btn relative group overflow-hidden bg-white text-[#020408] px-10 py-5 rounded-xl font-semibold text-base shadow-[0_4px_24px_rgba(255,255,255,0.15)]" style="font-size:1.05rem;">
                     <span class="relative z-10 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        Deploy AI Workforce
+                        Start AI Transformation
                     </span>
                     <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 </button>
-                <button class="btn-3d burst-btn px-8 py-4 rounded-xl font-semibold text-base text-white border border-[rgba(56,189,248,0.2)] hover:border-[rgba(56,189,248,0.5)] hover:bg-[rgba(56,189,248,0.06)] flex items-center justify-center gap-2 transition-all">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Systems Demo
+                <button class="btn-3d burst-btn px-8 py-4 rounded-xl font-semibold text-base text-white/70 border border-[rgba(56,189,248,0.15)] hover:border-[rgba(56,189,248,0.4)] hover:bg-[rgba(56,189,248,0.06)] flex items-center justify-center gap-2 transition-all">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch System Demo
                 </button>
+            </div>
+
+            <!-- PATCH 1C: Enterprise trust signals -->
+            <div class="mt-10 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-5">
+                <span class="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.12em] uppercase text-white/30">
+                    <span class="w-1 h-1 rounded-full bg-emerald-400 opacity-70"></span>99.97% AI Reliability
+                </span>
+                <span class="w-px bg-white/10 hidden sm:block"></span>
+                <span class="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.12em] uppercase text-white/30">
+                    <span class="w-1 h-1 rounded-full bg-[var(--c-brand)] opacity-70"></span>24/7 Autonomous Operations
+                </span>
+                <span class="w-px bg-white/10 hidden sm:block"></span>
+                <span class="inline-flex items-center gap-1.5 text-[10px] font-mono tracking-[0.12em] uppercase text-white/30">
+                    <span class="w-1 h-1 rounded-full bg-indigo-400 opacity-70"></span>Enterprise AI Agents
+                </span>
             </div>
 
             <!-- Live Hero Stat Strip -->
             <div class="mt-16 flex flex-wrap justify-center gap-10 text-center">
                 <div>
-                    <div class="text-3xl font-bold text-white live-counter font-mono" data-target="14289" data-suffix="">0</div>
-                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Tasks Today</div>
+                    <div class="text-3xl font-bold text-[var(--c-brand)] font-mono">99.97%</div>
+                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">AI Reliability</div>
                 </div>
                 <div class="w-px bg-[rgba(56,189,248,0.15)] hidden sm:block"></div>
                 <div>
-                    <div class="text-3xl font-bold text-[var(--c-brand)] live-counter font-mono" data-target="99" data-suffix=".2%">0%</div>
-                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Accuracy</div>
+                    <div class="text-3xl font-bold text-white font-mono">24/7</div>
+                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Autonomous Ops</div>
                 </div>
                 <div class="w-px bg-[rgba(56,189,248,0.15)] hidden sm:block"></div>
                 <div>
-                    <div class="text-3xl font-bold text-white live-counter font-mono" data-target="4343" data-suffix="">0</div>
-                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Workflows</div>
-                </div>
-                <div class="w-px bg-[rgba(56,189,248,0.15)] hidden sm:block"></div>
-                <div>
-                    <div class="text-3xl font-bold text-white live-counter font-mono" data-target="268" data-suffix="">0</div>
-                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Integrations</div>
+                    <div class="text-3xl font-bold text-white font-mono">4ms</div>
+                    <div class="text-[10px] text-white/35 mt-1 font-mono uppercase tracking-[0.15em]">Decision Response</div>
                 </div>
             </div>
 
@@ -2897,6 +4237,263 @@
         </div>
     </section>
 
+    <!-- ═══ ANNEXE INTELLIGENCE NETWORK — PATCH 2.3.4 ══════ -->
+    <section id="intelligence-network" class="w-full py-24 px-6 max-w-7xl mx-auto cam-reveal relative z-10">
+
+        <!-- Section header -->
+        <div class="text-center mb-14 stagger-child">
+            <div class="ain-section-eyebrow mb-5">
+                ANNEXE Intelligence Network
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mb-5">
+                The AI systems<br/>
+                <span class="text-gradient">we are engineering next.</span>
+            </h2>
+            <p class="ain-section-sub">
+                Autonomous intelligence layers designed to transform how enterprises
+                operate, automate, and scale.
+            </p>
+        </div>
+
+        <!-- MODULE 1: UPCOMING SYSTEMS -->
+        <div id="ain-upcoming" class="stagger-child" style="animation-delay:0.12s">
+
+            <!-- Module label -->
+            <div class="ain-module-label">
+                <span class="ain-module-num">01</span>
+                <span class="ain-module-name">AI Workforce Layer</span>
+            </div>
+
+            <!-- Product cards -->
+            <div class="ain-cards-grid">
+
+                <!-- CARD 01: AI Voice Workforce -->
+                <div class="ain-product-card">
+                    <div class="ain-card-status-row">
+                        <span class="ain-card-status-label">Status</span>
+                        <span class="ain-card-system-id">SYS-01</span>
+                    </div>
+                    <div class="ain-status ain-status--dev" style="margin-bottom:18px;">
+                        <span class="ain-status-dot"></span>
+                        In Development
+                    </div>
+                    <div class="ain-card-title">AI Voice Workforce</div>
+                    <span class="ain-card-cap-label">Capability</span>
+                    <p class="ain-card-desc">
+                        Human-like AI employees for sales, support and customer operations.
+                    </p>
+                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;margin-top:auto;">
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(56,189,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand);flex-shrink:0;"></span>Voice conversations
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(56,189,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand);flex-shrink:0;"></span>Lead qualification
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(56,189,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand);flex-shrink:0;"></span>Customer assistance
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CARD 02: Autonomous Business Agent -->
+                <div class="ain-product-card">
+                    <div class="ain-card-status-row">
+                        <span class="ain-card-status-label">Status</span>
+                        <span class="ain-card-system-id">SYS-02</span>
+                    </div>
+                    <div class="ain-status ain-status--beta" style="margin-bottom:18px;">
+                        <span class="ain-status-dot"></span>
+                        Training
+                    </div>
+                    <div class="ain-card-title">Autonomous Business Agent</div>
+                    <span class="ain-card-cap-label">Capability</span>
+                    <p class="ain-card-desc">
+                        AI agents that plan, execute and optimize business workflows.
+                    </p>
+                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;margin-top:auto;">
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(129,140,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand2);flex-shrink:0;"></span>Task execution
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(129,140,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand2);flex-shrink:0;"></span>Decision support
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(129,140,248,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-brand2);flex-shrink:0;"></span>Workflow automation
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CARD 03: Enterprise AI Operating System -->
+                <div class="ain-product-card">
+                    <div class="ain-card-status-row">
+                        <span class="ain-card-status-label">Status</span>
+                        <span class="ain-card-system-id">SYS-03</span>
+                    </div>
+                    <div class="ain-status ain-status--research" style="margin-bottom:18px;">
+                        <span class="ain-status-dot"></span>
+                        Research
+                    </div>
+                    <div class="ain-card-title">Enterprise AI Operating System</div>
+                    <span class="ain-card-cap-label">Capability</span>
+                    <p class="ain-card-desc">
+                        A complete intelligence layer connecting business operations.
+                    </p>
+                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;margin-top:auto;">
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(52,211,153,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-emerald);flex-shrink:0;"></span>Multi-agent orchestration
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(52,211,153,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-emerald);flex-shrink:0;"></span>Enterprise automation
+                        </li>
+                        <li style="display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(52,211,153,0.7);">
+                            <span style="width:4px;height:4px;border-radius:50%;background:var(--c-emerald);flex-shrink:0;"></span>AI governance
+                        </li>
+                    </ul>
+                </div>
+
+            </div><!-- /ain-cards-grid -->
+        </div><!-- /#ain-upcoming -->
+
+        <!-- ═══ MODULE 2: INTELLIGENCE FEED — PATCH 2.3.6 ═══ -->
+        <div id="ain-feed" class="stagger-child" style="animation-delay:0.24s">
+
+            <!-- Module label -->
+            <div class="ain-module-label">
+                <span class="ain-module-num">02</span>
+                <span class="ain-module-name">Autonomous Intelligence Feed</span>
+            </div>
+
+            <!-- Terminal panel -->
+            <div id="ain-feed-panel">
+
+                <!-- Header chrome -->
+                <div id="ain-feed-header">
+                    <div id="ain-feed-header-left">
+                        <span class="ain-feed-live-dot"></span>
+                        <span id="ain-feed-title">ANNEXE CORE STREAM</span>
+                    </div>
+                    <span id="ain-feed-status">LIVE INTELLIGENCE</span>
+                </div>
+
+                <!-- Log output -->
+                <div id="ain-feed-log">
+                    <div class="ain-log-entry">
+                        <span class="ain-log-ts">09:42:18</span>
+                        <span class="ain-log-icon"></span>
+                        <span class="ain-log-text"><strong>AI Voice Workforce</strong> model update deployed</span>
+                    </div>
+                    <div class="ain-log-entry">
+                        <span class="ain-log-ts">09:42:31</span>
+                        <span class="ain-log-icon ain-log-icon--indigo"></span>
+                        <span class="ain-log-text">Customer intent engine <strong>optimized</strong> — accuracy +4.2%</span>
+                    </div>
+                    <div class="ain-log-entry">
+                        <span class="ain-log-ts">09:42:44</span>
+                        <span class="ain-log-icon ain-log-icon--emerald"></span>
+                        <span class="ain-log-text">New <strong>automation opportunity</strong> detected across 3 workflows</span>
+                    </div>
+                    <div class="ain-log-entry">
+                        <span class="ain-log-ts">09:43:02</span>
+                        <span class="ain-log-icon"></span>
+                        <span class="ain-log-text">Enterprise workflow analysis <strong>completed</strong> — 14 nodes mapped</span>
+                    </div>
+                    <div class="ain-log-entry">
+                        <span class="ain-log-ts">09:43:19</span>
+                        <span class="ain-log-icon ain-log-icon--indigo"></span>
+                        <span class="ain-log-text">AI market signal <strong>processed</strong> — strategic brief queued</span>
+                    </div>
+                </div><!-- /#ain-feed-log -->
+
+            </div><!-- /#ain-feed-panel -->
+
+        </div><!-- /#ain-feed -->
+        <!-- ═══ END MODULE 2 — PATCH 2.3.6 ═══════════════════ -->
+
+        <!-- ═══ MODULE 3: AI MARKET INTELLIGENCE — PATCH 2.3.7 + 2.3.7A ═══ -->
+        <div id="ain-market" class="reveal-up">
+
+            <!-- Module label -->
+            <div class="ain-module-label">
+                <span class="ain-module-num">03</span>
+                <span class="ain-module-name">Enterprise AI Market Signals</span>
+            </div>
+
+            <!-- Market intelligence cards -->
+            <div class="ain-cards-grid">
+
+                <!-- CARD 01: Enterprise AI Adoption -->
+                <div class="ain-product-card ain-market-card--brand hover-glow stagger-child">
+                    <div class="ain-market-signal-label">Market Signal</div>
+                    <div class="ain-market-metric">+42%</div>
+                    <div class="ain-market-metric-label">AI adoption growth</div>
+                    <div class="ain-card-title">Enterprise AI Adoption</div>
+                    <p class="ain-card-desc">
+                        Enterprises are rapidly integrating autonomous AI systems into daily operations.
+                    </p>
+                    <ul class="ain-market-indicators">
+                        <li><span class="ain-ind-dot"></span>Enterprise automation</li>
+                        <li><span class="ain-ind-dot"></span>AI workforce</li>
+                        <li><span class="ain-ind-dot"></span>Workflow intelligence</li>
+                    </ul>
+                </div>
+
+                <!-- CARD 02: Automation Demand -->
+                <div class="ain-product-card ain-market-card--indigo hover-glow stagger-child">
+                    <div class="ain-market-signal-label">Market Signal</div>
+                    <div class="ain-market-metric">+68%</div>
+                    <div class="ain-market-metric-label">Business automation opportunity</div>
+                    <div class="ain-card-title">Automation Demand</div>
+                    <p class="ain-card-desc">
+                        Companies are replacing repetitive workflows with intelligent AI agents.
+                    </p>
+                    <ul class="ain-market-indicators">
+                        <li><span class="ain-ind-dot"></span>Process automation</li>
+                        <li><span class="ain-ind-dot"></span>Cost optimization</li>
+                        <li><span class="ain-ind-dot"></span>Digital employees</li>
+                    </ul>
+                </div>
+
+                <!-- CARD 03: AI Workforce Shift -->
+                <div class="ain-product-card ain-market-card--emerald hover-glow stagger-child">
+                    <div class="ain-market-signal-label">Market Signal</div>
+                    <div class="ain-market-metric">Accelerating</div>
+                    <div class="ain-market-metric-label">Global AI employee adoption</div>
+                    <div class="ain-card-title">AI Workforce Shift</div>
+                    <p class="ain-card-desc">
+                        Organizations are moving from software tools toward autonomous AI workers.
+                    </p>
+                    <ul class="ain-market-indicators">
+                        <li><span class="ain-ind-dot"></span>AI assistants</li>
+                        <li><span class="ain-ind-dot"></span>Multi-agent systems</li>
+                        <li><span class="ain-ind-dot"></span>Enterprise platforms</li>
+                    </ul>
+                </div>
+
+            </div><!-- /ain-cards-grid -->
+        </div><!-- /#ain-market -->
+        <!-- ═══ END MODULE 3 — PATCH 2.3.7 + 2.3.7A ══════════ -->
+
+        <!-- ═══ CLOSING BRIDGE — PATCH 2.3.9 ════════════════ -->
+        <div id="ain-core-status" class="reveal-up">
+            <div id="ain-core-status-left">
+                <div id="ain-core-status-eyebrow">ANNEXE AI CORE STATUS</div>
+                <div id="ain-core-status-text">
+                    Building autonomous intelligence systems<br/>
+                    for the next generation of enterprises.
+                </div>
+            </div>
+            <a href="#workforce" id="ain-core-status-btn">
+                Explore AI Solutions
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 7H11.5M11.5 7L7.5 3M11.5 7L7.5 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+        <!-- ═══ END CLOSING BRIDGE — PATCH 2.3.9 ════════════ -->
+
+    </section>
+    <!-- ═══ END INTELLIGENCE NETWORK — PATCH 2.3.4 ══════════ -->
+
     <!-- ═══ CTA BAND ═══════════════════════════════════════ -->
     <!-- ═══ COMPETITIVE COMPARISON ═══════════════════════════════════ -->
     <section id="vs-section" class="w-full py-24 px-6 relative z-10 reveal-up">
@@ -3153,91 +4750,533 @@
     </div><!-- /#main-wrap -->
 
     <!-- AI Chatbot UI -->
-    <div id="chatbot-toggle">
-        <!-- Animated Robot SVG -->
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:38px;height:38px;">
-            <style>
-                @keyframes robot-eye-blink { 0%,90%,100%{ry:4px} 95%{ry:1px} }
-                @keyframes robot-antenna-pulse { 0%,100%{opacity:1;r:3} 50%{opacity:0.4;r:5} }
-                @keyframes robot-wave { 0%,100%{transform:rotate(0deg) translateX(0)} 25%{transform:rotate(-12deg) translateX(-1px)} 75%{transform:rotate(12deg) translateX(1px)} }
-                @keyframes robot-ear-ping { 0%,100%{transform:scale(1);opacity:0.7} 50%{transform:scale(1.4);opacity:1} }
-                @keyframes robot-body-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
-                .robot-body-group { animation: robot-body-float 2.5s ease-in-out infinite; }
-                .robot-left-arm { transform-origin: 10px 35px; animation: robot-wave 2s ease-in-out infinite; }
-                .robot-right-arm { transform-origin: 54px 35px; animation: robot-wave 2s ease-in-out infinite reverse; }
-                .robot-eye { animation: robot-eye-blink 3.5s ease-in-out infinite; }
-                .robot-antenna-dot { animation: robot-antenna-pulse 1.2s ease-in-out infinite; }
-                .robot-ear-l { animation: robot-ear-ping 2s ease-in-out infinite; }
-                .robot-ear-r { animation: robot-ear-ping 2s ease-in-out infinite 1s; }
-            </style>
-            <!-- Antenna -->
-            <line x1="32" y1="6" x2="32" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <circle class="robot-antenna-dot" cx="32" cy="5" r="3" fill="#38bdf8"/>
-            <!-- Floating body group -->
-            <g class="robot-body-group">
-                <!-- Head -->
-                <rect x="18" y="13" width="28" height="22" rx="6" fill="white" fill-opacity="0.15" stroke="white" stroke-width="1.5"/>
-                <!-- Eyes -->
-                <ellipse class="robot-eye" cx="25" cy="24" rx="3.5" ry="4" fill="#38bdf8"/>
-                <ellipse class="robot-eye" cx="39" cy="24" rx="3.5" ry="4" fill="#38bdf8" style="animation-delay:0.15s"/>
-                <!-- Eye shine -->
-                <circle cx="26.2" cy="22.5" r="1" fill="white" fill-opacity="0.6"/>
-                <circle cx="40.2" cy="22.5" r="1" fill="white" fill-opacity="0.6"/>
-                <!-- Mouth / speaker grille -->
-                <rect x="24" y="30" width="16" height="2.5" rx="1.2" fill="white" fill-opacity="0.4"/>
-                <!-- Ear bolts -->
-                <circle class="robot-ear-l" cx="18" cy="24" r="2.5" fill="#818cf8" stroke="white" stroke-width="1"/>
-                <circle class="robot-ear-r" cx="46" cy="24" r="2.5" fill="#818cf8" stroke="white" stroke-width="1"/>
-                <!-- Body -->
-                <rect x="21" y="36" width="22" height="16" rx="5" fill="white" fill-opacity="0.12" stroke="white" stroke-width="1.5"/>
-                <!-- Chest panel -->
-                <rect x="26" y="40" width="12" height="7" rx="2.5" fill="#38bdf8" fill-opacity="0.25" stroke="#38bdf8" stroke-width="1"/>
-                <circle cx="32" cy="43.5" r="1.5" fill="#38bdf8"/>
-            </g>
-            <!-- Arms (animated outside body group so they rotate from correct origin) -->
-            <rect class="robot-left-arm" x="9" y="32" width="12" height="6" rx="3" fill="white" fill-opacity="0.18" stroke="white" stroke-width="1.2"/>
-            <rect class="robot-right-arm" x="43" y="32" width="12" height="6" rx="3" fill="white" fill-opacity="0.18" stroke="white" stroke-width="1.2"/>
-            <!-- Legs -->
-            <rect x="24" y="52" width="7" height="8" rx="3" fill="white" fill-opacity="0.18" stroke="white" stroke-width="1.2"/>
-            <rect x="33" y="52" width="7" height="8" rx="3" fill="white" fill-opacity="0.18" stroke="white" stroke-width="1.2"/>
-        </svg>
-    </div>
+    <!-- PATCH 2.3.1: Companion Wrapper — neural orb + upgraded bubble -->
+    <div id="annexe-companion">
+
+        <!-- CHANGE 2: upgraded speech bubble -->
+        <div id="annexe-greeting">
+            <div id="annexe-greeting-inner">
+                <div id="annexe-greeting-header">
+                    <span id="annexe-greeting-dot"></span>
+                    <span id="annexe-greeting-label">AI CONSULTANT ONLINE</span>
+                </div>
+                <p id="annexe-greeting-text">May I help you optimize your business?</p>
+                <button id="annexe-greeting-dismiss" aria-label="Dismiss">&#x2715;</button>
+            </div>
+            <div id="annexe-greeting-tail"></div>
+        </div>
+
+        <!-- CHANGE 3 (PATCH 2.3.2): Energy connection — thin cyan pulsing line -->
+        <div id="annexe-energy-line" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+                <!-- Glow layer behind -->
+                <line x1="0" y1="9" x2="18" y2="9"
+                    stroke="rgba(56,189,248,0.35)" stroke-width="3"
+                    stroke-linecap="round">
+                    <animate attributeName="opacity"
+                        values="0.15;0.50;0.15" dur="2.6s"
+                        repeatCount="indefinite" calcMode="spline"
+                        keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+                </line>
+                <!-- Travelling energy particle -->
+                <line x1="0" y1="9" x2="18" y2="9"
+                    stroke="rgba(56,189,248,0.9)" stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-dasharray="6 20"
+                    stroke-dashoffset="26">
+                    <animate attributeName="stroke-dashoffset"
+                        values="26;0" dur="1.4s"
+                        repeatCount="indefinite"
+                        calcMode="linear"/>
+                    <animate attributeName="opacity"
+                        values="0.4;1;0.4" dur="1.4s"
+                        repeatCount="indefinite"/>
+                </line>
+                <!-- Terminal dot at orb end -->
+                <circle cx="18" cy="9" r="2"
+                    fill="rgba(56,189,248,0.7)">
+                    <animate attributeName="r"
+                        values="1.5;2.5;1.5" dur="2.6s"
+                        repeatCount="indefinite" calcMode="spline"
+                        keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+                    <animate attributeName="opacity"
+                        values="0.5;1;0.5" dur="2.6s"
+                        repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+
+        <!-- CHANGE 1: neural orb replaces robot -->
+        <div id="chatbot-toggle" aria-label="Open ANNEXE AI consultant">
+            <svg id="annexe-orb-svg" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;overflow:visible;">
+                <defs>
+                    <!-- Glass sphere gradient -->
+                    <radialGradient id="orb-glass" cx="38%" cy="32%" r="62%">
+                        <stop offset="0%"   stop-color="rgba(255,255,255,0.22)"/>
+                        <stop offset="45%"  stop-color="rgba(56,189,248,0.12)"/>
+                        <stop offset="100%" stop-color="rgba(14,30,60,0.85)"/>
+                    </radialGradient>
+                    <!-- Core energy gradient -->
+                    <radialGradient id="orb-core" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%"   stop-color="rgba(255,255,255,0.95)"/>
+                        <stop offset="40%"  stop-color="rgba(56,189,248,0.9)"/>
+                        <stop offset="100%" stop-color="rgba(14,165,233,0)"/>
+                    </radialGradient>
+                    <!-- Outer halo -->
+                    <radialGradient id="orb-halo" cx="50%" cy="50%" r="50%">
+                        <stop offset="60%"  stop-color="rgba(56,189,248,0)"/>
+                        <stop offset="100%" stop-color="rgba(56,189,248,0.18)"/>
+                    </radialGradient>
+                    <filter id="orb-glow">
+                        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                    <filter id="core-glow">
+                        <feGaussianBlur stdDeviation="1.8" result="blur"/>
+                        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+
+                <!-- Outer halo ring -->
+                <circle cx="34" cy="34" r="32" fill="url(#orb-halo)" opacity="0.7"/>
+
+                <!-- Glass sphere body -->
+                <circle cx="34" cy="34" r="26" fill="url(#orb-glass)" filter="url(#orb-glow)"/>
+
+                <!-- Glass sphere border -->
+                <circle cx="34" cy="34" r="26" fill="none"
+                    stroke="rgba(56,189,248,0.55)" stroke-width="1"/>
+
+                <!-- Neural network lines inside sphere -->
+                <g opacity="0.45" stroke="rgba(56,189,248,0.7)" stroke-width="0.8">
+                    <line x1="20" y1="34" x2="34" y2="22"/>
+                    <line x1="34" y1="22" x2="48" y2="34"/>
+                    <line x1="48" y1="34" x2="34" y2="46"/>
+                    <line x1="34" y1="46" x2="20" y2="34"/>
+                    <line x1="20" y1="34" x2="48" y2="34"/>
+                    <line x1="34" y1="22" x2="34" y2="46"/>
+                    <line x1="24" y1="26" x2="44" y2="42"/>
+                    <line x1="44" y1="26" x2="24" y2="42"/>
+                </g>
+
+                <!-- Neural nodes -->
+                <g filter="url(#core-glow)">
+                    <circle cx="34" cy="22" r="2.2" fill="#38bdf8" opacity="0.9"/>
+                    <circle cx="48" cy="34" r="2.2" fill="#38bdf8" opacity="0.9"/>
+                    <circle cx="34" cy="46" r="2.2" fill="#38bdf8" opacity="0.9"/>
+                    <circle cx="20" cy="34" r="2.2" fill="#38bdf8" opacity="0.9"/>
+                    <circle cx="24" cy="26" r="1.5" fill="#818cf8" opacity="0.8"/>
+                    <circle cx="44" cy="26" r="1.5" fill="#818cf8" opacity="0.8"/>
+                    <circle cx="44" cy="42" r="1.5" fill="#818cf8" opacity="0.8"/>
+                    <circle cx="24" cy="42" r="1.5" fill="#818cf8" opacity="0.8"/>
+                </g>
+
+                <!-- Central energy core -->
+                <circle cx="34" cy="34" r="6" fill="url(#orb-core)" filter="url(#core-glow)">
+                    <animate attributeName="r" values="5.5;7;5.5" dur="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+                    <animate attributeName="opacity" values="0.85;1;0.85" dur="2.8s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- Glass highlight (top-left specular) -->
+                <ellipse cx="27" cy="25" rx="6" ry="4"
+                    fill="white" opacity="0.14" transform="rotate(-30 27 25)"/>
+                <ellipse cx="26" cy="24" rx="2.5" ry="1.5"
+                    fill="white" opacity="0.28" transform="rotate(-30 26 24)"/>
+
+                <!-- Rotating orbital ring -->
+                <ellipse cx="34" cy="34" rx="26" ry="8"
+                    fill="none" stroke="rgba(56,189,248,0.22)" stroke-width="0.8"
+                    stroke-dasharray="4 3">
+                    <animateTransform attributeName="transform" type="rotate"
+                        from="0 34 34" to="360 34 34" dur="9s" repeatCount="indefinite"/>
+                </ellipse>
+
+                <!-- Second orbital ring (perpendicular axis) -->
+                <ellipse cx="34" cy="34" rx="8" ry="26"
+                    fill="none" stroke="rgba(129,140,248,0.18)" stroke-width="0.7"
+                    stroke-dasharray="3 4">
+                    <animateTransform attributeName="transform" type="rotate"
+                        from="0 34 34" to="-360 34 34" dur="13s" repeatCount="indefinite"/>
+                </ellipse>
+            </svg>
+        </div>
+
+    </div><!-- /#annexe-companion -->
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PATCH 01 — COMMAND CENTER UI
+         Modifications: chat-header inner HTML, axe-team-panel (new),
+         message sender labels via CSS ::before, input area upgrade.
+         Zero JS changes. All protected systems untouched.
+    ═══════════════════════════════════════════════════════════════ -->
+    <style>
+    /* ── PATCH 01: Scoped to #chatbot-window only ────────────────────────── */
+
+    /* ── PATCH 1.2: Header — Command Center identity ─── */
+    #chatbot-window .axe-cmd-header {
+        padding: 10px 16px 9px 16px;
+        border-bottom: 1px solid rgba(56,189,248,0.09);
+        background: linear-gradient(180deg, rgba(3,10,26,0.99) 0%, rgba(4,14,32,0.96) 100%);
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+    }
+    #chatbot-window .axe-cmd-header::after {
+        content: '';
+        position: absolute;
+        bottom: -1px; left: -60%;
+        width: 55%; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(56,189,248,0.55), transparent);
+        animation: annexe-header-scan 4.5s ease-in-out infinite;
+        pointer-events: none;
+    }
+    #chatbot-window .axe-cmd-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6px;
+    }
+    #chatbot-window .axe-cmd-identity {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+    /* Neural core icon — tighter */
+    #chatbot-window .axe-neural-icon {
+        width: 28px; height: 28px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 35%, rgba(56,189,248,0.16) 0%, rgba(4,12,30,0.95) 70%);
+        border: 1px solid rgba(56,189,248,0.24);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 0 10px rgba(56,189,248,0.10), 0 0 0 2px rgba(56,189,248,0.04);
+        animation: axe-orb-breathe 4s ease-in-out infinite;
+    }
+    @keyframes axe-orb-breathe {
+        0%, 100% { box-shadow: 0 0 8px rgba(56,189,248,0.09), 0 0 0 2px rgba(56,189,248,0.03); }
+        50%       { box-shadow: 0 0 16px rgba(56,189,248,0.20), 0 0 0 4px rgba(56,189,248,0.06); }
+    }
+    #chatbot-window .axe-cmd-wordmark {
+        display: flex; flex-direction: column; gap: 2px;
+    }
+    #chatbot-window .axe-cmd-title {
+        font-family: 'JetBrains Mono', 'Inter', monospace;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.13em;
+        color: rgba(226,234,244,0.98);
+        text-transform: uppercase; line-height: 1;
+    }
+    #chatbot-window .axe-cmd-subtitle {
+        font-family: 'JetBrains Mono', 'Inter', monospace;
+        font-size: 8px; font-weight: 400; letter-spacing: 0.11em;
+        color: rgba(56,189,248,0.48);
+        text-transform: uppercase; line-height: 1;
+    }
+    /* Status row — status dot + text only; dept tags moved to agent strip */
+    #chatbot-window .axe-cmd-meta {
+        display: flex;
+        align-items: center;
+    }
+    #chatbot-window .axe-cmd-status {
+        display: flex; align-items: center; gap: 5px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5px; letter-spacing: 0.09em;
+        color: rgba(52,211,153,0.72);
+        text-transform: uppercase;
+    }
+    #chatbot-window .axe-status-dot {
+        width: 5px; height: 5px; border-radius: 50%;
+        background: #34d399;
+        box-shadow: 0 0 5px rgba(52,211,153,0.55);
+        animation: axe-status-pulse 2.4s ease-in-out infinite;
+        flex-shrink: 0;
+    }
+    @keyframes axe-status-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 5px rgba(52,211,153,0.50); }
+        50%       { opacity: 0.50; box-shadow: 0 0 2px rgba(52,211,153,0.18); }
+    }
+    /* Close button stays */
+    #chatbot-window #chatbot-close {
+        color: rgba(255,255,255,0.28);
+        transition: color 0.2s;
+        background: none; border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+    }
+    #chatbot-window #chatbot-close:hover { color: rgba(255,255,255,0.80); }
+
+    /* ── Team Status Panel ───────────────────────────────────────────────── */
+    /* ── PATCH 1.2: AI Network Strip ── PATCH 1.5: further compressed ───── */
+    #axe-team-panel {
+        flex-shrink: 0;
+        padding: 5px 14px 6px 14px;
+        border-bottom: 1px solid rgba(56,189,248,0.06);
+        background: rgba(3,9,22,0.50);
+    }
+    #axe-team-panel .axe-panel-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 6.5px; letter-spacing: 0.15em; font-weight: 600;
+        color: rgba(56,189,248,0.28);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+    #axe-team-panel .axe-agents {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+    #axe-team-panel .axe-agent {
+        flex: 1;
+        display: flex; flex-direction: column; align-items: center;
+        gap: 0;
+        padding: 4px 3px 4px 3px;
+        border-radius: 6px;
+        border: 1px solid rgba(56,189,248,0.07);
+        background: rgba(56,189,248,0.018);
+        transition: border-color 0.25s, background 0.25s;
+        text-align: center;
+        min-width: 0;
+    }
+    #axe-team-panel .axe-agent:hover {
+        border-color: rgba(56,189,248,0.18);
+        background: rgba(56,189,248,0.05);
+    }
+    /* Glyph symbol */
+    #axe-team-panel .axe-agent-icon {
+        font-size: 10px; line-height: 1;
+        margin-bottom: 2px;
+        color: rgba(56,189,248,0.60);
+        width: auto; height: auto;
+        border: none; background: none; border-radius: 0;
+    }
+    #axe-team-panel .axe-agent-icon.emerald { color: rgba(52,211,153,0.65); }
+    #axe-team-panel .axe-agent-icon.violet  { color: rgba(167,139,250,0.65); }
+    #axe-team-panel .axe-agent-icon.amber   { color: rgba(251,191,36,0.60); }
+    #axe-team-panel .axe-agent-info { width: 100%; }
+    #axe-team-panel .axe-agent-name {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px; font-weight: 700; letter-spacing: 0.10em;
+        color: rgba(226,234,244,0.82);
+        text-transform: uppercase; line-height: 1;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    #axe-team-panel .axe-agent-role {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7px; font-weight: 400; letter-spacing: 0.07em;
+        color: rgba(148,163,184,0.38);
+        text-transform: uppercase;
+        line-height: 1; margin-top: 1px;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    #axe-team-panel .axe-agent-state {
+        display: flex; align-items: center; justify-content: center; gap: 3px;
+        margin-top: 3px;
+    }
+    #axe-team-panel .axe-agent-dot {
+        width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0;
+    }
+    /* Active — cyan pulse */
+    #axe-team-panel .axe-agent-dot.cyan {
+        background: #38bdf8;
+        box-shadow: 0 0 4px rgba(56,189,248,0.60);
+        animation: axe-dot-pulse-cyan 2.6s ease-in-out infinite;
+    }
+    @keyframes axe-dot-pulse-cyan {
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0.45; }
+    }
+    /* Ready — emerald steady */
+    #axe-team-panel .axe-agent-dot.green {
+        background: #34d399;
+        box-shadow: 0 0 4px rgba(52,211,153,0.48);
+    }
+    /* Monitoring — amber steady dim */
+    #axe-team-panel .axe-agent-dot.amber {
+        background: rgba(251,191,36,0.75);
+        box-shadow: 0 0 3px rgba(251,191,36,0.35);
+    }
+    #axe-team-panel .axe-agent-status-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 7px; letter-spacing: 0.06em;
+        color: rgba(148,163,184,0.36);
+        text-transform: uppercase;
+    }
+    /* ── END PATCH 1.2 AI Network Strip ─────────────────────────────────── */
+
+    /* ── PATCH 1.5: Message area — conversation as primary zone ─────────── */
+    #chatbot-window #chat-messages {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    /* ── Message labels via ::before ────────────────────────────────────── */
+    #chat-messages .message.bot::before {
+        content: 'ANNEXE TEAM';
+        display: block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px; font-weight: 600; letter-spacing: 0.14em;
+        color: rgba(56,189,248,0.50);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+    #chat-messages .message.user::before {
+        content: 'CLIENT';
+        display: block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px; font-weight: 600; letter-spacing: 0.14em;
+        color: rgba(148,163,184,0.40);
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        text-align: right;
+    }
+
+    /* ── Input area: command terminal feel ──────────────────────────────── */
+    /* PATCH 1.3: trim bottom padding — removes dead space under send button */
+    #chatbot-window .chat-input-container {
+        padding: 9px 14px 10px 14px;
+        background: rgba(3,9,22,0.92);
+        border-top: 1px solid rgba(56,189,248,0.07);
+    }
+    #chatbot-window .chat-input {
+        background: rgba(56,189,248,0.03);
+        border: 1px solid rgba(56,189,248,0.12);
+        border-radius: 10px;
+        padding: 11px 16px;
+        color: rgba(226,234,244,0.90);
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    #chatbot-window .chat-input::placeholder {
+        color: rgba(148,163,184,0.30);
+        font-style: normal;
+    }
+    #chatbot-window .chat-input:focus {
+        border-color: rgba(56,189,248,0.32);
+        box-shadow: 0 0 0 1px rgba(56,189,248,0.10) inset, 0 0 14px rgba(56,189,248,0.06);
+        outline: none;
+    }
+    #chatbot-window .chat-send {
+        width: 42px; height: 42px;
+        border-radius: 10px;
+        background: rgba(56,189,248,0.07);
+        border: 1px solid rgba(56,189,248,0.18);
+        color: rgba(56,189,248,0.65);
+        transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+    #chatbot-window .chat-send:hover {
+        background: rgba(56,189,248,0.16);
+        border-color: rgba(56,189,248,0.45);
+        color: #38bdf8;
+        box-shadow: 0 0 14px rgba(56,189,248,0.22);
+    }
+    /* ── END PATCH 01 / 1.1 / 1.2 / 1.3 / 1.4 / 1.5 ───────────────────── */
+    </style>
 
     <div id="chatbot-window" class="glass-panel">
-        <div class="chat-header">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-brand-500/20 flex items-center justify-center border border-brand-400/30">
-                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;">
-                        <line x1="16" y1="2" x2="16" y2="7" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="16" cy="2" r="1.5" fill="#38bdf8"/>
-                        <rect x="8" y="7" width="16" height="12" rx="3.5" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="1.2"/>
-                        <ellipse cx="12.5" cy="13" rx="2" ry="2.2" fill="#38bdf8"/>
-                        <ellipse cx="19.5" cy="13" rx="2" ry="2.2" fill="#38bdf8"/>
-                        <rect x="11" y="16" width="10" height="1.5" rx="0.75" fill="#38bdf8" fill-opacity="0.5"/>
-                        <circle cx="8" cy="13" r="1.5" fill="#818cf8" stroke="#38bdf8" stroke-width="0.8"/>
-                        <circle cx="24" cy="13" r="1.5" fill="#818cf8" stroke="#38bdf8" stroke-width="0.8"/>
-                        <rect x="10" y="20" width="12" height="8" rx="3" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="1.2"/>
-                        <circle cx="16" cy="24" r="1.5" fill="#38bdf8"/>
-                        <rect x="5" y="19" width="5" height="3" rx="1.5" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1"/>
-                        <rect x="22" y="19" width="5" height="3" rx="1.5" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1"/>
-                    </svg>
+
+        <!-- ── Command Center Header ── -->
+        <div class="axe-cmd-header">
+            <div class="axe-cmd-top">
+                <div class="axe-cmd-identity">
+                    <!-- Neural core icon (matches orb aesthetic, not robot) -->
+                    <div class="axe-neural-icon">
+                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:13px;height:13px;">
+                            <circle cx="14" cy="14" r="4.5" stroke="#38bdf8" stroke-width="1.1" fill="rgba(56,189,248,0.08)"/>
+                            <circle cx="14" cy="14" r="1.6" fill="#38bdf8" fill-opacity="0.85"/>
+                            <line x1="14" y1="2" x2="14" y2="7" stroke="#38bdf8" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                            <line x1="14" y1="21" x2="14" y2="26" stroke="#38bdf8" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                            <line x1="2" y1="14" x2="7" y2="14" stroke="#38bdf8" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                            <line x1="21" y1="14" x2="26" y2="14" stroke="#38bdf8" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                            <line x1="5.5" y1="5.5" x2="9" y2="9" stroke="#38bdf8" stroke-width="0.9" stroke-linecap="round" opacity="0.35"/>
+                            <line x1="19" y1="19" x2="22.5" y2="22.5" stroke="#38bdf8" stroke-width="0.9" stroke-linecap="round" opacity="0.35"/>
+                            <line x1="22.5" y1="5.5" x2="19" y2="9" stroke="#38bdf8" stroke-width="0.9" stroke-linecap="round" opacity="0.35"/>
+                            <line x1="9" y1="19" x2="5.5" y2="22.5" stroke="#38bdf8" stroke-width="0.9" stroke-linecap="round" opacity="0.35"/>
+                            <circle cx="14" cy="2" r="1.3" fill="#38bdf8" fill-opacity="0.55"/>
+                            <circle cx="14" cy="26" r="1.3" fill="#38bdf8" fill-opacity="0.55"/>
+                            <circle cx="2" cy="14" r="1.3" fill="#38bdf8" fill-opacity="0.55"/>
+                            <circle cx="26" cy="14" r="1.3" fill="#38bdf8" fill-opacity="0.55"/>
+                        </svg>
+                    </div>
+                    <div class="axe-cmd-wordmark">
+                        <div class="axe-cmd-title">ANNEXE AI COMMAND CENTER</div>
+                        <div class="axe-cmd-subtitle">AI Consulting Operations</div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-white text-sm font-semibold">ANNEXE AI Node</h4>
-                    <p class="text-xs text-brand-400 flex items-center gap-1.5 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span> Systems Nominal</p>
+                <button id="chatbot-close" aria-label="Close">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="axe-cmd-meta">
+                <div class="axe-cmd-status">
+                    <span class="axe-status-dot"></span>
+                    4 AI specialists online
                 </div>
             </div>
-            <button id="chatbot-close" class="text-white/40 hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
         </div>
+
+        <!-- ── Active AI Team Panel ── -->
+        <div id="axe-team-panel">
+            <div class="axe-panel-label">Active AI Network</div>
+            <div class="axe-agents">
+                <div class="axe-agent">
+                    <span class="axe-agent-icon">◉</span>
+                    <div class="axe-agent-info">
+                        <div class="axe-agent-name">AURA</div>
+                        <div class="axe-agent-role">Strategy</div>
+                        <div class="axe-agent-state">
+                            <span class="axe-agent-dot cyan"></span>
+                            <span class="axe-agent-status-text">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="axe-agent">
+                    <span class="axe-agent-icon emerald">◈</span>
+                    <div class="axe-agent-info">
+                        <div class="axe-agent-name">NEXUS</div>
+                        <div class="axe-agent-role">Architecture</div>
+                        <div class="axe-agent-state">
+                            <span class="axe-agent-dot green"></span>
+                            <span class="axe-agent-status-text">Ready</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="axe-agent">
+                    <span class="axe-agent-icon violet">◇</span>
+                    <div class="axe-agent-info">
+                        <div class="axe-agent-name">VECTOR</div>
+                        <div class="axe-agent-role">Automation</div>
+                        <div class="axe-agent-state">
+                            <span class="axe-agent-dot green"></span>
+                            <span class="axe-agent-status-text">Ready</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="axe-agent">
+                    <span class="axe-agent-icon amber">△</span>
+                    <div class="axe-agent-info">
+                        <div class="axe-agent-name">ORBIT</div>
+                        <div class="axe-agent-role">Intelligence</div>
+                        <div class="axe-agent-state">
+                            <span class="axe-agent-dot amber"></span>
+                            <span class="axe-agent-status-text">Monitor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Messages ── -->
         <div id="chat-messages" class="chat-messages">
             <div class="message bot">
-                Hi — I'm your ANNEXE AI guide. What part of your operations are you looking to automate?
+                Welcome to the AI Command Center.<br><br>
+                4 intelligence systems are online.<br>
+                <span style="color:rgba(148,163,184,0.55);font-size:12px;">Strategy · Architecture · Automation · Intelligence</span><br><br>
+                What business challenge should we analyze?
             </div>
         </div>
+
+        <!-- ── Input ── -->
         <div class="chat-input-container">
-            <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything about automating your ops…" autocomplete="off">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Describe your business challenge…" autocomplete="off">
             <button id="chat-send" class="chat-send">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
             </button>
@@ -3416,7 +5455,8 @@
         
         camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
         // Positioned for an elegant isometric view
-        camera.position.set(0, 15, 25);
+        camera.position.set(0, 15, 25); // PCB default — overridden below if reactor active
+        // PATCH 1B.1: reactor framing (applied after scene construction, see flag check)
 
         renderer = new THREE.WebGLRenderer({
             canvas,
@@ -3429,6 +5469,11 @@
         // Cap pixel ratio: 1 on low-power mobile, 2 elsewhere
         const maxDPR = window.__perf.isLowPower ? 1 : 2;
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
+
+        // ── PATCH 1B.1 FIX-A: physical rendering required for glass transmission ──
+        renderer.physicallyCorrectLights = true;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.1;
 
         mobo = new THREE.Group();
         scene.add(mobo);
@@ -3447,12 +5492,15 @@
             color: 0x38bdf8, linewidth: 1, scale: 1, dashSize: 1, gapSize: 0.5, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending
         });
 
-        // The Quantum Orb Materials
+        // The Quantum Orb Materials — PATCH 1A.6: enhanced nucleus visibility + premium glass
         orbMat = new THREE.MeshPhysicalMaterial({
-            color: 0x0ea5e9, emissive: 0x0ea5e9, emissiveIntensity: 0.5, transmission: 0.9, opacity: 1, metalness: 0, roughness: 0, ior: 1.5, wireframe: true
+            color: 0x38bdf8, emissive: 0x0ea5e9, emissiveIntensity: 1.0,
+            transmission: 0.72, opacity: 1, metalness: 0.1, roughness: 0,
+            ior: 1.8, reflectivity: 0.9, clearcoat: 1.0, clearcoatRoughness: 0,
+            wireframe: true
         });
         ringMat = new THREE.MeshBasicMaterial({ 
-            color: 0x38bdf8, transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending
+            color: 0x38bdf8, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending
         });
 
         // --- 3. Build Hardware Geometry ---
@@ -3469,8 +5517,8 @@
         die.position.y = 0.3;
         mobo.add(die);
 
-        // Glow Light above CPU
-        cpuLight = new THREE.PointLight(0x0ea5e9, 1.5, 20);
+        // Glow Light above CPU — PATCH 1A.6: stronger reactor visibility
+        cpuLight = new THREE.PointLight(0x38bdf8, 3.2, 32);
         cpuLight.position.set(0, 3, 0);
         mobo.add(cpuLight);
 
@@ -3544,35 +5592,283 @@
         }
         mobo.add(linesGroup);
 
-        // --- 6. NEW: AI Neural Latent Cloud ---
-        particleCount = 1500; // Dense cloud
+        // --- 6. AI Neural Latent Cloud — PATCH 1A.6: enhanced activity layer ---
+        particleCount = 2200; // Denser cloud for stronger intelligence presence
         const particleGeo = new THREE.BufferGeometry();
         const particlePos = new Float32Array(particleCount * 3);
         const particlePhases = new Float32Array(particleCount); // For fluid animation
 
         for(let i=0; i < particleCount; i++) {
-            // Distribute in a wide, flat cylinder around the board
-            const radius = 8 + Math.random() * 25;
+            const isInner = i < particleCount * 0.25; // 25% inner nucleus particles
+            // Inner particles cluster near the core for internal AI processing feel
+            const radius = isInner
+                ? 2 + Math.random() * 6    // tight nucleus cluster
+                : 8 + Math.random() * 25;  // outer ambient field
             const angle = Math.random() * Math.PI * 2;
-            particlePos[i*3] = Math.cos(angle) * radius;
-            particlePos[i*3+1] = (Math.random() - 0.5) * 10; // Y height spread
+            particlePos[i*3]   = Math.cos(angle) * radius;
+            particlePos[i*3+1] = (Math.random() - 0.5) * (isInner ? 5 : 10);
             particlePos[i*3+2] = Math.sin(angle) * radius;
-            particlePhases[i] = Math.random() * Math.PI * 2;
+            particlePhases[i]  = Math.random() * Math.PI * 2;
         }
 
         particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
         particleGeo.setAttribute('phase', new THREE.BufferAttribute(particlePhases, 1));
 
         particleMat = new THREE.PointsMaterial({
-            size: 0.15,
-            color: 0x6366f1, // Indigo aura
+            size: 0.18,
+            color: 0x38bdf8, // Brand blue — coherent intelligence color
             transparent: true,
-            opacity: 0.4,
+            opacity: 0.62,
             blending: THREE.AdditiveBlending
         });
 
         neuralCloud = new THREE.Points(particleGeo, particleMat);
         scene.add(neuralCloud);
+
+        // ── PATCH 1B.1 — ANNEXE Intelligence Reactor ─────────────────────
+        // Feature flag: set false to instantly revert to PCB scene
+        const USE_INTELLIGENCE_REACTOR = true;
+
+        // Reactor scene objects (declared at outer scope for animation loop access)
+        let reactorGroup, nucleus, nucleusMat,
+            reactorRing1, reactorRing2, reactorRing3,
+            reactorShell, arcGroup, spires = [];
+
+        if (USE_INTELLIGENCE_REACTOR) {
+
+            // ── Hide PCB scene ──────────────────────────────────────────
+            mobo.visible = false;        // hides board, RAM, caps, cpu, traces, old orb
+            neuralCloud.visible = false; // replaced by tighter field below
+
+            // ── PATCH 1B.1 FIX-B: reactor camera framing ──
+            camera.position.set(0, 8, 18);
+
+            // ── Reactor root group ──────────────────────────────────────
+            reactorGroup = new THREE.Group();
+            // ── PATCH 1B.7: cinematic position — up and recessed ────────
+            reactorGroup.scale.set(1.8, 1.8, 1.8);
+            reactorGroup.position.set(0, -0.6, -2.5);
+            scene.add(reactorGroup);
+
+            // 1. GLASS CONTAINMENT SHELL — PATCH 1B.7
+            const shellMat = new THREE.MeshPhysicalMaterial({
+                color: 0x010a12,
+                emissive: 0x00c8e8,
+                emissiveIntensity: 0.32,
+                transmission: 0.62,
+                opacity: 1,
+                roughness: 0,
+                metalness: 0,
+                ior: 2.2,
+                reflectivity: 1.0,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0,
+                thickness: 4.0,
+                attenuationColor: new THREE.Color(0x003d5c),
+                attenuationDistance: 6.0,
+                side: THREE.DoubleSide,
+                transparent: true,
+                depthWrite: false
+            });
+            reactorShell = new THREE.Mesh(
+                new THREE.SphereGeometry(3.5, 48, 48),
+                shellMat
+            );
+            reactorGroup.add(reactorShell);
+
+            // 2. NEURAL NUCLEUS — solid core + wireframe overlay for depth
+            // 2a. Solid emissive inner sphere (the "intelligence core")
+            const nucleusCoreMat = new THREE.MeshStandardMaterial({
+                color: 0x38bdf8,
+                emissive: 0x38bdf8,
+                emissiveIntensity: 2.2,
+                roughness: 0.3,
+                metalness: 0.0,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+            const nucleusCore = new THREE.Mesh(
+                new THREE.SphereGeometry(0.42, 32, 32),
+                nucleusCoreMat
+            );
+            reactorGroup.add(nucleusCore);
+
+            // 2b. Wireframe icosahedron shell over the core
+            nucleusMat = new THREE.MeshPhysicalMaterial({
+                color: 0x7dd3fc,
+                emissive: 0x38bdf8,
+                emissiveIntensity: 0.45,
+                roughness: 0,
+                metalness: 0.3,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.32,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+            nucleus = new THREE.Mesh(
+                new THREE.IcosahedronGeometry(1.0, 2),
+                nucleusMat
+            );
+            reactorGroup.add(nucleus);
+
+            // Alias so triggerProcessPulse continues to work unchanged
+            orbMat = nucleusMat;
+
+            // 3. THREE ORBITAL RINGS (gyroscope planes)
+            const rRingMat = new THREE.MeshStandardMaterial({
+                color: 0x38bdf8,
+                emissive: 0x0369a1,
+                emissiveIntensity: 0.25,
+                transparent: true,
+                opacity: 0.28,
+                blending: THREE.AdditiveBlending,
+                side: THREE.DoubleSide,
+                depthWrite: false
+            });
+            const ringGeoR = new THREE.TorusGeometry(2.2, 0.022, 8, 96);
+
+            reactorRing1 = new THREE.Mesh(ringGeoR, rRingMat);
+            // equatorial plane
+            reactorGroup.add(reactorRing1);
+
+            reactorRing2 = new THREE.Mesh(ringGeoR, rRingMat.clone());
+            reactorRing2.rotation.x = Math.PI / 2; // polar plane
+            reactorGroup.add(reactorRing2);
+
+            reactorRing3 = new THREE.Mesh(ringGeoR, rRingMat.clone());
+            reactorRing3.rotation.set(Math.PI / 4, Math.PI / 4, 0); // diagonal
+            reactorGroup.add(reactorRing3);
+
+            // Alias so triggerProcessPulse ringMat.color.setHex works
+            ringMat = rRingMat;
+
+            // 4. SIX REACTOR SPIRES (equatorial, 60° apart)
+            const spireMat = new THREE.MeshStandardMaterial({
+                color: 0x38bdf8,
+                emissive: 0x0ea5e9,
+                emissiveIntensity: 0.6,
+                roughness: 0.2,
+                metalness: 0.8
+            });
+            const spireGeo = new THREE.ConeGeometry(0.04, 1.8, 4);
+            for (let s = 0; s < 6; s++) {
+                const angle = (s / 6) * Math.PI * 2;
+                const spire = new THREE.Mesh(spireGeo, spireMat);
+                // Position at shell inner surface, point outward
+                spire.position.set(
+                    Math.cos(angle) * 3.1,
+                    0,
+                    Math.sin(angle) * 3.1
+                );
+                // Rotate so cone tip points away from centre
+                spire.rotation.z = -Math.PI / 2;
+                spire.rotation.y = -angle;
+                reactorGroup.add(spire);
+                spires.push(spire);
+            }
+
+            // 5. INTERNAL ENERGY ARCS — PATCH 1B.6: all points clamped to r<=2.8
+            arcGroup = new THREE.Group();
+            const arcMat = new THREE.LineBasicMaterial({
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.32,
+                blending: THREE.AdditiveBlending
+            });
+            const MAX_ARC_R = 2.8; // hard ceiling — well inside shell (r=3.5)
+            for (let a = 0; a < 8; a++) {
+                const t0    = (a / 8) * Math.PI * 2;
+                const span  = Math.PI * (0.35 + (a % 3) * 0.12); // deterministic span
+                const t1    = t0 + span;
+                const arcR  = 1.8 + (a % 4) * 0.22; // deterministic radius, max 2.46
+                const elevA = ((a % 3) - 1) * 0.6;  // deterministic elevation arc
+                const pts   = [];
+                const steps = 24;
+                for (let k = 0; k <= steps; k++) {
+                    const t    = t0 + (t1 - t0) * (k / steps);
+                    const elev = elevA * Math.sin(k / steps * Math.PI);
+                    const x    = Math.cos(t) * arcR;
+                    const z    = Math.sin(t) * arcR;
+                    // Clamp: if point somehow exceeds MAX_ARC_R, pull it in
+                    const d    = Math.sqrt(x*x + elev*elev + z*z);
+                    const s    = d > MAX_ARC_R ? MAX_ARC_R / d : 1;
+                    pts.push(new THREE.Vector3(x * s, elev * s, z * s));
+                }
+                const arc = new THREE.Line(
+                    new THREE.BufferGeometry().setFromPoints(pts),
+                    arcMat.clone()
+                );
+                arcGroup.add(arc);
+            }
+            reactorGroup.add(arcGroup);
+
+            // 6. REACTOR POINT LIGHT (replaces cpuLight role)
+            const reactorLight = new THREE.PointLight(0x38bdf8, 7.5, 24);
+            reactorLight.position.set(0, 0, 0);
+            reactorGroup.add(reactorLight);
+
+            // Alias so triggerProcessPulse cpuLight references work unchanged
+            cpuLight = reactorLight;
+
+            // ── PATCH 1B.7: three-layer lighting separation ─────────────
+            // Layer 1 — foreground: above-camera key, illuminates headline plane
+            const rimA = new THREE.PointLight(0x38bdf8, 1.6, 20);
+            rimA.position.set(0, 10, 12);   // in front of and above camera
+            scene.add(rimA);
+            // Layer 2 — reactor fill: indigo from left-rear, separates shell from bg
+            const rimB = new THREE.PointLight(0x6366f1, 1.4, 16);
+            rimB.position.set(-7, 2, -8);
+            scene.add(rimB);
+            // Layer 3 — deep background: warm-cyan from lower-right, pushes bg back
+            const rimC = new THREE.PointLight(0x0ea5e9, 0.6, 24);
+            rimC.position.set(8, -6, -14);
+            scene.add(rimC);
+
+            // 7. TIGHTER INTELLIGENCE FIELD (replaces neuralCloud for reactor)
+            const rfCount = 1600;
+            const rfGeo   = new THREE.BufferGeometry();
+            const rfPos   = new Float32Array(rfCount * 3);
+            const rfPhase = new Float32Array(rfCount);
+            for (let i = 0; i < rfCount; i++) {
+                const isHalo = i < rfCount * 0.22;
+                const radius = isHalo
+                    ? 3.6 + Math.random() * 1.4   // tight shell halo
+                    : 5.5 + Math.random() * 12;    // wider intelligence field
+                const theta  = Math.random() * Math.PI * 2;
+                const phi    = Math.acos(2 * Math.random() - 1); // sphere distribution
+                rfPos[i*3]   = radius * Math.sin(phi) * Math.cos(theta);
+                rfPos[i*3+1] = radius * Math.cos(phi);
+                rfPos[i*3+2] = radius * Math.sin(phi) * Math.sin(theta);
+                rfPhase[i]   = Math.random() * Math.PI * 2;
+            }
+            rfGeo.setAttribute('position', new THREE.BufferAttribute(rfPos, 3));
+            rfGeo.setAttribute('phase',    new THREE.BufferAttribute(rfPhase, 1));
+            const rfMat = new THREE.PointsMaterial({
+                size: 0.11,
+                color: 0x38bdf8,
+                transparent: true,
+                opacity: 0.32,
+                blending: THREE.AdditiveBlending
+            });
+            const reactorField = new THREE.Points(rfGeo, rfMat);
+            scene.add(reactorField);
+
+            // Alias so triggerProcessPulse particleMat.color.setHex works
+            particleMat = rfMat;
+
+            // Store on window for animation loop access
+            window.__reactor = {
+                group: reactorGroup, nucleus, reactorField,
+                rfGeo, rfCount, rfPhase,
+                ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
+                arcGroup, cpuLight: reactorLight
+            };
+
+        } // end USE_INTELLIGENCE_REACTOR
+        // ── END PATCH 1B.1 construction ──────────────────────────────────
 
         __threeOK = true;
     } catch(webglErr) {
@@ -4515,6 +6811,9 @@ if (
 
     showTyping();
 
+    // PATCH 02: Collaboration layer - runs in parallel with API fetch
+    if (window.__annexeCollab) window.__annexeCollab.show(text);
+    // END PATCH 02 hook
 
     try {
 
@@ -4794,42 +7093,89 @@ chatSend.addEventListener('click', handleSendMessage);
             if (window.__perf && window.__perf.paused) return;
             const time = clock.getElapsedTime();
             
-            // Smooth Camera Parallax
-            camera.position.x += (mouseX * 4 - camera.position.x) * 0.05;
-            camera.position.y += ((15 + mouseY * 2) - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
+            // ── PATCH 1B.1: branched animation ──────────────────────────
+            if (window.__reactor) {
+                // REACTOR PATH
+                const R = window.__reactor;
 
-            // Animate Quantum Orb
-            orb.rotation.y = time * 0.5;
-            orb.rotation.x = time * 0.3;
-            ring1.rotation.y = time * 1.2;
-            ring1.rotation.z = time * 0.8;
-            ring2.rotation.x = -time * 1.1;
-            ring2.rotation.z = -time * 0.7;
+                // Camera: closer, equatorial framing, gentler parallax
+                camera.position.x += (mouseX * 2 - camera.position.x) * 0.04;
+                camera.position.y += ((8 + mouseY * 1.5) - camera.position.y) * 0.04;
+                camera.position.z += (18 - camera.position.z) * 0.04;
+                camera.lookAt(0, 0, 0);
 
-            // Animate Neural Cloud (Latent Space)
-            const positions = neuralCloud.geometry.attributes.position.array;
-            const phases = neuralCloud.geometry.attributes.phase.array;
-            for(let i=0; i < particleCount; i++) {
-                const i3 = i * 3;
-                // Gently undulate the Y position based on sine wave and unique phase
-                positions[i3+1] += Math.sin(time * 0.5 + phases[i]) * 0.015;
+                // Nucleus rotation (same rates as original orb)
+                R.nucleus.rotation.y = time * 0.5;
+                R.nucleus.rotation.x = time * 0.3;
+
+                // Three gyroscope rings — each independent axis
+                R.ring1.rotation.y = time * 1.2;
+                R.ring1.rotation.z = time * 0.8;
+                R.ring2.rotation.x = Math.PI / 2 + time * -1.1;
+                R.ring2.rotation.z = time * -0.7;
+                R.ring3.rotation.y = time * 0.6;
+                R.ring3.rotation.x = Math.PI / 4 + time * 0.4;
+
+                // Reactor group breathing (same feel as mobo breathing)
+                R.group.position.y = Math.sin(time * 0.5) * 0.3;
+                R.group.rotation.y = time * 0.06; // very slow drift
+
+                // Energy arcs opacity pulse (each arc slightly offset)
+                R.arcGroup.children.forEach((arc, idx) => {
+                    arc.material.opacity = 0.18 + Math.sin(time * 1.4 + idx * 0.7) * 0.12;
+                });
+
+                // Intelligence field undulation (same logic as neuralCloud)
+                const rfPositions = R.rfGeo.attributes.position.array;
+                const rfPhases    = R.rfPhase;
+                for (let i = 0; i < R.rfCount; i++) {
+                    rfPositions[i*3+1] += Math.sin(time * 0.5 + rfPhases[i]) * 0.012;
+                }
+                R.rfGeo.attributes.position.needsUpdate = true;
+                R.reactorField.rotation.y = time * 0.015;
+
+                // Reactor light pulse (same formula as original cpuLight)
+                if (!isProcessing) {
+                    R.cpuLight.intensity = 3.2 + Math.sin(time * 2) * 0.8;
+                }
+
+                // Trace speed decay (energy arcs reuse same variable)
+                traceSpeed += (0.01 - traceSpeed) * 0.05;
+
+            } else {
+                // PCB FALLBACK PATH (original code, unchanged)
+                camera.position.x += (mouseX * 4 - camera.position.x) * 0.05;
+                camera.position.y += ((15 + mouseY * 2) - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                orb.rotation.y = time * 0.5;
+                orb.rotation.x = time * 0.3;
+                ring1.rotation.y = time * 1.2;
+                ring1.rotation.z = time * 0.8;
+                ring2.rotation.x = -time * 1.1;
+                ring2.rotation.z = -time * 0.7;
+
+                const positions = neuralCloud.geometry.attributes.position.array;
+                const phases = neuralCloud.geometry.attributes.phase.array;
+                for(let i=0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    positions[i3+1] += Math.sin(time * 0.5 + phases[i]) * 0.015;
+                }
+                neuralCloud.geometry.attributes.position.needsUpdate = true;
+                neuralCloud.rotation.y = time * 0.02;
+
+                traceSpeed += (0.01 - traceSpeed) * 0.05;
+                linesGroup.children.forEach(line => {
+                    line.material.dashOffset -= traceSpeed;
+                });
+
+                mobo.position.y = Math.sin(time * 0.5) * 0.5;
+
+                if(!isProcessing) {
+                    cpuLight.intensity = 1.0 + Math.sin(time * 2) * 0.5;
+                }
             }
-            neuralCloud.geometry.attributes.position.needsUpdate = true;
-            neuralCloud.rotation.y = time * 0.02; // Slow global rotation
-
-            // Trace speed decay
-            traceSpeed += (0.01 - traceSpeed) * 0.05;
-            linesGroup.children.forEach(line => {
-                line.material.dashOffset -= traceSpeed;
-            });
-
-            // Organic breathing for motherboard
-            mobo.position.y = Math.sin(time * 0.5) * 0.5;
-            
-            if(!isProcessing) {
-                cpuLight.intensity = 1.0 + Math.sin(time * 2) * 0.5;
-            }
+            // ── END PATCH 1B.1 animation branch ─────────────────────────
 
             renderer.render(scene, camera);
         }
@@ -6514,9 +8860,9 @@ chatSend.addEventListener('click', handleSendMessage);
                     }
                 }
 
-                // Wire "Watch Systems Demo" button(s)
+                // Wire "Watch System Demo" button(s)
                 document.querySelectorAll('button').forEach(btn => {
-                    if (btn.textContent.trim().includes('Watch Systems Demo')) {
+                    if (btn.textContent.trim().includes('Watch System Demo')) {
                         btn.addEventListener('click', openModal);
                     }
                 });
@@ -6556,6 +8902,424 @@ chatSend.addEventListener('click', handleSendMessage);
         })();
     </script>
 
+
+
+    <script>
+    // PATCH 2.1 - Greeting bubble dismiss
+    (function() {
+        function hideGreeting() {
+            var g = document.getElementById('annexe-greeting');
+            if (g) g.classList.add('annexe-hidden');
+        }
+        var btn = document.getElementById('annexe-greeting-dismiss');
+        if (btn) btn.addEventListener('click', hideGreeting);
+        var tog = document.getElementById('chatbot-toggle');
+        if (tog) tog.addEventListener('click', hideGreeting);
+    })();
+    </script>
+
+    <script>
+    // ── PATCH 2.3.2 — CHANGE 2: Bubble lifecycle ───────────────────────────
+    // Timeline (from page load):
+    //   0–4s    : bubble hidden (CSS animation-fill-mode:both handles this)
+    //   4s      : bubble fades in (full state: header + full text)
+    //   4–11s   : full state visible (7 seconds)
+    //   11s     : collapse to .annexe-collapsed ("May I help?")
+    //   11–14s  : collapsed state
+    //   14s     : fade out entirely (annexe-hidden)
+    // If visitor clicks toggle or dismiss: existing PATCH 2.1 logic fires first.
+    (function () {
+        var greeting  = document.getElementById('annexe-greeting');
+        var textEl    = document.getElementById('annexe-greeting-text');
+        var energyLine = document.getElementById('annexe-energy-line');
+        if (!greeting || !textEl) return;
+
+        var dismissed = false;
+
+        // Watch for early dismiss so lifecycle timers respect it
+        function isDismissed() { return greeting.classList.contains('annexe-hidden'); }
+
+        // T+11s — collapse to compact "May I help?" state
+        var collapseTimer = setTimeout(function () {
+            if (isDismissed()) return;
+            // Fade text out, swap content, fade back in
+            textEl.style.transition = 'opacity 0.3s ease';
+            textEl.style.opacity    = '0';
+            setTimeout(function () {
+                textEl.textContent  = 'May I help?';
+                textEl.style.opacity = '1';
+                greeting.classList.add('annexe-collapsed');
+            }, 320);
+        }, 11000);
+
+        // T+14s — hide bubble, show orb only
+        var hideTimer = setTimeout(function () {
+            if (isDismissed()) return;
+            greeting.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            greeting.classList.add('annexe-hidden');
+            if (energyLine) {
+                energyLine.style.transition = 'opacity 0.4s ease';
+                energyLine.style.opacity = '0';
+            }
+        }, 14000);
+
+        // Cleanup if visitor dismisses early (PATCH 2.1 fires click → annexe-hidden)
+        // MutationObserver watches for the class change so we cancel stale timers
+        var mo = new MutationObserver(function () {
+            if (isDismissed()) {
+                clearTimeout(collapseTimer);
+                clearTimeout(hideTimer);
+                mo.disconnect();
+            }
+        });
+        mo.observe(greeting, { attributes: true, attributeFilter: ['class'] });
+    })();
+    // ── END PATCH 2.3.2 CHANGE 2 ────────────────────────────────────────────
+    </script>
+
+    <script>
+    // ── PATCH 2.3.6 — Intelligence Feed rotator ────────────────────────────
+    // Self-contained IIFE. No dependency on chatbot, terminal, or Three.js.
+    // Operates only on #ain-feed-log.
+    (function () {
+        var log = document.getElementById('ain-feed-log');
+        if (!log) return;
+
+        var messages = [
+            { ts: '09:42:18', icon: '',        text: '<strong>AI Voice Workforce</strong> model update deployed' },
+            { ts: '09:42:31', icon: 'indigo',  text: 'Customer intent engine <strong>optimized</strong> — accuracy +4.2%' },
+            { ts: '09:42:44', icon: 'emerald', text: 'New <strong>automation opportunity</strong> detected across 3 workflows' },
+            { ts: '09:43:02', icon: '',        text: 'Enterprise workflow analysis <strong>completed</strong> — 14 nodes mapped' },
+            { ts: '09:43:19', icon: 'indigo',  text: 'AI market signal <strong>processed</strong> — strategic brief queued' },
+            { ts: '09:44:05', icon: 'emerald', text: '<strong>Autonomous agent</strong> task batch executed — 98.7% success' },
+            { ts: '09:44:23', icon: '',        text: 'Neural routing layer <strong>recalibrated</strong> for peak load' },
+            { ts: '09:44:51', icon: 'indigo',  text: 'Enterprise OS <strong>sync complete</strong> — 268 integrations active' }
+        ];
+
+        var cursor = 0;
+
+        // Build a single log row element
+        function makeEntry(msg) {
+            var row = document.createElement('div');
+            row.className = 'ain-log-entry ain-log-new';
+
+            var ts = document.createElement('span');
+            ts.className = 'ain-log-ts';
+            ts.textContent = msg.ts;
+
+            var dot = document.createElement('span');
+            dot.className = 'ain-log-icon' + (msg.icon ? ' ain-log-icon--' + msg.icon : '');
+
+            var txt = document.createElement('span');
+            txt.className = 'ain-log-text';
+            txt.innerHTML = msg.text;
+
+            row.appendChild(ts);
+            row.appendChild(dot);
+            row.appendChild(txt);
+            return row;
+        }
+
+        // Rotate: fade oldest out, append newest
+        function rotate() {
+            var entries = log.querySelectorAll('.ain-log-entry');
+
+            // Fade first entry out
+            if (entries.length > 0) {
+                var oldest = entries[0];
+                oldest.classList.add('ain-log-fading');
+                setTimeout(function () {
+                    if (oldest.parentNode === log) log.removeChild(oldest);
+                }, 620);
+            }
+
+            // Append new entry after fade starts
+            setTimeout(function () {
+                cursor = (cursor + 1) % messages.length;
+                // Update timestamp to feel live
+                var now = new Date();
+                var pad = function(n){ return n < 10 ? '0'+n : n; };
+                var liveTs = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+                var msg = Object.assign({}, messages[cursor], { ts: liveTs });
+                var entry = makeEntry(msg);
+                log.appendChild(entry);
+                // Remove animation class after it plays
+                setTimeout(function () { entry.classList.remove('ain-log-new'); }, 550);
+            }, 300);
+        }
+
+        // Start rotating every 3.2 seconds, but only after section is visible
+        var started = false;
+        var intervalId = null;
+
+        // Piggyback on DOMContentLoaded — section may already be visible on load
+        function tryStart() {
+            if (started) return;
+            var section = document.getElementById('intelligence-network');
+            if (!section) return;
+            var rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                started = true;
+                intervalId = setInterval(rotate, 3200);
+            }
+        }
+
+        // Also start on first scroll past the section
+        window.addEventListener('scroll', tryStart, { passive: true });
+        // Check immediately in case page loads already scrolled there
+        setTimeout(tryStart, 800);
+    })();
+    // ── END PATCH 2.3.6 ────────────────────────────────────────────────────
+    </script>
+
+    <script>
+    // ── PATCH 2.2 — Scroll-context companion messages ──────────────────────
+    // Updates the greeting bubble as the visitor moves through each section.
+    // The node must never dismiss itself — only the visitor can do that.
+    (function () {
+        var textEl = document.getElementById('annexe-greeting-text');
+        var greeting = document.getElementById('annexe-greeting');
+        if (!textEl || !greeting) return;
+
+        // Map: section id → contextual consultant line
+        var sectionMessages = [
+            { id: 'workforce',   text: 'See how AI employees handle your team\'s workload.' },
+            { id: 'dashboard',   text: 'Every agent, every metric — in one live view.' },
+            { id: 'automation',  text: 'Ready to automate this workflow for your team?' },
+            { id: 'security',    text: 'SOC 2 · GDPR · HIPAA — ask me anything.' }
+        ];
+
+        // Animate text swap without hiding the bubble
+        function updateText(newText) {
+            textEl.style.transition = 'opacity 0.25s ease';
+            textEl.style.opacity = '0';
+            setTimeout(function () {
+                textEl.textContent = newText;
+                textEl.style.opacity = '1';
+                // Re-show bubble if it was hidden (e.g., scrolled back up after dismiss)
+                // — intentionally NOT doing this; respect the dismiss action.
+            }, 260);
+        }
+
+        var observers = [];
+        sectionMessages.forEach(function (item) {
+            var el = document.getElementById(item.id);
+            // Also try data-section attribute as fallback
+            if (!el) el = document.querySelector('[data-section="' + item.id + '"]');
+            if (!el) return;
+
+            var obs = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    updateText(item.text);
+                }
+            }, { threshold: 0.25, rootMargin: '-60px 0px -60px 0px' });
+
+            obs.observe(el);
+            observers.push(obs);
+        });
+    })();
+    // ── END PATCH 2.2 ───────────────────────────────────────────────────────
+    </script>
+
+    <style>
+    /* ============================================================
+       PATCH 02 - ANNEXE COLLABORATION CARD
+       Scoped to .axe-collab-card. No contact with existing systems.
+    ============================================================ */
+    .axe-collab-card {
+        border-radius: 10px;
+        border: 1px solid rgba(56,189,248,0.14);
+        background: linear-gradient(160deg, rgba(4,12,30,0.96) 0%, rgba(3,9,22,0.98) 100%);
+        padding: 10px 12px;
+        margin-bottom: 2px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .axe-collab-card.axe-collab-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .axe-collab-card.axe-collab-exit {
+        opacity: 0;
+        transform: translateY(-4px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .axe-collab-header {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(56,189,248,0.07);
+    }
+    .axe-collab-core-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: #38bdf8;
+        box-shadow: 0 0 6px rgba(56,189,248,0.70);
+        animation: axe-collab-pulse 1.8s ease-in-out infinite;
+        flex-shrink: 0;
+    }
+    @keyframes axe-collab-pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 5px rgba(56,189,248,0.65); }
+        50%       { opacity: 0.50; box-shadow: 0 0 2px rgba(56,189,248,0.20); }
+    }
+    .axe-collab-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px; font-weight: 700; letter-spacing: 0.16em;
+        color: rgba(56,189,248,0.80);
+        text-transform: uppercase;
+    }
+    .axe-collab-agents {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .axe-collab-agent {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.30s ease, transform 0.30s ease;
+    }
+    .axe-collab-agent.axe-agent-on {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .axe-collab-agent-glyph {
+        font-size: 11px; line-height: 1;
+        margin-top: 1px; flex-shrink: 0;
+        min-width: 13px; text-align: center;
+    }
+    .axe-collab-agent-name {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px; font-weight: 700; letter-spacing: 0.12em;
+        text-transform: uppercase; line-height: 1; margin-bottom: 2px;
+    }
+    .axe-collab-agent-status {
+        font-family: 'Inter', sans-serif;
+        font-size: 11px; font-weight: 400;
+        color: rgba(148,163,184,0.65); line-height: 1.3;
+    }
+    .axe-collab-agent[data-agent="AURA"]   .axe-collab-agent-glyph  { color: rgba(56,189,248,0.70); }
+    .axe-collab-agent[data-agent="AURA"]   .axe-collab-agent-name   { color: rgba(56,189,248,0.85); }
+    .axe-collab-agent[data-agent="NEXUS"]  .axe-collab-agent-glyph  { color: rgba(52,211,153,0.70); }
+    .axe-collab-agent[data-agent="NEXUS"]  .axe-collab-agent-name   { color: rgba(52,211,153,0.85); }
+    .axe-collab-agent[data-agent="VECTOR"] .axe-collab-agent-glyph  { color: rgba(167,139,250,0.70); }
+    .axe-collab-agent[data-agent="VECTOR"] .axe-collab-agent-name   { color: rgba(167,139,250,0.85); }
+    .axe-collab-agent[data-agent="ORBIT"]  .axe-collab-agent-glyph  { color: rgba(251,191,36,0.70); }
+    .axe-collab-agent[data-agent="ORBIT"]  .axe-collab-agent-name   { color: rgba(251,191,36,0.85); }
+    /* ============================================================ END PATCH 02 CSS */
+    </style>
+
+    <script>
+    // ============================================================
+    // PATCH 02 - ANNEXE COLLABORATION ENGINE
+    // Self-contained IIFE.
+    // Exposes only: window.__annexeCollab.show(text)
+    // Zero contact with Three.js, OpenRouter, chatHistory,
+    // clientMemory, Firebase, or any existing event listener.
+    // ============================================================
+    (function () {
+
+        var AGENTS = {
+            AURA:   { glyph: '◎', label: 'Strategy Intelligence', status: 'Analyzing business objectives...' },
+            NEXUS:  { glyph: '◈', label: 'System Architecture',   status: 'Preparing solution framework...' },
+            VECTOR: { glyph: '◇', label: 'Automation Engine',     status: 'Mapping workflow opportunities...' },
+            ORBIT:  { glyph: '△', label: 'Business Intelligence', status: 'Preparing impact assessment...' }
+        };
+
+        function classify(text) {
+            var t = text.toLowerCase();
+            var fullTeamKw = ['strategy','enterprise','transform','roadmap','scale',
+                              'full','complete','end-to-end','overhaul','business challenge',
+                              'competitive','growth','automate everything'];
+            for (var i = 0; i < fullTeamKw.length; i++) {
+                if (t.indexOf(fullTeamKw[i]) !== -1) return ['AURA','NEXUS','VECTOR','ORBIT'];
+            }
+            var agents = [];
+            if (/market|brand|positi|strateg|lead|sales|customer|churn|retention|compet|pitch/.test(t)) agents.push('AURA');
+            if (/tech|integrat|architect|platform|system|api|stack|crm|erp|infra|databas/.test(t)) agents.push('NEXUS');
+            if (/automat|workflow|process|repetit|ops|operati|manual|bot|trigger|schedul/.test(t)) agents.push('VECTOR');
+            if (/roi|revenue|cost|saving|finance|kpi|report|forecast|budget|profit|impact/.test(t)) agents.push('ORBIT');
+            if (agents.length === 0) agents.push('AURA');
+            if (agents.length >= 3) return ['AURA','NEXUS','VECTOR','ORBIT'];
+            return agents;
+        }
+
+        function buildCard(agentKeys) {
+            var card = document.createElement('div');
+            card.className = 'axe-collab-card';
+            card.id = 'axe-collab-card';
+
+            var header = document.createElement('div');
+            header.className = 'axe-collab-header';
+            header.innerHTML = '<span class="axe-collab-core-dot"></span><span class="axe-collab-title">ANNEXE CORE ACTIVATED</span>';
+            card.appendChild(header);
+
+            var wrap = document.createElement('div');
+            wrap.className = 'axe-collab-agents';
+
+            agentKeys.forEach(function (key) {
+                var def = AGENTS[key];
+                var row = document.createElement('div');
+                row.className = 'axe-collab-agent';
+                row.setAttribute('data-agent', key);
+                row.innerHTML =
+                    '<span class="axe-collab-agent-glyph">' + def.glyph + '</span>' +
+                    '<div><div class="axe-collab-agent-name">' + key + '</div>' +
+                    '<div class="axe-collab-agent-status">' + def.status + '</div></div>';
+                wrap.appendChild(row);
+            });
+
+            card.appendChild(wrap);
+            return card;
+        }
+
+        function show(text) {
+            var existing = document.getElementById('axe-collab-card');
+            if (existing) existing.remove();
+
+            var container = document.getElementById('chat-messages');
+            if (!container) return;
+
+            var agents = classify(text);
+            var card   = buildCard(agents);
+            container.appendChild(card);
+            container.scrollTop = container.scrollHeight;
+
+            requestAnimationFrame(function () {
+                card.classList.add('axe-collab-visible');
+            });
+
+            var agentEls = card.querySelectorAll('.axe-collab-agent');
+            agentEls.forEach(function (el, idx) {
+                setTimeout(function () {
+                    if (el.parentNode) {
+                        el.classList.add('axe-agent-on');
+                        container.scrollTop = container.scrollHeight;
+                    }
+                }, 300 + idx * 900);
+            });
+
+            // Remove after last agent + 600ms grace period
+            var totalMs = 300 + (agents.length - 1) * 900 + 600;
+            setTimeout(function () {
+                if (card.parentNode) {
+                    card.classList.add('axe-collab-exit');
+                    setTimeout(function () {
+                        if (card.parentNode) card.remove();
+                    }, 260);
+                }
+            }, totalMs);
+        }
+
+        window.__annexeCollab = { show: show };
+
+    })();
+    // ============================================================ END PATCH 02 JS
+    </script>
 
 </body>
 </html>
