@@ -13,7 +13,58 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { PRODUCT_LIBRARY } from "../../products/library.js";
+// ── Inlined: createProduct + PRODUCT_LIBRARY (replaces ../../products/library.js + schema.js) ──
+function createProduct(data = {}) {
+  return {
+    productId:   data.productId   || "PROD-" + Date.now(),
+    name:        data.name        || null,
+    description: data.description || null,
+    category:    data.category    || null,
+    modules:     data.modules     || [],
+    features:    data.features    || [],
+    technology: {
+      frontend:   data.technology?.frontend   || null,
+      backend:    data.technology?.backend    || null,
+      database:   data.technology?.database   || null,
+      aiLayer:    data.technology?.aiLayer    || null,
+      deployment: data.technology?.deployment || null
+    },
+    repository: data.repository || null,
+    version:    data.version    || "1.0.0",
+    status:     data.status     || "development",
+    createdAt:  data.createdAt  || new Date().toISOString()
+  };
+}
+
+const PRODUCT_LIBRARY = [
+
+  createProduct({
+    productId:   "PROD-001",
+    name:        "ANNEXE AI CRM Platform",
+    description: "Full-stack AI-powered CRM with lead management, pipeline tracking, and business intelligence.",
+    category:    "crm",
+    modules:  [ "authentication", "dashboard", "crm", "reports", "notifications", "api / integrations" ],
+    features: [ "authentication", "dashboard", "crm / contacts", "reporting", "notifications", "api / integrations", "chat / messaging" ],
+    technology: { frontend: "Next.js", backend: "FastAPI", database: "PostgreSQL", aiLayer: "LLM API with agent orchestration layer", deployment: "Cloud deployment with CI/CD" },
+    repository: "placeholder/annexe-crm",
+    version:    "1.0.0",
+    status:     "stable"
+  }),
+
+  createProduct({
+    productId:   "PROD-002",
+    name:        "ANNEXE AI Trading Platform",
+    description: "Algorithmic trading platform with real-time market data, automated execution, and portfolio analytics.",
+    category:    "fintech",
+    modules:  [ "authentication", "trading-engine", "dashboard", "analytics", "notifications", "api / integrations" ],
+    features: [ "authentication", "dashboard", "reporting", "notifications", "api / integrations", "payments", "file management" ],
+    technology: { frontend: "Next.js", backend: "FastAPI", database: "PostgreSQL", aiLayer: "LLM API with agent orchestration layer", deployment: "Cloud deployment with CI/CD" },
+    repository: "placeholder/annexe-trading",
+    version:    "1.0.0",
+    status:     "development"
+  })
+
+];
 
 
 // ── Match scorer ──────────────────────────────────────────────────────────────

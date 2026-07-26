@@ -41,7 +41,7 @@ import {
   completeAgentRun,
   failAgentRun,
   summariseRun
-} from "../../memory/agent-run.js";
+} from "../memory/agent-run.js";
 
 
 // ── Initial pipeline status template ─────────────────────────────────────────
