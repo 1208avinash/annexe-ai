@@ -1,6 +1,5 @@
 import { runTechnologyAgent } from "../agents/technology/intelligence.js";
 import { runArchitectAgent }  from "../agents/architect/design.js";
-import { runDeveloperAgent }  from "../agents/developer/build.js";
 
 
 export default async function handler(req, res) {
@@ -86,51 +85,22 @@ export default async function handler(req, res) {
     }
 
 
-    // ── Stage 3: Developer Agent ──────────────────────────────────────────────
-
-    let developmentPlan = null;
-
-    try {
-
-      const devResult = runDeveloperAgent({
-        solution:     project.solution,
-        technology,
-        architecture,
-        requirements: []
-      });
-
-      if (devResult.success) {
-        developmentPlan = devResult.developmentPlan;
-        console.log("DEVELOPER AGENT OK");
-      }
-
-    } catch (devError) {
-      console.error("DEVELOPER AGENT FAILED:", devError);
-    }
-
-
     // ── Assemble final project ────────────────────────────────────────────────
 
-    const architectureReady  = technology      !== null && architecture !== null;
-    const developmentReady   = architectureReady && developmentPlan !== null;
+    const architectureReady = technology !== null && architecture !== null;
 
     const finalProject = {
       ...project,
-      technology:      technology      || null,
-      architecture:    architecture    || null,
-      developmentPlan: developmentPlan || null,
-      status:    developmentReady   ? "development_ready"    :
-                 architectureReady  ? "architecture_ready"   :
-                                      "architecture_failed",
-      nextAgent: developmentReady   ? "qa_agent"             :
-                 architectureReady  ? "developer_agent"      :
-                                      "manual_review",
+      technology:   technology   || null,
+      architecture: architecture || null,
+      status:    architectureReady ? "architecture_ready" : "architecture_failed",
+      nextAgent: architectureReady ? "developer_agent"    : "manual_review",
 
       agentPipeline: {
         project_engine:   "completed",
-        technology_agent: technology      ? "completed" : "failed",
-        architect_agent:  architecture    ? "completed" : "failed",
-        developer_agent:  developmentPlan ? "completed" : "failed",
+        technology_agent: technology   ? "completed" : "failed",
+        architect_agent:  architecture ? "completed" : "failed",
+        developer_agent:  "pending",
         qa_agent:         "pending",
         testing_agent:    "pending",
         deployment_agent: "pending"
@@ -142,10 +112,8 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
-      message: developmentReady
-        ? "ANNEXE project created and development plan ready"
-        : architectureReady
-        ? "ANNEXE project created — developer agent failed"
+      message: architectureReady
+        ? "ANNEXE project created and architecture ready"
         : "ANNEXE project created — architecture generation failed",
       project: finalProject
     });
