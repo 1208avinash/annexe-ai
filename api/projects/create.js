@@ -1,6 +1,7 @@
 import { runTechnologyAgent } from "../agents/technology/intelligence.js";
 import { runArchitectAgent }  from "../agents/architect/design.js";
 import { runDeveloperAgent }  from "../agents/developer/build.js";
+import { createProjectSchema } from "./schema.js";
 
 
 export default async function handler(req, res) {
@@ -24,20 +25,21 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Client information required" });
     }
 
-    const projectId = "ANNEXE-" + Date.now();
 
-    const project = {
-      projectId,
-      clientName:  clientName  || "Unknown",
-      companyName: companyName || "Unknown",
-      industry:    industry    || "Not defined",
-      challenge:   challenge   || "Not defined",
-      solution:    solution    || "Not defined",
-      blueprint:   blueprint   || {},
-      status:      "architecture_pending",
-      nextAgent:   "architect_agent",
-      createdAt:   new Date().toISOString()
-    };
+    // ── Initialise project using central schema ────────────────────────────────
+
+    const project = createProjectSchema({
+      clientName,
+      companyName,
+      industry,
+      status:       "architecture_pending",
+      currentAgent: "technology_agent"
+    });
+
+    // Preserve legacy fields used by the chat layer
+    project.challenge = challenge || "Not defined";
+    project.solution  = solution  || "Not defined";
+    project.blueprint = blueprint || {};
 
     console.log("ANNEXE PROJECT CREATED:", project.projectId);
 
@@ -49,13 +51,14 @@ export default async function handler(req, res) {
     try {
 
       const techResult = runTechnologyAgent({
-        industry:     project.industry,
-        solution:     project.solution,
+        industry:     industry  || "Not defined",
+        solution:     solution  || "Not defined",
         requirements: []
       });
 
       if (techResult.success) {
-        technology = techResult.recommendation;
+        technology         = techResult.recommendation;
+        project.technology = technology;
         console.log("TECHNOLOGY AGENT OK");
       }
 
@@ -71,13 +74,14 @@ export default async function handler(req, res) {
     try {
 
       const archResult = runArchitectAgent({
-        solution:     project.solution,
+        solution:     solution || "Not defined",
         technology,
         requirements: []
       });
 
       if (archResult.success) {
-        architecture = archResult.architecture;
+        architecture         = archResult.architecture;
+        project.architecture = architecture;
         console.log("ARCHITECT AGENT OK");
       }
 
@@ -93,14 +97,15 @@ export default async function handler(req, res) {
     try {
 
       const devResult = runDeveloperAgent({
-        solution:     project.solution,
+        solution:     solution || "Not defined",
         technology,
         architecture,
         requirements: []
       });
 
       if (devResult.success) {
-        developmentPlan = devResult.developmentPlan;
+        developmentPlan         = devResult.developmentPlan;
+        project.developmentPlan = developmentPlan;
         console.log("DEVELOPER AGENT OK");
       }
 
@@ -109,36 +114,22 @@ export default async function handler(req, res) {
     }
 
 
-    // ── Assemble final project ────────────────────────────────────────────────
+    // ── Resolve final status ──────────────────────────────────────────────────
 
-    const architectureReady  = technology      !== null && architecture !== null;
-    const developmentReady   = architectureReady && developmentPlan !== null;
+    const architectureReady = technology    !== null && architecture  !== null;
+    const developmentReady  = architectureReady      && developmentPlan !== null;
 
-    const finalProject = {
-      ...project,
-      technology:      technology      || null,
-      architecture:    architecture    || null,
-      developmentPlan: developmentPlan || null,
-      status:    developmentReady   ? "development_ready"    :
-                 architectureReady  ? "architecture_ready"   :
-                                      "architecture_failed",
-      nextAgent: developmentReady   ? "qa_agent"             :
-                 architectureReady  ? "developer_agent"      :
-                                      "manual_review",
+    project.status       = developmentReady  ? "development_ready"  :
+                           architectureReady ? "architecture_ready" :
+                                              "architecture_failed";
 
-      agentPipeline: {
-        project_engine:   "completed",
-        technology_agent: technology      ? "completed" : "failed",
-        architect_agent:  architecture    ? "completed" : "failed",
-        developer_agent:  developmentPlan ? "completed" : "failed",
-        qa_agent:         "pending",
-        testing_agent:    "pending",
-        deployment_agent: "pending"
-      }
+    project.currentAgent = developmentReady  ? "qa_agent"       :
+                           architectureReady ? "developer_agent" :
+                                              "manual_review";
 
-    };
+    project.updatedAt = new Date().toISOString();
 
-    console.log("ANNEXE FINAL PROJECT STATUS:", finalProject.status);
+    console.log("ANNEXE FINAL PROJECT STATUS:", project.status);
 
     return res.status(200).json({
       success: true,
@@ -147,7 +138,7 @@ export default async function handler(req, res) {
         : architectureReady
         ? "ANNEXE project created — developer agent failed"
         : "ANNEXE project created — architecture generation failed",
-      project: finalProject
+      project
     });
 
 
