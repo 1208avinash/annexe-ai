@@ -26,6 +26,7 @@ const AGENT_TYPE_MAP = {
   billing_worker:     "CODE_GENERATION",
   crm_worker:         "CODE_GENERATION",
   automation_worker:  "CODE_GENERATION",
+  debug_worker: "DEBUG",
   generation_worker:  "CODE_GENERATION"
 };
 
@@ -71,6 +72,37 @@ function generateTaskId(workflowId, agentKey, index) {
 
 
 // ── WorkflowTaskGenerator ─────────────────────────────────────────────────────
+
+// ── generateDebugTask ─────────────────────────────────────────────────────────
+//
+// WHY: test-debug-worker.js Section 4 imports { generateDebugTask } directly.
+// This is a standalone factory — WorkflowTaskGenerator is NOT modified.
+//
+// Returns a task descriptor shaped for direct consumption by run() in
+// api/agents/debug/worker.js (task.input is the run() input shape).
+
+export function generateDebugTask({
+  projectId      = null,
+  errorLogs      = "",
+  buildReport    = "",
+  generatedFiles = []
+} = {}) {
+
+  return {
+    taskId:   `DEBUG-${projectId}-${Date.now()}`,
+    agentId:  "debug_worker",
+    type:     "DEBUG",
+    priority: 1,
+    input: {
+      projectId,
+      errorLogs,
+      buildReport,
+      generatedFiles
+    }
+  };
+
+}
+
 
 export class WorkflowTaskGenerator {
 

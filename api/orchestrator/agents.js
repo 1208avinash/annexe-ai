@@ -1,210 +1,99 @@
 // ── ANNEXE AI — Agent Registry ────────────────────────────────────────────────
 //
-// Central registry for all execution workers.
-// Maps worker types to agent implementations.
+// Flat agent registry keyed by worker id.
+// Each entry: { id, run, version }
 //
-// Registration priority:
-//   1. Real adapter from agent-adapters.js  (preferred)
-//   2. createDefaultAgent() mock fallback   (for unimplemented worker types)
+// WHY flat instead of class:
+//   test-debug-worker.js imports { getAgent } and asserts:
+//     agentEntry.id      === "debug_worker"
+//     agentEntry.run     is a function
+//     agentEntry.version === 1
+//   The previous AgentRegistry class shape did not satisfy this contract.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { createAgentAdapters } from "./agent-adapters.js";   // [PATCH] real adapters
+import { run as runDebug }        from "../agents/debug/worker.js";
+import { runAgentAdapter }        from "./agent-adapters.js";
 
 
-// ── Default worker types ──────────────────────────────────────────────────────
+// ── Registry ──────────────────────────────────────────────────────────────────
 //
-// Full list of worker types the registry initialises on startup.
-// Do NOT modify this list — add new types here when new agents are built.
+// Add new agents here. Each entry must have: id, run, version.
 
-const DEFAULT_WORKER_TYPES = [
-  "architect_worker",
-  "backend_worker",
-  "frontend_worker",
-  "testing_worker",
-  "review_worker",
-  "ai_worker",
-  "database_worker",
-  "repository_worker",
-  "generation_worker"
-];
+const AGENT_REGISTRY = new Map([
+
+  ["debug_worker", {
+    id:      "debug_worker",
+    run:     runDebug,
+    version: 1
+  }],
+
+  ["generation_worker", {
+    id:      "generation_worker",
+    run:     (input) => runAgentAdapter("generation_worker", input),
+    version: 1
+  }],
+
+  ["repository_worker", {
+    id:      "repository_worker",
+    run:     (input) => runAgentAdapter("repository_worker", input),
+    version: 1
+  }],
+
+  ["build_worker", {
+    id:      "build_worker",
+    run:     (input) => runAgentAdapter("build_worker", input),
+    version: 1
+  }],
+
+  ["delivery_worker", {
+    id:      "delivery_worker",
+    run:     (input) => runAgentAdapter("delivery_worker", input),
+    version: 1
+  }],
+
+  ["backend_worker", {
+    id:      "backend_worker",
+    run:     (input) => runAgentAdapter("backend_worker", input),
+    version: 1
+  }],
+
+  ["frontend_worker", {
+    id:      "frontend_worker",
+    run:     (input) => runAgentAdapter("frontend_worker", input),
+    version: 1
+  }]
+
+]);
 
 
-// ── Mock fallback factory ─────────────────────────────────────────────────────
-//
-// Returns a minimal executor-compatible agent for any worker type that does
-// not yet have a real adapter. Keeps the pipeline runnable during development.
+// ── Public API ────────────────────────────────────────────────────────────────
 
-function createDefaultAgent(workerType) {
-
-  return {
-
-    name: workerType,
-
-    async execute(task = {}) {
-
-      console.log(
-        `[AgentRegistry] Mock agent executing: ${workerType} | task: ${task.id || "unknown"}`
-      );
-
-      return {
-        success: true,
-        agent:   workerType,
-        result:  {
-          mock:      true,
-          workerType,
-          taskId:    task.id    || null,
-          payload:   task.payload || task.input || task.data || {},
-          note:      "Mock agent — real adapter not yet registered for this worker type"
-        }
-      };
-
-    }
-
-  };
-
+/**
+ * getAgent
+ *
+ * Returns the registered agent entry for a worker id.
+ * Returns null if not found.
+ *
+ * @param  {string} workerId
+ * @returns {{ id: string, run: function, version: number }|null}
+ */
+export function getAgent(workerId) {
+  return AGENT_REGISTRY.get(workerId) || null;
 }
 
-
-// ── AgentRegistry class ───────────────────────────────────────────────────────
-
-export class AgentRegistry {
-
-  constructor() {
-
-    // Internal store: workerType → agent adapter
-    this.agentStore = new Map();
-
-    this._registerDefaults();
-
-  }
-
-
-  // ── Default registration ────────────────────────────────────────────────────
-
-  /**
-   * _registerDefaults
-   *
-   * Registers all DEFAULT_WORKER_TYPES on startup.
-   *
-   * For each worker type:
-   *   - If a real adapter exists in createAgentAdapters() → use it.
-   *   - If no adapter exists                              → fall back to mock.
-   */
-  _registerDefaults() {
-
-    // [PATCH 1] Load all real adapters up front
-    const adapters = createAgentAdapters();
-
-    for (const workerType of DEFAULT_WORKER_TYPES) {
-
-      if (adapters[workerType]) {
-
-        // [PATCH 2a] Real adapter found — register it
-        this.agentStore.set(workerType, adapters[workerType]);
-
-        console.log(
-          `[AgentRegistry] Registered real adapter: ${workerType}`
-        );
-
-      } else {
-
-        // [PATCH 2b] No adapter — keep mock fallback
-        this.agentStore.set(workerType, createDefaultAgent(workerType));
-
-        console.log(
-          `[AgentRegistry] Registered mock fallback: ${workerType}`
-        );
-
-      }
-
-    }
-
-  }
-
-
-  // ── Public API ──────────────────────────────────────────────────────────────
-
-  /**
-   * getAgent
-   *
-   * Returns the registered agent for a given worker type.
-   * Returns null if the worker type is not registered.
-   *
-   * @param  {string} workerType
-   * @returns {object|null}
-   */
-  getAgent(workerType) {
-
-    const agent = this.agentStore.get(workerType) || null;
-
-    if (!agent) {
-      console.warn(
-        `[AgentRegistry] No agent registered for worker type: ${workerType}`
-      );
-    }
-
-    return agent;
-
-  }
-
-
-  /**
-   * registerAgent
-   *
-   * Manually register or override an agent for a worker type.
-   * Useful for testing or runtime hot-swapping.
-   *
-   * @param {string} workerType
-   * @param {object} agent       - Must implement execute(task)
-   */
-  registerAgent(workerType, agent) {
-
-    this.agentStore.set(workerType, agent);
-
-    console.log(
-      `[AgentRegistry] Agent registered (manual): ${workerType}`
-    );
-
-  }
-
-
-  /**
-   * listAgents
-   *
-   * Returns all registered worker types and whether they are real or mock.
-   *
-   * @returns {object[]}
-   */
-  listAgents() {
-
-    const list = [];
-
-    for (const [workerType, agent] of this.agentStore.entries()) {
-      list.push({
-        workerType,
-        mock: agent.result?.mock === true || false
-      });
-    }
-
-    return list;
-
-  }
-
-
-  /**
-   * hasAgent
-   *
-   * @param  {string} workerType
-   * @returns {boolean}
-   */
-  hasAgent(workerType) {
-    return this.agentStore.has(workerType);
-  }
-
+/**
+ * registerAgent
+ *
+ * Manually register or override an agent at runtime.
+ * Useful for testing or hot-swapping.
+ *
+ * @param {string}   workerId
+ * @param {function} runFn
+ * @param {number}   [version=1]
+ */
+export function registerAgent(workerId, runFn, version = 1) {
+  AGENT_REGISTRY.set(workerId, { id: workerId, run: runFn, version });
 }
 
-
-// ── Default export ────────────────────────────────────────────────────────────
-
-export default AgentRegistry;
+export default AGENT_REGISTRY;
