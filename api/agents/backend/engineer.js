@@ -240,15 +240,40 @@ function buildFromFeatures(features, serviceMap, apiMap, dbMap) {
 // ── Main exported agent function ──────────────────────────────────────────────
 
 export function runBackendEngineerAgent({
+  // Top-level fields sent by backendAdapter
+  projectId:    _projectId    = null,
+  architecture: _architecture = null,
+  solution:     _solution     = null,
+  // Legacy nested fields (HTTP handler / direct calls)
   project          = {},
   technology       = {},
   requirements     = {},
   engineeringTasks = []
 } = {}) {
 
-  const projectId = project.projectId || null;
-  const features  = requirements.features || [];
-  const framework = detectFramework(technology);
+  // Resolve projectId — adapter sends top-level; legacy path uses project.projectId
+  const projectId = _projectId || project.projectId || null;
+
+  // Resolve technology — adapter sends architecture.backend/frontend; legacy sends technology{}
+  const resolvedTechnology = Object.keys(technology).length
+    ? technology
+    : {
+        backend:  _architecture?.backend?.framework  || "",
+        frontend: _architecture?.frontend?.framework || "",
+        database: _architecture?.database?.engine    || ""
+      };
+
+  // Resolve features — legacy: requirements.features; adapter: architecture keys as signal
+  const features = requirements.features
+    || (_architecture ? Object.keys(_architecture) : []);
+
+  const framework = detectFramework(resolvedTechnology);
+
+  console.log("[BACKEND PARSER]", {
+    projectId,
+    hasArchitecture:  !!_architecture,
+    architectureKeys: Object.keys(_architecture || {})
+  });
 
   const { services, apis, dbTasks } = buildFromFeatures(
     features,
