@@ -20,6 +20,7 @@ const TEMPLATES = {
     { name: "Architecture",  agent: "architect_agent"   },
     { name: "Backend",       agent: "backend_worker"    },
     { name: "Frontend",      agent: "frontend_worker"   },
+    { name: "Execution",     agent: "execution_worker"  },
     { name: "Testing",       agent: "testing_worker"    },
     { name: "Review",        agent: "review_worker"     }
   ],
@@ -30,6 +31,7 @@ const TEMPLATES = {
     { name: "Backend",       agent: "backend_worker"    },
     { name: "CRM Module",    agent: "crm_worker"        },
     { name: "Frontend",      agent: "frontend_worker"   },
+    { name: "Execution",     agent: "execution_worker"  },
     { name: "Testing",       agent: "testing_worker"    },
     { name: "Review",        agent: "review_worker"     }
   ],
@@ -41,6 +43,7 @@ const TEMPLATES = {
     { name: "Backend",       agent: "backend_worker"    },
     { name: "Frontend",      agent: "frontend_worker"   },
     { name: "Billing",       agent: "billing_worker"    },
+    { name: "Execution",     agent: "execution_worker"  },
     { name: "Testing",       agent: "testing_worker"    },
     { name: "Review",        agent: "review_worker"     }
   ],
@@ -51,6 +54,7 @@ const TEMPLATES = {
     { name: "Backend",       agent: "backend_worker"    },
     { name: "Automation Engine", agent: "automation_worker" },
     { name: "Frontend",      agent: "frontend_worker"   },
+    { name: "Execution",     agent: "execution_worker"  },
     { name: "Testing",       agent: "testing_worker"    },
     { name: "Review",        agent: "review_worker"     }
   ],
@@ -61,6 +65,7 @@ const TEMPLATES = {
     { name: "AI Layer",      agent: "ai_worker"         },
     { name: "Backend",       agent: "backend_worker"    },
     { name: "Frontend",      agent: "frontend_worker"   },
+    { name: "Execution",     agent: "execution_worker"  },
     { name: "Testing",       agent: "testing_worker"    },
     { name: "Review",        agent: "review_worker"     }
   ]

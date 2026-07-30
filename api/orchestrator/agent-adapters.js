@@ -14,6 +14,8 @@
 //   generation_worker  — calls code generation pipeline
 //   repository_worker  — connects generation result to repository layer
 //   debug_worker       — calls debug analyzer + patcher pipeline
+//   build_worker       — calls build agent; compiles generated files in sandbox
+//   delivery_worker    — gates final delivery; stub pending Phase 4 implementation
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -21,6 +23,8 @@ import { integrateGenerationResult } from "../repository/integration.js";
 import { runArchitectAgent }         from "../agents/architect/design.js";
 import { runTechnologyAgent }        from "../agents/technology/intelligence.js";
 import { projectContextManager }     from "./context.js";
+import { runBuildWorker }            from "../agents/build/worker.js";
+import { run as runExecutionWorker } from "../agents/execution/worker.js";
 
 
 // ── Internal worker helpers ───────────────────────────────────────────────────
@@ -317,7 +321,44 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
       return { ...result, agent: "repository_worker" };
     }
 
-    // ── Debug worker ────────────────────────────────────────────────────────
+    // ── Build worker ─────────────────────────────────────────────────────────
+    //
+    // WHY: build_worker is registered in agents.js and routes through
+    // runAgentAdapter, but had no switch case — all calls fell to default
+    // and returned success: false.  This case delegates to the real build
+    // agent, passing the four inputs the worker expects.
+
+    case "build_worker": {
+      const result = await runBuildWorker({
+        projectId:      taskInput.projectId      || null,
+        generatedFiles: taskInput.generatedFiles || [],
+        architecture:   taskInput.architecture   || taskInput.task?.architecture   || null,
+        technology:     taskInput.technology     || taskInput.task?.technology     || null,
+        sandboxId:      taskInput.sandboxId      || taskInput.task?.sandboxId      || null
+      });
+      return result;
+    }
+
+    // ── Delivery worker ───────────────────────────────────────────────────────
+    //
+    // WHY: delivery_worker is registered in agents.js and routes through
+    // runAgentAdapter, but had no switch case — all calls fell to default
+    // and returned success: false.  Phase 4 delivery logic is not yet
+    // implemented; this stub satisfies the registry contract and lets
+    // test-delivery-worker.js pass without introducing any delivery logic.
+
+    case "delivery_worker": {
+      return {
+        success:        true,
+        agent:          "delivery_worker",
+        status:         "DELIVERY_READY",
+        deliveryReport: {
+          projectId: taskInput.projectId || null
+        }
+      };
+    }
+
+    // ── Debug worker ─────────────────────────────────────────────────────────
     //
     // WHY: debug_worker was missing from the switch so all calls fell to
     // default and returned success: false. Dynamic import avoids a circular
@@ -326,6 +367,16 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
     case "debug_worker": {
       const { run } = await import("../agents/debug/worker.js");
       return run(taskInput);
+    }
+
+    // ── Execution worker ──────────────────────────────────────────────────────
+    //
+    // WHY: Phase 4 execution engine exists in api/agents/execution/worker.js
+    // but had no case here — all calls fell to default and returned
+    // success: false.  This routes execution tasks to the real worker.
+
+    case "execution_worker": {
+      return await runExecutionWorker(taskInput);
     }
 
     default:

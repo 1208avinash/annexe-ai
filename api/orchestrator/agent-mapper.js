@@ -23,7 +23,8 @@ const ROUTE_MAP = new Map([
   ["build_worker",      "/api/agents/build/worker"],
   ["delivery_worker",   "/api/agents/delivery/worker"],
   ["backend_worker",    "/api/agents/backend/worker"],
-  ["frontend_worker",   "/api/agents/frontend/worker"]
+  ["frontend_worker",   "/api/agents/frontend/worker"],
+  ["execution_worker",  "/api/agents/execution/worker"]
 ]);
 
 

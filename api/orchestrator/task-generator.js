@@ -26,8 +26,9 @@ const AGENT_TYPE_MAP = {
   billing_worker:     "CODE_GENERATION",
   crm_worker:         "CODE_GENERATION",
   automation_worker:  "CODE_GENERATION",
-  debug_worker: "DEBUG",
-  generation_worker:  "CODE_GENERATION"
+  debug_worker:       "DEBUG",
+  generation_worker:  "CODE_GENERATION",
+  execution_worker:   "EXECUTION"
 };
 
 

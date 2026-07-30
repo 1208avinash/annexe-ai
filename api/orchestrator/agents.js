@@ -62,6 +62,12 @@ const AGENT_REGISTRY = new Map([
     id:      "frontend_worker",
     run:     (input) => runAgentAdapter("frontend_worker", input),
     version: 1
+  }],
+
+  ["execution_worker", {
+    id:      "execution_worker",
+    run:     (input) => runAgentAdapter("execution_worker", input),
+    version: 1
   }]
 
 ]);
@@ -97,3 +103,43 @@ export function registerAgent(workerId, runFn, version = 1) {
 }
 
 export default AGENT_REGISTRY;
+
+
+// ── AgentRegistry class ───────────────────────────────────────────────────────
+//
+// WHY: AgentExecutor calls `new AgentRegistry()` and `agent.execute(task)`.
+// The flat registry above satisfies existing test contracts ({ id, run, version }).
+// This class wraps the same AGENT_REGISTRY Map so both contracts are served
+// from one source of truth — no duplication, no breakage.
+//
+// Returned entries expose:
+//   id, run, version   — existing contract (tests, pipeline callers)
+//   execute(input)     — new contract (AgentExecutor)
+
+export class AgentRegistry {
+
+  /**
+   * getAgent
+   *
+   * Returns the registry entry for a worker id, augmented with execute().
+   * Returns null if the worker is not registered.
+   *
+   * @param  {string} workerId
+   * @returns {{ id: string, run: function, version: number, execute: function }|null}
+   */
+  getAgent(workerId) {
+
+    const entry = AGENT_REGISTRY.get(workerId);
+
+    if (!entry) return null;
+
+    return {
+      id:      entry.id,
+      run:     entry.run,
+      version: entry.version,
+      execute: (input) => entry.run(input)
+    };
+
+  }
+
+}
