@@ -1,4 +1,5 @@
-import runExecution from "../../execution/runner.js";
+import runExecution              from "../../execution/runner.js";
+import { SandboxManager }        from "../../sandbox/manager.js";
 
 
 /*
@@ -10,6 +11,8 @@ import runExecution from "../../execution/runner.js";
 
   Responsibility:
   - Validate incoming agent contract
+  - Create an isolated sandbox workspace when generatedFiles are provided
+    and no explicit cwd is supplied
   - Call runExecution() from the execution engine
   - Translate execution result into agent contract shape
 
@@ -19,8 +22,16 @@ import runExecution from "../../execution/runner.js";
   - Call the debug worker
   - Run git operations
   - Deploy to any environment
+  - Clean up sandbox directories (reserved for cleanup.js)
 */
 
+
+// ── Module-level SandboxManager instance ─────────────────────────────────────
+
+const sandboxManager = new SandboxManager();
+
+
+// ── run ───────────────────────────────────────────────────────────────────────
 
 export async function run({
   projectId,
@@ -73,7 +84,49 @@ export async function run({
   }
 
 
-  // ── 3. EXECUTE ───────────────────────────────────────
+  // ── 3. RESOLVE EXECUTION DIRECTORY ──────────────────
+  //
+  // If the caller supplied an explicit cwd, honour it (backward compat).
+  // Otherwise, when generatedFiles are present, spin up an isolated sandbox
+  // workspace and use its path as the execution directory.
+
+  let executionCwd = cwd || null;
+
+  if (!executionCwd && Array.isArray(generatedFiles) && generatedFiles.length > 0) {
+
+    const sandboxResult = await sandboxManager.create({
+      projectId,
+      generatedFiles
+    });
+
+    if (!sandboxResult.success) {
+      return {
+        success: false,
+        agent: "execution_worker",
+        status: "BUILD_FAILED",
+        errorLogs: {
+          errors: [
+            `Sandbox workspace creation failed: ${sandboxResult.error}`
+          ],
+          warnings: [],
+          output: "",
+          commands: []
+        },
+        executionReport: {}
+      };
+    }
+
+    executionCwd = sandboxResult.workspace.path;
+
+    console.log(
+      "ANNEXE EXECUTION WORKER — Sandbox workspace ready:",
+      executionCwd
+    );
+
+  }
+
+
+  // ── 4. EXECUTE ───────────────────────────────────────
 
   let result;
 
@@ -84,7 +137,7 @@ export async function run({
       buildReport,
       generatedFiles,
       technology,
-      cwd
+      cwd: executionCwd
     });
 
   } catch (unexpectedError) {
@@ -107,7 +160,7 @@ export async function run({
   }
 
 
-  // ── 4. TRANSLATE TO AGENT CONTRACT ───────────────────
+  // ── 5. TRANSLATE TO AGENT CONTRACT ───────────────────
 
   if (result.success) {
 
