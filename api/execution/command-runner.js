@@ -1,5 +1,24 @@
-import { spawn } from "child_process";
+import { spawn }           from "child_process";
+import { validateCommand } from "./command-policy.js";
 
+
+
+// ── OS command normalisation ──────────────────────────────────────────────────
+//
+// Windows exposes npm and npx as .cmd shims.
+// spawn() with shell:false cannot resolve bare "npm" on Win32.
+// Normalise the executable token before splitting so the rest of the
+// runner is platform-agnostic.
+
+function normalizeCommand(command) {
+
+  if (process.platform !== "win32") return command;
+
+  return command
+    .replace(/^npm(\s|$)/, "npm.cmd$1")
+    .replace(/^npx(\s|$)/, "npx.cmd$1");
+
+}
 
 /*
   ANNEXE EXECUTION ENGINE
@@ -28,6 +47,25 @@ export async function runCommand({
   timeout = 60000
 } = {}) {
 
+
+  // ── Policy check ─────────────────────────────────────────────────────────
+
+  const policy = validateCommand(command);
+
+  if (!policy.allowed) {
+    return {
+      success:  false,
+      command,
+      stdout:   "",
+      stderr:   "",
+      exitCode: null,
+      duration: 0,
+      error:    policy.reason
+    };
+  }
+
+
+  // ── Existing validation ───────────────────────────────────────────────────
 
   if (!command || typeof command !== "string") {
 
@@ -59,18 +97,34 @@ export async function runCommand({
     /*
       Split command string into executable + args.
       e.g. "npm run build" → ["npm", ["run", "build"]]
+      On Windows, normalise npm/npx to their .cmd shims first.
     */
 
     const [executable, ...args] =
-      command.trim().split(/\s+/);
+      normalizeCommand(command.trim()).split(/\s+/);
 
 
     let child;
 
 
+    // ── Platform-aware spawn ─────────────────────────────────────────────────
+    //
+    // Linux/macOS: spawn executable directly with shell:false.
+    // Windows:     .cmd files must be run through cmd.exe explicitly to avoid
+    //              EINVAL (shell:false can't execute batch scripts) and
+    //              DEP0190 (shell:true with args array is deprecated).
+
+    const spawnArgs = process.platform === "win32" && executable.endsWith(".cmd")
+      ? ["/c", executable, ...args]
+      : args;
+
+    const spawnExecutable = process.platform === "win32" && executable.endsWith(".cmd")
+      ? "cmd.exe"
+      : executable;
+
     try {
 
-      child = spawn(executable, args, {
+      child = spawn(spawnExecutable, spawnArgs, {
         cwd,
         shell: false,
         env: process.env

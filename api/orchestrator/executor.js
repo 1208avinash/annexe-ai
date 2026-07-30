@@ -9,8 +9,9 @@
 */
 
 
-import { AgentRegistry } from "./agents.js";
-import { ResultManager } from "./results.js";
+import { AgentRegistry }               from "./agents.js";
+import { ResultManager }               from "./results.js";
+import { sendExecutionFailureToDebug } from "./execution-debug-bridge.js";
 
 
 /*
@@ -163,6 +164,39 @@ export class AgentExecutor {
         agent: agent.name,
         error
       });
+
+      // Route execution_worker failures to Debug Worker via bridge.
+      // Runs after ResultManager so existing failure storage is unaffected.
+      // Wrapped in try/catch: debug failure must never crash the executor.
+      if (task?.agent === "execution_worker") {
+
+        try {
+
+          const debugOutcome = sendExecutionFailureToDebug({
+            projectId:      task.projectId,
+            executionResult: agentResult,
+            generatedFiles:  task.generatedFiles || []
+          });
+
+          console.log(
+            "ANNEXE EXECUTOR — Debug bridge result:",
+            taskId,
+            debugOutcome.success
+              ? "diagnosis ready"
+              : `bridge error: ${debugOutcome.error}`
+          );
+
+        } catch (debugErr) {
+
+          console.log(
+            "ANNEXE EXECUTOR — Debug bridge threw (non-fatal):",
+            taskId,
+            debugErr.message
+          );
+
+        }
+
+      }
 
       return {
         success: false,
