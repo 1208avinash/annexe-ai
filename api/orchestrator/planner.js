@@ -129,9 +129,9 @@ export class WorkflowPlanner {
   //
   // @returns {object} Workflow plan with phases and derived task list
 
-  createWorkflowPlan(project = {}) {
+  createWorkflowPlan(project = {}, forcedType = null) {
 
-    const projectType = detectProjectType(project);
+    const projectType = forcedType || detectProjectType(project);
     const phases      = this.selectTemplate(projectType);
 
     // ── Derive a flat task list from phases ───────────────────────────────
