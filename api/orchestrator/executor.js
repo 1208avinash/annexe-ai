@@ -6,12 +6,19 @@
   Resolves agents from the registry and executes them.
   Routes results through ResultManager.
   In-memory only. No external dependencies. No API calls.
+
+  Phase 8.1 integration:
+  When execution_worker fails, the result is routed through the debug bridge
+  and submitted to DebugApprovalService. The executor returns PENDING_APPROVAL
+  so the caller can surface the debugId to the approval workflow.
+  No automatic approval, no automatic repair, no retry.
 */
 
 
 import { AgentRegistry }               from "./agents.js";
 import { ResultManager }               from "./results.js";
 import { sendExecutionFailureToDebug } from "./execution-debug-bridge.js";
+import { DebugApprovalService }        from "./debug-approval-service.js";
 
 
 /*
@@ -26,8 +33,9 @@ export class AgentExecutor {
 
   constructor() {
 
-    this.registry      = new AgentRegistry();
-    this.resultManager = new ResultManager();
+    this.registry        = new AgentRegistry();
+    this.resultManager   = new ResultManager();
+    this.approvalService = new DebugApprovalService();
 
   }
 
@@ -53,7 +61,17 @@ export class AgentExecutor {
       result:  {}
     }
 
-    Returns on failure:
+    Returns on execution_worker failure (Phase 8.1):
+    {
+      success:   false,
+      taskId:    string,
+      status:    "PENDING_APPROVAL",
+      debugId:   string,
+      diagnosis: object,
+      patchPlan: array
+    }
+
+    Returns on other failure:
     {
       success: false,
       taskId:  string,
@@ -165,15 +183,23 @@ export class AgentExecutor {
         error
       });
 
-      // Route execution_worker failures to Debug Worker via bridge.
-      // Runs after ResultManager so existing failure storage is unaffected.
-      // Wrapped in try/catch: debug failure must never crash the executor.
+
+      // ── Phase 8.1: Route execution_worker failures into approval workflow ──
+      //
+      // 1. Send failure to debug bridge → get diagnosis + patchPlan
+      // 2. Submit to DebugApprovalService → get debugId
+      // 3. Return PENDING_APPROVAL so caller can surface the debugId
+      //
+      // No automatic approval. No automatic repair. No retry.
+      // Failure storage above is preserved (ResultManager already called).
+
       if (task?.agent === "execution_worker") {
 
         try {
 
+          // Step 1 — Debug bridge: execution failure → diagnosis + patchPlan
           const debugOutcome = sendExecutionFailureToDebug({
-            projectId:      task.projectId,
+            projectId:       task.projectId,
             executionResult: agentResult,
             generatedFiles:  task.generatedFiles || []
           });
@@ -186,8 +212,45 @@ export class AgentExecutor {
               : `bridge error: ${debugOutcome.error}`
           );
 
+          if (debugOutcome.success) {
+
+            const { debugResult } = debugOutcome;
+
+            // Step 2 — Submit to approval service
+            // debugResult carries diagnosis and patchPlan from the debug worker
+            const submitOutcome = this.approvalService.submitForApproval({
+              projectId: task.projectId,
+              diagnosis: debugResult?.diagnosis || { status: "unknown", errors: [] },
+              patchPlan: debugResult?.patchPlan || []
+            });
+
+            console.log(
+              "ANNEXE EXECUTOR — Approval submitted:",
+              taskId,
+              submitOutcome.success
+                ? `debugId=${submitOutcome.debugId}`
+                : `submit error: ${submitOutcome.error}`
+            );
+
+            // Step 3 — Return PENDING_APPROVAL with debugId surfaced to caller
+            if (submitOutcome.success) {
+
+              return {
+                success:   false,
+                taskId,
+                status:    "PENDING_APPROVAL",
+                debugId:   submitOutcome.debugId,
+                diagnosis: debugResult?.diagnosis || null,
+                patchPlan: debugResult?.patchPlan || []
+              };
+
+            }
+
+          }
+
         } catch (debugErr) {
 
+          // Debug/approval failure must never crash the executor
           console.log(
             "ANNEXE EXECUTOR — Debug bridge threw (non-fatal):",
             taskId,
@@ -197,6 +260,8 @@ export class AgentExecutor {
         }
 
       }
+      // ── End Phase 8.1 block ──────────────────────────────────────────────
+
 
       return {
         success: false,

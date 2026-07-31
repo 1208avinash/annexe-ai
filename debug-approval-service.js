@@ -23,8 +23,8 @@
 */
 
 
-import { DebugResultsManager } from "../../debug-results.js";
-import { ApprovalGate }        from "../../approval-gate.js";
+import { DebugResultsManager } from "./debug-results.js";
+import { ApprovalGate }        from "./approval-gate.js";
 
 
 // ── DebugApprovalService ──────────────────────────────────────────────────────
