@@ -145,8 +145,8 @@ assert("frontendGeneration is object",
 );
 
 // generatedFiles combined from both pipelines
-const backendFiles  = result.backendGeneration?.generatedFiles  || [];
-const frontendFiles = result.frontendGeneration?.generatedFiles || [];
+const backendFiles  = result.backendGeneration?.files || [];
+const frontendFiles = result.frontendGeneration?.files || [];
 const expectedTotal = backendFiles.length + frontendFiles.length;
 
 assert(`generatedFiles.length === backendFiles(${backendFiles.length}) + frontendFiles(${frontendFiles.length})`,
