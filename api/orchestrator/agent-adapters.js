@@ -30,6 +30,7 @@ import { run as runRebuildWorker } from "../agents/rebuild/worker.js";
 import { run as runRetestWorker } from "../agents/retest/worker.js";
 import { run as runQualityGateWorker } from "../agents/quality-gate/worker.js";
 import { run as runRollbackWorker } from "../agents/rollback/worker.js";
+import { run as runRiskWorker } from "../agents/risk/worker.js";
 
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
@@ -401,6 +402,10 @@ case "quality_gate_worker": {
 
 case "rollback_worker": {
     return await runRollbackWorker(taskInput);
+}
+
+case "risk_worker": {
+    return await runRiskWorker(taskInput);
 }
 
 default:

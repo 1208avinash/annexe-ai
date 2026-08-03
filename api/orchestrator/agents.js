@@ -98,6 +98,12 @@ const AGENT_REGISTRY = new Map([
     run:     (input) => runAgentAdapter("rollback_worker", input),
     version: 1
 }],
+
+["risk_worker", {
+    id:      "risk_worker",
+    run:     (input) => runAgentAdapter("risk_worker", input),
+    version: 1
+}],
   // ------------------------------------------------------------------
   // Planner-generated workers
   // ------------------------------------------------------------------
