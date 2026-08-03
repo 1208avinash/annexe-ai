@@ -27,6 +27,10 @@ import { runBuildWorker }            from "../agents/build/worker.js";
 import { run as runExecutionWorker } from "../agents/execution/worker.js";
 import { run as runRepairWorker } from "../agents/repair/worker.js";
 import { run as runRebuildWorker } from "../agents/rebuild/worker.js";
+import { run as runRetestWorker } from "../agents/retest/worker.js";
+import { run as runQualityGateWorker } from "../agents/quality-gate/worker.js";
+import { run as runRollbackWorker } from "../agents/rollback/worker.js";
+
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
 async function runArchitectWorker(taskInput) {
@@ -375,7 +379,7 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
     // but had no case here — all calls fell to default and returned
     // success: false.  This routes execution tasks to the real worker.
 
-    case "execution_worker": {
+case "execution_worker": {
     return await runExecutionWorker(taskInput);
 }
 
@@ -385,6 +389,18 @@ case "repair_worker": {
 
 case "rebuild_worker": {
     return await runRebuildWorker(taskInput);
+}
+
+case "retest_worker": {
+    return await runRetestWorker(taskInput);
+}
+
+case "quality_gate_worker": {
+    return await runQualityGateWorker(taskInput);
+}
+
+case "rollback_worker": {
+    return await runRollbackWorker(taskInput);
 }
 
 default:

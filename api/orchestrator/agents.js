@@ -80,6 +80,24 @@ const AGENT_REGISTRY = new Map([
     run:     (input) => runAgentAdapter("rebuild_worker", input),
     version: 1
 }],
+
+["retest_worker", {
+    id:      "retest_worker",
+    run:     (input) => runAgentAdapter("retest_worker", input),
+    version: 1
+}],
+
+["quality_gate_worker", {
+    id:      "quality_gate_worker",
+    run:     (input) => runAgentAdapter("quality_gate_worker", input),
+    version: 1
+}],
+
+["rollback_worker", {
+    id:      "rollback_worker",
+    run:     (input) => runAgentAdapter("rollback_worker", input),
+    version: 1
+}],
   // ------------------------------------------------------------------
   // Planner-generated workers
   // ------------------------------------------------------------------
