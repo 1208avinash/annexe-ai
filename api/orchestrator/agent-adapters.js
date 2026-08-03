@@ -26,7 +26,7 @@ import { projectContextManager }     from "./context.js";
 import { runBuildWorker }            from "../agents/build/worker.js";
 import { run as runExecutionWorker } from "../agents/execution/worker.js";
 import { run as runRepairWorker } from "../agents/repair/worker.js";
-
+import { run as runRebuildWorker } from "../agents/rebuild/worker.js";
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
 async function runArchitectWorker(taskInput) {
@@ -376,22 +376,26 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
     // success: false.  This routes execution tasks to the real worker.
 
     case "execution_worker": {
-      return await runExecutionWorker(taskInput);
-    }
-    case "repair_worker": {
-     return await runRepairWorker(taskInput);
-    }
-    default:
-      return {
-        success: false,
-        agent:   workerName,
-        error:   `Unknown worker: ${workerName}`
-      };
-  }
-
+    return await runExecutionWorker(taskInput);
 }
 
+case "repair_worker": {
+    return await runRepairWorker(taskInput);
+}
 
+case "rebuild_worker": {
+    return await runRebuildWorker(taskInput);
+}
+
+default:
+    return {
+        success: false,
+        agent: workerName,
+        error: `Unknown worker: ${workerName}`
+    };
+}
+
+}
 // ── Debug worker adapter ──────────────────────────────────────────────────────
 //
 // prepareInput  — shapes pipeline state → debug worker input
