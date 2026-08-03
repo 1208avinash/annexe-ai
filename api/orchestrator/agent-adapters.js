@@ -25,7 +25,7 @@ import { runTechnologyAgent }        from "../agents/technology/intelligence.js"
 import { projectContextManager }     from "./context.js";
 import { runBuildWorker }            from "../agents/build/worker.js";
 import { run as runExecutionWorker } from "../agents/execution/worker.js";
-
+import { run as runRepairWorker } from "../agents/repair/worker.js";
 
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
@@ -378,7 +378,9 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
     case "execution_worker": {
       return await runExecutionWorker(taskInput);
     }
-
+    case "repair_worker": {
+     return await runRepairWorker(taskInput);
+    }
     default:
       return {
         success: false,

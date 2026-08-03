@@ -63,10 +63,43 @@ const AGENT_REGISTRY = new Map([
     run:     (input) => runAgentAdapter("frontend_worker", input),
     version: 1
   }],
-
-  ["execution_worker", {
+["execution_worker", {
     id:      "execution_worker",
     run:     (input) => runAgentAdapter("execution_worker", input),
+    version: 1
+}],
+
+["repair_worker", {
+    id:      "repair_worker",
+    run:     (input) => runAgentAdapter("repair_worker", input),
+    version: 1
+}],
+
+  // ------------------------------------------------------------------
+  // Planner-generated workers
+  // ------------------------------------------------------------------
+
+  ["architect_agent", {
+    id:      "architect_agent",
+    run:     (input) => runAgentAdapter("architect_worker", input),
+    version: 1
+  }],
+
+  ["testing_worker", {
+    id:      "testing_worker",
+    run:     (input) => runAgentAdapter("testing_worker", input),
+    version: 1
+  }],
+
+  ["review_worker", {
+    id:      "review_worker",
+    run:     (input) => runAgentAdapter("review_worker", input),
+    version: 1
+  }],
+
+  ["crm_worker", {
+    id:      "crm_worker",
+    run:     (input) => runAgentAdapter("generation_worker", input),
     version: 1
   }]
 
