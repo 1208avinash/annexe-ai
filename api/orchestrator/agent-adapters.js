@@ -31,6 +31,12 @@ import { run as runRetestWorker } from "../agents/retest/worker.js";
 import { run as runQualityGateWorker } from "../agents/quality-gate/worker.js";
 import { run as runRollbackWorker } from "../agents/rollback/worker.js";
 import { run as runRiskWorker } from "../agents/risk/worker.js";
+import { run as runDependencyWorker } from "../agents/dependency/worker.js";
+import { run as runArchitectureValidatorWorker } from "../agents/architecture-validator/worker.js";
+import { run as runSecurityWorker } from "../agents/security/worker.js";
+import { run as runPerformanceWorker } from "../agents/performance/worker.js";
+import { run as runEngineeringIntelligenceWorker } from "../agents/engineering-intelligence/worker.js";
+import { run as runEngineeringOrchestratorWorker } from "../agents/engineering-orchestrator/worker.js";
 
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
@@ -406,6 +412,30 @@ case "rollback_worker": {
 
 case "risk_worker": {
     return await runRiskWorker(taskInput);
+}
+
+case "dependency_worker": {
+    return await runDependencyWorker(taskInput);
+}
+
+case "architecture_validator_worker": {
+    return await runArchitectureValidatorWorker(taskInput);
+}
+
+case "security_worker": {
+    return await runSecurityWorker(taskInput);
+}
+
+case "performance_worker": {
+    return await runPerformanceWorker(taskInput);
+}
+
+case "engineering_intelligence_worker": {
+    return await runEngineeringIntelligenceWorker(taskInput);
+}
+
+case "engineering_orchestrator_worker": {
+    return await runEngineeringOrchestratorWorker(taskInput);
 }
 
 default:

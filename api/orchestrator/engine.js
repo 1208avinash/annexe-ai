@@ -19,7 +19,8 @@ import { TaskQueue }    from "./queue.js";
 import { WorkerManager } from "./workers.js";
 import { AgentExecutor } from "./executor.js";
 import { AgentMapper }   from "./agent-mapper.js";   // [PATCH 1] AgentMapper import
-
+import GovernanceFramework from "./governance.js";
+import engineeringPlugin from "./plugins/engineering-plugin.js";
 
 export class AutonomousOrchestrator {
 
@@ -30,39 +31,56 @@ export class AutonomousOrchestrator {
     this.taskQueue     = new TaskQueue();
     this.workerManager = new WorkerManager();
     this.executor      = new AgentExecutor();
-    this.agentMapper   = new AgentMapper();           // [PATCH 2] AgentMapper instance
+    this.agentMapper = new AgentMapper(); // [PATCH 2]
 
-    this.running = false;
+this.governance = new GovernanceFramework();
 
+this.governance.register(engineeringPlugin);
+
+this.running = false;
   }
 
 
   // ── Queue a new task ────────────────────────────────────────────────────────
 
-  /**
-   * addTask
-   *
-   * Accepts a workflow task and pushes it onto the queue.
-   * The task.agent value may be a workflow agent name (e.g. "architect_agent").
-   * Mapping to an execution worker type happens at dispatch time in processNext().
-   *
-   * @param {object} task
-   * @returns {object} queued task
-   */
-  addTask(task) {
+ /**
+ * addTask
+ *
+ * Accepts a workflow task and pushes it onto the queue.
+ * The task.agent value may be a workflow task or worker.
+ *
+ * @param {object} task
+ * @returns {object}
+ */
+addTask(task) {
 
-    const queued = this.taskQueue.addTask(task);
+    const result = this.taskQueue.addTask(task);
+
+    if (!result.success) {
+
+        console.error(
+            "[OrchestratorEngine] Failed to queue task:",
+            result.error
+        );
+
+        return result;
+
+    }
+
+    const queued = result.task;
 
     console.log(
-      `[OrchestratorEngine] Task queued: ${queued.id} | agent: ${queued.agent}`
+        `[OrchestratorEngine] Task queued: ${queued.id} | agent: ${queued.agent}`
     );
 
-    this.emit("task:queued", { taskId: queued.id, agent: queued.agent });
+    this.emit("task:queued", {
+        taskId: queued.id,
+        agent: queued.agent
+    });
 
     return queued;
 
-  }
-
+}
 
   // ── Process next task ───────────────────────────────────────────────────────
 
@@ -102,11 +120,52 @@ export class AutonomousOrchestrator {
 
     try {
 
-      // [PATCH 4a] Assign using mappedTask (execution worker name)
-      this.workerManager.assignTask(mappedTask);
+      // ─────────────────────────────────────────────────────
+// Governance Review
+// ─────────────────────────────────────────────────────
 
-      // [PATCH 4b] Execute using mappedTask (execution worker name)
-      const result = await this.executor.executeTask(mappedTask);
+const governanceDecision =
+    await this.governance.review(mappedTask);
+
+if (!governanceDecision.allowed) {
+
+    console.warn(
+        "[Governance] Task blocked:",
+        mappedTask.id,
+        governanceDecision
+    );
+
+    this.emit("task:blocked", {
+
+        taskId: mappedTask.id,
+
+        decision: governanceDecision
+
+    });
+
+    this.taskQueue.failTask(
+        task.id,
+        new Error("Blocked by governance")
+    );
+
+    return {
+
+        success: false,
+
+        status: "BLOCKED",
+
+        governance: governanceDecision
+
+    };
+
+}
+
+// Continue normal execution
+
+this.workerManager.assignTask(mappedTask);
+
+const result =
+    await this.executor.executeTask(mappedTask);
 
       // Preserve original task id for queue update
       this.taskQueue.completeTask(task.id);
