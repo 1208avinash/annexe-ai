@@ -1,233 +1,120 @@
-// ────────────────────────────────────────────────────────────────
-// ANNEXE AI — Autonomous Decision Engine Test
-//
-// Phase 9.1 contract test.
-//
-// Verifies:
-//
-//   DecisionEngine
-//        ↓
-//   WorkflowPlanner
-//        ↓
-//   Decision result
-//
-// Does NOT modify production code.
-//
-// Run:
-//   node test-decision-engine.js
-//
-// ────────────────────────────────────────────────────────────────
+import assert from "assert";
 
-
-import { DecisionEngine } from "./api/orchestrator/decision-engine.js";
-
-
-// ── Assertion helper ────────────────────────────────────────────
+import DecisionEngine from "./api/decision-engine/decision-engine.js";
 
 let passed = 0;
 let failed = 0;
 
-function assert(label, condition, actual) {
+function test(name, fn) {
 
-  if (condition) {
+    try {
 
-    console.log(`  ✅  ${label}`);
-    passed++;
+        fn();
 
-  } else {
+        console.log(`✅ ${name}`);
 
-    console.error(`  ❌  ${label} → got: ${JSON.stringify(actual)}`);
-    failed++;
+        passed++;
 
-  }
+    }
+
+    catch (err) {
+
+        console.log(`❌ ${name}`);
+
+        console.error(err.message);
+
+        failed++;
+
+    }
 
 }
 
-
-// ────────────────────────────────────────────────────────────────
-// Stage 1 — LOW complexity decision
-// ────────────────────────────────────────────────────────────────
-
-console.log("\n════════════════════════════════════════");
-console.log("  Stage 1 — LOW complexity project");
-console.log("════════════════════════════════════════\n");
-
+console.log("");
+console.log("══════════════════════════════════════");
+console.log(" DECISION ENGINE TEST");
+console.log("══════════════════════════════════════");
+console.log("");
 
 const engine = new DecisionEngine();
 
+test("approve recommendation", () => {
 
-const lowDecision = engine.analyze({
+    const result = engine.decide({
 
-  name: "Marketing Website",
+        recommendationId: "REC-001",
 
-  description: "Simple landing page",
+        projectId: "CRM-001",
 
-  requirements: [
-    "content pages",
-    "contact form"
-  ]
+        architecture: "Multi-tenant SaaS",
 
-});
+        backend: "Node.js",
 
+        frontend: "React",
 
-assert(
-  "decision returns object",
-  lowDecision !== null && lowDecision !== undefined,
-  lowDecision
-);
+        database: "PostgreSQL",
 
+        engineeringPatterns: ["crm"],
 
-assert(
-  "success === true",
-  lowDecision?.success === true,
-  lowDecision?.success
-);
+        confidence: 0.94
 
+    });
 
-assert(
-  "complexity === LOW",
-  lowDecision?.complexity === "LOW",
-  lowDecision?.complexity
-);
+    assert.equal(result.approved, true);
 
+    assert.equal(result.projectId, "CRM-001");
 
-assert(
-  "approvalRequired === false",
-  lowDecision?.approvalRequired === false,
-  lowDecision?.approvalRequired
-);
-
-
-
-// ────────────────────────────────────────────────────────────────
-// Stage 2 — HIGH complexity SaaS decision
-// ────────────────────────────────────────────────────────────────
-
-console.log("\n════════════════════════════════════════");
-console.log("  Stage 2 — HIGH complexity SaaS project");
-console.log("════════════════════════════════════════\n");
-
-
-const highDecision = engine.analyze({
-
-  name: "AI SaaS CRM Platform",
-
-  description: "Multi tenant AI sales automation platform",
-
-  requirements: [
-    "multi tenant",
-    "billing",
-    "AI assistant",
-    "customer management"
-  ]
+    assert.ok(result.decisionConfidence > 0);
 
 });
 
+test("reject recommendation", () => {
 
-assert(
-  "saas project detected",
-  highDecision?.projectType === "saas",
-  highDecision?.projectType
-);
+    const result = engine.decide({
 
+        recommendationId: "REC-002",
 
-assert(
-  "complexity === HIGH",
-  highDecision?.complexity === "HIGH",
-  highDecision?.complexity
-);
+        projectId: "CRM-002",
 
+        architecture: "",
 
-assert(
-  "approvalRequired === true",
-  highDecision?.approvalRequired === true,
-  highDecision?.approvalRequired
-);
+        backend: "",
 
+        frontend: "",
 
+        database: "",
 
-// ────────────────────────────────────────────────────────────────
-// Stage 3 — Planner integration
-// ────────────────────────────────────────────────────────────────
+        engineeringPatterns: [],
 
-console.log("\n════════════════════════════════════════");
-console.log("  Stage 3 — Planner integration");
-console.log("════════════════════════════════════════\n");
+        confidence: 0.20
 
+    });
 
-assert(
-  "workflow plan exists",
-  highDecision?.plan !== undefined,
-  highDecision?.plan
-);
-
-
-assert(
-  "plan contains tasks",
-  Array.isArray(highDecision?.plan?.tasks)
-    && highDecision.plan.tasks.length > 0,
-  highDecision?.plan?.tasks
-);
-
-
-assert(
-  "plan projectType matches decision",
-  highDecision?.plan?.projectType === highDecision?.projectType,
-  {
-    plan: highDecision?.plan?.projectType,
-    decision: highDecision?.projectType
-  }
-);
-
-
-
-// ────────────────────────────────────────────────────────────────
-// Stage 4 — Unknown project fallback
-// ────────────────────────────────────────────────────────────────
-
-console.log("\n════════════════════════════════════════");
-console.log("  Stage 4 — Unknown project fallback");
-console.log("════════════════════════════════════════\n");
-
-
-const unknownDecision = engine.analyze({
-
-  name: "Random Application"
+    assert.equal(result.approved, false);
 
 });
 
+console.log("");
+console.log("══════════════════════════════════════");
+console.log(" DECISION ENGINE RESULT");
+console.log("══════════════════════════════════════");
+console.log("");
 
-assert(
-  "unknown project succeeds",
-  unknownDecision?.success === true,
-  unknownDecision?.success
-);
+console.log(`Passed : ${passed}`);
+console.log(`Failed : ${failed}`);
 
-
-assert(
-  "workflow strategy exists",
-  !!unknownDecision?.workflowStrategy,
-  unknownDecision?.workflowStrategy
-);
-
-
-
-// ────────────────────────────────────────────────────────────────
-
-console.log("\n════════════════════════════════════════");
-console.log(`  Decision Engine Test — ${passed} passed, ${failed} failed`);
+console.log("");
 
 if (failed === 0) {
 
-  console.log("  ✅ DECISION ENGINE TEST PASSED");
+    console.log("✅ PASS");
 
 } else {
 
-  console.log("  ❌ DECISION ENGINE TEST FAILED");
+    console.log("❌ FAIL");
+
+    process.exit(1);
 
 }
 
-console.log("════════════════════════════════════════\n");
-
-
-process.exitCode = failed === 0 ? 0 : 1;
+console.log("");
+console.log("══════════════════════════════════════");
