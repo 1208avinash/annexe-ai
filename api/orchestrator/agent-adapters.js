@@ -37,6 +37,9 @@ import { run as runSecurityWorker } from "../agents/security/worker.js";
 import { run as runPerformanceWorker } from "../agents/performance/worker.js";
 import { run as runEngineeringIntelligenceWorker } from "../agents/engineering-intelligence/worker.js";
 import { run as runEngineeringOrchestratorWorker } from "../agents/engineering-orchestrator/worker.js";
+import { run as runRequirementIntelligenceWorker } from "../engineering-brain/requirement-intelligence/worker.js";
+
+
 
 // ── Internal worker helpers ───────────────────────────────────────────────────
 
@@ -212,7 +215,12 @@ export async function runAgentAdapter(workerName, taskInput = {}) {
     case "architect_worker": {
       return runArchitectWorker(taskInput);
     }
+     
+    case "requirement_intelligence_worker": {
 
+    return await runRequirementIntelligenceWorker(taskInput);
+
+    }
     case "technology_worker": {
       return runTechnologyWorker(taskInput);
     }

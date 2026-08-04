@@ -132,8 +132,17 @@ export class WorkflowPlanner {
   createWorkflowPlan(project = {}, forcedType = null) {
 
     const projectType = forcedType || detectProjectType(project);
-    const phases      = this.selectTemplate(projectType);
 
+const phases = [
+
+    {
+        name: "Requirement Intelligence",
+        agent: "requirement_intelligence_agent"
+    },
+
+    ...this.selectTemplate(projectType)
+
+];
     // ── Derive a flat task list from phases ───────────────────────────────
     // Each task gets a stable ID based on position and agent name.
 

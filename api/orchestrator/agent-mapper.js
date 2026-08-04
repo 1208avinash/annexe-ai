@@ -40,7 +40,8 @@ const AGENT_MAP = new Map([
     ["security_agent", "security_worker"],
     ["performance_agent", "performance_worker"],
     ["engineering_intelligence_agent", "engineering_intelligence_worker"],
-    ["engineering_orchestrator_agent", "engineering_orchestrator_worker"]
+    ["engineering_orchestrator_agent", "engineering_orchestrator_worker"],
+    ["requirement_intelligence_agent", "requirement_intelligence_worker"],
 
 ]);
 
@@ -73,8 +74,8 @@ const ROUTE_MAP = new Map([
     ["security_worker", "/api/agents/security/worker"],
     ["performance_worker", "/api/agents/performance/worker"],
     ["engineering_intelligence_worker", "/api/agents/engineering-intelligence/worker"],
-    ["engineering_orchestrator_worker", "/api/agents/engineering-orchestrator/worker"]
-
+    ["engineering_orchestrator_worker", "/api/agents/engineering-orchestrator/worker"],
+    ["requirement_intelligence_worker", "/api/engineering-brain/requirement-intelligence"],
 ]);
 
 export class AgentMapper {

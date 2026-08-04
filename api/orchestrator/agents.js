@@ -140,6 +140,13 @@ const AGENT_REGISTRY = new Map([
     run:     (input) => runAgentAdapter("engineering_orchestrator_worker", input),
     version: 1
 }],
+
+["requirement_intelligence_worker", {
+    id: "requirement_intelligence_worker",
+    run: (input) => runAgentAdapter("requirement_intelligence_worker", input),
+    version: 1
+}],
+
   // ------------------------------------------------------------------
   // Planner-generated workers
   // ------------------------------------------------------------------
@@ -216,26 +223,22 @@ export default AGENT_REGISTRY;
 
 export class AgentRegistry {
 
-  /**
-   * getAgent
-   *
-   * Returns the registry entry for a worker id, augmented with execute().
-   * Returns null if the worker is not registered.
-   *
-   * @param  {string} workerId
-   * @returns {{ id: string, run: function, version: number, execute: function }|null}
-   */
   getAgent(workerId) {
 
     const entry = AGENT_REGISTRY.get(workerId);
 
-    if (!entry) return null;
+    if (!entry) {
+      return null;
+    }
 
     return {
-      id:      entry.id,
-      run:     entry.run,
-      version: entry.version,
-      execute: (input) => entry.run(input)
+
+      ...entry,
+
+      execute(input) {
+        return entry.run(input);
+      }
+
     };
 
   }
