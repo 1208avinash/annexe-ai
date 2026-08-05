@@ -42,8 +42,11 @@ export default class DecisionEngine {
 
         return new EngineeringDecision({
 
-            recommendationId:
-                recommendation.recommendationId,
+             decisionId:
+             `DEC-${Date.now()}`,
+
+             recommendationId:
+             recommendation.recommendationId,
 
             projectId:
                 recommendation.projectId,

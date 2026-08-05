@@ -2,7 +2,11 @@
 // ANNEXE AI V5
 // Engineering Brain
 // Public API
+// RC-6.4.2
 // ───────────────────────────────────────────────────────────────
+
+export { default as EngineeringBrain }
+    from "./runner.js";
 
 export { default as KnowledgeEngine }
     from "./knowledge-engine.js";
