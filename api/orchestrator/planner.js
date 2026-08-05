@@ -117,6 +117,39 @@ export class WorkflowPlanner {
 
   }
 
+  createWorkflowFromEngineeringPlan(plan) {
+
+    return {
+
+        projectType: "engineering-plan",
+
+        name: plan.title,
+
+        phases: plan.milestones.map((milestone, index) => ({
+
+            name: milestone.name,
+
+            phase: index + 1
+
+        })),
+
+        tasks: plan.engineeringTasks.map(task => ({
+
+            id: task.id,
+
+            name: task.name,
+
+            priority: task.priority,
+
+            agent: task.agent || "engineering_worker",
+
+            status: "pending"
+
+        }))
+
+    };
+
+}
 
   // ── createWorkflowPlan ──────────────────────────────────────────────────────
   //
