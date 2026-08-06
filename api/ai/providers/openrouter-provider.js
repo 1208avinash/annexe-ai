@@ -1,8 +1,8 @@
 // ───────────────────────────────────────────────────────────────
 // ANNEXE AI V9
-// Phase 13.3
+// Phase 13.4
 // OpenRouter Provider
-// First AI Provider Implementation
+// Production AI Provider
 // ───────────────────────────────────────────────────────────────
 
 import AIProvider
@@ -25,12 +25,17 @@ export default class OpenRouterProvider extends AIProvider {
 
         });
 
-        this.client =
-            config.client;
+        this.apiKey =
+            config.apiKey ??
+            process.env.OPENROUTER_API_KEY;
 
         this.model =
             config.model ??
+            process.env.OPENROUTER_MODEL ??
             "openai/gpt-5.5";
+
+        this.baseUrl =
+            "https://openrouter.ai/api/v1/chat/completions";
 
     }
 
@@ -41,9 +46,9 @@ export default class OpenRouterProvider extends AIProvider {
                 "EngineeringPrompt is required."
             );
 
-        if (!this.client)
+        if (!this.apiKey)
             throw new Error(
-                "OpenRouter client is required."
+                "OPENROUTER_API_KEY not configured."
             );
 
         const started =
@@ -52,15 +57,75 @@ export default class OpenRouterProvider extends AIProvider {
         try {
 
             const response =
-                await this.client.generate({
+                await fetch(
 
-                    model:
-                        this.model,
+                    this.baseUrl,
 
-                    prompt:
-                        engineeringPrompt.prompt
+                    {
 
-                });
+                        method: "POST",
+
+                        headers: {
+
+                            Authorization:
+                                `Bearer ${this.apiKey}`,
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body: JSON.stringify({
+
+                            model:
+                                this.model,
+
+                            messages: [
+
+                                {
+
+                                    role: "system",
+
+                                    content:
+                                        engineeringPrompt.systemInstructions
+
+                                },
+
+                                {
+
+                                    role: "user",
+
+                                    content:
+                                        engineeringPrompt.prompt
+
+                                }
+
+                            ]
+
+                        })
+
+                    }
+
+                );
+
+            if (!response.ok) {
+
+    const errorText =
+        await response.text();
+
+    throw new Error(
+
+        `OpenRouter HTTP ${response.status}\n${errorText}`
+
+    );
+
+}
+
+            const json =
+                await response.json();
+
+            const content =
+                json.choices?.[0]?.message?.content ?? "";
 
             return new GenerationResult({
 
@@ -74,17 +139,43 @@ export default class OpenRouterProvider extends AIProvider {
 
                 status: "completed",
 
-                generatedFiles:
-                    response.generatedFiles ?? [],
+                generatedFiles: [
 
-                usage:
-                    response.usage ?? {},
+                    {
+
+                        path:
+                            "generated-output.txt",
+
+                        language:
+                            "markdown",
+
+                        type:
+                            "ai-response",
+
+                        content
+
+                    }
+
+                ],
+
+                usage: {
+
+                    promptTokens:
+                        json.usage?.prompt_tokens ?? 0,
+
+                    completionTokens:
+                        json.usage?.completion_tokens ?? 0,
+
+                    totalTokens:
+                        json.usage?.total_tokens ?? 0
+
+                },
 
                 latencyMs:
                     Date.now() - started,
 
                 rawResponse:
-                    response
+                    json
 
             });
 

@@ -1,0 +1,97 @@
+
+
+```tsx
+import React, { useState } from 'react';
+import './Login.css'; // Import CSS module
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
+const Login: React.FC = () => {
+  const [formData, setFormData] = useState<LoginForm>({
+    email: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.email || !formData.email.includes('@')) {
+      newErrors.email = 'Invalid email';
+    }
+    if (formData.password.length < 6) {
+      newErrors.password = 'Password too short';
+    }
+    return newErrors;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    // Trigger API call here (e.g., POST to FastAPI endpoint)
+    // .then(() => redirectToDashboard())
+    // .catch(() => setErrors({ email: 'Login failed' }));
+  };
+
+  return (
+    <div className="login-container">
+      <h2>Login</h2>
+      {Object.entries(errors).map(([field, message]) => (
+        <div key={field} className="error" role="alert">
+          {message}
+        </div>
+      ))}
+
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            className="input"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+            className="input"
+          />
+        </div>
+        <button
+          type="submit"
+          className="button"
+          disabled={loading}
+        >
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
+```
