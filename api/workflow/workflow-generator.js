@@ -20,18 +20,35 @@ export default class WorkflowGenerator {
                 ? plan.engineeringTasks
                 : [];
 
+        const normalizedTasks =
+            tasks.map((task, index) => ({
+                ...task,
+                id:
+                    task.id ??
+                    task.taskId ??
+                    `TASK-${String(index + 1).padStart(3, "0")}`,
+                taskId:
+                    task.taskId ??
+                    task.id ??
+                    `TASK-${String(index + 1).padStart(3, "0")}`,
+                dependencies:
+                    task.dependencies ??
+                    task.dependsOn ??
+                    []
+            }));
+
         // ------------------------------------------------------
         // Build execution stages
         // ------------------------------------------------------
 
         const stages =
-            this.buildStages(tasks);
+            this.buildStages(normalizedTasks);
 
         // ------------------------------------------------------
         // Build runtime workflow
         // ------------------------------------------------------
 
-        return new ExecutableWorkflow({
+        const workflow = new ExecutableWorkflow({
 
             workflowId:
                 `WF-${Date.now()}`,
@@ -51,9 +68,7 @@ export default class WorkflowGenerator {
             stages,
 
             pendingTasks:
-                tasks.map(task =>
-                    task.id ?? task.taskId
-                ),
+                   normalizedTasks,
 
             activeTasks: [],
 
@@ -62,7 +77,7 @@ export default class WorkflowGenerator {
             failedTasks: [],
 
             totalTasks:
-                tasks.length,
+            normalizedTasks.length,
 
             completedCount: 0,
 
@@ -71,6 +86,10 @@ export default class WorkflowGenerator {
             progress: 0
 
         });
+
+        workflow.tasks = normalizedTasks;
+
+        return workflow;
 
     }
 
@@ -97,7 +116,7 @@ export default class WorkflowGenerator {
 
                 taskIds:
                     tasks.map(task =>
-                        task.id ?? task.taskId
+                        task.taskId ?? task.id
                     )
 
             }

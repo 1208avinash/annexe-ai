@@ -1,0 +1,5 @@
+services:
+  frontend:
+    image: node:20
+  backend:
+    image: python:3.12

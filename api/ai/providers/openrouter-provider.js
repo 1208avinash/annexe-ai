@@ -1,6 +1,6 @@
 // ───────────────────────────────────────────────────────────────
 // ANNEXE AI V9
-// Phase 13.4
+// Phase 14.1
 // OpenRouter Provider
 // Production AI Provider
 // ───────────────────────────────────────────────────────────────
@@ -10,6 +10,9 @@ import AIProvider
 
 import GenerationResult
     from "../contracts/generation-result.js";
+
+import JsonResponseParser
+    from "../json-response-parser.js";
 
 export default class OpenRouterProvider extends AIProvider {
 
@@ -36,6 +39,9 @@ export default class OpenRouterProvider extends AIProvider {
 
         this.baseUrl =
             "https://openrouter.ai/api/v1/chat/completions";
+
+        this.parser =
+            new JsonResponseParser();
 
     }
 
@@ -110,22 +116,61 @@ export default class OpenRouterProvider extends AIProvider {
 
             if (!response.ok) {
 
-    const errorText =
-        await response.text();
+                const errorText =
+                    await response.text();
 
-    throw new Error(
+                throw new Error(
 
-        `OpenRouter HTTP ${response.status}\n${errorText}`
+                    `OpenRouter HTTP ${response.status}\n${errorText}`
 
-    );
+                );
 
-}
+            }
 
             const json =
                 await response.json();
 
             const content =
                 json.choices?.[0]?.message?.content ?? "";
+
+            let generatedFiles;
+
+            try {
+
+                generatedFiles =
+                    this.parser.parse(content);
+
+            }
+            catch (error) {
+
+                console.warn(
+
+                    "AI JSON parsing failed:",
+
+                    error.message
+
+                );
+
+                generatedFiles = [
+
+                    {
+
+                        path:
+                            "generated-output.txt",
+
+                        type:
+                            "documentation",
+
+                        language:
+                            "text",
+
+                        content
+
+                    }
+
+                ];
+
+            }
 
             return new GenerationResult({
 
@@ -137,26 +182,10 @@ export default class OpenRouterProvider extends AIProvider {
 
                 success: true,
 
-                status: "completed",
+                status:
+                    "completed",
 
-                generatedFiles: [
-
-                    {
-
-                        path:
-                            "generated-output.txt",
-
-                        language:
-                            "markdown",
-
-                        type:
-                            "ai-response",
-
-                        content
-
-                    }
-
-                ],
+                generatedFiles,
 
                 usage: {
 
@@ -192,7 +221,8 @@ export default class OpenRouterProvider extends AIProvider {
 
                 success: false,
 
-                status: "failed",
+                status:
+                    "failed",
 
                 message:
                     error.message,

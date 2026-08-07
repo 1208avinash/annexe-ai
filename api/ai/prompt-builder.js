@@ -121,20 +121,52 @@ ${context.task.requirements.join("\n")}`
         );
 
         // ------------------------------------------------------
-        // Output Requirements
-        // ------------------------------------------------------
+// Output Requirements
+// ------------------------------------------------------
 
-        sections.push(
-`OUTPUT
+sections.push(
+`OUTPUT REQUIREMENTS
 
-Generate production-ready code.
+Return ONLY valid JSON.
 
-Maintain coding standards.
+Do NOT return:
 
-Do not explain.
+- Markdown
+- Triple backticks
+- Explanations
+- Notes
+- Comments
+- Natural language
 
-Return only implementation.`
-        );
+The response MUST exactly match this schema:
+
+{
+  "files": [
+    {
+      "path": "string",
+      "type": "string",
+      "language": "string",
+      "content": "string"
+    }
+  ]
+}
+
+Rules:
+
+1. Every generated source file MUST appear in the files array.
+
+2. The path must be relative to the project root.
+
+3. Content must contain the complete file.
+
+4. Do not truncate code.
+
+5. Escape JSON correctly.
+
+6. Return valid JSON only.
+
+7. The root object must contain exactly one property named "files".`
+);
 
         const promptText =
             sections.join("\n\n----------------------------------------\n\n");

@@ -1,0 +1,461 @@
+{
+  "blueprintId": "BLUEPRINT-1786071782906",
+  "templateId": "crm-enterprise",
+  "projectId": "enterprise-crm",
+  "architecture": {
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "deployment": "Docker"
+  },
+  "modules": [
+    "Authentication",
+    "Dashboard",
+    "Customers",
+    "Leads",
+    "Contacts",
+    "Companies",
+    "Sales Pipeline",
+    "Tasks",
+    "Calendar",
+    "Reports",
+    "Notifications",
+    "Settings"
+  ],
+  "entities": [
+    "User",
+    "Role",
+    "Permission",
+    "Customer",
+    "Lead",
+    "Contact",
+    "Company",
+    "Opportunity",
+    "Task",
+    "Activity",
+    "Notification"
+  ],
+  "services": [
+    "Authentication Service",
+    "Customer Service",
+    "Lead Service",
+    "Contact Service",
+    "Reporting Service",
+    "Notification Service"
+  ],
+  "apis": [
+    "/auth",
+    "/users",
+    "/customers",
+    "/leads",
+    "/contacts",
+    "/companies",
+    "/tasks",
+    "/reports"
+  ],
+  "roles": [
+    "Administrator",
+    "Manager",
+    "Sales Executive",
+    "Support Executive"
+  ],
+  "workflows": [
+    "Lead Qualification",
+    "Customer Onboarding",
+    "Sales Opportunity",
+    "Task Assignment",
+    "Customer Follow-up",
+    "Reporting"
+  ],
+  "engineeringTasks": [],
+  "dependencies": [],
+  "deployment": {
+    "platform": "Docker",
+    "strategy": "Docker"
+  },
+  "testing": [
+    "Unit Tests",
+    "Integration Tests",
+    "API Tests"
+  ],
+  "documentation": [
+    "API Documentation",
+    "User Manual",
+    "Deployment Guide"
+  ],
+  "metadata": {
+    "industry": "CRM",
+    "projectName": "Enterprise CRM",
+    "stack": {
+      "backend": "FastAPI",
+      "frontend": "React 19",
+      "database": "PostgreSQL",
+      "deployment": "Docker"
+    }
+  },
+  "engineeringPlan": {
+    "projectType": "crm",
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "deployment": "Docker",
+    "functionalRequirements": [
+      "Authentication",
+      "JWT Session Management",
+      "Dashboard",
+      "Customer Management",
+      "Lead Management",
+      "Reporting",
+      "Notifications",
+      "Automation"
+    ],
+    "nonFunctionalRequirements": [
+      "Secure by default",
+      "Responsive UI",
+      "Production ready"
+    ],
+    "frontendModules": [
+      "Authentication",
+      "Dashboard",
+      "Customers",
+      "Leads",
+      "Contacts",
+      "Companies",
+      "Sales Pipeline",
+      "Tasks",
+      "Calendar",
+      "Reports",
+      "Notifications",
+      "Settings"
+    ],
+    "backendServices": [
+      "Authentication Service",
+      "Customer Service",
+      "Lead Service",
+      "Contact Service",
+      "Reporting Service",
+      "Notification Service"
+    ],
+    "entities": [
+      "User",
+      "Role",
+      "Permission",
+      "Customer",
+      "Lead",
+      "Contact",
+      "Company",
+      "Opportunity",
+      "Task",
+      "Activity",
+      "Notification"
+    ],
+    "endpoints": [
+      "/auth",
+      "/users",
+      "/customers",
+      "/leads",
+      "/contacts",
+      "/companies",
+      "/tasks",
+      "/reports"
+    ],
+    "authentication": "JWT",
+    "authorization": "RBAC",
+    "securityRequirements": [
+      "Password hashing",
+      "Role based access control",
+      "Audit logging",
+      "Rate limiting"
+    ],
+    "acceptanceCriteria": [
+      "Users can authenticate",
+      "Users can navigate the app through protected routes",
+      "Leads can be tracked",
+      "Customers can be managed",
+      "Reports can be viewed"
+    ],
+    "successMetrics": [
+      "Core CRM pages render and route correctly",
+      "Backend health endpoint responds",
+      "Scaffold is written to workspace"
+    ],
+    "risks": [
+      "Data model scope can expand quickly",
+      "Role and permission design needs early confirmation",
+      "CRM workflow breadth can increase implementation time"
+    ],
+    "assumptions": [
+      "CRM is the first enterprise target",
+      "The template should be used as the baseline scaffold"
+    ],
+    "projectId": "enterprise-crm"
+  },
+  "files": [
+    {
+      "path": "reports/project-structure.json",
+      "type": "artifact",
+      "language": "json",
+      "content": "{\n  \"structure\": {\n    \"backend\": {\n      \"stack\": \"FastAPI\",\n      \"root\": \"backend\",\n      \"directories\": [\n        \"backend\",\n        \"backend/app\",\n        \"backend/app/routers\",\n        \"backend/app/models\",\n        \"backend/app/schemas\",\n        \"backend/app/services\",\n        \"backend/app/repositories\"\n      ],\n      \"requiredFiles\": [\n        \"backend/requirements.txt\",\n        \"backend/Dockerfile\",\n        \"backend/.env.example\",\n        \"backend/README.md\",\n        \"backend/app/__init__.py\",\n        \"backend/app/main.py\",\n        \"backend/app/config.py\",\n        \"backend/app/database.py\",\n        \"backend/app/dependencies.py\",\n        \"backend/app/security.py\",\n        \"backend/app/routers/__init__.py\",\n        \"backend/app/routers/health.py\",\n        \"backend/app/routers/auth.py\",\n        \"backend/app/routers/customers.py\",\n        \"backend/app/routers/crm.py\",\n        \"backend/app/models/__init__.py\",\n        \"backend/app/models/crm.py\",\n        \"backend/app/schemas/__init__.py\",\n        \"backend/app/schemas/crm.py\",\n        \"backend/app/services/__init__.py\",\n        \"backend/app/services/crm_service.py\",\n        \"backend/app/repositories/__init__.py\",\n        \"backend/app/repositories/crm_repository.py\"\n      ]\n    },\n    \"frontend\": {\n      \"stack\": \"React + Vite\",\n      \"root\": \"frontend\",\n      \"directories\": [\n        \"frontend\",\n        \"frontend/public\",\n        \"frontend/src\",\n        \"frontend/src/pages\",\n        \"frontend/src/components\",\n        \"frontend/src/layouts\",\n        \"frontend/src/hooks\",\n        \"frontend/src/services\",\n        \"frontend/src/contexts\",\n        \"frontend/src/assets\"\n      ],\n      \"requiredFiles\": [\n        \"frontend/package.json\",\n        \"frontend/vite.config.js\",\n        \"frontend/index.html\",\n        \"frontend/README.md\",\n        \"frontend/src/main.jsx\",\n        \"frontend/src/App.jsx\",\n        \"frontend/src/pages/Login.jsx\",\n        \"frontend/src/pages/Dashboard.jsx\",\n        \"frontend/src/pages/Customers.jsx\",\n        \"frontend/src/pages/CustomerDetails.jsx\",\n        \"frontend/src/layouts/MainLayout.jsx\",\n        \"frontend/src/services/api.js\",\n        \"frontend/src/contexts/AuthContext.jsx\"\n      ]\n    },\n    \"domain\": {\n      \"projectType\": \"crm\",\n      \"modules\": [\n        \"Authentication\",\n        \"Dashboard\",\n        \"Customers\",\n        \"Leads\",\n        \"Contacts\",\n        \"Companies\",\n        \"Sales Pipeline\",\n        \"Tasks\",\n        \"Calendar\",\n        \"Reports\",\n        \"Notifications\",\n        \"Settings\"\n      ],\n      \"entities\": [\n        \"User\",\n        \"Role\",\n        \"Permission\",\n        \"Customer\",\n        \"Lead\",\n        \"Contact\",\n        \"Company\",\n        \"Opportunity\",\n        \"Task\",\n        \"Activity\",\n        \"Notification\"\n      ],\n      \"services\": [\n        \"Authentication Service\",\n        \"Customer Service\",\n        \"Lead Service\",\n        \"Contact Service\",\n        \"Reporting Service\",\n        \"Notification Service\"\n      ],\n      \"apis\": [\n        \"/auth\",\n        \"/users\",\n        \"/customers\",\n        \"/leads\",\n        \"/contacts\",\n        \"/companies\",\n        \"/tasks\",\n        \"/reports\"\n      ],\n      \"workflows\": [\n        \"Lead Qualification\",\n        \"Customer Onboarding\",\n        \"Sales Opportunity\",\n        \"Task Assignment\",\n        \"Customer Follow-up\",\n        \"Reporting\"\n      ]\n    }\n  },\n  \"stackMetadata\": {\n    \"backend\": {\n      \"framework\": \"FastAPI\",\n      \"runtime\": \"Python\",\n      \"packageManager\": \"pip\",\n      \"buildCommand\": \"python -m compileall backend\"\n    },\n    \"frontend\": {\n      \"framework\": \"React 19\",\n      \"runtime\": \"Node.js\",\n      \"packageManager\": \"npm\",\n      \"buildCommand\": \"npm run build\"\n    }\n  },\n  \"requiredFiles\": [\n    \"backend/requirements.txt\",\n    \"backend/Dockerfile\",\n    \"backend/.env.example\",\n    \"backend/README.md\",\n    \"backend/app/__init__.py\",\n    \"backend/app/main.py\",\n    \"backend/app/config.py\",\n    \"backend/app/database.py\",\n    \"backend/app/dependencies.py\",\n    \"backend/app/security.py\",\n    \"backend/app/routers/__init__.py\",\n    \"backend/app/routers/health.py\",\n    \"backend/app/routers/auth.py\",\n    \"backend/app/routers/customers.py\",\n    \"backend/app/routers/crm.py\",\n    \"backend/app/models/__init__.py\",\n    \"backend/app/models/crm.py\",\n    \"backend/app/schemas/__init__.py\",\n    \"backend/app/schemas/crm.py\",\n    \"backend/app/services/__init__.py\",\n    \"backend/app/services/crm_service.py\",\n    \"backend/app/repositories/__init__.py\",\n    \"backend/app/repositories/crm_repository.py\",\n    \"frontend/package.json\",\n    \"frontend/vite.config.js\",\n    \"frontend/index.html\",\n    \"frontend/README.md\",\n    \"frontend/src/main.jsx\",\n    \"frontend/src/App.jsx\",\n    \"frontend/src/pages/Login.jsx\",\n    \"frontend/src/pages/Dashboard.jsx\",\n    \"frontend/src/pages/Customers.jsx\",\n    \"frontend/src/pages/CustomerDetails.jsx\",\n    \"frontend/src/layouts/MainLayout.jsx\",\n    \"frontend/src/services/api.js\",\n    \"frontend/src/contexts/AuthContext.jsx\"\n  ],\n  \"directories\": [\n    \"backend\",\n    \"backend/app\",\n    \"backend/app/routers\",\n    \"backend/app/models\",\n    \"backend/app/schemas\",\n    \"backend/app/services\",\n    \"backend/app/repositories\",\n    \"frontend\",\n    \"frontend/public\",\n    \"frontend/src\",\n    \"frontend/src/pages\",\n    \"frontend/src/components\",\n    \"frontend/src/layouts\",\n    \"frontend/src/hooks\",\n    \"frontend/src/services\",\n    \"frontend/src/contexts\",\n    \"frontend/src/assets\"\n  ],\n  \"businessModules\": {\n    \"projectType\": \"crm\",\n    \"modules\": [\n      \"Authentication\",\n      \"Dashboard\",\n      \"Customers\",\n      \"Leads\",\n      \"Contacts\",\n      \"Companies\",\n      \"Sales Pipeline\",\n      \"Tasks\",\n      \"Calendar\",\n      \"Reports\",\n      \"Notifications\",\n      \"Settings\"\n    ],\n    \"entities\": [\n      \"User\",\n      \"Role\",\n      \"Permission\",\n      \"Customer\",\n      \"Lead\",\n      \"Contact\",\n      \"Company\",\n      \"Opportunity\",\n      \"Task\",\n      \"Activity\",\n      \"Notification\"\n    ],\n    \"services\": [\n      \"Authentication Service\",\n      \"Customer Service\",\n      \"Lead Service\",\n      \"Contact Service\",\n      \"Reporting Service\",\n      \"Notification Service\"\n    ],\n    \"apis\": [\n      \"/auth\",\n      \"/users\",\n      \"/customers\",\n      \"/leads\",\n      \"/contacts\",\n      \"/companies\",\n      \"/tasks\",\n      \"/reports\"\n    ],\n    \"workflows\": [\n      \"Lead Qualification\",\n      \"Customer Onboarding\",\n      \"Sales Opportunity\",\n      \"Task Assignment\",\n      \"Customer Follow-up\",\n      \"Reporting\"\n    ]\n  }\n}"
+    },
+    {
+      "path": "reports/engineering-plan.json",
+      "type": "artifact",
+      "language": "json",
+      "content": "{\n  \"projectType\": \"crm\",\n  \"frontend\": \"React 19\",\n  \"backend\": \"FastAPI\",\n  \"database\": \"PostgreSQL\",\n  \"deployment\": \"Docker\",\n  \"functionalRequirements\": [\n    \"Authentication\",\n    \"JWT Session Management\",\n    \"Dashboard\",\n    \"Customer Management\",\n    \"Lead Management\",\n    \"Reporting\",\n    \"Notifications\",\n    \"Automation\"\n  ],\n  \"nonFunctionalRequirements\": [\n    \"Secure by default\",\n    \"Responsive UI\",\n    \"Production ready\"\n  ],\n  \"frontendModules\": [\n    \"Authentication\",\n    \"Dashboard\",\n    \"Customers\",\n    \"Leads\",\n    \"Contacts\",\n    \"Companies\",\n    \"Sales Pipeline\",\n    \"Tasks\",\n    \"Calendar\",\n    \"Reports\",\n    \"Notifications\",\n    \"Settings\"\n  ],\n  \"backendServices\": [\n    \"Authentication Service\",\n    \"Customer Service\",\n    \"Lead Service\",\n    \"Contact Service\",\n    \"Reporting Service\",\n    \"Notification Service\"\n  ],\n  \"entities\": [\n    \"User\",\n    \"Role\",\n    \"Permission\",\n    \"Customer\",\n    \"Lead\",\n    \"Contact\",\n    \"Company\",\n    \"Opportunity\",\n    \"Task\",\n    \"Activity\",\n    \"Notification\"\n  ],\n  \"endpoints\": [\n    \"/auth\",\n    \"/users\",\n    \"/customers\",\n    \"/leads\",\n    \"/contacts\",\n    \"/companies\",\n    \"/tasks\",\n    \"/reports\"\n  ],\n  \"authentication\": \"JWT\",\n  \"authorization\": \"RBAC\",\n  \"securityRequirements\": [\n    \"Password hashing\",\n    \"Role based access control\",\n    \"Audit logging\",\n    \"Rate limiting\"\n  ],\n  \"acceptanceCriteria\": [\n    \"Users can authenticate\",\n    \"Users can navigate the app through protected routes\",\n    \"Leads can be tracked\",\n    \"Customers can be managed\",\n    \"Reports can be viewed\"\n  ],\n  \"successMetrics\": [\n    \"Core CRM pages render and route correctly\",\n    \"Backend health endpoint responds\",\n    \"Scaffold is written to workspace\"\n  ],\n  \"risks\": [\n    \"Data model scope can expand quickly\",\n    \"Role and permission design needs early confirmation\",\n    \"CRM workflow breadth can increase implementation time\"\n  ],\n  \"assumptions\": [\n    \"CRM is the first enterprise target\",\n    \"The template should be used as the baseline scaffold\"\n  ],\n  \"projectId\": \"enterprise-crm\"\n}"
+    }
+  ],
+  "structure": {
+    "backend": {
+      "stack": "FastAPI",
+      "root": "backend",
+      "directories": [
+        "backend",
+        "backend/app",
+        "backend/app/routers",
+        "backend/app/models",
+        "backend/app/schemas",
+        "backend/app/services",
+        "backend/app/repositories"
+      ],
+      "requiredFiles": [
+        "backend/requirements.txt",
+        "backend/Dockerfile",
+        "backend/.env.example",
+        "backend/README.md",
+        "backend/app/__init__.py",
+        "backend/app/main.py",
+        "backend/app/config.py",
+        "backend/app/database.py",
+        "backend/app/dependencies.py",
+        "backend/app/security.py",
+        "backend/app/routers/__init__.py",
+        "backend/app/routers/health.py",
+        "backend/app/routers/auth.py",
+        "backend/app/routers/customers.py",
+        "backend/app/routers/crm.py",
+        "backend/app/models/__init__.py",
+        "backend/app/models/crm.py",
+        "backend/app/schemas/__init__.py",
+        "backend/app/schemas/crm.py",
+        "backend/app/services/__init__.py",
+        "backend/app/services/crm_service.py",
+        "backend/app/repositories/__init__.py",
+        "backend/app/repositories/crm_repository.py"
+      ]
+    },
+    "frontend": {
+      "stack": "React + Vite",
+      "root": "frontend",
+      "directories": [
+        "frontend",
+        "frontend/public",
+        "frontend/src",
+        "frontend/src/pages",
+        "frontend/src/components",
+        "frontend/src/layouts",
+        "frontend/src/hooks",
+        "frontend/src/services",
+        "frontend/src/contexts",
+        "frontend/src/assets"
+      ],
+      "requiredFiles": [
+        "frontend/package.json",
+        "frontend/vite.config.js",
+        "frontend/index.html",
+        "frontend/README.md",
+        "frontend/src/main.jsx",
+        "frontend/src/App.jsx",
+        "frontend/src/pages/Login.jsx",
+        "frontend/src/pages/Dashboard.jsx",
+        "frontend/src/pages/Customers.jsx",
+        "frontend/src/pages/CustomerDetails.jsx",
+        "frontend/src/layouts/MainLayout.jsx",
+        "frontend/src/services/api.js",
+        "frontend/src/contexts/AuthContext.jsx"
+      ]
+    },
+    "domain": {
+      "projectType": "crm",
+      "modules": [
+        "Authentication",
+        "Dashboard",
+        "Customers",
+        "Leads",
+        "Contacts",
+        "Companies",
+        "Sales Pipeline",
+        "Tasks",
+        "Calendar",
+        "Reports",
+        "Notifications",
+        "Settings"
+      ],
+      "entities": [
+        "User",
+        "Role",
+        "Permission",
+        "Customer",
+        "Lead",
+        "Contact",
+        "Company",
+        "Opportunity",
+        "Task",
+        "Activity",
+        "Notification"
+      ],
+      "services": [
+        "Authentication Service",
+        "Customer Service",
+        "Lead Service",
+        "Contact Service",
+        "Reporting Service",
+        "Notification Service"
+      ],
+      "apis": [
+        "/auth",
+        "/users",
+        "/customers",
+        "/leads",
+        "/contacts",
+        "/companies",
+        "/tasks",
+        "/reports"
+      ],
+      "workflows": [
+        "Lead Qualification",
+        "Customer Onboarding",
+        "Sales Opportunity",
+        "Task Assignment",
+        "Customer Follow-up",
+        "Reporting"
+      ]
+    }
+  },
+  "stackMetadata": {
+    "backend": {
+      "framework": "FastAPI",
+      "runtime": "Python",
+      "packageManager": "pip",
+      "buildCommand": "python -m compileall backend"
+    },
+    "frontend": {
+      "framework": "React 19",
+      "runtime": "Node.js",
+      "packageManager": "npm",
+      "buildCommand": "npm run build"
+    }
+  },
+  "requiredFiles": [
+    "backend/requirements.txt",
+    "backend/Dockerfile",
+    "backend/.env.example",
+    "backend/README.md",
+    "backend/app/__init__.py",
+    "backend/app/main.py",
+    "backend/app/config.py",
+    "backend/app/database.py",
+    "backend/app/dependencies.py",
+    "backend/app/security.py",
+    "backend/app/routers/__init__.py",
+    "backend/app/routers/health.py",
+    "backend/app/routers/auth.py",
+    "backend/app/routers/customers.py",
+    "backend/app/routers/crm.py",
+    "backend/app/models/__init__.py",
+    "backend/app/models/crm.py",
+    "backend/app/schemas/__init__.py",
+    "backend/app/schemas/crm.py",
+    "backend/app/services/__init__.py",
+    "backend/app/services/crm_service.py",
+    "backend/app/repositories/__init__.py",
+    "backend/app/repositories/crm_repository.py",
+    "frontend/package.json",
+    "frontend/vite.config.js",
+    "frontend/index.html",
+    "frontend/README.md",
+    "frontend/src/main.jsx",
+    "frontend/src/App.jsx",
+    "frontend/src/pages/Login.jsx",
+    "frontend/src/pages/Dashboard.jsx",
+    "frontend/src/pages/Customers.jsx",
+    "frontend/src/pages/CustomerDetails.jsx",
+    "frontend/src/layouts/MainLayout.jsx",
+    "frontend/src/services/api.js",
+    "frontend/src/contexts/AuthContext.jsx"
+  ],
+  "directories": [
+    "backend",
+    "backend/app",
+    "backend/app/routers",
+    "backend/app/models",
+    "backend/app/schemas",
+    "backend/app/services",
+    "backend/app/repositories",
+    "frontend",
+    "frontend/public",
+    "frontend/src",
+    "frontend/src/pages",
+    "frontend/src/components",
+    "frontend/src/layouts",
+    "frontend/src/hooks",
+    "frontend/src/services",
+    "frontend/src/contexts",
+    "frontend/src/assets"
+  ],
+  "businessModules": {
+    "projectType": "crm",
+    "modules": [
+      "Authentication",
+      "Dashboard",
+      "Customers",
+      "Leads",
+      "Contacts",
+      "Companies",
+      "Sales Pipeline",
+      "Tasks",
+      "Calendar",
+      "Reports",
+      "Notifications",
+      "Settings"
+    ],
+    "entities": [
+      "User",
+      "Role",
+      "Permission",
+      "Customer",
+      "Lead",
+      "Contact",
+      "Company",
+      "Opportunity",
+      "Task",
+      "Activity",
+      "Notification"
+    ],
+    "services": [
+      "Authentication Service",
+      "Customer Service",
+      "Lead Service",
+      "Contact Service",
+      "Reporting Service",
+      "Notification Service"
+    ],
+    "apis": [
+      "/auth",
+      "/users",
+      "/customers",
+      "/leads",
+      "/contacts",
+      "/companies",
+      "/tasks",
+      "/reports"
+    ],
+    "workflows": [
+      "Lead Qualification",
+      "Customer Onboarding",
+      "Sales Opportunity",
+      "Task Assignment",
+      "Customer Follow-up",
+      "Reporting"
+    ]
+  }
+}

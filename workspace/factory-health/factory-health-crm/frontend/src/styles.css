@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f8fbff, #eef3f8);
+  color: #102030;
+}
+
+.app-shell,
+.page {
+  padding: 2rem;
+}
+
+.modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(16, 32, 48, 0.08);
+}
