@@ -1,0 +1,17 @@
+import {
+    parseCliArgs,
+    parseAnswersInput,
+    runApplicationGeneration
+} from "./api/generation/application-generator.js";
+
+const parsed = parseCliArgs();
+const result = await runApplicationGeneration({
+    type: parsed.type,
+    requestText: parsed.requestText,
+    answers: parseAnswersInput(parsed),
+    interactive: parsed.interactive
+});
+
+if (!result.success) {
+    process.exit(1);
+}

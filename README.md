@@ -41,6 +41,31 @@ my-site/
 - The serverless function adds the secret `OPENROUTER_API_KEY` and forwards to OpenRouter
 - The key is **never exposed** in browser source or network calls
 
+## Application generation
+
+Use the universal production generator for ANNEXE AI V6:
+
+```bash
+node generate-application.js --type crm
+node generate-application.js --type erp
+node generate-application.js --type hrms
+node generate-application.js --type hospital
+node generate-application.js --type marketplace
+node generate-application.js --type pos
+node generate-application.js --type inventory
+node generate-application.js --type school
+node generate-application.js "Create a CRM for a real estate agency with customer management, lead tracking, invoicing, WhatsApp notifications and dashboards."
+node generate-application.js --answers-file ./brief.json
+node generate-application.js --interactive
+```
+
+- `generate-enterprise-crm.js` remains as a thin backward-compatible wrapper for CRM.
+- A plain natural-language request now drives requirement analysis, capability selection, and application composition without needing `--type`.
+- Questionnaire mode writes `requirements-analysis.json`, `application-composition.json`, `proposal.json`, and `generation-report.json`.
+- All application types reuse the same Factory Kernel and differ only by capability composition.
+- The company-layer entrypoint is `node generate-company.js "<business request>"`, which writes department reports under `workspace/<project>/reports/`.
+- The commercial SaaS platform entrypoint is `node generate-saas-platform.js`, which creates the customer portal, admin portal, benchmark suite, and commercial readiness reports.
+
 ## Local development
 ```bash
 npm i -g vercel

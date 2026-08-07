@@ -115,6 +115,19 @@ export default class BuildBlueprint {
         this.businessModules =
             data.businessModules ?? {};
 
+        // ------------------------------------------------------
+        // Capabilities
+        // ------------------------------------------------------
+
+        this.capabilities =
+            data.capabilities ?? [];
+
+        this.capabilityRegistry =
+            data.capabilityRegistry ?? {};
+
+        this.applicationAssembly =
+            data.applicationAssembly ?? null;
+
     }
 
 }

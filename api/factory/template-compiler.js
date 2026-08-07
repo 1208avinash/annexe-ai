@@ -1,6 +1,11 @@
 import BuildBlueprint from "./blueprints/build-blueprint.js";
 import ProjectTemplateRegistry from "./templates/project-template-registry.js";
 import crmTemplate from "./templates/library/crm-template.js";
+import {
+    ApplicationAssembler,
+    CapabilityRegistry,
+    coreCapabilities
+} from "../capability-engine/index.js";
 
 function compactText(value) {
 
@@ -10,7 +15,46 @@ function compactText(value) {
 
 }
 
-function buildEngineeringPlan(template, analysis, request) {
+function slugify(value) {
+
+    return String(value ?? "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+}
+
+function buildCapabilityPaths(capabilities = []) {
+
+    return capabilities.map(capability => {
+        const capabilitySlug = slugify(capability.name);
+        return {
+            name: capability.name,
+            slug: capabilitySlug,
+            root: `capabilities/${capabilitySlug}`,
+            directories: [
+                `capabilities/${capabilitySlug}`,
+                `capabilities/${capabilitySlug}/backend`,
+                `capabilities/${capabilitySlug}/frontend`,
+                `capabilities/${capabilitySlug}/tests`,
+                `capabilities/${capabilitySlug}/docs`
+            ],
+            requiredFiles: [
+                `capabilities/${capabilitySlug}/capability.json`,
+                `capabilities/${capabilitySlug}/backend/README.md`,
+                `capabilities/${capabilitySlug}/frontend/README.md`,
+                `capabilities/${capabilitySlug}/tests/README.md`,
+                `capabilities/${capabilitySlug}/docs/README.md`,
+                `capabilities/${capabilitySlug}/dependencies.json`
+            ]
+        };
+    });
+
+}
+
+function buildEngineeringPlan(template, analysis, request, assembly) {
+
+    const selectedCapabilities = assembly?.selectedCapabilities ?? analysis.recommendedCapabilities ?? [];
 
     return {
         projectType: analysis.projectType,
@@ -37,6 +81,7 @@ function buildEngineeringPlan(template, analysis, request) {
         backendServices: template.services,
         entities: template.entities,
         endpoints: template.apis,
+        capabilities: selectedCapabilities,
         authentication: template.authentication,
         authorization: template.authorization,
         securityRequirements: [
@@ -55,19 +100,23 @@ function buildEngineeringPlan(template, analysis, request) {
         successMetrics: [
             "Core CRM pages render and route correctly",
             "Backend health endpoint responds",
-            "Scaffold is written to workspace"
+            "Scaffold is written to workspace",
+            "Capabilities are resolved and assembled"
         ],
         risks: analysis.risks,
         assumptions: [
             "CRM is the first enterprise target",
-            "The template should be used as the baseline scaffold"
+            "The template should be used as the baseline scaffold",
+            "Capabilities should be composed rather than duplicated"
         ],
         projectId: request.project?.projectId ?? request.project?.id ?? null
     };
 
 }
 
-function buildStructure(template, analysis) {
+function buildStructure(template, analysis, assembly) {
+
+    const capabilityPaths = buildCapabilityPaths(assembly?.capabilities ?? []);
 
     return {
         backend: {
@@ -80,19 +129,27 @@ function buildStructure(template, analysis) {
                 "backend/app/models",
                 "backend/app/schemas",
                 "backend/app/services",
-                "backend/app/repositories"
+                "backend/app/repositories",
+                "backend/alembic",
+                "backend/alembic/versions",
+                "backend/scripts",
+                "backend/tests",
+                "capabilities"
             ],
             requiredFiles: [
                 "backend/requirements.txt",
                 "backend/Dockerfile",
                 "backend/.env.example",
                 "backend/README.md",
+                "backend/alembic.ini",
                 "backend/app/__init__.py",
                 "backend/app/main.py",
                 "backend/app/config.py",
                 "backend/app/database.py",
                 "backend/app/dependencies.py",
+                "backend/app/logging_config.py",
                 "backend/app/security.py",
+                "backend/app/version.py",
                 "backend/app/routers/__init__.py",
                 "backend/app/routers/health.py",
                 "backend/app/routers/auth.py",
@@ -105,7 +162,16 @@ function buildStructure(template, analysis) {
                 "backend/app/services/__init__.py",
                 "backend/app/services/crm_service.py",
                 "backend/app/repositories/__init__.py",
-                "backend/app/repositories/crm_repository.py"
+                "backend/app/repositories/crm_repository.py",
+                "backend/alembic/env.py",
+                "backend/alembic/versions/0001_initial.py",
+                "backend/scripts/migrate.py",
+                "backend/tests/test_health.py",
+                "backend/tests/test_auth.py",
+                "backend/tests/test_customers.py",
+                "backend/pytest.py",
+                "capabilities/index.json",
+                "capabilities/README.md"
             ]
         },
         frontend: {
@@ -121,13 +187,16 @@ function buildStructure(template, analysis) {
                 "frontend/src/hooks",
                 "frontend/src/services",
                 "frontend/src/contexts",
-                "frontend/src/assets"
+                "frontend/src/assets",
+                "frontend/tests"
             ],
             requiredFiles: [
                 "frontend/package.json",
                 "frontend/vite.config.js",
                 "frontend/index.html",
                 "frontend/README.md",
+                "frontend/.env.example",
+                "frontend/Dockerfile",
                 "frontend/src/main.jsx",
                 "frontend/src/App.jsx",
                 "frontend/src/pages/Login.jsx",
@@ -136,8 +205,15 @@ function buildStructure(template, analysis) {
                 "frontend/src/pages/CustomerDetails.jsx",
                 "frontend/src/layouts/MainLayout.jsx",
                 "frontend/src/services/api.js",
-                "frontend/src/contexts/AuthContext.jsx"
+                "frontend/src/contexts/AuthContext.jsx",
+                "frontend/tests/smoke.mjs"
             ]
+        },
+        capabilities: {
+            root: "capabilities",
+            selected: capabilityPaths.map(entry => entry.name),
+            directories: capabilityPaths.flatMap(entry => entry.directories),
+            requiredFiles: capabilityPaths.flatMap(entry => entry.requiredFiles)
         },
         domain: {
             projectType: analysis.projectType,
@@ -145,7 +221,8 @@ function buildStructure(template, analysis) {
             entities: template.entities,
             services: template.services,
             apis: template.apis,
-            workflows: template.workflows
+            workflows: template.workflows,
+            capabilities: assembly?.selectedCapabilities ?? analysis.recommendedCapabilities ?? []
         }
     };
 
@@ -156,6 +233,10 @@ export default class TemplateCompiler {
     constructor({ registry = null } = {}) {
 
         this.registry = registry ?? new ProjectTemplateRegistry([crmTemplate]);
+        this.capabilityRegistry = new CapabilityRegistry(coreCapabilities);
+        this.applicationAssembler = new ApplicationAssembler({
+            registry: this.capabilityRegistry
+        });
 
         if (!this.registry.has("crm-enterprise")) {
             this.registry.register(crmTemplate);
@@ -180,11 +261,22 @@ export default class TemplateCompiler {
             throw new Error("No project template available.");
         }
 
+        const assembly =
+            this.applicationAssembler.assemble({
+                request,
+                businessAnalysis,
+                template: chosenTemplate,
+                requestedCapabilities:
+                    request.capabilityComposition ??
+                    request.requestedCapabilities ??
+                    businessAnalysis.recommendedCapabilities
+            });
+
         const engineeringPlan =
-            buildEngineeringPlan(chosenTemplate, businessAnalysis, request);
+            buildEngineeringPlan(chosenTemplate, businessAnalysis, request, assembly);
 
         const structure =
-            buildStructure(chosenTemplate, businessAnalysis);
+            buildStructure(chosenTemplate, businessAnalysis, assembly);
 
         return new BuildBlueprint({
             blueprintId: `BLUEPRINT-${Date.now()}`,
@@ -203,7 +295,7 @@ export default class TemplateCompiler {
             roles: chosenTemplate.roles,
             workflows: chosenTemplate.workflows,
             engineeringTasks: [],
-            dependencies: [],
+            dependencies: assembly.dependencies,
             deployment: {
                 platform: chosenTemplate.deployment,
                 strategy: "Docker"
@@ -221,6 +313,12 @@ export default class TemplateCompiler {
                 }
             },
             structure,
+            capabilities: assembly.capabilities,
+            capabilityRegistry: {
+                totalCapabilities: this.capabilityRegistry.count(),
+                selectedCapabilities: assembly.selectedCapabilities
+            },
+            applicationAssembly: assembly,
             stackMetadata: {
                 backend: {
                     framework: chosenTemplate.backend,
@@ -237,11 +335,13 @@ export default class TemplateCompiler {
             },
             requiredFiles: [
                 ...structure.backend.requiredFiles,
-                ...structure.frontend.requiredFiles
+                ...structure.frontend.requiredFiles,
+                ...structure.capabilities.requiredFiles
             ],
             directories: [
                 ...structure.backend.directories,
-                ...structure.frontend.directories
+                ...structure.frontend.directories,
+                ...structure.capabilities.directories
             ],
             businessModules: structure.domain,
             engineeringPlan,

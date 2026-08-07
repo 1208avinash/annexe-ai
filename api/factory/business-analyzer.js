@@ -67,6 +67,33 @@ export default class BusinessAnalyzer {
                     "authentication",
                     "dashboard"
                 ],
+            recommendedCapabilities: isCrm
+                ? [
+                    "authentication",
+                    "users",
+                    "roles",
+                    "permissions",
+                    "dashboard",
+                    "notifications",
+                    "audit-logs",
+                    "email",
+                    "file-storage",
+                    "settings",
+                    "search",
+                    "reports",
+                    "health",
+                    "version",
+                    "logging",
+                    "crm"
+                ]
+                : [
+                    "authentication",
+                    "users",
+                    "dashboard",
+                    "health",
+                    "version",
+                    "logging"
+                ],
             risks: isCrm
                 ? [
                     "Data model scope can expand quickly",
