@@ -5,7 +5,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { runBuildWorker } from "./api/agents/build/worker.js";
+import { runBuildWorker } from "./lib/agents/build/worker.js";
 
 
 // ── Shared assert helper ──────────────────────────────────────────────────────

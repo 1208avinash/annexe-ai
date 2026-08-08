@@ -17,10 +17,10 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { WorkflowPlanner }  from "./api/orchestrator/planner.js";
-import { WorkflowScheduler } from "./api/orchestrator/scheduler.js";
-import { AgentExecutor }    from "./api/orchestrator/executor.js";
-import { registerAgent }    from "./api/orchestrator/agents.js";
+import { WorkflowPlanner }  from "./lib/orchestrator/planner.js";
+import { WorkflowScheduler } from "./lib/orchestrator/scheduler.js";
+import { AgentExecutor }    from "./lib/orchestrator/executor.js";
+import { registerAgent }    from "./lib/orchestrator/agents.js";
 
 
 // ── Assertion helper ──────────────────────────────────────────────────────────

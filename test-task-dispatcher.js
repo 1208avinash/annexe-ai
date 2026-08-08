@@ -1,7 +1,7 @@
 import assert from "assert";
 
-import ExecutionJob from "./api/execution-orchestrator/contracts/execution-job.js";
-import TaskDispatcher from "./api/execution-orchestrator/task-dispatcher.js";
+import ExecutionJob from "./lib/execution-orchestrator/contracts/execution-job.js";
+import TaskDispatcher from "./lib/execution-orchestrator/task-dispatcher.js";
 
 let passed = 0;
 let failed = 0;

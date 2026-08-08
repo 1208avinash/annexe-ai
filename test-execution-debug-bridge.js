@@ -17,7 +17,7 @@
 */
 
 import { sendExecutionFailureToDebug }
-  from "./api/orchestrator/execution-debug-bridge.js";
+  from "./lib/orchestrator/execution-debug-bridge.js";
 
 
 // ── Helpers ──────────────────────────────────────────────────────────────────

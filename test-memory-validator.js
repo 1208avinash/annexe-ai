@@ -1,6 +1,6 @@
 import assert from "assert";
-import MemoryRecord from "./api/engineering-memory/memory-record.js";
-import { validateMemoryRecord } from "./api/engineering-memory/memory-validator.js";
+import MemoryRecord from "./lib/engineering-memory/memory-record.js";
+import { validateMemoryRecord } from "./lib/engineering-memory/memory-validator.js";
 
 let passed = 0;
 let failed = 0;

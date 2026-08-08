@@ -5,7 +5,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import BuildManifestGenerator
-    from "./api/workers/build-manifest-generator.js";
+    from "./lib/workers/build-manifest-generator.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Build Manifest Generator Test");

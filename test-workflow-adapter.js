@@ -1,7 +1,7 @@
 import assert from "assert";
 
-import PlanningEngine from "./api/planning-engine/planning-engine.js";
-import WorkflowAdapter from "./api/planning-engine/workflow-adapter.js";
+import PlanningEngine from "./lib/planning-engine/planning-engine.js";
+import WorkflowAdapter from "./lib/planning-engine/workflow-adapter.js";
 
 const engine = new PlanningEngine();
 

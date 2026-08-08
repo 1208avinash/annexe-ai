@@ -1,7 +1,7 @@
 import assert from "assert";
 
-import PlanningEngine from "./api/planning-engine/planning-engine.js";
-import ExecutionOrchestrator from "./api/execution-orchestrator/execution-orchestrator.js";
+import PlanningEngine from "./lib/planning-engine/planning-engine.js";
+import ExecutionOrchestrator from "./lib/execution-orchestrator/execution-orchestrator.js";
 
 let passed = 0;
 let failed = 0;

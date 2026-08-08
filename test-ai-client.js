@@ -13,8 +13,8 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { generateAIResponse } from "./api/core/ai-client.js";
-import { selectModel }        from "./api/core/model-router.js";
+import { generateAIResponse } from "./lib/core/ai-client.js";
+import { selectModel }        from "./lib/core/model-router.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

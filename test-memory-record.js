@@ -1,6 +1,6 @@
 import assert from "assert";
-import MemoryRecord from "./api/engineering-memory/memory-record.js";
-import { MemoryDomain } from "./api/engineering-memory/memory-types.js";
+import MemoryRecord from "./lib/engineering-memory/memory-record.js";
+import { MemoryDomain } from "./lib/engineering-memory/memory-types.js";
 
 let passed = 0;
 let failed = 0;

@@ -1,0 +1,24 @@
+{
+  "quotationId": "QUO-1786094499866",
+  "proposalId": "PROP-1786094458114",
+  "projectId": "real-estate-crm",
+  "currency": "USD",
+  "decision": "reuse",
+  "lineItems": [
+    {
+      "name": "Discovery and Analysis",
+      "amount": 80
+    },
+    {
+      "name": "Build and Configuration",
+      "amount": 320
+    },
+    {
+      "name": "Delivery and Handover",
+      "amount": 400
+    }
+  ],
+  "subtotal": 800,
+  "total": 800,
+  "createdAt": "2026-08-07T09:21:39.866Z"
+}

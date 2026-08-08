@@ -17,7 +17,7 @@
 // node test-repair-executor.js
 // ───────────────────────────────────────────────────────────────
 
-import { AgentExecutor } from "./api/orchestrator/executor.js";
+import { AgentExecutor } from "./lib/orchestrator/executor.js";
 
 let passed = 0;
 let failed = 0;

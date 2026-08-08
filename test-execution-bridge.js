@@ -1,15 +1,15 @@
 import assert from "assert";
 
 import PlanningEngine
-from "./api/planning-engine/planning-engine.js";
+from "./lib/planning-engine/planning-engine.js";
 
 import ExecutionBridge
-from "./api/planning-engine/execution-bridge.js";
+from "./lib/planning-engine/execution-bridge.js";
 
 import {
     WorkflowPlanner
 }
-from "./api/orchestrator/planner.js";
+from "./lib/orchestrator/planner.js";
 
 const planningEngine =
     new PlanningEngine();

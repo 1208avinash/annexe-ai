@@ -9,7 +9,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { SandboxManager } from "./api/sandbox/manager.js";
+import { SandboxManager } from "./lib/sandbox/manager.js";
 import fs from "fs/promises";
 import path from "path";
 

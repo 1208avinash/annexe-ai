@@ -20,11 +20,11 @@
 // node test-autonomous-orchestrator-flow.js
 
 
-import { DecisionEngine }       from "./api/orchestrator/decision-engine.js";
-import { WorkflowPlanner }      from "./api/orchestrator/planner.js";
-import { WorkflowManager }      from "./api/orchestrator/workflow.js";
-import { WorkflowRunner }       from "./api/orchestrator/workflow-runner.js";
-import { WorkflowTaskGenerator } from "./api/orchestrator/task-generator.js";
+import { DecisionEngine }       from "./lib/orchestrator/decision-engine.js";
+import { WorkflowPlanner }      from "./lib/orchestrator/planner.js";
+import { WorkflowManager }      from "./lib/orchestrator/workflow.js";
+import { WorkflowRunner }       from "./lib/orchestrator/workflow-runner.js";
+import { WorkflowTaskGenerator } from "./lib/orchestrator/task-generator.js";
 
 
 let passed = 0;

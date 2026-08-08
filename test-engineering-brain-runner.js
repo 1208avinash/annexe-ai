@@ -4,7 +4,7 @@
 // Engineering Brain Runner Test
 // ───────────────────────────────────────────────────────────────
 
-import EngineeringBrain from "./api/engineering-brain/runner.js";
+import EngineeringBrain from "./lib/engineering-brain/runner.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log("  ANNEXE AI — Engineering Brain Runner Test");

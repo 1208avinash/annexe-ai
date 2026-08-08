@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "logging",
+  "description": "Structured request and application logging capability.",
+  "dependencies": [],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "observability panels"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/logs"
+    ]
+  },
+  "routes": [
+    "/logs"
+  ],
+  "permissions": [
+    "logs:read"
+  ],
+  "database": [
+    "log_entries"
+  ],
+  "events": [
+    "logs.emitted"
+  ]
+}

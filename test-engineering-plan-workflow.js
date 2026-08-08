@@ -1,7 +1,7 @@
 import assert from "assert";
 
-import PlanningEngine from "./api/planning-engine/planning-engine.js";
-import { WorkflowPlanner } from "./api/orchestrator/planner.js";
+import PlanningEngine from "./lib/planning-engine/planning-engine.js";
+import { WorkflowPlanner } from "./lib/orchestrator/planner.js";
 
 const planningEngine = new PlanningEngine();
 

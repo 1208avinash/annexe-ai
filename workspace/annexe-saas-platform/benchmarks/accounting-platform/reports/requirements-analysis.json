@@ -1,0 +1,54 @@
+{
+  "applicationType": "accounting",
+  "analysisId": "RA-1786095462207",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "Accounting",
+  "businessType": "Accounting Platform",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Ledger",
+    "Invoices",
+    "Reporting",
+    "Approvals",
+    "Notifications"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Accounting Platform",
+  "projectId": "accounting-platform",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "invoices",
+    "reports",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

@@ -8,7 +8,7 @@
 // node test-rebuild-worker.js
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/rebuild/worker.js";
+import run from "./lib/agents/rebuild/worker.js";
 
 let passed = 0;
 let failed = 0;

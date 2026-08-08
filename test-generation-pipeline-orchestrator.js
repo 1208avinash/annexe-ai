@@ -1,5 +1,5 @@
 import { runBackendGenerationPipeline }
-from "./api/generation/pipeline.js";
+from "./lib/generation/pipeline.js";
 
 
 console.log(`

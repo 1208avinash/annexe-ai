@@ -1,0 +1,51 @@
+{
+  "proposalId": "PROP-1786094495419",
+  "title": "Real Estate CRM Proposal",
+  "industry": "Real Estate",
+  "businessType": "CRM",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Customer Management",
+    "Lead Tracking",
+    "Invoicing",
+    "Dashboard",
+    "Notifications"
+  ],
+  "integrations": [
+    "WhatsApp"
+  ],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing",
+    "Audit logging"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "whatsapp"
+  ],
+  "summary": "Create a CRM for a real estate agency with customer management, lead tracking, invoicing, WhatsApp notifications and dashboards."
+}

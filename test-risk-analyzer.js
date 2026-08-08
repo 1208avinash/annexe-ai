@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import RiskAnalyzer from "./api/decision-engine/risk-analyzer.js";
+import RiskAnalyzer from "./lib/decision-engine/risk-analyzer.js";
 
 let passed = 0;
 let failed = 0;

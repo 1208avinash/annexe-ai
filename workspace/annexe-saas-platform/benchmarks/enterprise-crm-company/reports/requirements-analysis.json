@@ -1,0 +1,55 @@
+{
+  "applicationType": "crm",
+  "analysisId": "RA-1786095255404",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "CRM",
+  "businessType": "Enterprise CRM",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Dashboard",
+    "Customers",
+    "Leads",
+    "Reporting",
+    "Notifications",
+    "Automation"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Enterprise CRM",
+  "projectId": "enterprise-crm-company",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

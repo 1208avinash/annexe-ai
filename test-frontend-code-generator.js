@@ -1,5 +1,5 @@
 import { runFrontendCodeGenerator }
-from "./api/generation/frontend/generator.js";
+from "./lib/generation/frontend/generator.js";
 
 
 

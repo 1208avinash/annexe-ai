@@ -5,7 +5,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import EngineeringContextBuilder
-    from "./api/context/project-context-builder.js";
+    from "./lib/context/project-context-builder.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Engineering Context Builder Test");

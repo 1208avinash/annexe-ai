@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "search",
+  "description": "Cross-entity search and discovery capability.",
+  "dependencies": [
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "global search"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/search"
+    ]
+  },
+  "routes": [
+    "/search"
+  ],
+  "permissions": [
+    "search:read"
+  ],
+  "database": [
+    "search_indexes"
+  ],
+  "events": [
+    "search.executed"
+  ]
+}

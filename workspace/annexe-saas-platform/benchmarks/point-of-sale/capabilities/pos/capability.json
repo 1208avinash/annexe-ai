@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "pos",
+  "description": "Point-of-sale checkout and register capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "reports",
+    "notifications",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "checkout register",
+      "sales summary",
+      "cash drawer"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/pos"
+    ]
+  },
+  "routes": [
+    "/pos"
+  ],
+  "permissions": [
+    "pos:read",
+    "pos:write"
+  ],
+  "database": [
+    "sales",
+    "register_sessions",
+    "tenders"
+  ],
+  "events": [
+    "pos.sale.completed",
+    "pos.shift.closed"
+  ]
+}

@@ -22,11 +22,11 @@
 
 import path from "path";
 
-import { SandboxManager }            from "./api/sandbox/manager.js";
-import { DebugApprovalService }      from "./api/orchestrator/debug-approval-service.js";
-import { RebuildVerificationService } from "./api/orchestrator/rebuild-verification-service.js";
-import { RepairExecutionService }    from "./api/orchestrator/repair-execution-service.js";
-import { PatchExecutor }             from "./api/orchestrator/patch-executor.js";
+import { SandboxManager }            from "./lib/sandbox/manager.js";
+import { DebugApprovalService }      from "./lib/orchestrator/debug-approval-service.js";
+import { RebuildVerificationService } from "./lib/orchestrator/rebuild-verification-service.js";
+import { RepairExecutionService }    from "./lib/orchestrator/repair-execution-service.js";
+import { PatchExecutor }             from "./lib/orchestrator/patch-executor.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

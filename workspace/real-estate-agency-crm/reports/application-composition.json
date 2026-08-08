@@ -1,0 +1,53 @@
+{
+  "applicationType": "crm",
+  "projectId": "real-estate-agency-crm",
+  "projectName": "Real Estate Agency CRM",
+  "industry": "Real Estate",
+  "requirements": [
+    "Customer Management",
+    "Lead Tracking",
+    "Invoicing",
+    "Dashboard",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "whatsapp"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Customer Management",
+      "Lead Tracking",
+      "Invoicing",
+      "Dashboard",
+      "Notifications"
+    ],
+    "integrations": [
+      "WhatsApp"
+    ],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing",
+      "Audit logging"
+    ],
+    "deployment": "Docker + PostgreSQL"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "applicationType": "crm",
+  "projectId": "enterprise-crm-company-2",
+  "projectName": "Enterprise CRM",
+  "industry": "CRM",
+  "requirements": [],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "analysis": {
+    "requiredFeatures": [],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1786165236528",
+      "title": "Enterprise CRM Proposal",
+      "industry": "CRM",
+      "businessType": "CRM",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "notifications",
+        "audit-logs",
+        "email",
+        "file-storage",
+        "settings",
+        "search",
+        "reports",
+        "health",
+        "version",
+        "logging",
+        "crm",
+        "erp"
+      ],
+      "summary": "Create a CRM"
+    }
+  }
+}

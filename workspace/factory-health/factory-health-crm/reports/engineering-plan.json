@@ -1,0 +1,117 @@
+{
+  "projectType": "crm",
+  "frontend": "React 19",
+  "backend": "FastAPI",
+  "database": "PostgreSQL",
+  "deployment": "Docker",
+  "functionalRequirements": [
+    "Authentication",
+    "JWT Session Management",
+    "Dashboard",
+    "Customer Management",
+    "Lead Management",
+    "Reporting",
+    "Notifications",
+    "Automation"
+  ],
+  "nonFunctionalRequirements": [
+    "Secure by default",
+    "Responsive UI",
+    "Production ready"
+  ],
+  "frontendModules": [
+    "Authentication",
+    "Dashboard",
+    "Customers",
+    "Leads",
+    "Contacts",
+    "Companies",
+    "Sales Pipeline",
+    "Tasks",
+    "Calendar",
+    "Reports",
+    "Notifications",
+    "Settings"
+  ],
+  "backendServices": [
+    "Authentication Service",
+    "Customer Service",
+    "Lead Service",
+    "Contact Service",
+    "Reporting Service",
+    "Notification Service"
+  ],
+  "entities": [
+    "User",
+    "Role",
+    "Permission",
+    "Customer",
+    "Lead",
+    "Contact",
+    "Company",
+    "Opportunity",
+    "Task",
+    "Activity",
+    "Notification"
+  ],
+  "endpoints": [
+    "/auth",
+    "/users",
+    "/customers",
+    "/leads",
+    "/contacts",
+    "/companies",
+    "/tasks",
+    "/reports"
+  ],
+  "capabilities": [
+    "permissions",
+    "users",
+    "roles",
+    "logging",
+    "health",
+    "authentication",
+    "search",
+    "audit-logs",
+    "reports",
+    "version",
+    "dashboard",
+    "notifications",
+    "email",
+    "file-storage",
+    "settings",
+    "crm"
+  ],
+  "authentication": "JWT",
+  "authorization": "RBAC",
+  "securityRequirements": [
+    "Password hashing",
+    "Role based access control",
+    "Audit logging",
+    "Rate limiting"
+  ],
+  "acceptanceCriteria": [
+    "Users can authenticate",
+    "Users can navigate the app through protected routes",
+    "Leads can be tracked",
+    "Customers can be managed",
+    "Reports can be viewed"
+  ],
+  "successMetrics": [
+    "Core CRM pages render and route correctly",
+    "Backend health endpoint responds",
+    "Scaffold is written to workspace",
+    "Capabilities are resolved and assembled"
+  ],
+  "risks": [
+    "Data model scope can expand quickly",
+    "Role and permission design needs early confirmation",
+    "CRM workflow breadth can increase implementation time"
+  ],
+  "assumptions": [
+    "CRM is the first enterprise target",
+    "The template should be used as the baseline scaffold",
+    "Capabilities should be composed rather than duplicated"
+  ],
+  "projectId": "factory-health-crm"
+}

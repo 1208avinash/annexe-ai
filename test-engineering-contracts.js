@@ -4,9 +4,9 @@
 // Engineering Contract Validation Test
 // ───────────────────────────────────────────────────────────────
 
-import EngineeringBrain from "./api/engineering-brain/runner.js";
-import DecisionEngine from "./api/decision-engine/decision-engine.js";
-import PlanningEngine from "./api/planning-engine/planning-engine.js";
+import EngineeringBrain from "./lib/engineering-brain/runner.js";
+import DecisionEngine from "./lib/decision-engine/decision-engine.js";
+import PlanningEngine from "./lib/planning-engine/planning-engine.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Engineering Contract Validation");

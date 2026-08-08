@@ -16,8 +16,8 @@
 */
 
 import assert from "node:assert/strict";
-import { AGENT_ROUTE_MAP, getAgentRoute, resolveAgentUrl } from "./api/orchestrator/agent-mapper.js";
-import { AGENT_REGISTRY, getAgent }                        from "./api/orchestrator/agents.js";
+import { AGENT_ROUTE_MAP, getAgentRoute, resolveAgentUrl } from "./lib/orchestrator/agent-mapper.js";
+import { AGENT_REGISTRY, getAgent }                        from "./lib/orchestrator/agents.js";
 import {
   generateDeliveryTask,
   generateBuildTask,
@@ -25,7 +25,7 @@ import {
   generateRepositoryTask,
   generateDebugTask,
   getNextTask
-}                                                          from "./api/orchestrator/task-generator.js";
+}                                                          from "./lib/orchestrator/task-generator.js";
 import {
   ADAPTER_MAP,
   getAdapter,
@@ -34,7 +34,7 @@ import {
   repositoryWorkerAdapter,
   deliveryWorkerAdapter,
   debugWorkerAdapter
-}                                                          from "./api/orchestrator/agent-adapters.js";
+}                                                          from "./lib/orchestrator/agent-adapters.js";
 
 
 let passed = 0;

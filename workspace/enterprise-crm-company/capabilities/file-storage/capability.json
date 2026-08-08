@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "file-storage",
+  "description": "File attachment and document storage capability.",
+  "dependencies": [
+    "authentication",
+    "users"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "file browser",
+      "upload controls"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/files"
+    ]
+  },
+  "routes": [
+    "/files"
+  ],
+  "permissions": [
+    "files:read",
+    "files:write"
+  ],
+  "database": [
+    "files",
+    "file_versions"
+  ],
+  "events": [
+    "files.uploaded"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "inventory",
+  "description": "Inventory control, stock movement, and stock valuation capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "reports",
+    "notifications",
+    "search",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "stock ledger",
+      "reorder alerts",
+      "warehouse dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/inventory"
+    ]
+  },
+  "routes": [
+    "/inventory"
+  ],
+  "permissions": [
+    "inventory:read",
+    "inventory:write"
+  ],
+  "database": [
+    "stock_items",
+    "stock_moves",
+    "warehouses"
+  ],
+  "events": [
+    "inventory.stock.updated",
+    "inventory.reorder.triggered"
+  ]
+}

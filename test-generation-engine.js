@@ -6,13 +6,13 @@
 // ───────────────────────────────────────────────────────────────
 
 import GenerationEngine
-    from "./api/ai/generation-engine.js";
+    from "./lib/ai/generation-engine.js";
 
 import EngineeringPrompt
-    from "./api/ai/contracts/engineering-prompt.js";
+    from "./lib/ai/contracts/engineering-prompt.js";
 
 import GenerationResult
-    from "./api/ai/contracts/generation-result.js";
+    from "./lib/ai/contracts/generation-result.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Generation Engine Test");

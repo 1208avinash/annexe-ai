@@ -8,7 +8,7 @@
 // node test-rollback-worker.js
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/rollback/worker.js";
+import run from "./lib/agents/rollback/worker.js";
 
 let passed = 0;
 let failed = 0;

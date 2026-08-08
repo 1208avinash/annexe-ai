@@ -1,5 +1,5 @@
 import assert from "assert";
-import WorkerRegistry from "./api/execution-orchestrator/worker-registry.js";
+import WorkerRegistry from "./lib/execution-orchestrator/worker-registry.js";
 
 const registry = new WorkerRegistry();
 

@@ -1,4 +1,4 @@
-import { runRepositoryManagerAgent } from "./api/repository/manager.js";
+import { runRepositoryManagerAgent } from "./lib/repository/manager.js";
 
 const input = {
   repositoryUrl: "https://github.com/example/project",

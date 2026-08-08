@@ -10,8 +10,8 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { getAgent, registerAgent } from "./api/orchestrator/agents.js";
-import { run }                     from "./api/agents/execution/worker.js";
+import { getAgent, registerAgent } from "./lib/orchestrator/agents.js";
+import { run }                     from "./lib/agents/execution/worker.js";
 
 
 // ── Assertion helper ──────────────────────────────────────────────────────────

@@ -1,7 +1,7 @@
 import {
     integrateGenerationResult
 }
-from "./api/repository/integration.js";
+from "./lib/repository/integration.js";
 
 
 

@@ -21,7 +21,7 @@
 // Run: node test-repository-worker.js
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { runAgentAdapter } from "./api/orchestrator/agent-adapters.js";
+import { runAgentAdapter } from "./lib/orchestrator/agent-adapters.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

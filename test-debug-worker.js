@@ -16,13 +16,13 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { analyze }                          from "./api/agents/debug/analyzer.js";
-import { buildPatchPlan }                   from "./api/agents/debug/patcher.js";
-import { run }                              from "./api/agents/debug/worker.js";
-import { generateDebugTask }                from "./api/orchestrator/task-generator.js";
-import { debugWorkerAdapter, getAdapter }   from "./api/orchestrator/agent-adapters.js";
-import { getAgentRoute }                    from "./api/orchestrator/agent-mapper.js";
-import { getAgent }                         from "./api/orchestrator/agents.js";
+import { analyze }                          from "./lib/agents/debug/analyzer.js";
+import { buildPatchPlan }                   from "./lib/agents/debug/patcher.js";
+import { run }                              from "./lib/agents/debug/worker.js";
+import { generateDebugTask }                from "./lib/orchestrator/task-generator.js";
+import { debugWorkerAdapter, getAdapter }   from "./lib/orchestrator/agent-adapters.js";
+import { getAgentRoute }                    from "./lib/orchestrator/agent-mapper.js";
+import { getAgent }                         from "./lib/orchestrator/agents.js";
 
 
 // ── Assert helper ─────────────────────────────────────────────────────────────

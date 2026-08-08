@@ -1,7 +1,7 @@
 ﻿import {
   getPrompt,
   getAvailablePrompts
-} from "./api/core/prompt-manager.js";
+} from "./lib/core/prompt-manager.js";
 
 
 console.log("\n════════════════════════════════");

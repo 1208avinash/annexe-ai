@@ -1,15 +1,15 @@
 import assert from "assert";
 
-import KnowledgeEngine from "./api/engineering-brain/knowledge-engine.js";
-import EvidenceEngine from "./api/engineering-brain/evidence-engine.js";
-import RecommendationBuilder from "./api/engineering-brain/recommendation-builder.js";
-import ConfidenceEngine from "./api/engineering-brain/confidence-engine.js";
-import DecisionEngine from "./api/decision-engine/decision-engine.js";
+import KnowledgeEngine from "./lib/engineering-brain/knowledge-engine.js";
+import EvidenceEngine from "./lib/engineering-brain/evidence-engine.js";
+import RecommendationBuilder from "./lib/engineering-brain/recommendation-builder.js";
+import ConfidenceEngine from "./lib/engineering-brain/confidence-engine.js";
+import DecisionEngine from "./lib/decision-engine/decision-engine.js";
 
 import {
     MemoryManager,
     MemoryDomain
-} from "./api/engineering-memory/index.js";
+} from "./lib/engineering-memory/index.js";
 
 let passed = 0;
 let failed = 0;

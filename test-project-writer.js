@@ -8,10 +8,10 @@ import fs from "fs";
 import path from "path";
 
 import BuildManifestGenerator
-    from "./api/workers/build-manifest-generator.js";
+    from "./lib/workers/build-manifest-generator.js";
 
 import ProjectWriter
-    from "./api/project-writer/project-writer.js";
+    from "./lib/project-writer/project-writer.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Project Writer Test");

@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import EngineeringRecommendation from "./api/engineering-brain/contracts/engineering-recommendation.js";
+import EngineeringRecommendation from "./lib/engineering-brain/contracts/engineering-recommendation.js";
 
 let passed = 0;
 let failed = 0;

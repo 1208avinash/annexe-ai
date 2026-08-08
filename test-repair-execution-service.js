@@ -30,9 +30,9 @@ import path from "path";
 import fs   from "fs/promises";
 import os   from "os";
 
-import { RepairExecutionService } from "./api/orchestrator/repair-execution-service.js";
-import { PatchExecutor }          from "./api/orchestrator/patch-executor.js";
-import { SandboxManager }         from "./api/sandbox/manager.js";
+import { RepairExecutionService } from "./lib/orchestrator/repair-execution-service.js";
+import { PatchExecutor }          from "./lib/orchestrator/patch-executor.js";
+import { SandboxManager }         from "./lib/sandbox/manager.js";
 
 
 // ── Constants ─────────────────────────────────────────────────────────────────

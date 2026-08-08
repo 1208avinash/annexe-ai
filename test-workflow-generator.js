@@ -5,10 +5,10 @@
 // ───────────────────────────────────────────────────────────────
 
 import PlanningEngine
-    from "./api/planning-engine/planning-engine.js";
+    from "./lib/planning-engine/planning-engine.js";
 
 import WorkflowGenerator
-    from "./api/workflow/workflow-generator.js";
+    from "./lib/workflow/workflow-generator.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Workflow Generator Test");

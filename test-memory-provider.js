@@ -1,5 +1,5 @@
 import assert from "assert";
-import MemoryProvider from "./api/engineering-memory/memory-provider.js";
+import MemoryProvider from "./lib/engineering-memory/memory-provider.js";
 
 let passed = 0;
 let failed = 0;

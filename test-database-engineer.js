@@ -1,4 +1,4 @@
-import { runDatabaseEngineerAgent } from "./api/agents/database/engineer.js";
+import { runDatabaseEngineerAgent } from "./lib/agents/database/engineer.js";
 
 const input = {
   project: {

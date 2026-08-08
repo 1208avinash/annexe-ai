@@ -1,4 +1,4 @@
-import { runAIEngineerAgent } from "./api/agents/ai/engineer.js";
+import { runAIEngineerAgent } from "./lib/agents/ai/engineer.js";
 
 const input = {
   project: {

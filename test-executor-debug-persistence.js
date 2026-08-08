@@ -23,9 +23,9 @@
   No production files are patched.
 */
 
-import { AgentExecutor }         from "./api/orchestrator/executor.js";
-import { DebugResultsManager }   from "./api/orchestrator/debug-results.js";
-import { registerAgent }         from "./api/orchestrator/agents.js";
+import { AgentExecutor }         from "./lib/orchestrator/executor.js";
+import { DebugResultsManager }   from "./lib/orchestrator/debug-results.js";
+import { registerAgent }         from "./lib/orchestrator/agents.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -152,7 +152,7 @@ assert(
 
 section("Stage 4 — debug bridge called");
 
-import { sendExecutionFailureToDebug } from "./api/orchestrator/execution-debug-bridge.js";
+import { sendExecutionFailureToDebug } from "./lib/orchestrator/execution-debug-bridge.js";
 
 const bridgeResult = sendExecutionFailureToDebug({
   projectId:       task.projectId,

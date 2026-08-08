@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import TaskPlanner from "./api/planning-engine/task-planner.js";
+import TaskPlanner from "./lib/planning-engine/task-planner.js";
 
 let passed = 0;
 let failed = 0;

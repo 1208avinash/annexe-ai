@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "notifications",
+  "description": "Notification delivery and activity alert capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "notification center",
+      "toast alerts"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/notifications"
+    ]
+  },
+  "routes": [
+    "/notifications"
+  ],
+  "permissions": [
+    "notifications:read",
+    "notifications:write"
+  ],
+  "database": [
+    "notifications"
+  ],
+  "events": [
+    "notifications.queued",
+    "notifications.delivered"
+  ]
+}

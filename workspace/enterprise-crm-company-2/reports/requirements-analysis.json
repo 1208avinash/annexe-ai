@@ -1,0 +1,46 @@
+{
+  "applicationType": "crm",
+  "analysisId": "RA-1786165146170",
+  "requestText": "Create a CRM",
+  "normalizedText": "create a crm",
+  "industry": "CRM",
+  "businessType": "CRM",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Enterprise CRM",
+  "projectId": "enterprise-crm-company-2",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 17,
+    "source": "natural-language-analysis"
+  }
+}

@@ -1,7 +1,7 @@
 import assert from "assert";
 
 import ArchitectureValidator
-from "./api/decision-engine/architecture-validator.js";
+from "./lib/decision-engine/architecture-validator.js";
 
 let passed = 0;
 let failed = 0;

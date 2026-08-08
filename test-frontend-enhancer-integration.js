@@ -14,8 +14,8 @@
 // Run: node test-frontend-enhancer-integration.js
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { runAgentAdapter } from "./api/orchestrator/agent-adapters.js";
-import { projectContextManager } from "./api/orchestrator/context.js";
+import { runAgentAdapter } from "./lib/orchestrator/agent-adapters.js";
+import { projectContextManager } from "./lib/orchestrator/context.js";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

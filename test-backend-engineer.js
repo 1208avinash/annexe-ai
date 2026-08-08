@@ -1,4 +1,4 @@
-import { runBackendEngineerAgent } from "./api/agents/backend/engineer.js";
+import { runBackendEngineerAgent } from "./lib/agents/backend/engineer.js";
 
 const input = {
   project: {

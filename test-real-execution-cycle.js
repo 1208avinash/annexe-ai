@@ -11,8 +11,8 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { run as runWorker }  from "./api/agents/execution/worker.js";
-import { cleanupWorkspace }  from "./api/sandbox/cleanup.js";
+import { run as runWorker }  from "./lib/agents/execution/worker.js";
+import { cleanupWorkspace }  from "./lib/sandbox/cleanup.js";
 
 
 // ── Assertion helper ──────────────────────────────────────────────────────────

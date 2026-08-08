@@ -1,0 +1,85 @@
+{
+  "projectId": "real-estate-crm",
+  "projectName": "Real Estate CRM",
+  "applicationType": "crm",
+  "generatedAt": "2026-08-07T09:21:39.907Z",
+  "outputDirectory": "D:\\annex-web\\workspace\\real-estate-crm-company",
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "whatsapp"
+  ],
+  "generation": {
+    "success": true,
+    "finalStatus": "completed",
+    "filesWritten": 179
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  },
+  "reportPaths": {
+    "proposal": {
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\proposal\\proposal.md",
+      "quotation": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\proposal\\quotation.json",
+      "estimate": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\proposal\\project-estimate.json"
+    },
+    "analysis": {
+      "json": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\analysis\\business-analysis.json",
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\analysis\\requirements.md"
+    },
+    "architecture": {
+      "json": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\architecture\\architecture.json",
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\architecture\\architecture.md",
+      "databaseSchema": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\architecture\\database-schema.json",
+      "apiDesign": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\architecture\\api-design.json"
+    },
+    "planning": {
+      "roadmap": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\planning\\roadmap.json",
+      "sprintPlan": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\planning\\sprint-plan.json",
+      "riskAnalysis": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\planning\\risk-analysis.json"
+    },
+    "engineering": {
+      "executionPlan": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\engineering\\engineering-plan.json"
+    },
+    "qa": {
+      "quality": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\qa\\quality-report.json",
+      "coverage": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\qa\\coverage.json"
+    },
+    "deployment": {
+      "json": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\deployment\\deployment-package.json",
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\deployment\\deployment-guide.md"
+    },
+    "delivery": {
+      "json": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\delivery\\delivery-package.json",
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\delivery\\delivery-summary.md"
+    },
+    "company": {
+      "json": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\company-generation-report.json",
+      "markdown": "D:\\annex-web\\workspace\\real-estate-crm-company\\reports\\company-architecture-report.md"
+    }
+  }
+}

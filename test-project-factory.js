@@ -5,7 +5,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { createProjectFactory } from "./api/projects/factory.js";
+import { createProjectFactory } from "./lib/projects/factory.js";
 
 
 // ── Test input ────────────────────────────────────────────────────────────────

@@ -1,0 +1,90 @@
+{
+  "analysisId": "RA-1786095208138",
+  "generatedAt": "2026-08-07T09:33:29.175Z",
+  "conversation": "",
+  "industry": "CRM",
+  "businessType": "CRM",
+  "projectType": "crm",
+  "projectName": "Enterprise CRM",
+  "projectId": "enterprise-crm",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "stakeholders": [
+    "Administrators",
+    "Operational Users",
+    "Operations",
+    "Sales",
+    "Management"
+  ],
+  "businessRequirements": [
+    "Support the core needs of a CRM.",
+    "Provide a production-ready workflow for CRM.",
+    "Deliver a buildable software foundation that can be extended."
+  ],
+  "functionalRequirements": [
+    "Authentication",
+    "Dashboard"
+  ],
+  "nonFunctionalRequirements": [
+    "Secure by default",
+    "Responsive UI",
+    "FastAPI backend",
+    "JWT-based authentication",
+    "Structured JSON APIs",
+    "Buildable React frontend"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "successCriteria": [
+    "Customers can sign in securely",
+    "Users can manage customer records",
+    "The dashboard renders successfully",
+    "The application builds without errors",
+    "The backend responds to health and docs requests"
+  ],
+  "productDecision": {
+    "decision": "build",
+    "matchScore": 0,
+    "reasoning": "No suitable product found in the ANNEXE Vault. Full build required."
+  },
+  "estimate": {
+    "estimatedWeeks": 4,
+    "estimatedCost": 4000,
+    "currency": "USD"
+  },
+  "proposal": {
+    "proposalId": "PROP-1786095209174",
+    "title": "AI CRM Transformation Platform"
+  },
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "assumptions": [
+    "The customer wants a production-ready foundation, not a scaffold.",
+    "Reusable capabilities should be preferred over duplicated modules."
+  ]
+}

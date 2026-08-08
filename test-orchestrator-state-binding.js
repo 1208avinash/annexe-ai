@@ -11,15 +11,15 @@
 
 import {
   ProjectStateManager
-} from "./api/orchestrator/state.js";
+} from "./lib/orchestrator/state.js";
 
 import {
   WorkflowPlanner
-} from "./api/orchestrator/planner.js";
+} from "./lib/orchestrator/planner.js";
 
 import {
   WorkflowManager
-} from "./api/orchestrator/workflow.js";
+} from "./lib/orchestrator/workflow.js";
 
 
 console.log("\n════════════════════════════════════════");

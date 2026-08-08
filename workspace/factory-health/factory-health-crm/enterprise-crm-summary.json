@@ -1,7 +1,7 @@
 {
   "projectId": "factory-health-crm",
   "analysis": {
-    "analysisId": "BA-1786068803920",
+    "analysisId": "BA-1786162903015",
     "projectId": "factory-health-crm",
     "projectName": "Factory Health CRM",
     "industry": "CRM",
@@ -23,17 +23,35 @@
       "notifications",
       "automation"
     ],
+    "recommendedCapabilities": [
+      "authentication",
+      "users",
+      "roles",
+      "permissions",
+      "dashboard",
+      "notifications",
+      "audit-logs",
+      "email",
+      "file-storage",
+      "settings",
+      "search",
+      "reports",
+      "health",
+      "version",
+      "logging",
+      "crm"
+    ],
     "risks": [
       "Data model scope can expand quickly",
       "Role and permission design needs early confirmation",
       "CRM workflow breadth can increase implementation time"
     ]
   },
-  "specificationId": "SPEC-1786068803920",
-  "planId": "PLAN-1786068803920",
-  "workflowId": "WF-1786068803920",
+  "specificationId": "SPEC-1786162903016",
+  "planId": "PLAN-1786162903016",
+  "workflowId": "WF-1786162903016",
   "schedule": {
-    "workflowId": "WF-1786068803920",
+    "workflowId": "WF-1786162903016",
     "batches": [
       [
         {
@@ -108,11 +126,11 @@
     "totalTasks": 5
   },
   "execution": {
-    "workflowId": "WF-1786068803920",
+    "workflowId": "WF-1786162903016",
     "batches": 4,
     "completed": [
       {
-        "workflowId": "WF-1786068803920",
+        "workflowId": "WF-1786162903016",
         "completed": 1,
         "results": [
           {
@@ -128,7 +146,7 @@
         ]
       },
       {
-        "workflowId": "WF-1786068803920",
+        "workflowId": "WF-1786162903016",
         "completed": 2,
         "results": [
           {
@@ -154,7 +172,7 @@
         ]
       },
       {
-        "workflowId": "WF-1786068803920",
+        "workflowId": "WF-1786162903016",
         "completed": 1,
         "results": [
           {
@@ -170,7 +188,7 @@
         ]
       },
       {
-        "workflowId": "WF-1786068803920",
+        "workflowId": "WF-1786162903016",
         "completed": 1,
         "results": [
           {

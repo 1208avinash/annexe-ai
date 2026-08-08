@@ -1,6 +1,6 @@
-import { sandboxManager } from "./api/sandbox/manager.js";
-import { writeGeneratedFiles } from "./api/generation/file-writer.js";
-import { fileOperationManager } from "./api/files/manager.js";
+import { sandboxManager } from "./lib/sandbox/manager.js";
+import { writeGeneratedFiles } from "./lib/generation/file-writer.js";
+import { fileOperationManager } from "./lib/files/manager.js";
 
 
 console.log(`

@@ -1,4 +1,4 @@
-import { runFrontendEngineerAgent } from "./api/agents/frontend/engineer.js";
+import { runFrontendEngineerAgent } from "./lib/agents/frontend/engineer.js";
 
 const input = {
   project: {

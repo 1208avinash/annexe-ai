@@ -5,7 +5,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import engineeringPlugin
-from "./api/orchestrator/plugins/engineering-plugin.js";
+from "./lib/orchestrator/plugins/engineering-plugin.js";
 
 let passed = 0;
 let failed = 0;

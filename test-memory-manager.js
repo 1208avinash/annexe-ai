@@ -1,8 +1,8 @@
 import assert from "assert";
 
-import MemoryManager from "./api/engineering-memory/memory-manager.js";
+import MemoryManager from "./lib/engineering-memory/memory-manager.js";
 
-import { MemoryDomain } from "./api/engineering-memory/memory-types.js";
+import { MemoryDomain } from "./lib/engineering-memory/memory-types.js";
 
 let passed = 0;
 let failed = 0;

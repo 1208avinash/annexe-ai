@@ -14,7 +14,7 @@ import {
 
     EvidencePackage
 
-} from "./api/engineering-brain/index.js";
+} from "./lib/engineering-brain/index.js";
 
 console.log("");
 console.log("══════════════════════════════════════");

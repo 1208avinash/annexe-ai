@@ -9,7 +9,7 @@
 //
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/security/worker.js";
+import run from "./lib/agents/security/worker.js";
 
 let passed = 0;
 let failed = 0;

@@ -18,13 +18,13 @@
 // node test-autonomous-execution-lifecycle.js
 
 
-import { WorkflowPlanner } from "./api/orchestrator/planner.js";
-import { WorkflowManager } from "./api/orchestrator/workflow.js";
-import { WorkflowRunner } from "./api/orchestrator/workflow-runner.js";
-import { WorkflowTaskGenerator } from "./api/orchestrator/task-generator.js";
-import { TaskQueue } from "./api/orchestrator/queue.js";
-import { AgentExecutor } from "./api/orchestrator/executor.js";
-import { registerAgent } from "./api/orchestrator/agents.js";
+import { WorkflowPlanner } from "./lib/orchestrator/planner.js";
+import { WorkflowManager } from "./lib/orchestrator/workflow.js";
+import { WorkflowRunner } from "./lib/orchestrator/workflow-runner.js";
+import { WorkflowTaskGenerator } from "./lib/orchestrator/task-generator.js";
+import { TaskQueue } from "./lib/orchestrator/queue.js";
+import { AgentExecutor } from "./lib/orchestrator/executor.js";
+import { registerAgent } from "./lib/orchestrator/agents.js";
 
 
 let passed = 0;

@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "authentication",
+  "description": "JWT login, token validation, and session bootstrap capability.",
+  "dependencies": [
+    "users",
+    "roles",
+    "permissions",
+    "logging",
+    "health"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "login",
+      "session hydration"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/auth/login",
+      "/auth/me"
+    ]
+  },
+  "routes": [
+    "/auth/login",
+    "/auth/me"
+  ],
+  "permissions": [
+    "auth:login",
+    "auth:read"
+  ],
+  "database": [
+    "users",
+    "sessions"
+  ],
+  "events": [
+    "auth.signed_in",
+    "auth.signed_out"
+  ]
+}

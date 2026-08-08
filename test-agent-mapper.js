@@ -6,7 +6,7 @@
 
 import AgentMapper, {
     getAgentRoute
-} from "./api/orchestrator/agent-mapper.js";
+} from "./lib/orchestrator/agent-mapper.js";
 
 let passed = 0;
 let failed = 0;

@@ -9,7 +9,7 @@
 // node test-repair-worker.js
 // ───────────────────────────────────────────────────────────────
 
-import { run } from "./api/agents/repair/worker.js";
+import { run } from "./lib/agents/repair/worker.js";
 
 let passed = 0;
 let failed = 0;

@@ -5,13 +5,13 @@
 // ───────────────────────────────────────────────────────────────
 
 import PlanningEngine
-    from "./api/planning-engine/planning-engine.js";
+    from "./lib/planning-engine/planning-engine.js";
 
 import WorkflowGenerator
-    from "./api/workflow/workflow-generator.js";
+    from "./lib/workflow/workflow-generator.js";
 
 import ExecutionEngine
-    from "./api/execution/execution-engine.js";
+    from "./lib/execution/execution-engine.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Execution Engine Test");

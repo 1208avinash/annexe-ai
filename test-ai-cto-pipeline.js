@@ -5,16 +5,16 @@ import {
     EvidenceEngine,
     RecommendationBuilder,
     ConfidenceEngine
-} from "./api/engineering-brain/index.js";
+} from "./lib/engineering-brain/index.js";
 
 import {
     DecisionEngine
-} from "./api/decision-engine/index.js";
+} from "./lib/decision-engine/index.js";
 
 import {
     MemoryManager,
     MemoryDomain
-} from "./api/engineering-memory/index.js";
+} from "./lib/engineering-memory/index.js";
 
 console.log("");
 console.log("════════════════════════════════════════════");

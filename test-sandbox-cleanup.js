@@ -9,8 +9,8 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { createWorkspace }  from "./api/sandbox/workspace.js";
-import { cleanupWorkspace } from "./api/sandbox/cleanup.js";
+import { createWorkspace }  from "./lib/sandbox/workspace.js";
+import { cleanupWorkspace } from "./lib/sandbox/cleanup.js";
 import fs                   from "fs/promises";
 import path                 from "path";
 

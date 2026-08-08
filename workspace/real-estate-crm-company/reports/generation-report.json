@@ -1,0 +1,37 @@
+{
+  "applicationType": "crm",
+  "generatedAt": "2026-08-07T09:21:35.419Z",
+  "project": {
+    "id": "real-estate-crm-company",
+    "name": "Real Estate CRM",
+    "outputDirectory": "workspace\\real-estate-crm-company"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 179
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

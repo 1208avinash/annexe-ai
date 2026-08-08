@@ -1,0 +1,20 @@
+{
+  "projectId": "enterprise-crm",
+  "endpoints": [
+    "/auth",
+    "/users",
+    "/customers",
+    "/leads",
+    "/contacts",
+    "/companies",
+    "/tasks",
+    "/reports"
+  ],
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "generatedAt": "2026-08-07T09:34:15.378Z"
+}

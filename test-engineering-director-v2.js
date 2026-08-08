@@ -6,16 +6,16 @@
 // ───────────────────────────────────────────────────────────────
 
 import EngineerRegistry
-    from "./api/engineering/engineer-registry.js";
+    from "./lib/engineering/engineer-registry.js";
 
 import EngineeringDirectorV2
-    from "./api/engineering/engineering-director-v2.js";
+    from "./lib/engineering/engineering-director-v2.js";
 
 import EngineeringTask
-    from "./api/engineering/contracts/engineering-task.js";
+    from "./lib/engineering/contracts/engineering-task.js";
 
 import FrontendEngineer
-    from "./api/engineering/agents/frontend-engineer.js";
+    from "./lib/engineering/agents/frontend-engineer.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — ENGINEERING DIRECTOR TEST");

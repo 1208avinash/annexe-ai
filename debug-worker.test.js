@@ -8,7 +8,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { run }              from "../api/agents/debug/worker.js";
+import { run }              from "../lib/agents/debug/worker.js";
 import { generateDebugTask } from "../task-generator.js";
 
 

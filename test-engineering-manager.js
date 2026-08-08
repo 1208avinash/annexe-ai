@@ -1,4 +1,4 @@
-import { runEngineeringManagerAgent } from "./api/agents/engineering/manager.js";
+import { runEngineeringManagerAgent } from "./lib/agents/engineering/manager.js";
 
 const input = {
   project: {

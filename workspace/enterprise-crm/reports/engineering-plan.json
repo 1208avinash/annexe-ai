@@ -64,6 +64,24 @@
     "/tasks",
     "/reports"
   ],
+  "capabilities": [
+    "permissions",
+    "users",
+    "roles",
+    "logging",
+    "health",
+    "authentication",
+    "search",
+    "audit-logs",
+    "reports",
+    "version",
+    "dashboard",
+    "notifications",
+    "email",
+    "file-storage",
+    "settings",
+    "crm"
+  ],
   "authentication": "JWT",
   "authorization": "RBAC",
   "securityRequirements": [
@@ -82,7 +100,8 @@
   "successMetrics": [
     "Core CRM pages render and route correctly",
     "Backend health endpoint responds",
-    "Scaffold is written to workspace"
+    "Scaffold is written to workspace",
+    "Capabilities are resolved and assembled"
   ],
   "risks": [
     "Data model scope can expand quickly",
@@ -91,7 +110,8 @@
   ],
   "assumptions": [
     "CRM is the first enterprise target",
-    "The template should be used as the baseline scaffold"
+    "The template should be used as the baseline scaffold",
+    "Capabilities should be composed rather than duplicated"
   ],
   "projectId": "enterprise-crm"
 }

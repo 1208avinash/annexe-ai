@@ -1,5 +1,5 @@
 import { runFrontendGenerationPipeline }
-from "./api/generation/frontend/pipeline.js";
+from "./lib/generation/frontend/pipeline.js";
 
 
 

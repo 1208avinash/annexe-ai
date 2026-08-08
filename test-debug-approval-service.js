@@ -13,7 +13,7 @@
   READ-ONLY: does not modify any production file.
 */
 
-import { DebugApprovalService } from "./api/orchestrator/debug-approval-service.js";
+import { DebugApprovalService } from "./lib/orchestrator/debug-approval-service.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

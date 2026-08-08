@@ -8,7 +8,7 @@
 // node test-retest-worker.js
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/retest/worker.js";
+import run from "./lib/agents/retest/worker.js";
 
 let passed = 0;
 let failed = 0;

@@ -1,0 +1,61 @@
+{
+  "applicationType": "crm",
+  "analysisId": "RA-1786089673140",
+  "requestText": "Real Estate 42 employees customer management, lead tracking, invoicing, WhatsApp notifications and dashboards agents, admins, operations mobile access WhatsApp, Stripe medium Docker",
+  "normalizedText": "real estate 42 employees customer management, lead tracking, invoicing, whatsapp notifications and dashboards agents, admins, operations mobile access whatsapp, stripe medium docker",
+  "industry": "Real Estate",
+  "businessType": "Real Estate CRM",
+  "employees": 42,
+  "users": [
+    "agents",
+    "admins",
+    "operations",
+    "42 employees"
+  ],
+  "requiredFeatures": [
+    "Customer Management",
+    "Lead Tracking",
+    "Dashboard",
+    "Notifications",
+    "WhatsApp Notifications",
+    "Mobile Access"
+  ],
+  "integrations": [
+    "WhatsApp",
+    "Stripe"
+  ],
+  "deployment": "Docker",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing",
+    "Audit logging",
+    "Device-aware access control"
+  ],
+  "budget": "medium",
+  "mobileAccess": true,
+  "projectName": "Real Estate CRM",
+  "projectId": "real-estate-crm",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "whatsapp",
+    "erp"
+  ]
+}

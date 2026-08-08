@@ -17,7 +17,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { projectContextManager } from "./api/orchestrator/context.js";
+import { projectContextManager } from "./lib/orchestrator/context.js";
 
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

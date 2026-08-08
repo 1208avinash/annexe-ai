@@ -1,0 +1,87 @@
+{
+  "qualityId": "QA-1786095255359",
+  "projectRoot": "D:\\annex-web\\workspace\\enterprise-crm-company",
+  "generatedAt": "2026-08-07T09:34:15.359Z",
+  "backendTests": {
+    "compileall": true,
+    "pytest": true
+  },
+  "frontendTests": {
+    "install": true,
+    "build": true,
+    "smoke": true
+  },
+  "apiTests": {
+    "health": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "docs": {
+      "passed": true,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    "openapi": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "latencyMs": 114
+  },
+  "securityScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "security module",
+        "passed": true
+      },
+      {
+        "name": "auth router",
+        "passed": true
+      },
+      {
+        "name": "environment example",
+        "passed": true
+      }
+    ]
+  },
+  "performanceScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "frontend build completed",
+        "passed": true
+      },
+      {
+        "name": "api health responded",
+        "passed": true
+      }
+    ],
+    "durationMs": 8685,
+    "healthLatencyMs": 114
+  },
+  "accessibility": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "html lang attribute",
+        "passed": true
+      },
+      {
+        "name": "viewport meta tag",
+        "passed": true
+      },
+      {
+        "name": "semantic main landmark",
+        "passed": true
+      },
+      {
+        "name": "semantic section or nav",
+        "passed": true
+      }
+    ]
+  },
+  "overallStatus": "pass",
+  "durationMs": 8697
+}

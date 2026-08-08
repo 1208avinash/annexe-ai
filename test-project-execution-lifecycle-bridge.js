@@ -18,19 +18,19 @@
 
 import {
   ProjectStateManager
-} from "./api/orchestrator/state.js";
+} from "./lib/orchestrator/state.js";
 
 import {
   WorkflowManager
-} from "./api/orchestrator/workflow.js";
+} from "./lib/orchestrator/workflow.js";
 
 import {
   WorkflowTaskGenerator
-} from "./api/orchestrator/task-generator.js";
+} from "./lib/orchestrator/task-generator.js";
 
 import {
   WorkflowRunner
-} from "./api/orchestrator/workflow-runner.js";
+} from "./lib/orchestrator/workflow-runner.js";
 
 
 console.log("\n════════════════════════════════════════");

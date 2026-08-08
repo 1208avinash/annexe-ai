@@ -1,4 +1,4 @@
-import { runBackendCodeGenerator } from "./api/generation/backend/generator.js";
+import { runBackendCodeGenerator } from "./lib/generation/backend/generator.js";
 
 
 console.log(`

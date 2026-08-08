@@ -2,7 +2,7 @@ import {
  integrateGenerationResult,
  getRepositoryState
 }
-from "./api/repository/integration.js";
+from "./lib/repository/integration.js";
 
 
 

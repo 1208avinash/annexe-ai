@@ -4,7 +4,7 @@
 // Governance Framework Test
 // ───────────────────────────────────────────────────────────────
 
-import GovernanceFramework from "./api/orchestrator/governance.js";
+import GovernanceFramework from "./lib/orchestrator/governance.js";
 
 let passed = 0;
 let failed = 0;

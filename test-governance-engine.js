@@ -4,7 +4,7 @@
 // Governance Engine Integration Test
 // ───────────────────────────────────────────────────────────────
 
-import AutonomousOrchestrator from "./api/orchestrator/engine.js";
+import AutonomousOrchestrator from "./lib/orchestrator/engine.js";
 
 let passed = 0;
 let failed = 0;

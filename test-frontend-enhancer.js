@@ -2,8 +2,8 @@
 // Run: node test-frontend-enhancer.js
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { runFrontendEnhancer }      from "./api/agents/frontend/enhancer.js";
-import { runFrontendEnhancerAgent } from "./api/agents/frontend/enhancer-agent.js";
+import { runFrontendEnhancer }      from "./lib/agents/frontend/enhancer.js";
+import { runFrontendEnhancerAgent } from "./lib/agents/frontend/enhancer-agent.js";
 
 
 // ── Test harness ──────────────────────────────────────────────────────────────

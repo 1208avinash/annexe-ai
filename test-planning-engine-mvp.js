@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import PlanningEngine from "./api/planning-engine/planning-engine.js";
+import PlanningEngine from "./lib/planning-engine/planning-engine.js";
 
 let passed = 0;
 let failed = 0;

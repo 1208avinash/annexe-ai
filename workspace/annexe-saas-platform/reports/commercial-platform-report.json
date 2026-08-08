@@ -1,0 +1,269 @@
+{
+  "platformRoot": "D:\\annex-web\\workspace\\annexe-saas-platform",
+  "generatedAt": "2026-08-07T09:38:51.939Z",
+  "company": {
+    "proposal": {
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\proposal\\proposal.md",
+      "quotation": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\proposal\\quotation.json",
+      "estimate": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\proposal\\project-estimate.json"
+    },
+    "analysis": {
+      "json": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\analysis\\business-analysis.json",
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\analysis\\requirements.md"
+    },
+    "architecture": {
+      "json": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\architecture\\architecture.json",
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\architecture\\architecture.md",
+      "databaseSchema": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\architecture\\database-schema.json",
+      "apiDesign": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\architecture\\api-design.json"
+    },
+    "planning": {
+      "roadmap": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\planning\\roadmap.json",
+      "sprintPlan": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\planning\\sprint-plan.json",
+      "riskAnalysis": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\planning\\risk-analysis.json"
+    },
+    "engineering": {
+      "executionPlan": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\engineering\\engineering-plan.json"
+    },
+    "qa": {
+      "quality": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\qa\\quality-report.json",
+      "coverage": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\qa\\coverage.json"
+    },
+    "deployment": {
+      "json": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\deployment\\deployment-package.json",
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\deployment\\deployment-guide.md"
+    },
+    "delivery": {
+      "json": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\delivery\\delivery-package.json",
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\delivery\\delivery-summary.md"
+    },
+    "company": {
+      "json": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\company-generation-report.json",
+      "markdown": "D:\\annex-web\\workspace\\enterprise-crm-company\\reports\\company-architecture-report.md"
+    }
+  },
+  "benchmarks": {
+    "benchmarkId": "BENCH-1786095511266",
+    "generatedAt": "2026-08-07T09:38:31.266Z",
+    "totalBenchmarks": 10,
+    "successfulBenchmarks": 10,
+    "validatedBenchmarks": 10,
+    "successRate": 100,
+    "runs": [
+      {
+        "applicationType": "crm",
+        "success": true,
+        "projectId": "enterprise-crm-company",
+        "projectName": "Enterprise CRM",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\enterprise-crm-company",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 31770
+      },
+      {
+        "applicationType": "erp",
+        "success": true,
+        "projectId": "enterprise-erp",
+        "projectName": "Enterprise ERP",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\enterprise-erp",
+        "filesWritten": 173,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 30461
+      },
+      {
+        "applicationType": "hrms",
+        "success": true,
+        "projectId": "enterprise-hrms",
+        "projectName": "Enterprise HRMS",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\enterprise-hrms",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 25021
+      },
+      {
+        "applicationType": "hospital",
+        "success": true,
+        "projectId": "hospital-system",
+        "projectName": "Hospital System",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\hospital-system",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 24456
+      },
+      {
+        "applicationType": "school",
+        "success": true,
+        "projectId": "school-management",
+        "projectName": "School Management",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\school-management",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 22617
+      },
+      {
+        "applicationType": "marketplace",
+        "success": true,
+        "projectId": "marketplace-platform",
+        "projectName": "Marketplace Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\marketplace-platform",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 22535
+      },
+      {
+        "applicationType": "pos",
+        "success": true,
+        "projectId": "point-of-sale",
+        "projectName": "Point of Sale",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\point-of-sale",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 24115
+      },
+      {
+        "applicationType": "inventory",
+        "success": true,
+        "projectId": "inventory-management",
+        "projectName": "Inventory Management",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\inventory-management",
+        "filesWritten": 161,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 25828
+      },
+      {
+        "applicationType": "accounting",
+        "success": true,
+        "projectId": "accounting-platform",
+        "projectName": "Accounting Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\accounting-platform",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 24219
+      },
+      {
+        "applicationType": "manufacturing",
+        "success": true,
+        "projectId": "manufacturing-platform",
+        "projectName": "Manufacturing Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\annexe-saas-platform\\benchmarks\\manufacturing-platform",
+        "filesWritten": 161,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 24835
+      }
+    ]
+  },
+  "data": {
+    "projectCount": 1,
+    "reportCount": 8
+  }
+}

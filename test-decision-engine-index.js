@@ -12,7 +12,7 @@ import {
 
     EngineeringDecision
 
-} from "./api/decision-engine/index.js";
+} from "./lib/decision-engine/index.js";
 
 console.log("");
 console.log("══════════════════════════════════════");

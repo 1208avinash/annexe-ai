@@ -4,7 +4,7 @@ import {
     MemoryCategory,
     isValidMemoryDomain,
     isValidMemoryCategory
-} from "./api/engineering-memory/memory-types.js";
+} from "./lib/engineering-memory/memory-types.js";
 
 let passed = 0;
 let failed = 0;

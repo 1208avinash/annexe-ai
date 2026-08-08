@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import GovernanceValidator from "./api/decision-engine/governance-validator.js";
+import GovernanceValidator from "./lib/decision-engine/governance-validator.js";
 
 let passed = 0;
 let failed = 0;

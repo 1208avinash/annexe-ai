@@ -5,7 +5,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import { analyzeRequirement }
-from "./api/engineering-brain/requirement-intelligence/index.js";
+from "./lib/engineering-brain/requirement-intelligence/index.js";
 
 let passed = 0;
 let failed = 0;

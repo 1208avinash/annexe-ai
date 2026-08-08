@@ -1,8 +1,8 @@
 import assert from "assert";
 
-import MemoryStore from "./api/engineering-memory/memory-store.js";
+import MemoryStore from "./lib/engineering-memory/memory-store.js";
 
-import MemoryRecord from "./api/engineering-memory/memory-record.js";
+import MemoryRecord from "./lib/engineering-memory/memory-record.js";
 
 let passed = 0;
 let failed = 0;

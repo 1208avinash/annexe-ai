@@ -5,19 +5,19 @@
 // ───────────────────────────────────────────────────────────────
 
 import PlanningEngine
-    from "./api/planning-engine/planning-engine.js";
+    from "./lib/planning-engine/planning-engine.js";
 
 import WorkflowGenerator
-    from "./api/workflow/workflow-generator.js";
+    from "./lib/workflow/workflow-generator.js";
 
 import ExecutionEngine
-    from "./api/execution/execution-engine.js";
+    from "./lib/execution/execution-engine.js";
 
 import ExecutionDispatcher
-    from "./api/dispatcher/execution-dispatcher.js";
+    from "./lib/dispatcher/execution-dispatcher.js";
 
 import AIEngineerWorker
-    from "./api/workers/ai-engineer.js";
+    from "./lib/workers/ai-engineer.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Execution Dispatcher Test");

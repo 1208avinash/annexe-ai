@@ -1,4 +1,4 @@
-import { runGithubIntelligenceAgent } from "./api/agents/github/intelligence.js";
+import { runGithubIntelligenceAgent } from "./lib/agents/github/intelligence.js";
 
 const repositoryData = {
   frontend:     "React",

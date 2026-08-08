@@ -1,7 +1,7 @@
 import assert from "assert";
 
 import ConfidenceEngine
-from "./api/engineering-brain/confidence-engine.js";
+from "./lib/engineering-brain/confidence-engine.js";
 
 let passed = 0;
 let failed = 0;

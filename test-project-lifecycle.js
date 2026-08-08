@@ -4,9 +4,9 @@
 // Autonomous Project Lifecycle Test
 // ───────────────────────────────────────────────────────────────
 
-import { createProjectSchema } from "./api/projects/schema.js";
-import { runProjectPipeline } from "./api/orchestrator/pipeline.js";
-import { runEngineeringPipeline } from "./api/orchestrator/engineering-pipeline.js";
+import { createProjectSchema } from "./lib/projects/schema.js";
+import { runProjectPipeline } from "./lib/orchestrator/pipeline.js";
+import { runEngineeringPipeline } from "./lib/orchestrator/engineering-pipeline.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Autonomous Project Lifecycle");

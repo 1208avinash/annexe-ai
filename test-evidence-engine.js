@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import EvidenceEngine from "./api/engineering-brain/evidence-engine.js";
+import EvidenceEngine from "./lib/engineering-brain/evidence-engine.js";
 
 let passed = 0;
 let failed = 0;

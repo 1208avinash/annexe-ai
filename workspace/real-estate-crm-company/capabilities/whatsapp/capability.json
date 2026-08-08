@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "whatsapp",
+  "description": "WhatsApp communication and notification capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "notifications"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "WhatsApp settings",
+      "message templates"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/whatsapp"
+    ]
+  },
+  "routes": [
+    "/whatsapp"
+  ],
+  "permissions": [
+    "whatsapp:read",
+    "whatsapp:write"
+  ],
+  "database": [
+    "whatsapp_messages",
+    "whatsapp_contacts"
+  ],
+  "events": [
+    "whatsapp.queued",
+    "whatsapp.delivered"
+  ]
+}

@@ -8,7 +8,7 @@
 // node test-quality-gate-worker.js
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/quality-gate/worker.js";
+import run from "./lib/agents/quality-gate/worker.js";
 
 let passed = 0;
 let failed = 0;

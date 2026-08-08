@@ -16,15 +16,15 @@
 
 import {
   ProjectStateManager
-} from "./api/orchestrator/state.js";
+} from "./lib/orchestrator/state.js";
 
 import {
   WorkflowRunner
-} from "./api/orchestrator/workflow-runner.js";
+} from "./lib/orchestrator/workflow-runner.js";
 
 import {
   WorkflowTaskGenerator
-} from "./api/orchestrator/task-generator.js";
+} from "./lib/orchestrator/task-generator.js";
 
 
 console.log("\n════════════════════════════════════════");

@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import EngineeringPlan from "./api/planning-engine/contracts/engineering-plan.js";
+import EngineeringPlan from "./lib/planning-engine/contracts/engineering-plan.js";
 
 let passed = 0;
 let failed = 0;

@@ -1,0 +1,14 @@
+{
+  "deploymentId": "DEP-1786095255360",
+  "projectId": "enterprise-crm",
+  "status": "READY_FOR_DEPLOYMENT",
+  "guide": {
+    "backend": "Start with python -m uvicorn app.main:app",
+    "frontend": "Start with npm run build and deploy dist/",
+    "notes": [
+      "Keep environment variables in .env files.",
+      "Provision a persistent database before production launch."
+    ]
+  },
+  "generatedAt": "2026-08-07T09:34:15.360Z"
+}

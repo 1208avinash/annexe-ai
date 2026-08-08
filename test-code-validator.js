@@ -1,5 +1,5 @@
 import { runCodeValidatorAgent }
-from "./api/agents/code-validator/agent.js";
+from "./lib/agents/code-validator/agent.js";
 
 
 console.log(`

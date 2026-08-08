@@ -11,7 +11,7 @@
 import fs   from "fs/promises";
 import path from "path";
 
-import { createWorkspace } from "./api/sandbox/workspace.js";
+import { createWorkspace } from "./lib/sandbox/workspace.js";
 
 
 // ── Assertion helper ──────────────────────────────────────────────────────────

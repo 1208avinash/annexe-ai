@@ -4,7 +4,7 @@
 // Engineering Orchestrator Test
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/engineering-orchestrator/worker.js";
+import run from "./lib/agents/engineering-orchestrator/worker.js";
 
 let passed = 0;
 let failed = 0;

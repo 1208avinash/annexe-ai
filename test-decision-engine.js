@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import DecisionEngine from "./api/decision-engine/decision-engine.js";
+import DecisionEngine from "./lib/decision-engine/decision-engine.js";
 
 let passed = 0;
 let failed = 0;

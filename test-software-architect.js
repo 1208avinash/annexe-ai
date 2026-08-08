@@ -6,7 +6,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import SoftwareArchitect
-    from "./api/architecture/software-architect.js";
+    from "./lib/architecture/software-architect.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Software Architect Test");

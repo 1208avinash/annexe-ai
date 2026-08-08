@@ -2,7 +2,7 @@ import assert from "assert";
 
 import MemoryEvents, {
     MemoryEventType
-} from "./api/engineering-memory/memory-events.js";
+} from "./lib/engineering-memory/memory-events.js";
 
 let passed = 0;
 let failed = 0;

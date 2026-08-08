@@ -1,7 +1,7 @@
 import assert from "assert";
 
 import RecommendationBuilder
-from "./api/engineering-brain/recommendation-builder.js";
+from "./lib/engineering-brain/recommendation-builder.js";
 
 let passed = 0;
 let failed = 0;

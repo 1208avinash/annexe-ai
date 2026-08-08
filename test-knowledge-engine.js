@@ -1,11 +1,11 @@
 import assert from "assert";
 
-import KnowledgeEngine from "./api/engineering-brain/knowledge-engine.js";
+import KnowledgeEngine from "./lib/engineering-brain/knowledge-engine.js";
 
 import {
     MemoryManager,
     MemoryDomain
-} from "./api/engineering-memory/index.js";
+} from "./lib/engineering-memory/index.js";
 
 let passed = 0;
 let failed = 0;

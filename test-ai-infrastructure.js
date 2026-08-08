@@ -5,20 +5,20 @@
 // End-to-End Validation
 // ───────────────────────────────────────────────────────────────
 
-import Provider from "./api/ai/provider.js";
-import ProviderRegistry from "./api/ai/provider-registry.js";
+import Provider from "./lib/ai/provider.js";
+import ProviderRegistry from "./lib/ai/provider-registry.js";
 
-import AIModel from "./api/ai/model-router/ai-model.js";
-import ModelRegistry from "./api/ai/model-router/model-registry.js";
-import ModelRouter from "./api/ai/model-router/model-router.js";
+import AIModel from "./lib/ai/model-router/ai-model.js";
+import ModelRegistry from "./lib/ai/model-router/model-registry.js";
+import ModelRouter from "./lib/ai/model-router/model-router.js";
 
-import Benchmark from "./api/ai/benchmark/benchmark.js";
-import BenchmarkSuite from "./api/ai/benchmark/benchmark-suite.js";
-import BenchmarkResult from "./api/ai/benchmark/benchmark-result.js";
-import BenchmarkRepository from "./api/ai/benchmark/benchmark-repository.js";
+import Benchmark from "./lib/ai/benchmark/benchmark.js";
+import BenchmarkSuite from "./lib/ai/benchmark/benchmark-suite.js";
+import BenchmarkResult from "./lib/ai/benchmark/benchmark-result.js";
+import BenchmarkRepository from "./lib/ai/benchmark/benchmark-repository.js";
 
 import CapabilityEvaluator
-    from "./api/ai/model-router/capability-evaluator.js";
+    from "./lib/ai/model-router/capability-evaluator.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — AI INFRASTRUCTURE TEST");

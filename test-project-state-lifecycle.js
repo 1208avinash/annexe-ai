@@ -12,7 +12,7 @@
 import {
   ProjectStateManager,
   PROJECT_STATES
-} from "./api/orchestrator/state.js";
+} from "./lib/orchestrator/state.js";
 
 
 console.log("\n════════════════════════════════════════");

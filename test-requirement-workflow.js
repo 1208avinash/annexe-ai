@@ -4,7 +4,7 @@
 // Requirement Workflow Integration Test
 // ───────────────────────────────────────────────────────────────
 
-import { WorkflowPlanner } from "./api/orchestrator/planner.js";
+import { WorkflowPlanner } from "./lib/orchestrator/planner.js";
 
 let passed = 0;
 let failed = 0;

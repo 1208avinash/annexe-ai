@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "users",
+  "description": "User identity, profile, and account management capability.",
+  "dependencies": [
+    "permissions"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "user profile",
+      "user administration"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/users"
+    ]
+  },
+  "routes": [
+    "/users"
+  ],
+  "permissions": [
+    "users:read",
+    "users:write"
+  ],
+  "database": [
+    "users"
+  ],
+  "events": [
+    "users.created",
+    "users.updated"
+  ]
+}

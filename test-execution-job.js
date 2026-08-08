@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import ExecutionJob from "./api/execution-orchestrator/contracts/execution-job.js";
+import ExecutionJob from "./lib/execution-orchestrator/contracts/execution-job.js";
 
 let passed = 0;
 let failed = 0;

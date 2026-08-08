@@ -1,7 +1,7 @@
 import {
   selectModel,
   getAvailableModels
-} from "./api/core/model-router.js";
+} from "./lib/core/model-router.js";
 
 
 console.log("\n=== ANNEXE AI Model Router Test ===\n");

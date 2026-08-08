@@ -5,10 +5,10 @@
 // ───────────────────────────────────────────────────────────────
 
 import EngineeringContextBuilder
-    from "./api/context/project-context-builder.js";
+    from "./lib/context/project-context-builder.js";
 
 import PromptBuilder
-    from "./api/ai/prompt-builder.js";
+    from "./lib/ai/prompt-builder.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Prompt Builder Test");

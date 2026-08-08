@@ -1,9 +1,9 @@
 import assert from "assert";
 
-import MemoryStore from "./api/engineering-memory/memory-store.js";
-import MemorySearch from "./api/engineering-memory/memory-search.js";
-import MemoryRecord from "./api/engineering-memory/memory-record.js";
-import { MemoryDomain } from "./api/engineering-memory/memory-types.js";
+import MemoryStore from "./lib/engineering-memory/memory-store.js";
+import MemorySearch from "./lib/engineering-memory/memory-search.js";
+import MemoryRecord from "./lib/engineering-memory/memory-record.js";
+import { MemoryDomain } from "./lib/engineering-memory/memory-types.js";
 
 let passed = 0;
 let failed = 0;

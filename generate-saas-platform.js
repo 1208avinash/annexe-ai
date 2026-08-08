@@ -1,8 +1,8 @@
 import {
     parseCliArgs,
     parseAnswersInput
-} from "./api/generation/application-generator.js";
-import { runCommercialSaaSPlatform } from "./api/platform/commercial-saas-platform.js";
+} from "./lib/generation/application-generator.js";
+import { runCommercialSaaSPlatform } from "./lib/platform/commercial-saas-platform.js";
 
 const parsed = parseCliArgs();
 const result = await runCommercialSaaSPlatform({

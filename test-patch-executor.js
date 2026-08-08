@@ -25,8 +25,8 @@ import path   from "path";
 import fs     from "fs/promises";
 import os     from "os";
 
-import { SandboxManager } from "./api/sandbox/manager.js";
-import { PatchExecutor }  from "./api/orchestrator/patch-executor.js";
+import { SandboxManager } from "./lib/sandbox/manager.js";
+import { PatchExecutor }  from "./lib/orchestrator/patch-executor.js";
 
 
 // ── Constants ─────────────────────────────────────────────────────────────────

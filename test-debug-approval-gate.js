@@ -16,8 +16,8 @@
   READ-ONLY: does not modify any production file.
 */
 
-import { DebugResultsManager } from "./api/orchestrator/debug-results.js";
-import { ApprovalGate }        from "./api/orchestrator/approval-gate.js";
+import { DebugResultsManager } from "./lib/orchestrator/debug-results.js";
+import { ApprovalGate }        from "./lib/orchestrator/approval-gate.js";
 
 
 // ── Helpers ──────────────────────────────────────────────────────────────────

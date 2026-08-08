@@ -4,7 +4,7 @@
 // Engineering Intelligence Engine Test
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/engineering-intelligence/worker.js";
+import run from "./lib/agents/engineering-intelligence/worker.js";
 
 let passed = 0;
 let failed = 0;

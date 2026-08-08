@@ -5,7 +5,7 @@
 // ───────────────────────────────────────────────────────────────
 
 import { runEngineeringPipeline }
-    from "./api/orchestrator/engineering-pipeline.js";
+    from "./lib/orchestrator/engineering-pipeline.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — Engineering Pipeline Test");

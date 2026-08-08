@@ -1,8 +1,8 @@
 import assert from "assert";
 
-import TaskPlanner from "./api/planning-engine/task-planner.js";
-import DependencyPlanner from "./api/planning-engine/dependency-planner.js";
-import SprintPlanner from "./api/planning-engine/sprint-planner.js";
+import TaskPlanner from "./lib/planning-engine/task-planner.js";
+import DependencyPlanner from "./lib/planning-engine/dependency-planner.js";
+import SprintPlanner from "./lib/planning-engine/sprint-planner.js";
 
 let passed = 0;
 let failed = 0;

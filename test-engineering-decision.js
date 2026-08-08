@@ -1,6 +1,6 @@
 import assert from "assert";
 
-import EngineeringDecision from "./api/decision-engine/contracts/engineering-decision.js";
+import EngineeringDecision from "./lib/decision-engine/contracts/engineering-decision.js";
 
 let passed = 0;
 let failed = 0;

@@ -6,22 +6,22 @@
 // ───────────────────────────────────────────────────────────────
 
 import EngineeringContextBuilder
-    from "./api/context/project-context-builder.js";
+    from "./lib/context/project-context-builder.js";
 
 import PromptBuilder
-    from "./api/ai/prompt-builder.js";
+    from "./lib/ai/prompt-builder.js";
 
 import GenerationEngine
-    from "./api/ai/generation-engine.js";
+    from "./lib/ai/generation-engine.js";
 
 import OpenRouterProvider
-    from "./api/ai/providers/openrouter-provider.js";
+    from "./lib/ai/providers/openrouter-provider.js";
 
 import BuildManifestGenerator
-    from "./api/workers/build-manifest-generator.js";
+    from "./lib/workers/build-manifest-generator.js";
 
 import ProjectWriter
-    from "./api/project-writer/project-writer.js";
+    from "./lib/project-writer/project-writer.js";
 
 console.log("\n═══════════════════════════════════════════════");
 console.log(" ANNEXE AI — REAL AI GENERATION TEST");

@@ -1,4 +1,4 @@
-import { runApplicationGeneration } from "./api/generation/application-generator.js";
+import { runApplicationGeneration } from "./lib/generation/application-generator.js";
 
 const result = await runApplicationGeneration({ type: "crm" });
 

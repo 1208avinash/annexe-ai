@@ -9,7 +9,7 @@
 //
 // ───────────────────────────────────────────────────────────────
 
-import run from "./api/agents/architecture-validator/worker.js";
+import run from "./lib/agents/architecture-validator/worker.js";
 
 let passed = 0;
 let failed = 0;

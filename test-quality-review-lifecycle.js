@@ -22,15 +22,15 @@
 
 import {
   ProjectStateManager
-} from "./api/orchestrator/state.js";
+} from "./lib/orchestrator/state.js";
 
 import {
   TestExecutionAgent
-} from "./api/agents/testing/executor.js";
+} from "./lib/agents/testing/executor.js";
 
 import {
   CodeReviewAgent
-} from "./api/agents/review/reviewer.js";
+} from "./lib/agents/review/reviewer.js";
 
 
 console.log("\n════════════════════════════════════════");

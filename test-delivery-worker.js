@@ -5,7 +5,7 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { runDeliveryWorker } from "./api/agents/delivery/worker.js";
+import { runDeliveryWorker } from "./lib/agents/delivery/worker.js";
 
 
 // ── Shared assert helper ──────────────────────────────────────────────────────

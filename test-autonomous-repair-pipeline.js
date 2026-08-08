@@ -5,12 +5,12 @@
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { ApprovalExecutionService   } from "./api/orchestrator/approval-execution-service.js";
-import { DebugApprovalService       } from "./api/orchestrator/debug-approval-service.js";
-import { RepairCoordinator          } from "./api/orchestrator/repair-coordinator.js";
-import { RebuildVerificationService } from "./api/orchestrator/rebuild-verification-service.js";
-import { RepairExecutionService     } from "./api/orchestrator/repair-execution-service.js";
-import { PatchExecutor              } from "./api/orchestrator/patch-executor.js";
+import { ApprovalExecutionService   } from "./lib/orchestrator/approval-execution-service.js";
+import { DebugApprovalService       } from "./lib/orchestrator/debug-approval-service.js";
+import { RepairCoordinator          } from "./lib/orchestrator/repair-coordinator.js";
+import { RebuildVerificationService } from "./lib/orchestrator/rebuild-verification-service.js";
+import { RepairExecutionService     } from "./lib/orchestrator/repair-execution-service.js";
+import { PatchExecutor              } from "./lib/orchestrator/patch-executor.js";
 
 
 // ── Assertion helper ──────────────────────────────────────────────────────────

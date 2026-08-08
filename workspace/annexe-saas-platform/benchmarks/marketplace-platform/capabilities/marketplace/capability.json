@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "marketplace",
+  "description": "Marketplace catalog, order, and seller coordination capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "reports",
+    "notifications",
+    "file-storage",
+    "search",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "catalog",
+      "orders",
+      "seller dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/marketplace"
+    ]
+  },
+  "routes": [
+    "/marketplace"
+  ],
+  "permissions": [
+    "marketplace:read",
+    "marketplace:write"
+  ],
+  "database": [
+    "products",
+    "orders",
+    "sellers"
+  ],
+  "events": [
+    "marketplace.order.created",
+    "marketplace.listing.published"
+  ]
+}

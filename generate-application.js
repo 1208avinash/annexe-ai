@@ -2,7 +2,7 @@ import {
     parseCliArgs,
     parseAnswersInput,
     runApplicationGeneration
-} from "./api/generation/application-generator.js";
+} from "./lib/generation/application-generator.js";
 
 const parsed = parseCliArgs();
 const result = await runApplicationGeneration({
