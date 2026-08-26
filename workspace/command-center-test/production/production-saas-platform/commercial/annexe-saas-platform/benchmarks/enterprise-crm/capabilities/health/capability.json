@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "health",
+  "description": "Service health checks and readiness validation capability.",
+  "dependencies": [],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "service health view"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/health"
+    ]
+  },
+  "routes": [
+    "/health",
+    "/ready"
+  ],
+  "permissions": [
+    "system:read"
+  ],
+  "database": [
+    "health_checks"
+  ],
+  "events": [
+    "health.checked"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "reportId": "UPGRADEREP-1787553334251",
+  "projectId": "TEST-UPGRADE-001",
+  "requestedUpgrade": "Upgrade existing AI CRM with AI assistant, analytics dashboard and automation features",
+  "analysis": {
+    "outdatedComponents": [
+      "UI modules",
+      "workflow modules"
+    ],
+    "missingFeatures": [
+      "Analytics dashboard enhancements",
+      "Automation workflow improvements",
+      "AI assistant modernization"
+    ],
+    "improvementOpportunities": [
+      "Performance tuning",
+      "Technology modernization"
+    ],
+    "technologyUpgrades": [
+      "Framework updates",
+      "Dependency refresh"
+    ],
+    "customerRequests": [
+      "Upgrade existing AI CRM with AI assistant, analytics dashboard and automation features"
+    ],
+    "score": 96,
+    "status": "READY"
+  },
+  "impact": {
+    "affectedModules": [
+      "frontend",
+      "backend",
+      "reports"
+    ],
+    "databaseChanges": "Possible",
+    "apiImpact": "Controlled",
+    "frontendImpact": "Moderate",
+    "securityImpact": "Reviewed",
+    "deploymentImpact": "Low to moderate",
+    "score": 95,
+    "status": "READY"
+  },
+  "cost": {
+    "complexity": "Moderate",
+    "engineeringEffort": "Medium",
+    "risk": "Managed",
+    "requiredResources": [
+      "Engineering",
+      "QA",
+      "Security",
+      "DevOps"
+    ],
+    "estimatedCost": 8600,
+    "currency": "USD",
+    "score": 95
+  },
+  "paymentStatus": "PENDING",
+  "executionStatus": "BLOCKED",
+  "validationResult": {
+    "upgradeSuccess": false,
+    "oldFeaturesWorking": true,
+    "newFeaturesWorking": false,
+    "securityMaintained": true,
+    "performanceMaintained": true,
+    "score": 90,
+    "status": "BLOCKED"
+  },
+  "completionStatus": "PENDING",
+  "generatedAt": "2026-08-24T06:35:34.251Z"
+}

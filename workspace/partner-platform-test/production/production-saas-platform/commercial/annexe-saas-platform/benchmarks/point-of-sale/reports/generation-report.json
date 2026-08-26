@@ -1,0 +1,37 @@
+{
+  "applicationType": "pos",
+  "generatedAt": "2026-08-24T09:28:41.076Z",
+  "project": {
+    "id": "point-of-sale",
+    "name": "Point of Sale",
+    "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\point-of-sale"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 167
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

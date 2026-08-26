@@ -1,0 +1,17 @@
+{
+  "riskId": "RISK-1787626659440",
+  "projectId": "enterprise-crm",
+  "generatedAt": "2026-08-25T02:57:39.440Z",
+  "riskScore": 15,
+  "decision": "build",
+  "risks": [
+    "Scope may expand after client review.",
+    "Deployment credentials must be configured.",
+    "Future feature growth may require additional capability modules."
+  ],
+  "mitigations": [
+    "Keep the capability composition reusable.",
+    "Maintain backend and frontend template parity.",
+    "Validate every generated workspace before delivery."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "engine": "PostgreSQL",
+  "connectionPool": {
+    "maxConnections": 50,
+    "activeConnections": 0,
+    "status": "healthy"
+  },
+  "backupPath": "D:\\annex-web\\workspace\\partner-platform-test\\enterprise\\enterprise-scaling-platform\\backups\\enterprise-platform-1787564277704.json",
+  "migrationSupport": true,
+  "health": {
+    "status": "healthy",
+    "engine": "PostgreSQL",
+    "connectionPool": {
+      "maxConnections": 50,
+      "activeConnections": 0,
+      "status": "healthy"
+    },
+    "checkedAt": "2026-08-24T09:37:57.722Z"
+  },
+  "status": "READY"
+}

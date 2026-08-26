@@ -1,0 +1,48 @@
+{
+  "proposalId": "PROP-1787557738659",
+  "title": "Enterprise ERP Proposal",
+  "industry": "ERP",
+  "businessType": "Enterprise ERP",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Inventory",
+    "Operations",
+    "Reporting",
+    "Approvals",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "erp",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

@@ -1,0 +1,37 @@
+{
+  "applicationType": "inventory",
+  "generatedAt": "2026-08-24T07:54:11.279Z",
+  "project": {
+    "id": "inventory-management",
+    "name": "Inventory Management",
+    "outputDirectory": "D:\\annex-web\\workspace\\commercial-platform-test\\annexe-saas-platform-saas\\benchmarks\\inventory-management"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 161
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

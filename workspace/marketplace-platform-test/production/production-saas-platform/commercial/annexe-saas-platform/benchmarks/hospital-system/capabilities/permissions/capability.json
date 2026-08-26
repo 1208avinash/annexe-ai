@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "permissions",
+  "description": "Central permission definitions for application access control.",
+  "dependencies": [],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "role gating",
+      "route guards"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/permissions"
+    ]
+  },
+  "routes": [
+    "/permissions"
+  ],
+  "permissions": [
+    "permissions:read",
+    "permissions:write"
+  ],
+  "database": [
+    "permissions",
+    "permission_assignments"
+  ],
+  "events": [
+    "permissions.updated"
+  ]
+}

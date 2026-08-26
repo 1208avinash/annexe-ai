@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 import { apiClient, clearStoredToken, getStoredToken, setStoredToken } from "../services/api.js";
+import { LOCALIZATION } from "../localization/index.js";
 
 const AuthContext = createContext(null);
 
@@ -78,7 +79,7 @@ export function RequireAuth({ children }) {
   const location = useLocation();
 
   if (!ready) {
-    return <div className="screen screen-loading">Loading workspace...</div>;
+    return <div className="screen screen-loading">{LOCALIZATION.frontend.loadingWorkspace}</div>;
   }
 
   if (!token) {

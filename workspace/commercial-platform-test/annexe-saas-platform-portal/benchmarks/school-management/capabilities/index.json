@@ -1,0 +1,203 @@
+{
+  "project": "School Management",
+  "generatedAt": "2026-08-24T07:27:54.112Z",
+  "capabilities": [
+    {
+      "name": "permissions",
+      "version": "1.0.0",
+      "description": "Central permission definitions for application access control.",
+      "dependencies": [],
+      "routes": [
+        "/permissions"
+      ]
+    },
+    {
+      "name": "users",
+      "version": "1.0.0",
+      "description": "User identity, profile, and account management capability.",
+      "dependencies": [
+        "permissions"
+      ],
+      "routes": [
+        "/users"
+      ]
+    },
+    {
+      "name": "roles",
+      "version": "1.0.0",
+      "description": "Role assignment and authorization group capability.",
+      "dependencies": [
+        "permissions"
+      ],
+      "routes": [
+        "/roles"
+      ]
+    },
+    {
+      "name": "logging",
+      "version": "1.0.0",
+      "description": "Structured request and application logging capability.",
+      "dependencies": [],
+      "routes": [
+        "/logs"
+      ]
+    },
+    {
+      "name": "health",
+      "version": "1.0.0",
+      "description": "Service health checks and readiness validation capability.",
+      "dependencies": [],
+      "routes": [
+        "/health",
+        "/ready"
+      ]
+    },
+    {
+      "name": "authentication",
+      "version": "1.0.0",
+      "description": "JWT login, token validation, and session bootstrap capability.",
+      "dependencies": [
+        "users",
+        "roles",
+        "permissions",
+        "logging",
+        "health"
+      ],
+      "routes": [
+        "/auth/login",
+        "/auth/me"
+      ]
+    },
+    {
+      "name": "search",
+      "version": "1.0.0",
+      "description": "Cross-entity search and discovery capability.",
+      "dependencies": [
+        "logging"
+      ],
+      "routes": [
+        "/search"
+      ]
+    },
+    {
+      "name": "audit-logs",
+      "version": "1.0.0",
+      "description": "Operational audit trail and compliance logging capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "routes": [
+        "/audit-logs"
+      ]
+    },
+    {
+      "name": "reports",
+      "version": "1.0.0",
+      "description": "Operational reporting and export capability.",
+      "dependencies": [
+        "search",
+        "audit-logs",
+        "logging"
+      ],
+      "routes": [
+        "/reports"
+      ]
+    },
+    {
+      "name": "version",
+      "version": "1.0.0",
+      "description": "Build version reporting and deployment metadata capability.",
+      "dependencies": [],
+      "routes": [
+        "/version"
+      ]
+    },
+    {
+      "name": "dashboard",
+      "version": "1.0.0",
+      "description": "Workspace overview, KPI cards, and recent activity surface.",
+      "dependencies": [
+        "authentication",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "routes": [
+        "/dashboard",
+        "/crm/summary"
+      ]
+    },
+    {
+      "name": "notifications",
+      "version": "1.0.0",
+      "description": "Notification delivery and activity alert capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "routes": [
+        "/notifications"
+      ]
+    },
+    {
+      "name": "file-storage",
+      "version": "1.0.0",
+      "description": "File attachment and document storage capability.",
+      "dependencies": [
+        "authentication",
+        "users"
+      ],
+      "routes": [
+        "/files"
+      ]
+    },
+    {
+      "name": "settings",
+      "version": "1.0.0",
+      "description": "Application settings and tenant configuration capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "routes": [
+        "/settings"
+      ]
+    },
+    {
+      "name": "school",
+      "version": "1.0.0",
+      "description": "School administration, student, and academic operations capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "reports",
+        "notifications",
+        "file-storage",
+        "settings"
+      ],
+      "routes": [
+        "/school"
+      ]
+    },
+    {
+      "name": "email",
+      "version": "1.0.0",
+      "description": "Transactional email composition and delivery capability.",
+      "dependencies": [
+        "authentication",
+        "users"
+      ],
+      "routes": [
+        "/email"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "audit-logs",
+  "description": "Operational audit trail and compliance logging capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "audit viewer"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/audit-logs"
+    ]
+  },
+  "routes": [
+    "/audit-logs"
+  ],
+  "permissions": [
+    "audit:read"
+  ],
+  "database": [
+    "audit_logs"
+  ],
+  "events": [
+    "audit.logged"
+  ]
+}

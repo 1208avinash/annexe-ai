@@ -1,0 +1,18 @@
+[
+  {
+    "migrationId": "migration-1787562470100",
+    "version": "1.0.0",
+    "appliedAt": "2026-08-24T09:07:50.100Z",
+    "collections": [
+      "users",
+      "organizations",
+      "projects",
+      "projectReports",
+      "payments",
+      "upgrades",
+      "auditLogs",
+      "events",
+      "sessions"
+    ]
+  }
+]

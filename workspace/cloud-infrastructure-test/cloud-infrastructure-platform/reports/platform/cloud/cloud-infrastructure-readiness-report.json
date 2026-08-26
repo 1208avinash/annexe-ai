@@ -1,0 +1,884 @@
+{
+  "reportId": "CLOUD-1787630305615",
+  "generatedAt": "2026-08-25T03:58:25.615Z",
+  "requestText": "Prepare ANNEXE AI for enterprise cloud deployment with multi-region readiness.",
+  "region": "us-east-1",
+  "availabilityZone": "us-east-1a",
+  "dataResidency": "multi-region",
+  "complianceLocation": "global",
+  "providers": {
+    "aws": {
+      "initialize": {
+        "provider": "AWS",
+        "region": "us-east-1",
+        "availabilityZone": "us-east-1a",
+        "dataResidency": "multi-region",
+        "complianceLocation": "global",
+        "status": "READY",
+        "initializedAt": "2026-08-25T03:58:25.611Z"
+      },
+      "deploy": {
+        "container": {
+          "runtime": "aws-lambda",
+          "image": "annexe-ai/aws-cloud",
+          "status": "READY"
+        },
+        "docker": {
+          "image": "annexe-ai/aws-cloud",
+          "environment": "production",
+          "status": "READY",
+          "builtAt": "2026-08-25T03:58:25.611Z"
+        },
+        "kubernetes": {
+          "namespace": "annexe-ai-aws",
+          "cluster": "eks-ready",
+          "environment": "production",
+          "status": "READY",
+          "deployedAt": "2026-08-25T03:58:25.611Z"
+        },
+        "environment": {
+          "name": "production",
+          "region": "us-east-1",
+          "availabilityZone": "us-east-1a",
+          "dataResidency": "multi-region",
+          "complianceLocation": "global",
+          "status": "READY",
+          "createdAt": "2026-08-25T03:58:25.611Z"
+        },
+        "status": "READY"
+      },
+      "storage": {
+        "provider": "AWS S3",
+        "bucket": "annexe-ai-aws",
+        "artifactRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\artifacts",
+        "reportRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\reports\\platform\\cloud",
+        "backupRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\backups",
+        "status": "READY"
+      },
+      "database": {
+        "status": "READY",
+        "engine": "PostgreSQL",
+        "connectionPool": {
+          "maxConnections": 50,
+          "activeConnections": 0,
+          "status": "healthy"
+        },
+        "databaseRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database",
+        "statePath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\postgres-state.json",
+        "checkedAt": "2026-08-25T03:58:25.612Z"
+      },
+      "monitoring": {
+        "health": {
+          "api": "healthy",
+          "database": "unknown",
+          "queue": "healthy",
+          "storage": "healthy",
+          "checkedAt": "2026-08-25T03:58:25.612Z"
+        },
+        "metrics": {},
+        "alerts": [],
+        "status": "READY"
+      }
+    },
+    "azure": {
+      "initialize": {
+        "provider": "Azure",
+        "region": "eastus",
+        "availabilityZone": "1",
+        "dataResidency": "regional",
+        "complianceLocation": "enterprise",
+        "status": "READY",
+        "initializedAt": "2026-08-25T03:58:25.612Z"
+      },
+      "deploy": {
+        "container": {
+          "runtime": "azure-functions",
+          "image": "annexe-ai/azure-cloud",
+          "status": "READY"
+        },
+        "docker": {
+          "image": "annexe-ai/azure-cloud",
+          "environment": "production",
+          "status": "READY",
+          "builtAt": "2026-08-25T03:58:25.612Z"
+        },
+        "kubernetes": {
+          "namespace": "annexe-ai-azure",
+          "cluster": "aks-ready",
+          "environment": "production",
+          "status": "READY",
+          "deployedAt": "2026-08-25T03:58:25.612Z"
+        },
+        "environment": {
+          "name": "production",
+          "region": "eastus",
+          "availabilityZone": "1",
+          "dataResidency": "regional",
+          "complianceLocation": "enterprise",
+          "status": "READY",
+          "createdAt": "2026-08-25T03:58:25.612Z"
+        },
+        "status": "READY"
+      },
+      "storage": {
+        "provider": "AWS S3",
+        "bucket": "annexe-ai-azure",
+        "artifactRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\artifacts",
+        "reportRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\reports\\platform\\cloud",
+        "backupRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\backups",
+        "status": "READY"
+      },
+      "database": {
+        "status": "READY",
+        "engine": "PostgreSQL",
+        "connectionPool": {
+          "maxConnections": 50,
+          "activeConnections": 0,
+          "status": "healthy"
+        },
+        "databaseRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database",
+        "statePath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\postgres-state.json",
+        "checkedAt": "2026-08-25T03:58:25.613Z"
+      },
+      "monitoring": {
+        "health": {
+          "api": "healthy",
+          "database": "unknown",
+          "queue": "healthy",
+          "storage": "healthy",
+          "checkedAt": "2026-08-25T03:58:25.613Z"
+        },
+        "metrics": {},
+        "alerts": [],
+        "status": "READY"
+      }
+    },
+    "gcp": {
+      "initialize": {
+        "provider": "Google Cloud",
+        "region": "us-central1",
+        "availabilityZone": "a",
+        "dataResidency": "global",
+        "complianceLocation": "standard",
+        "status": "READY",
+        "initializedAt": "2026-08-25T03:58:25.613Z"
+      },
+      "deploy": {
+        "container": {
+          "runtime": "cloud-run",
+          "image": "annexe-ai/gcp-cloud",
+          "status": "READY"
+        },
+        "docker": {
+          "image": "annexe-ai/gcp-cloud",
+          "environment": "production",
+          "status": "READY",
+          "builtAt": "2026-08-25T03:58:25.613Z"
+        },
+        "kubernetes": {
+          "namespace": "annexe-ai-gcp",
+          "cluster": "gke-ready",
+          "environment": "production",
+          "status": "READY",
+          "deployedAt": "2026-08-25T03:58:25.613Z"
+        },
+        "environment": {
+          "name": "production",
+          "region": "us-central1",
+          "availabilityZone": "a",
+          "dataResidency": "global",
+          "complianceLocation": "standard",
+          "status": "READY",
+          "createdAt": "2026-08-25T03:58:25.613Z"
+        },
+        "status": "READY"
+      },
+      "storage": {
+        "provider": "AWS S3",
+        "bucket": "annexe-ai-gcp",
+        "artifactRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\artifacts",
+        "reportRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\reports\\platform\\cloud",
+        "backupRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\backups",
+        "status": "READY"
+      },
+      "database": {
+        "status": "READY",
+        "engine": "PostgreSQL",
+        "connectionPool": {
+          "maxConnections": 50,
+          "activeConnections": 0,
+          "status": "healthy"
+        },
+        "databaseRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database",
+        "statePath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\postgres-state.json",
+        "checkedAt": "2026-08-25T03:58:25.614Z"
+      },
+      "monitoring": {
+        "health": {
+          "api": "healthy",
+          "database": "unknown",
+          "queue": "healthy",
+          "storage": "healthy",
+          "checkedAt": "2026-08-25T03:58:25.614Z"
+        },
+        "metrics": {},
+        "alerts": [],
+        "status": "READY"
+      }
+    }
+  },
+  "databaseScore": 100,
+  "storageScore": 100,
+  "messagingScore": 100,
+  "cacheScore": 100,
+  "monitoringScore": 100,
+  "deploymentScore": 100,
+  "disasterRecoveryScore": 100,
+  "multiRegionReadiness": 100,
+  "overallCloudReadinessScore": 100,
+  "sections": {
+    "database": {
+      "engine": "PostgreSQL",
+      "status": "READY",
+      "connectionPool": {
+        "provider": "cloud",
+        "maxConnections": 100,
+        "activeConnections": 0,
+        "status": "healthy"
+      },
+      "migration": {
+        "status": "READY",
+        "schemaPath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\migrations\\schema.json",
+        "logPath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\migrations\\migrations.json",
+        "schema": {
+          "version": "1.0.0",
+          "generatedAt": "2026-08-25T03:58:23.813Z",
+          "collections": {
+            "users": {
+              "name": "users",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "email": {
+                  "type": "string",
+                  "required": true,
+                  "unique": true
+                },
+                "name": {
+                  "type": "string",
+                  "required": true
+                },
+                "role": {
+                  "type": "string",
+                  "required": true
+                },
+                "organizationId": {
+                  "type": "string",
+                  "required": false
+                },
+                "passwordHash": {
+                  "type": "string",
+                  "required": true
+                },
+                "passwordSalt": {
+                  "type": "string",
+                  "required": true
+                },
+                "passwordAlgorithm": {
+                  "type": "string",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                },
+                "lastLoginAt": {
+                  "type": "string",
+                  "required": false
+                }
+              }
+            },
+            "organizations": {
+              "name": "organizations",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "name": {
+                  "type": "string",
+                  "required": true
+                },
+                "industry": {
+                  "type": "string",
+                  "required": false
+                },
+                "ownerUserId": {
+                  "type": "string",
+                  "required": true
+                },
+                "plan": {
+                  "type": "string",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            },
+            "projects": {
+              "name": "projects",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "organizationId": {
+                  "type": "string",
+                  "required": true
+                },
+                "ownerUserId": {
+                  "type": "string",
+                  "required": true
+                },
+                "name": {
+                  "type": "string",
+                  "required": true
+                },
+                "industry": {
+                  "type": "string",
+                  "required": false
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                },
+                "billingStatus": {
+                  "type": "string",
+                  "required": true
+                },
+                "progress": {
+                  "type": "number",
+                  "required": true
+                },
+                "description": {
+                  "type": "string",
+                  "required": false
+                }
+              }
+            },
+            "projectReports": {
+              "name": "projectReports",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "projectId": {
+                  "type": "string",
+                  "required": true
+                },
+                "organizationId": {
+                  "type": "string",
+                  "required": true
+                },
+                "reportType": {
+                  "type": "string",
+                  "required": true
+                },
+                "title": {
+                  "type": "string",
+                  "required": true
+                },
+                "payload": {
+                  "type": "object",
+                  "required": true
+                }
+              }
+            },
+            "payments": {
+              "name": "payments",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "projectId": {
+                  "type": "string",
+                  "required": true
+                },
+                "organizationId": {
+                  "type": "string",
+                  "required": true
+                },
+                "invoiceId": {
+                  "type": "string",
+                  "required": true
+                },
+                "amount": {
+                  "type": "number",
+                  "required": true
+                },
+                "currency": {
+                  "type": "string",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                },
+                "milestone": {
+                  "type": "string",
+                  "required": true
+                },
+                "gateway": {
+                  "type": "string",
+                  "required": false
+                }
+              }
+            },
+            "upgrades": {
+              "name": "upgrades",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "projectId": {
+                  "type": "string",
+                  "required": true
+                },
+                "organizationId": {
+                  "type": "string",
+                  "required": true
+                },
+                "title": {
+                  "type": "string",
+                  "required": true
+                },
+                "description": {
+                  "type": "string",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                },
+                "advancePercent": {
+                  "type": "number",
+                  "required": true
+                },
+                "completionPercent": {
+                  "type": "number",
+                  "required": true
+                },
+                "estimate": {
+                  "type": "number",
+                  "required": false
+                },
+                "milestones": {
+                  "type": "object",
+                  "required": false
+                }
+              }
+            },
+            "auditLogs": {
+              "name": "auditLogs",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "actorId": {
+                  "type": "string",
+                  "required": false
+                },
+                "action": {
+                  "type": "string",
+                  "required": true
+                },
+                "entityType": {
+                  "type": "string",
+                  "required": true
+                },
+                "entityId": {
+                  "type": "string",
+                  "required": false
+                },
+                "metadata": {
+                  "type": "object",
+                  "required": true
+                }
+              }
+            },
+            "events": {
+              "name": "events",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "stream": {
+                  "type": "string",
+                  "required": true
+                },
+                "eventType": {
+                  "type": "string",
+                  "required": true
+                },
+                "payload": {
+                  "type": "object",
+                  "required": true
+                }
+              }
+            },
+            "sessions": {
+              "name": "sessions",
+              "primaryKey": "id",
+              "fields": {
+                "id": {
+                  "type": "string",
+                  "required": true
+                },
+                "createdAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "userId": {
+                  "type": "string",
+                  "required": true
+                },
+                "tokenId": {
+                  "type": "string",
+                  "required": true
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        },
+        "migrations": [
+          {
+            "migrationId": "migration-1787630303947",
+            "version": "1.0.0",
+            "appliedAt": "2026-08-25T03:58:23.947Z",
+            "collections": [
+              "users",
+              "organizations",
+              "projects",
+              "projectReports",
+              "payments",
+              "upgrades",
+              "auditLogs",
+              "events",
+              "sessions"
+            ]
+          }
+        ]
+      },
+      "backupSupport": true,
+      "region": "us-east-1",
+      "availabilityZone": "us-east-1a",
+      "dataResidency": "multi-region",
+      "complianceLocation": "global",
+      "databaseRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database",
+      "statePath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\database\\postgres-state.json"
+    },
+    "storage": {
+      "provider": "AWS S3",
+      "bucket": "annexe-ai-cloud",
+      "artifactRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\artifacts",
+      "reportRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\reports\\platform\\cloud",
+      "backupRoot": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\storage\\backups",
+      "status": "READY"
+    },
+    "messaging": {
+      "queue": {
+        "namespace": "cloud-infrastructure",
+        "queueStatus": "healthy",
+        "workerStatus": {
+          "workers": 0,
+          "status": "idle"
+        },
+        "checkedAt": "2026-08-25T03:58:25.614Z"
+      },
+      "eventStream": {
+        "topic": "cloud-infrastructure",
+        "events": [
+          {
+            "eventType": "CLOUD_DATABASE_READY",
+            "payload": {
+              "topic": "cloud-infrastructure",
+              "region": "us-east-1"
+            },
+            "createdAt": "2026-08-25T03:58:24.605Z"
+          },
+          {
+            "eventType": "CLOUD_STORAGE_READY",
+            "payload": {
+              "topic": "cloud-infrastructure",
+              "region": "us-east-1"
+            },
+            "createdAt": "2026-08-25T03:58:24.605Z"
+          },
+          {
+            "eventType": "CLOUD_DEPLOYMENT_READY",
+            "payload": {
+              "topic": "cloud-infrastructure",
+              "environment": "production"
+            },
+            "createdAt": "2026-08-25T03:58:24.605Z"
+          }
+        ],
+        "status": "READY"
+      },
+      "consumerManager": {
+        "consumerCount": 1,
+        "status": "READY"
+      },
+      "queueJob": {
+        "jobId": "JOB-1787630304604",
+        "type": "cloud-readiness-check",
+        "priority": "normal",
+        "status": "scheduled",
+        "scheduledAt": "2026-08-25T03:58:24.604Z",
+        "payload": {
+          "requestText": "Prepare ANNEXE AI for enterprise cloud deployment with multi-region readiness.",
+          "region": "us-east-1"
+        }
+      },
+      "events": [
+        {
+          "eventType": "CLOUD_DATABASE_READY",
+          "payload": {
+            "topic": "cloud-infrastructure",
+            "region": "us-east-1"
+          },
+          "createdAt": "2026-08-25T03:58:24.605Z"
+        },
+        {
+          "eventType": "CLOUD_STORAGE_READY",
+          "payload": {
+            "topic": "cloud-infrastructure",
+            "region": "us-east-1"
+          },
+          "createdAt": "2026-08-25T03:58:24.605Z"
+        },
+        {
+          "eventType": "CLOUD_DEPLOYMENT_READY",
+          "payload": {
+            "topic": "cloud-infrastructure",
+            "environment": "production"
+          },
+          "createdAt": "2026-08-25T03:58:24.605Z"
+        }
+      ],
+      "status": "READY"
+    },
+    "cache": {
+      "cache": {
+        "namespace": "cloud",
+        "entries": 1,
+        "status": "READY"
+      },
+      "session": {
+        "type": "session",
+        "namespace": "session",
+        "entries": 1,
+        "status": "READY"
+      },
+      "application": {
+        "type": "application",
+        "namespace": "application",
+        "entries": 1,
+        "status": "READY"
+      },
+      "status": "READY"
+    },
+    "monitoring": {
+      "dashboard": {
+        "health": {
+          "api": "healthy",
+          "database": "healthy",
+          "queue": "healthy",
+          "storage": "healthy",
+          "checkedAt": "2026-08-25T03:58:25.615Z"
+        },
+        "metrics": {},
+        "alerts": [],
+        "status": "READY"
+      },
+      "metrics": {
+        "cloudDatabaseReady": 100,
+        "cloudStorageReady": 100,
+        "cloudMessagingReady": 100,
+        "cloudDeploymentReady": 100,
+        "status": "READY"
+      },
+      "logs": {
+        "channel": "cloud-infrastructure",
+        "entries": [
+          {
+            "channel": "cloud-infrastructure",
+            "level": "info",
+            "message": "Cloud infrastructure layer initialized",
+            "metadata": {
+              "region": "us-east-1",
+              "availabilityZone": "us-east-1a"
+            },
+            "loggedAt": "2026-08-25T03:58:24.606Z"
+          }
+        ],
+        "status": "READY"
+      },
+      "alerts": {
+        "alerts": [
+          {
+            "type": "info",
+            "message": "Cloud infrastructure readiness evaluation completed",
+            "createdAt": "2026-08-25T03:58:24.606Z"
+          }
+        ],
+        "status": "READY"
+      },
+      "status": "READY"
+    },
+    "deployment": {
+      "container": {
+        "runtime": "enterprise-container",
+        "image": "annexe-ai/cloud-infrastructure",
+        "status": "READY"
+      },
+      "docker": {
+        "image": "annexe-ai/cloud-infrastructure",
+        "environment": "production",
+        "status": "READY",
+        "builtAt": "2026-08-25T03:58:24.607Z"
+      },
+      "kubernetes": {
+        "namespace": "annexe-ai-cloud",
+        "cluster": "enterprise-ready",
+        "environment": "production",
+        "status": "READY",
+        "deployedAt": "2026-08-25T03:58:24.607Z"
+      },
+      "environment": {
+        "name": "production",
+        "region": "us-east-1",
+        "availabilityZone": "us-east-1a",
+        "dataResidency": "multi-region",
+        "complianceLocation": "global",
+        "status": "READY",
+        "createdAt": "2026-08-25T03:58:24.607Z"
+      },
+      "status": "READY"
+    },
+    "disasterRecovery": {
+      "backupStrategy": {
+        "frequency": "daily",
+        "retentionDays": 30,
+        "multiRegion": true,
+        "status": "READY"
+      },
+      "restore": {
+        "restored": true,
+        "source": "cloud-backup",
+        "restoredAt": "2026-08-25T03:58:25.614Z",
+        "status": "READY"
+      },
+      "planner": {
+        "rtoHours": 4,
+        "rpoMinutes": 15,
+        "status": "READY"
+      },
+      "status": "READY"
+    }
+  },
+  "status": "READY"
+}

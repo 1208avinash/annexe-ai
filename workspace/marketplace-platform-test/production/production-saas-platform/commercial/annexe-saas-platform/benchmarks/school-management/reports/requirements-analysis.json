@@ -1,0 +1,54 @@
+{
+  "applicationType": "school",
+  "analysisId": "RA-1787627032769",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "School",
+  "businessType": "School Management",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Students",
+    "Classes",
+    "Reporting",
+    "Notifications",
+    "File Storage"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "School Management",
+  "projectId": "school-management",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "school",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

@@ -1,0 +1,13 @@
+{
+  "requirements": [
+    "GDPR",
+    "SOC2",
+    "ISO 27001"
+  ],
+  "gdpr": "READY",
+  "soc2": "READY",
+  "hipaa": "N/A",
+  "iso27001": "READY",
+  "status": "READY",
+  "score": 97
+}

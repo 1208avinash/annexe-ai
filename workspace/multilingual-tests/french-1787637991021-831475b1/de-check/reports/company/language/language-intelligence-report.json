@@ -1,0 +1,382 @@
+{
+  "reportId": "LANG-1787637994248",
+  "projectId": "de-check",
+  "detectedLanguage": "German",
+  "locale": "de-DE",
+  "confidence": 0.98,
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "languageContext": {
+    "language": "German",
+    "locale": "de-DE",
+    "confidence": 0.98,
+    "source": "detector",
+    "customerLanguage": "German",
+    "projectLanguage": "German",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "translationRequired": true,
+    "generatedApplicationDefaultLocale": "de-DE",
+    "localization": {
+      "language": "German",
+      "locale": "de-DE",
+      "uiLabels": {
+        "login": "Anmeldung",
+        "dashboard": "Dashboard",
+        "settings": "Einstellungen",
+        "customers": "Kunden",
+        "reports": "Berichte",
+        "search": "Suchen",
+        "save": "Speichern",
+        "cancel": "Abbrechen"
+      },
+      "menuLabels": {
+        "home": "Startseite",
+        "customers": "Kunden",
+        "analytics": "Analyse",
+        "settings": "Einstellungen"
+      },
+      "errorMessages": {
+        "generic": "Etwas ist schiefgelaufen.",
+        "network": "Netzwerkanfrage fehlgeschlagen.",
+        "validation": "Bitte prüfen Sie die markierten Felder."
+      },
+      "createdAt": "2026-08-25T06:06:34.228Z"
+    },
+    "culturalAdaptation": {
+      "language": "German",
+      "locale": "de-DE",
+      "region": "Germany",
+      "dateFormat": "DD.MM.YYYY",
+      "currency": "EUR",
+      "readingDirection": "ltr",
+      "communicationTone": "precise, structured, and professional",
+      "localizationNotes": [
+        "Use DD.MM.YYYY date formatting.",
+        "Prefer EUR for financial presentation.",
+        "Preserve left-to-right layout."
+      ],
+      "adaptedAt": "2026-08-25T06:06:34.228Z"
+    },
+    "softwareLocalization": {
+      "language": "German",
+      "locale": "de-DE",
+      "localizedStrings": {
+        "login": "Anmeldung",
+        "dashboard": "Dashboard",
+        "customers": "Kundenverwaltung",
+        "settings": "Einstellungen",
+        "reports": "Berichte",
+        "enter": "ANNEXE AI öffnen",
+        "explore": "Funktionen erkunden",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "network": "Netzwerkanfrage fehlgeschlagen.",
+        "generic": "Die Aktion konnte nicht abgeschlossen werden."
+      },
+      "screens": {
+        "login": "Anmeldung",
+        "dashboard": "Dashboard",
+        "customers": "Kundenverwaltung",
+        "settings": "Einstellungen",
+        "reports": "Berichte"
+      },
+      "buttons": {
+        "enter": "ANNEXE AI öffnen",
+        "explore": "Funktionen erkunden",
+        "save": "Speichern",
+        "cancel": "Abbrechen"
+      },
+      "errorMessages": {
+        "network": "Netzwerkanfrage fehlgeschlagen.",
+        "generic": "Die Aktion konnte nicht abgeschlossen werden."
+      },
+      "rtl": false,
+      "localizedAt": "2026-08-25T06:06:34.229Z"
+    },
+    "documentationLocalization": {
+      "language": "German",
+      "locale": "de-DE",
+      "userManual": {
+        "title": "Benutzerhandbuch",
+        "summary": "Operational guidance for using the platform in German.",
+        "sections": [
+          "Getting started",
+          "Authentication",
+          "Customer workflows",
+          "Reporting"
+        ]
+      },
+      "apiDocumentation": {
+        "title": "API-Dokumentation",
+        "summary": "API reference delivered in German.",
+        "sections": [
+          "Health endpoint",
+          "Authentication endpoints",
+          "Customer APIs",
+          "Reporting APIs"
+        ]
+      },
+      "reports": {
+        "title": "Localized Company Reports",
+        "language": "German",
+        "sections": [
+          "Executive summary",
+          "Delivery report",
+          "Quality report"
+        ]
+      },
+      "proposals": {
+        "title": "Angebot",
+        "summary": "Commercial proposal localized for German.",
+        "sections": [
+          "Business value",
+          "Implementation plan",
+          "Pricing",
+          "Payment milestones"
+        ]
+      },
+      "generatedAt": "2026-08-25T06:06:34.229Z"
+    },
+    "languageMemory": {
+      "customerLanguage": "German",
+      "preferredLanguage": "German",
+      "preferredLocale": "de-DE",
+      "projectLanguage": "German",
+      "projectLocale": "de-DE",
+      "generatedApplicationDefaultLocale": "de-DE",
+      "supportedLanguages": [
+        "English",
+        "French",
+        "Spanish",
+        "German",
+        "Arabic",
+        "Hindi",
+        "Chinese",
+        "Japanese",
+        "Portuguese",
+        "Italian"
+      ],
+      "localizationRequired": true,
+      "culturalAdaptationRequired": true,
+      "region": "Germany",
+      "conversationLanguage": "German",
+      "direction": "ltr",
+      "source": "detector",
+      "updatedAt": "2026-08-25T06:06:34.229Z"
+    }
+  },
+  "localizationReadiness": {
+    "ui": true,
+    "documentation": true,
+    "cultural": true,
+    "memory": true
+  },
+  "softwareTranslationReadiness": {
+    "uiLabels": true,
+    "menus": true,
+    "buttons": true,
+    "errorMessages": true
+  },
+  "documentationLocalizationReadiness": {
+    "userManual": true,
+    "apiDocumentation": true,
+    "proposals": true,
+    "reports": true
+  },
+  "languageMemory": {
+    "customerLanguage": "German",
+    "preferredLanguage": "German",
+    "preferredLocale": "de-DE",
+    "projectLanguage": "German",
+    "projectLocale": "de-DE",
+    "generatedApplicationDefaultLocale": "de-DE",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "region": "Germany",
+    "conversationLanguage": "German",
+    "direction": "ltr",
+    "source": "detector",
+    "updatedAt": "2026-08-25T06:06:34.229Z"
+  },
+  "localization": {
+    "language": "German",
+    "locale": "de-DE",
+    "uiLabels": {
+      "login": "Anmeldung",
+      "dashboard": "Dashboard",
+      "settings": "Einstellungen",
+      "customers": "Kunden",
+      "reports": "Berichte",
+      "search": "Suchen",
+      "save": "Speichern",
+      "cancel": "Abbrechen"
+    },
+    "menuLabels": {
+      "home": "Startseite",
+      "customers": "Kunden",
+      "analytics": "Analyse",
+      "settings": "Einstellungen"
+    },
+    "errorMessages": {
+      "generic": "Etwas ist schiefgelaufen.",
+      "network": "Netzwerkanfrage fehlgeschlagen.",
+      "validation": "Bitte prüfen Sie die markierten Felder."
+    },
+    "createdAt": "2026-08-25T06:06:34.228Z"
+  },
+  "culturalAdaptation": {
+    "language": "German",
+    "locale": "de-DE",
+    "region": "Germany",
+    "dateFormat": "DD.MM.YYYY",
+    "currency": "EUR",
+    "readingDirection": "ltr",
+    "communicationTone": "precise, structured, and professional",
+    "localizationNotes": [
+      "Use DD.MM.YYYY date formatting.",
+      "Prefer EUR for financial presentation.",
+      "Preserve left-to-right layout."
+    ],
+    "adaptedAt": "2026-08-25T06:06:34.228Z"
+  },
+  "softwareLocalization": {
+    "language": "German",
+    "locale": "de-DE",
+    "localizedStrings": {
+      "login": "Anmeldung",
+      "dashboard": "Dashboard",
+      "customers": "Kundenverwaltung",
+      "settings": "Einstellungen",
+      "reports": "Berichte",
+      "enter": "ANNEXE AI öffnen",
+      "explore": "Funktionen erkunden",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "network": "Netzwerkanfrage fehlgeschlagen.",
+      "generic": "Die Aktion konnte nicht abgeschlossen werden."
+    },
+    "screens": {
+      "login": "Anmeldung",
+      "dashboard": "Dashboard",
+      "customers": "Kundenverwaltung",
+      "settings": "Einstellungen",
+      "reports": "Berichte"
+    },
+    "buttons": {
+      "enter": "ANNEXE AI öffnen",
+      "explore": "Funktionen erkunden",
+      "save": "Speichern",
+      "cancel": "Abbrechen"
+    },
+    "errorMessages": {
+      "network": "Netzwerkanfrage fehlgeschlagen.",
+      "generic": "Die Aktion konnte nicht abgeschlossen werden."
+    },
+    "rtl": false,
+    "localizedAt": "2026-08-25T06:06:34.229Z"
+  },
+  "documentationLocalization": {
+    "language": "German",
+    "locale": "de-DE",
+    "userManual": {
+      "title": "Benutzerhandbuch",
+      "summary": "Operational guidance for using the platform in German.",
+      "sections": [
+        "Getting started",
+        "Authentication",
+        "Customer workflows",
+        "Reporting"
+      ]
+    },
+    "apiDocumentation": {
+      "title": "API-Dokumentation",
+      "summary": "API reference delivered in German.",
+      "sections": [
+        "Health endpoint",
+        "Authentication endpoints",
+        "Customer APIs",
+        "Reporting APIs"
+      ]
+    },
+    "reports": {
+      "title": "Localized Company Reports",
+      "language": "German",
+      "sections": [
+        "Executive summary",
+        "Delivery report",
+        "Quality report"
+      ]
+    },
+    "proposals": {
+      "title": "Angebot",
+      "summary": "Commercial proposal localized for German.",
+      "sections": [
+        "Business value",
+        "Implementation plan",
+        "Pricing",
+        "Payment milestones"
+      ]
+    },
+    "generatedAt": "2026-08-25T06:06:34.229Z"
+  },
+  "generatedAt": "2026-08-25T06:06:34.248Z"
+}

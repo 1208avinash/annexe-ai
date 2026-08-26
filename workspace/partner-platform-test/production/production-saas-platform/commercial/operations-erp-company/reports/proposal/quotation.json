@@ -1,0 +1,24 @@
+{
+  "quotationId": "QUO-1787562649567",
+  "proposalId": "PROP-1787562471771",
+  "projectId": "operations-erp",
+  "currency": "USD",
+  "decision": "reuse",
+  "lineItems": [
+    {
+      "name": "Discovery and Analysis",
+      "amount": 80
+    },
+    {
+      "name": "Build and Configuration",
+      "amount": 320
+    },
+    {
+      "name": "Delivery and Handover",
+      "amount": 400
+    }
+  ],
+  "subtotal": 800,
+  "total": 800,
+  "createdAt": "2026-08-24T09:10:49.567Z"
+}

@@ -1,0 +1,13 @@
+{
+  "reportId": "DEVOPSREP-1787555918584",
+  "projectId": "real-estate-crm",
+  "projectName": "Real Estate CRM",
+  "operationsScore": 95,
+  "deployment": "READY",
+  "monitoring": "REVIEW",
+  "scaling": "READY",
+  "recovery": "READY",
+  "recommendation": "DEPLOY",
+  "status": "APPROVED",
+  "generatedAt": "2026-08-24T07:18:38.584Z"
+}

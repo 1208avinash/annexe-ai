@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "email",
+  "description": "Transactional email composition and delivery capability.",
+  "dependencies": [
+    "authentication",
+    "users"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "email templates",
+      "delivery queue"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/email"
+    ]
+  },
+  "routes": [
+    "/email"
+  ],
+  "permissions": [
+    "email:send"
+  ],
+  "database": [
+    "email_messages"
+  ],
+  "events": [
+    "email.queued",
+    "email.sent"
+  ]
+}

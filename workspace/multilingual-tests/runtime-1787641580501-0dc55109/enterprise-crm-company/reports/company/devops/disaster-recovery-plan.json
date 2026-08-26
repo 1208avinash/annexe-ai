@@ -1,0 +1,7 @@
+{
+  "disasterRecoveryPlan": "READY",
+  "backupRequirements": "Defined",
+  "failureScenarios": "Defined",
+  "recoveryObjectives": "Defined",
+  "score": 97
+}

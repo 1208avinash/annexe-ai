@@ -1,0 +1,48 @@
+{
+  "reportId": "CEO-1787641000583",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "industry": "CRM",
+  "marketAnalysis": {
+    "industry": "CRM",
+    "marketOpportunity": "Moderate opportunity for workflow digitization and growth-oriented automation.",
+    "competition": [
+      "Established SaaS platforms",
+      "Internal legacy systems"
+    ],
+    "growthPotential": "Strong if the business prioritizes automation and customer visibility.",
+    "confidence": 0.9
+  },
+  "strategy": {
+    "businessStrategy": [
+      "Lead with a vertical CRM tailored to the target industry.",
+      "Automate the highest-friction workflows first.",
+      "Use reporting and dashboards to demonstrate measurable outcomes."
+    ],
+    "productRecommendation": [
+      "Customer and lead management core",
+      "Workflow automation",
+      "Analytics and executive dashboards",
+      "AI-assisted prioritization and summaries"
+    ],
+    "competitiveAdvantage": [
+      "Industry-specific positioning for CRM.",
+      "Faster time-to-value through prebuilt templates.",
+      "Operational intelligence across the customer lifecycle."
+    ],
+    "goToMarketDirection": "Target niche operators with a fast implementation offer and a clear ROI story."
+  },
+  "financialForecast": {
+    "developmentCostEstimate": 150000,
+    "pricingRecommendation": "Tiered subscription pricing with implementation services.",
+    "roiEstimate": "Positive within 12-18 months with successful adoption and retention.",
+    "revenueOpportunity": 450000
+  },
+  "riskAnalysis": {
+    "businessRisk": "Medium: market fit and adoption uncertainty.",
+    "technicalRisk": "Medium: integrations, auth, and data migration complexity.",
+    "securityRisk": "Medium: access control, secrets handling, and auditability.",
+    "adoptionRisk": "Medium: training and workflow change resistance."
+  },
+  "generatedAt": "2026-08-25T06:56:40.583Z"
+}

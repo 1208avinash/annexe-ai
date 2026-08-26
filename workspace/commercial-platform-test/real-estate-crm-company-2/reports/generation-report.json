@@ -1,0 +1,37 @@
+{
+  "applicationType": "crm",
+  "generatedAt": "2026-08-24T06:49:07.312Z",
+  "project": {
+    "id": "real-estate-crm-company-2",
+    "name": "Real Estate CRM",
+    "outputDirectory": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 185
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "customerLanguage": "Hindi",
+  "preferredLanguage": "Hindi",
+  "preferredLocale": "hi-IN",
+  "projectLanguage": "Hindi",
+  "projectLocale": "hi-IN",
+  "generatedApplicationDefaultLocale": "hi-IN",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "localizationRequired": true,
+  "culturalAdaptationRequired": true,
+  "region": "India",
+  "conversationLanguage": "Hindi",
+  "direction": "ltr",
+  "source": "detector",
+  "updatedAt": "2026-08-25T06:06:34.166Z"
+}

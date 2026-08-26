@@ -1,0 +1,24 @@
+{
+  "quotationId": "QUO-1787642007319",
+  "proposalId": "PROP-1787641917509",
+  "projectId": "enterprise-crm",
+  "currency": "USD",
+  "decision": "build",
+  "lineItems": [
+    {
+      "name": "Discovery and Analysis",
+      "amount": 400
+    },
+    {
+      "name": "Build and Configuration",
+      "amount": 1600
+    },
+    {
+      "name": "Delivery and Handover",
+      "amount": 2000
+    }
+  ],
+  "subtotal": 4000,
+  "total": 4000,
+  "createdAt": "2026-08-25T07:13:27.319Z"
+}

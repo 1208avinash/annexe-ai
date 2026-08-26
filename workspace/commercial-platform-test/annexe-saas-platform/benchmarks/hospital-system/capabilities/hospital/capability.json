@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "hospital",
+  "description": "Hospital and patient management capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "reports",
+    "notifications",
+    "file-storage",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "patient registry",
+      "appointments",
+      "clinical dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/hospital"
+    ]
+  },
+  "routes": [
+    "/hospital"
+  ],
+  "permissions": [
+    "hospital:read",
+    "hospital:write"
+  ],
+  "database": [
+    "patients",
+    "appointments",
+    "encounters"
+  ],
+  "events": [
+    "hospital.patient.created",
+    "hospital.appointment.scheduled"
+  ]
+}

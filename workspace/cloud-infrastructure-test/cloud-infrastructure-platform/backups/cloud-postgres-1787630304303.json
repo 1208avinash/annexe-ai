@@ -1,0 +1,10 @@
+{
+  "sourceLabel": "cloud-postgres",
+  "generatedAt": "2026-08-25T03:58:24.303Z",
+  "payload": {
+    "requestText": "Prepare ANNEXE AI for enterprise cloud deployment with multi-region readiness.",
+    "region": "us-east-1",
+    "availabilityZone": "us-east-1a",
+    "dataResidency": "multi-region"
+  }
+}

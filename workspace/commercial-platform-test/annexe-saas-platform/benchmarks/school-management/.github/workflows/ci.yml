@@ -1,0 +1,54 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: enterprise_crm
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d enterprise_crm"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Generate CRM
+        run: node generate-enterprise-crm.js
+      - name: Compile backend
+        run: python -m compileall backend
+        working-directory: workspace/enterprise-crm
+      - name: Run backend tests
+        run: python -m pytest
+        working-directory: workspace/enterprise-crm/backend
+      - name: Install frontend
+        run: npm install
+        working-directory: workspace/enterprise-crm/frontend
+      - name: Build frontend
+        run: npm run build
+        working-directory: workspace/enterprise-crm/frontend
+      - name: Run smoke tests
+        run: npm run smoke
+        working-directory: workspace/enterprise-crm/frontend
+      - name: Docker compose config
+        run: docker compose config
+        working-directory: workspace/enterprise-crm
+      - name: Build docker images
+        run: docker compose build
+        working-directory: workspace/enterprise-crm

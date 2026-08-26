@@ -1,0 +1,37 @@
+{
+  "applicationType": "school",
+  "generatedAt": "2026-08-25T03:06:03.724Z",
+  "project": {
+    "id": "school-management",
+    "name": "School Management",
+    "outputDirectory": "D:\\annex-web\\workspace\\command-center-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\school-management"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 167
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

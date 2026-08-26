@@ -1,0 +1,16 @@
+{
+  "tenantSample": {
+    "isolation": {
+      "organizationId": "ORG-1787564277474-4ca1d317",
+      "isolated": true,
+      "namespace": "tenant-ORG-1787564277474-4ca1d317"
+    },
+    "resources": {
+      "projectCount": 1,
+      "maxProjectsPerTenant": 1000,
+      "withinLimits": true
+    }
+  },
+  "supportedTenants": "1000s",
+  "status": "READY"
+}

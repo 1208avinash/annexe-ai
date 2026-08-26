@@ -1,0 +1,54 @@
+{
+  "applicationType": "hrms",
+  "analysisId": "RA-1787562970928",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "HRMS",
+  "businessType": "Enterprise HRMS",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Employees",
+    "Payroll",
+    "Leave Management",
+    "Reporting",
+    "Notifications"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Enterprise HRMS",
+  "projectId": "enterprise-hrms",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "hrms",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

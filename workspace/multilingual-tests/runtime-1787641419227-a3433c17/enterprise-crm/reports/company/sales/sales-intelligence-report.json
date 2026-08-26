@@ -1,0 +1,58 @@
+{
+  "reportId": "SALES-1787641419685",
+  "projectId": "enterprise-crm",
+  "leadScore": 55,
+  "customerAnalysis": {
+    "customerPainPoints": [
+      "Operational inefficiency"
+    ],
+    "currentSoftwareProblems": [
+      "Legacy workflows"
+    ],
+    "businessObjectives": [
+      "Digitize processes"
+    ],
+    "expectedOutcomes": [
+      "Improved productivity"
+    ],
+    "requiredSolution": [
+      "Core business application"
+    ]
+  },
+  "proposalSummary": {
+    "solutionSummary": [
+      "Deliver an AI-powered CRM platform tailored to the target customer segment.",
+      "Combine lead management, customer workflows, reporting, and AI-assisted prioritization."
+    ],
+    "businessValue": [
+      "Reduce manual sales effort",
+      "Improve lead-to-customer conversion",
+      "Increase customer response speed",
+      "Provide executive visibility into revenue flow"
+    ],
+    "implementationPlan": [
+      "Discovery and scope confirmation",
+      "Core platform implementation",
+      "Testing and validation",
+      "Deployment and handover"
+    ],
+    "timeline": "6-10 weeks",
+    "pricingRecommendation": "$250,000",
+    "paymentMilestones": [
+      {
+        "stage": "Advance",
+        "percentage": 50,
+        "condition": "Start after advance payment is received"
+      },
+      {
+        "stage": "Completion",
+        "percentage": 50,
+        "condition": "Release on delivery and acceptance"
+      }
+    ],
+    "paymentRule": "All repairs, upgrades, custom development, and software projects require 50% advance payment and 50% completion payment."
+  },
+  "revenueEstimate": 250000,
+  "recommendedNextAction": "Run discovery",
+  "generatedAt": "2026-08-25T07:03:39.685Z"
+}

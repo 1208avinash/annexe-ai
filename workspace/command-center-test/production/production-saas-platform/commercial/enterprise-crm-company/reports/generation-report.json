@@ -1,0 +1,37 @@
+{
+  "applicationType": "crm",
+  "generatedAt": "2026-08-25T02:57:29.581Z",
+  "project": {
+    "id": "enterprise-crm-company",
+    "name": "Enterprise CRM",
+    "outputDirectory": "D:\\annex-web\\workspace\\command-center-test\\production\\production-saas-platform\\commercial\\enterprise-crm-company"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 179
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

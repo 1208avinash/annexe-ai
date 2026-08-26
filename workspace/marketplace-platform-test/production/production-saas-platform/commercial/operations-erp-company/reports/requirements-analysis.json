@@ -1,0 +1,47 @@
+{
+  "applicationType": "erp",
+  "analysisId": "RA-1787626513376",
+  "requestText": "Create a production-ready SaaS platform with billing and realtime operations.",
+  "normalizedText": "create a production-ready saas platform with billing and realtime operations.",
+  "industry": "Operations",
+  "businessType": "ERP",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Operations ERP",
+  "projectId": "operations-erp-company",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "erp",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "invoices"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 18,
+    "source": "natural-language-analysis"
+  }
+}

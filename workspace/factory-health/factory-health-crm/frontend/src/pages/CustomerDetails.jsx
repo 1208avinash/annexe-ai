@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { apiClient } from "../services/api.js";
+import { LOCALIZATION, formatLocalizedDate } from "../localization/index.js";
 
 export default function CustomerDetails() {
   const { customerId } = useParams();
@@ -19,7 +20,7 @@ export default function CustomerDetails() {
         }
       } catch (err) {
         if (active) {
-          setError(err.message || "Unable to load customer");
+          setError(err.message || LOCALIZATION.frontend.unableToLoadCustomer);
         }
       }
     }
@@ -37,7 +38,7 @@ export default function CustomerDetails() {
         <div className="panel">
           <p className="form-error">{error}</p>
           <Link className="button button-secondary" to="/customers">
-            Back to customers
+            {LOCALIZATION.frontend.backToCustomers}
           </Link>
         </div>
       </section>
@@ -47,7 +48,7 @@ export default function CustomerDetails() {
   if (!customer) {
     return (
       <section className="content-stack">
-        <div className="panel">Loading customer profile...</div>
+        <div className="panel">{LOCALIZATION.frontend.loadingCustomerProfile}</div>
       </section>
     );
   }
@@ -56,43 +57,43 @@ export default function CustomerDetails() {
     <section className="content-stack">
       <div className="hero-card">
         <div>
-          <p className="eyebrow">Customer profile</p>
+          <p className="eyebrow">{LOCALIZATION.frontend.customerProfile}</p>
           <h2>{customer.name}</h2>
-          <p>{customer.company ?? "No company provided"}</p>
+          <p>{customer.company ?? LOCALIZATION.frontend.noCompanyProvided}</p>
         </div>
         <Link className="button button-secondary" to="/customers">
-          Back to customers
+          {LOCALIZATION.frontend.backToCustomers}
         </Link>
       </div>
 
       <section className="panel">
         <div className="panel-header">
-          <h3>Details</h3>
+          <h3>{LOCALIZATION.frontend.customerProfile}</h3>
           <span className={"status-pill status-" + customer.status}>{customer.status}</span>
         </div>
         <dl className="detail-grid">
           <div>
             <dt>Email</dt>
-            <dd>{customer.email ?? "Not provided"}</dd>
+            <dd>{customer.email ?? LOCALIZATION.frontend.notProvided}</dd>
           </div>
           <div>
             <dt>Phone</dt>
-            <dd>{customer.phone ?? "Not provided"}</dd>
+            <dd>{customer.phone ?? LOCALIZATION.frontend.notProvided}</dd>
           </div>
           <div>
             <dt>Owner</dt>
-            <dd>{customer.owner ?? "Unassigned"}</dd>
+            <dd>{customer.owner ?? LOCALIZATION.frontend.unassigned}</dd>
           </div>
           <div>
-            <dt>Created</dt>
-            <dd>{new Date(customer.created_at).toLocaleString()}</dd>
+            <dt>{LOCALIZATION.frontend.created}</dt>
+            <dd>{formatLocalizedDate(customer.created_at)}</dd>
           </div>
         </dl>
       </section>
 
       <section className="panel">
-        <h3>Notes</h3>
-        <p>{customer.notes ?? "No notes available for this customer."}</p>
+        <h3>{LOCALIZATION.frontend.notes}</h3>
+        <p>{customer.notes ?? LOCALIZATION.frontend.noNotes}</p>
       </section>
     </section>
   );

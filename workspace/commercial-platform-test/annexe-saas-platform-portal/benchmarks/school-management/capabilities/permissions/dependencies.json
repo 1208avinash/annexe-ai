@@ -1,0 +1,13 @@
+{
+  "name": "permissions",
+  "version": "1.0.0",
+  "dependencies": [],
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  }
+}

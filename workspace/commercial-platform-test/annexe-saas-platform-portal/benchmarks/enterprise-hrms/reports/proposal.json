@@ -1,0 +1,47 @@
+{
+  "proposalId": "PROP-1787556383108",
+  "title": "Enterprise HRMS Proposal",
+  "industry": "HRMS",
+  "businessType": "Enterprise HRMS",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Employees",
+    "Payroll",
+    "Leave Management",
+    "Reporting",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "hrms",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

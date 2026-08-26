@@ -1,0 +1,13 @@
+{
+  "reportId": "SECREP-1787553334246",
+  "projectId": "TEST-SEC-001",
+  "projectName": "Security Department Test",
+  "securityScore": 97,
+  "status": "APPROVED",
+  "vulnerabilities": 0,
+  "compliance": "READY",
+  "privacy": "PASS",
+  "penetration": "PASS",
+  "recommendation": "DEPLOY",
+  "generatedAt": "2026-08-24T06:35:34.247Z"
+}

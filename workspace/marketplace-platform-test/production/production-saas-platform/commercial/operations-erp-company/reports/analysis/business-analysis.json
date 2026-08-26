@@ -1,0 +1,92 @@
+{
+  "analysisId": "RA-1787626512808",
+  "generatedAt": "2026-08-25T02:55:13.350Z",
+  "conversation": "Create a production-ready SaaS platform with billing and realtime operations.",
+  "industry": "Operations",
+  "businessType": "ERP",
+  "projectType": "erp",
+  "projectName": "Operations ERP",
+  "projectId": "operations-erp",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "stakeholders": [
+    "Administrators",
+    "Operational Users",
+    "Operations",
+    "Sales",
+    "Management"
+  ],
+  "businessRequirements": [
+    "Support the core needs of a ERP.",
+    "Provide a production-ready workflow for Operations.",
+    "Deliver a buildable software foundation that can be extended."
+  ],
+  "functionalRequirements": [
+    "payments",
+    "Authentication",
+    "Dashboard"
+  ],
+  "nonFunctionalRequirements": [
+    "Secure by default",
+    "Responsive UI",
+    "FastAPI backend",
+    "JWT-based authentication",
+    "Structured JSON APIs",
+    "Buildable React frontend"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "successCriteria": [
+    "Customers can sign in securely",
+    "Users can manage customer records",
+    "The dashboard renders successfully",
+    "The application builds without errors",
+    "The backend responds to health and docs requests"
+  ],
+  "productDecision": {
+    "decision": "reuse",
+    "matchScore": 100,
+    "reasoning": "'ANNEXE AI Trading Platform' covers 100% of requirements. Full reuse recommended."
+  },
+  "estimate": {
+    "estimatedWeeks": 2,
+    "estimatedCost": 800,
+    "currency": "USD"
+  },
+  "proposal": {
+    "proposalId": "PROP-1787626513349",
+    "title": "AI-Powered SaaS Platform"
+  },
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "erp",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "invoices"
+  ],
+  "assumptions": [
+    "The customer wants a production-ready foundation, not a scaffold.",
+    "Reusable capabilities should be preferred over duplicated modules."
+  ]
+}

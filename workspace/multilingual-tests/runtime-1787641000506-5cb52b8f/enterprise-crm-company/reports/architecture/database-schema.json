@@ -1,0 +1,17 @@
+{
+  "projectId": "enterprise-crm",
+  "entities": [
+    "User",
+    "Role",
+    "Permission",
+    "Customer",
+    "Lead",
+    "Contact",
+    "Company",
+    "Opportunity",
+    "Task",
+    "Activity",
+    "Notification"
+  ],
+  "generatedAt": "2026-08-25T06:58:53.880Z"
+}

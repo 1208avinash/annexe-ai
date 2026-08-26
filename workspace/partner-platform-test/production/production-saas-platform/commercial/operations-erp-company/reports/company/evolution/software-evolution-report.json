@@ -1,0 +1,34 @@
+{
+  "reportId": "EVOLREP-1787562649457",
+  "projectId": "operations-erp",
+  "projectName": "Operations ERP",
+  "evolutionScore": 98,
+  "softwareHealth": "EXCELLENT",
+  "technologyScore": 98,
+  "productScore": 98,
+  "performanceScore": 96,
+  "securityScore": 97,
+  "aiImprovementScore": 98,
+  "recommendedActions": 6,
+  "futureRoadmap": {
+    "immediateImprovements": [
+      "Refresh dependencies",
+      "Improve dashboard performance"
+    ],
+    "quarterlyImprovements": [
+      "Release AI workflow upgrades",
+      "Expand automation coverage"
+    ],
+    "longTermEvolution": [
+      "Continuous modernization program",
+      "Adaptive product intelligence"
+    ],
+    "nextEvolutionCycle": "READY",
+    "score": 98,
+    "status": "READY"
+  },
+  "evolutionConfidenceScore": 98,
+  "priority": "HIGH",
+  "nextEvolutionCycle": "READY",
+  "generatedAt": "2026-08-24T09:10:49.458Z"
+}

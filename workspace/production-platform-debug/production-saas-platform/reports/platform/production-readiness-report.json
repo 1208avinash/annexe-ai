@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-08-24T07:28:21.046Z",
+  "platformRoot": "D:\\annex-web\\workspace\\production-platform-debug\\production-saas-platform",
+  "commercialPlatform": {
+    "success": false,
+    "platformRoot": null
+  },
+  "database": {
+    "dataRoot": "D:\\annex-web\\workspace\\production-platform-debug\\production-saas-platform\\runtime\\data",
+    "counts": {
+      "users": 1,
+      "organizations": 1,
+      "projects": 1,
+      "payments": 2,
+      "upgrades": 1,
+      "auditLogs": 1,
+      "events": 3
+    }
+  },
+  "auth": {
+    "passwordHashing": true,
+    "jwtExpirationSeconds": 28800,
+    "permissionChecks": true
+  },
+  "billing": {
+    "advancePaymentRule": "50/50",
+    "invoiceService": true,
+    "paymentGateway": true,
+    "subscriptionService": true
+  },
+  "realtime": {
+    "eventService": true,
+    "notificationService": true,
+    "projectStreamService": true
+  },
+  "audit": {
+    "auditLogging": true
+  },
+  "apiRoutes": [
+    "/api/auth",
+    "/api/users",
+    "/api/organizations",
+    "/api/projects",
+    "/api/payments",
+    "/api/upgrades",
+    "/api/reports"
+  ],
+  "security": {
+    "requestValidation": true,
+    "secureEnvConfig": true,
+    "auditLogging": true,
+    "jwtExpiration": true,
+    "permissionChecks": true
+  },
+  "readinessScore": 100
+}

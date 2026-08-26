@@ -1,0 +1,412 @@
+{
+  "reportId": "LANG-1787641914630",
+  "projectId": "hi-check",
+  "detectedLanguage": "Hindi",
+  "locale": "hi-IN",
+  "confidence": 0.69,
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "languageContext": {
+    "language": "Hindi",
+    "locale": "hi-IN",
+    "confidence": 0.69,
+    "source": "detector",
+    "customerLanguage": "Hindi",
+    "projectLanguage": "Hindi",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "translationRequired": true,
+    "generatedApplicationDefaultLocale": "hi-IN",
+    "localization": {
+      "language": "Hindi",
+      "locale": "hi-IN",
+      "uiLabels": {
+        "login": "लॉगिन",
+        "dashboard": "डैशबोर्ड",
+        "settings": "सेटिंग्स",
+        "customers": "ग्राहक",
+        "reports": "रिपोर्ट",
+        "search": "खोजें",
+        "save": "सहेजें",
+        "cancel": "रद्द करें"
+      },
+      "menuLabels": {
+        "home": "होम",
+        "customers": "ग्राहक",
+        "analytics": "विश्लेषण",
+        "settings": "सेटिंग्स"
+      },
+      "errorMessages": {
+        "generic": "कुछ गलत हो गया।",
+        "network": "नेटवर्क अनुरोध विफल हुआ।",
+        "validation": "कृपया हाइलाइट किए गए फ़ील्ड की जांच करें।"
+      },
+      "createdAt": "2026-08-25T07:11:54.621Z"
+    },
+    "culturalAdaptation": {
+      "language": "Hindi",
+      "locale": "hi-IN",
+      "region": "India",
+      "dateFormat": "DD/MM/YYYY",
+      "currency": "INR",
+      "readingDirection": "ltr",
+      "communicationTone": "clear, respectful, and approachable",
+      "localizationNotes": [
+        "Use DD/MM/YYYY date formatting.",
+        "Prefer INR for financial presentation.",
+        "Preserve left-to-right layout."
+      ],
+      "adaptedAt": "2026-08-25T07:11:54.622Z"
+    },
+    "softwareLocalization": {
+      "language": "Hindi",
+      "locale": "hi-IN",
+      "localizedStrings": {
+        "login": "लॉगिन",
+        "dashboard": "डैशबोर्ड",
+        "customers": "ग्राहक प्रबंधन",
+        "settings": "सेटिंग्स",
+        "reports": "रिपोर्ट",
+        "enter": "ANNEXE AI में प्रवेश करें",
+        "explore": "क्षमताएँ देखें",
+        "save": "सहेजें",
+        "cancel": "रद्द करें",
+        "network": "नेटवर्क अनुरोध विफल हुआ।",
+        "generic": "क्रिया पूरी नहीं की जा सकी।"
+      },
+      "screens": {
+        "login": "लॉगिन",
+        "dashboard": "डैशबोर्ड",
+        "customers": "ग्राहक प्रबंधन",
+        "settings": "सेटिंग्स",
+        "reports": "रिपोर्ट"
+      },
+      "buttons": {
+        "enter": "ANNEXE AI में प्रवेश करें",
+        "explore": "क्षमताएँ देखें",
+        "save": "सहेजें",
+        "cancel": "रद्द करें"
+      },
+      "errorMessages": {
+        "network": "नेटवर्क अनुरोध विफल हुआ।",
+        "generic": "क्रिया पूरी नहीं की जा सकी।"
+      },
+      "rtl": false,
+      "localizedAt": "2026-08-25T07:11:54.622Z"
+    },
+    "documentationLocalization": {
+      "language": "Hindi",
+      "locale": "hi-IN",
+      "userManual": {
+        "title": "उपयोगकर्ता मार्गदर्शिका",
+        "summary": "Operational guidance for using the platform in Hindi.",
+        "sections": [
+          "Getting started",
+          "Authentication",
+          "Customer workflows",
+          "Reporting"
+        ]
+      },
+      "apiDocumentation": {
+        "title": "API दस्तावेज़",
+        "summary": "API reference delivered in Hindi.",
+        "sections": [
+          "Health endpoint",
+          "Authentication endpoints",
+          "Customer APIs",
+          "Reporting APIs"
+        ]
+      },
+      "reports": {
+        "title": "Localized Company Reports",
+        "language": "Hindi",
+        "sections": [
+          "Executive summary",
+          "Delivery report",
+          "Quality report"
+        ]
+      },
+      "proposals": {
+        "title": "प्रस्ताव",
+        "summary": "Commercial proposal localized for Hindi.",
+        "sections": [
+          "Business value",
+          "Implementation plan",
+          "Pricing",
+          "Payment milestones"
+        ]
+      },
+      "generatedAt": "2026-08-25T07:11:54.622Z"
+    },
+    "languageMemory": {
+      "customerLanguage": "Hindi",
+      "preferredLanguage": "Hindi",
+      "preferredLocale": "hi-IN",
+      "projectLanguage": "Hindi",
+      "projectLocale": "hi-IN",
+      "generatedApplicationDefaultLocale": "hi-IN",
+      "supportedLanguages": [
+        "English",
+        "French",
+        "Spanish",
+        "German",
+        "Arabic",
+        "Hindi",
+        "Chinese",
+        "Japanese",
+        "Portuguese",
+        "Italian"
+      ],
+      "supportedLocales": [
+        "en-US",
+        "fr-FR",
+        "es-ES",
+        "de-DE",
+        "ar-SA",
+        "hi-IN",
+        "zh-CN",
+        "ja-JP",
+        "pt-BR",
+        "it-IT"
+      ],
+      "localizationRequired": true,
+      "culturalAdaptationRequired": true,
+      "region": "India",
+      "conversationLanguage": "Hindi",
+      "direction": "ltr",
+      "runtimeSwitching": true,
+      "userPreferencePersistence": true,
+      "rtlSupport": false,
+      "source": "detector",
+      "updatedAt": "2026-08-25T07:11:54.623Z"
+    }
+  },
+  "localizationReadiness": {
+    "ui": true,
+    "documentation": true,
+    "cultural": true,
+    "memory": true
+  },
+  "softwareTranslationReadiness": {
+    "uiLabels": true,
+    "menus": true,
+    "buttons": true,
+    "errorMessages": true
+  },
+  "documentationLocalizationReadiness": {
+    "userManual": true,
+    "apiDocumentation": true,
+    "proposals": true,
+    "reports": true
+  },
+  "languageMemory": {
+    "customerLanguage": "Hindi",
+    "preferredLanguage": "Hindi",
+    "preferredLocale": "hi-IN",
+    "projectLanguage": "Hindi",
+    "projectLocale": "hi-IN",
+    "generatedApplicationDefaultLocale": "hi-IN",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "region": "India",
+    "conversationLanguage": "Hindi",
+    "direction": "ltr",
+    "runtimeSwitching": true,
+    "userPreferencePersistence": true,
+    "rtlSupport": false,
+    "source": "detector",
+    "updatedAt": "2026-08-25T07:11:54.623Z"
+  },
+  "localization": {
+    "language": "Hindi",
+    "locale": "hi-IN",
+    "uiLabels": {
+      "login": "लॉगिन",
+      "dashboard": "डैशबोर्ड",
+      "settings": "सेटिंग्स",
+      "customers": "ग्राहक",
+      "reports": "रिपोर्ट",
+      "search": "खोजें",
+      "save": "सहेजें",
+      "cancel": "रद्द करें"
+    },
+    "menuLabels": {
+      "home": "होम",
+      "customers": "ग्राहक",
+      "analytics": "विश्लेषण",
+      "settings": "सेटिंग्स"
+    },
+    "errorMessages": {
+      "generic": "कुछ गलत हो गया।",
+      "network": "नेटवर्क अनुरोध विफल हुआ।",
+      "validation": "कृपया हाइलाइट किए गए फ़ील्ड की जांच करें।"
+    },
+    "createdAt": "2026-08-25T07:11:54.621Z"
+  },
+  "culturalAdaptation": {
+    "language": "Hindi",
+    "locale": "hi-IN",
+    "region": "India",
+    "dateFormat": "DD/MM/YYYY",
+    "currency": "INR",
+    "readingDirection": "ltr",
+    "communicationTone": "clear, respectful, and approachable",
+    "localizationNotes": [
+      "Use DD/MM/YYYY date formatting.",
+      "Prefer INR for financial presentation.",
+      "Preserve left-to-right layout."
+    ],
+    "adaptedAt": "2026-08-25T07:11:54.622Z"
+  },
+  "softwareLocalization": {
+    "language": "Hindi",
+    "locale": "hi-IN",
+    "localizedStrings": {
+      "login": "लॉगिन",
+      "dashboard": "डैशबोर्ड",
+      "customers": "ग्राहक प्रबंधन",
+      "settings": "सेटिंग्स",
+      "reports": "रिपोर्ट",
+      "enter": "ANNEXE AI में प्रवेश करें",
+      "explore": "क्षमताएँ देखें",
+      "save": "सहेजें",
+      "cancel": "रद्द करें",
+      "network": "नेटवर्क अनुरोध विफल हुआ।",
+      "generic": "क्रिया पूरी नहीं की जा सकी।"
+    },
+    "screens": {
+      "login": "लॉगिन",
+      "dashboard": "डैशबोर्ड",
+      "customers": "ग्राहक प्रबंधन",
+      "settings": "सेटिंग्स",
+      "reports": "रिपोर्ट"
+    },
+    "buttons": {
+      "enter": "ANNEXE AI में प्रवेश करें",
+      "explore": "क्षमताएँ देखें",
+      "save": "सहेजें",
+      "cancel": "रद्द करें"
+    },
+    "errorMessages": {
+      "network": "नेटवर्क अनुरोध विफल हुआ।",
+      "generic": "क्रिया पूरी नहीं की जा सकी।"
+    },
+    "rtl": false,
+    "localizedAt": "2026-08-25T07:11:54.622Z"
+  },
+  "documentationLocalization": {
+    "language": "Hindi",
+    "locale": "hi-IN",
+    "userManual": {
+      "title": "उपयोगकर्ता मार्गदर्शिका",
+      "summary": "Operational guidance for using the platform in Hindi.",
+      "sections": [
+        "Getting started",
+        "Authentication",
+        "Customer workflows",
+        "Reporting"
+      ]
+    },
+    "apiDocumentation": {
+      "title": "API दस्तावेज़",
+      "summary": "API reference delivered in Hindi.",
+      "sections": [
+        "Health endpoint",
+        "Authentication endpoints",
+        "Customer APIs",
+        "Reporting APIs"
+      ]
+    },
+    "reports": {
+      "title": "Localized Company Reports",
+      "language": "Hindi",
+      "sections": [
+        "Executive summary",
+        "Delivery report",
+        "Quality report"
+      ]
+    },
+    "proposals": {
+      "title": "प्रस्ताव",
+      "summary": "Commercial proposal localized for Hindi.",
+      "sections": [
+        "Business value",
+        "Implementation plan",
+        "Pricing",
+        "Payment milestones"
+      ]
+    },
+    "generatedAt": "2026-08-25T07:11:54.622Z"
+  },
+  "generatedAt": "2026-08-25T07:11:54.630Z"
+}

@@ -1,0 +1,37 @@
+{
+  "applicationType": "erp",
+  "generatedAt": "2026-08-25T02:57:28.777Z",
+  "project": {
+    "id": "operations-erp-company",
+    "name": "Operations ERP",
+    "outputDirectory": "D:\\annex-web\\workspace\\marketplace-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 179
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

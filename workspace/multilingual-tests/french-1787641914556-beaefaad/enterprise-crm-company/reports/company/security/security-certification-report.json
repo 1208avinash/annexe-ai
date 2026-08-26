@@ -1,0 +1,13 @@
+{
+  "reportId": "SECREP-1787642007141",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "securityScore": 96,
+  "status": "APPROVED",
+  "vulnerabilities": 0,
+  "compliance": "READY",
+  "privacy": "PASS",
+  "penetration": "WARN",
+  "recommendation": "DEPLOY",
+  "generatedAt": "2026-08-25T07:13:27.141Z"
+}

@@ -11,6 +11,13 @@ class Settings:
     admin_email = os.getenv("ADMIN_EMAIL", "admin@annexe.ai")
     admin_password = os.getenv("ADMIN_PASSWORD", "Admin123!")
     log_level = os.getenv("LOG_LEVEL", "INFO")
+    default_locale = os.getenv("DEFAULT_LOCALE", "en-US")
+    supported_locales = [
+        locale.strip()
+        for locale in os.getenv("SUPPORTED_LOCALES", "en-US").split(",")
+        if locale.strip()
+    ]
+    default_language = os.getenv("DEFAULT_LANGUAGE", "English")
     cors_origins = [
         origin.strip()
         for origin in os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")

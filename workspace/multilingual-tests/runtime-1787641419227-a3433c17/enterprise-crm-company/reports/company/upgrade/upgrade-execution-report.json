@@ -1,0 +1,11 @@
+{
+  "coordinatedDepartments": [
+    "Engineering",
+    "QA",
+    "Security",
+    "DevOps"
+  ],
+  "executionStatus": "BLOCKED",
+  "upgradeDelivered": false,
+  "score": 90
+}

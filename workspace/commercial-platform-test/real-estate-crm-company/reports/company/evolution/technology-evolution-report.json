@@ -1,0 +1,18 @@
+{
+  "outdatedFrameworks": [
+    "Legacy UI modules"
+  ],
+  "deprecatedLibraries": [],
+  "architectureImprovements": [
+    "Framework modernization",
+    "Dependency refresh",
+    "Architecture improvements"
+  ],
+  "modernizationOpportunities": [
+    "Framework modernization",
+    "Dependency refresh",
+    "Architecture improvements"
+  ],
+  "score": 94,
+  "status": "READY"
+}

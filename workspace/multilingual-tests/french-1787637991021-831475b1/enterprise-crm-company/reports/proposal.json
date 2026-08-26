@@ -1,0 +1,41 @@
+{
+  "proposalId": "PROP-1787638070519",
+  "title": "Enterprise CRM Proposal",
+  "industry": "CRM",
+  "businessType": "CRM",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "summary": "Je veux créer une application médicale pour une clinique"
+}

@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "school",
+  "description": "School administration, student, and academic operations capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "reports",
+    "notifications",
+    "file-storage",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "student directory",
+      "classrooms",
+      "academic dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/school"
+    ]
+  },
+  "routes": [
+    "/school"
+  ],
+  "permissions": [
+    "school:read",
+    "school:write"
+  ],
+  "database": [
+    "students",
+    "classes",
+    "enrollments"
+  ],
+  "events": [
+    "school.student.enrolled",
+    "school.term.published"
+  ]
+}

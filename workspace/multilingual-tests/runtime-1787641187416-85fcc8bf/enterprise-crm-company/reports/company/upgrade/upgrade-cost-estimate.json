@@ -1,0 +1,14 @@
+{
+  "complexity": "Moderate",
+  "engineeringEffort": "Medium",
+  "risk": "Managed",
+  "requiredResources": [
+    "Engineering",
+    "QA",
+    "Security",
+    "DevOps"
+  ],
+  "estimatedCost": 8600,
+  "currency": "USD",
+  "score": 95
+}

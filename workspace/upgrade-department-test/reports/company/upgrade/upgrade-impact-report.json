@@ -1,0 +1,14 @@
+{
+  "affectedModules": [
+    "frontend",
+    "backend",
+    "reports"
+  ],
+  "databaseChanges": "Possible",
+  "apiImpact": "Controlled",
+  "frontendImpact": "Moderate",
+  "securityImpact": "Reviewed",
+  "deploymentImpact": "Low to moderate",
+  "score": 95,
+  "status": "READY"
+}

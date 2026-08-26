@@ -1,0 +1,13 @@
+{
+  "accessibilityStandards": [
+    "Keyboard navigation",
+    "Readable content",
+    "Semantic structure",
+    "Usability checks"
+  ],
+  "keyboardNavigation": "Supported",
+  "readability": "Pass",
+  "usability": "Pass",
+  "score": 98,
+  "status": "PASS"
+}

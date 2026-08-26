@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "reports",
+  "description": "Operational reporting and export capability.",
+  "dependencies": [
+    "search",
+    "audit-logs",
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "reports",
+      "export center"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/reports"
+    ]
+  },
+  "routes": [
+    "/reports"
+  ],
+  "permissions": [
+    "reports:read",
+    "reports:export"
+  ],
+  "database": [
+    "report_definitions",
+    "report_runs"
+  ],
+  "events": [
+    "reports.generated"
+  ]
+}

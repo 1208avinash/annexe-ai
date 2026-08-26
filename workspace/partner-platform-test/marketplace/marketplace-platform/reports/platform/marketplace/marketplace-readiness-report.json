@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-08-24T09:37:57.824Z",
+  "platformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\marketplace\\marketplace-platform",
+  "marketplaceScore": 100,
+  "productCount": 12,
+  "activeProducts": 12,
+  "revenueModel": {
+    "setupRevenue": 8500,
+    "annualSubscriptionRevenue": 7188,
+    "upgradeRevenue": 1899,
+    "currency": "USD"
+  },
+  "deploymentCapability": {
+    "supported": true,
+    "projectCreated": true,
+    "tracking": {
+      "commandCenterEnabled": true,
+      "upgradeTrackingEnabled": true,
+      "evolutionTrackingEnabled": true
+    }
+  },
+  "subscriptionCapability": {
+    "supported": true,
+    "plan": {
+      "setup": 8500,
+      "monthly": 599,
+      "upgrade": 1899,
+      "currency": "USD",
+      "billingModel": "One-time purchase + subscription + upgrade"
+    },
+    "billingPolicy": {
+      "advancePayment": 50,
+      "completionPayment": 50
+    }
+  },
+  "customerView": {
+    "tabs": [
+      "Marketplace",
+      "Products",
+      "Agents",
+      "Subscriptions",
+      "My Purchases",
+      "Upgrades"
+    ]
+  },
+  "adminView": {
+    "tabs": [
+      "Products",
+      "Customers",
+      "Revenue",
+      "Usage",
+      "Reviews",
+      "Performance"
+    ]
+  },
+  "productNames": [
+    "AI CRM Platform",
+    "AI ERP Platform",
+    "AI HRMS Platform",
+    "AI Hospital Platform",
+    "AI School Platform",
+    "AI Marketplace Platform",
+    "AI Sales Agent",
+    "AI Customer Support Agent",
+    "AI Marketing Agent",
+    "AI Finance Agent",
+    "AI HR Agent",
+    "AI Analytics Agent"
+  ],
+  "analytics": {
+    "analyticsId": "AN-1787564277823",
+    "productViews": 180,
+    "purchases": 1,
+    "activeCustomers": 1,
+    "subscriptions": 1,
+    "upgrades": 1,
+    "revenue": 17587,
+    "revenueModel": {
+      "setupRevenue": 8500,
+      "annualSubscriptionRevenue": 7188,
+      "upgradeRevenue": 1899,
+      "currency": "USD"
+    },
+    "usageInsights": [
+      "Catalog browsing",
+      "Purchase conversion",
+      "Subscription adoption",
+      "Upgrade demand",
+      "Customer lifetime value"
+    ]
+  },
+  "reviews": {
+    "reviewId": "REV-1787564277823",
+    "productId": "ai-marketplace-platform",
+    "customerRating": 5,
+    "feedback": "The marketplace product is clear to purchase, deploy, and upgrade.",
+    "featureRequests": [
+      "More industry templates",
+      "Faster deployment previews",
+      "Additional upgrade bundles"
+    ],
+    "signalsForUpgrade": [
+      "Feature requests captured",
+      "Customer satisfaction monitored",
+      "Evolution engine feedback ready"
+    ]
+  },
+  "purchaseFlow": [
+    "Browse Marketplace",
+    "Select Product",
+    "View Features",
+    "View Pricing",
+    "Purchase",
+    "Payment",
+    "Deployment",
+    "Project Created",
+    "Command Center Tracking",
+    "Upgrade Options"
+  ],
+  "upgradeFlow": {
+    "upgradeId": "UPG-1787564277823",
+    "productId": "ai-marketplace-platform",
+    "upgradeAvailable": true,
+    "upgradePayments": {
+      "advance": 50,
+      "completion": 50
+    },
+    "upgradeOptions": [
+      "Premium deployment pack",
+      "Advanced analytics pack",
+      "Automation evolution pack",
+      "Industry expansion pack"
+    ],
+    "evolutionRoadmap": [
+      "Refresh dependencies",
+      "Improve dashboard performance"
+    ],
+    "upgradeRequests": [
+      "Discovery and planning",
+      "Engineering changes",
+      "QA validation",
+      "Security review",
+      "Deployment and release"
+    ],
+    "recommendedNextStep": "Offer upgrade after deployment stabilization"
+  },
+  "status": "READY"
+}

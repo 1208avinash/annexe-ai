@@ -1,0 +1,8 @@
+{
+  "qualityScore": 95,
+  "status": "APPROVED",
+  "releaseRecommendation": "READY",
+  "reasons": [
+    "All QA checks passed at release threshold."
+  ]
+}

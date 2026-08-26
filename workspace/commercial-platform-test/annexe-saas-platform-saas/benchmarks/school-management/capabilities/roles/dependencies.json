@@ -1,0 +1,15 @@
+{
+  "name": "roles",
+  "version": "1.0.0",
+  "dependencies": [
+    "permissions"
+  ],
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  }
+}

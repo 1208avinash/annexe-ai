@@ -1,0 +1,49 @@
+{
+  "reportId": "CEO-1787553334262",
+  "projectId": "ceo-department-test",
+  "projectName": "AI CRM Platform",
+  "industry": "Real Estate",
+  "marketAnalysis": {
+    "industry": "Real Estate",
+    "marketOpportunity": "High opportunity in brokerage workflow automation and lead conversion.",
+    "competition": [
+      "Generic CRMs",
+      "Real estate sales tools",
+      "Manual spreadsheet-based workflows"
+    ],
+    "growthPotential": "Strong due to AI-assisted qualification, forecasting, and customer engagement.",
+    "confidence": 0.9
+  },
+  "strategy": {
+    "businessStrategy": [
+      "Lead with a vertical CRM tailored to the target industry.",
+      "Automate the highest-friction workflows first.",
+      "Use reporting and dashboards to demonstrate measurable outcomes."
+    ],
+    "productRecommendation": [
+      "Customer and lead management core",
+      "Workflow automation",
+      "Analytics and executive dashboards",
+      "AI-assisted prioritization and summaries"
+    ],
+    "competitiveAdvantage": [
+      "Industry-specific positioning for Real Estate.",
+      "Faster time-to-value through prebuilt templates.",
+      "Operational intelligence across the customer lifecycle."
+    ],
+    "goToMarketDirection": "Target niche operators with a fast implementation offer and a clear ROI story."
+  },
+  "financialForecast": {
+    "developmentCostEstimate": 180000,
+    "pricingRecommendation": "Premium per-seat pricing with onboarding and implementation fees.",
+    "roiEstimate": "Positive within 12-18 months with successful adoption and retention.",
+    "revenueOpportunity": 540000
+  },
+  "riskAnalysis": {
+    "businessRisk": "Medium: adoption and sales process change management.",
+    "technicalRisk": "Medium: integrations, auth, and data migration complexity.",
+    "securityRisk": "Medium: access control, secrets handling, and auditability.",
+    "adoptionRisk": "Low to medium: user trust in AI-assisted recommendations."
+  },
+  "generatedAt": "2026-08-24T06:35:34.262Z"
+}

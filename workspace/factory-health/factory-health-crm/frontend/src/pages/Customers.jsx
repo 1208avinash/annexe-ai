@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { apiClient } from "../services/api.js";
+import { LOCALIZATION } from "../localization/index.js";
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -19,7 +20,7 @@ export default function Customers() {
         }
       } catch (err) {
         if (active) {
-          setError(err.message || "Unable to load customers");
+          setError(err.message || LOCALIZATION.frontend.unableToLoadCustomers);
         }
       }
     }
@@ -48,12 +49,12 @@ export default function Customers() {
     <section className="content-stack">
       <div className="panel">
         <div className="panel-header">
-          <h2>Customer list</h2>
-          <span>{filteredCustomers.length} visible customers</span>
+          <h2>{LOCALIZATION.frontend.customerList}</h2>
+          <span>{filteredCustomers.length} {LOCALIZATION.frontend.visibleCustomers}</span>
         </div>
         <input
           className="search-input"
-          placeholder="Search by name, company, owner, or email"
+          placeholder={LOCALIZATION.frontend.searchPlaceholder}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
@@ -67,25 +68,25 @@ export default function Customers() {
             <div className="customer-card-header">
               <div>
                 <h3>{customer.name}</h3>
-                <p>{customer.company ?? "Independent account"}</p>
+                <p>{customer.company ?? LOCALIZATION.frontend.independentAccount}</p>
               </div>
               <span className={"status-pill status-" + customer.status}>{customer.status}</span>
             </div>
             <dl>
               <div>
                 <dt>Email</dt>
-                <dd>{customer.email ?? "Not provided"}</dd>
+                <dd>{customer.email ?? LOCALIZATION.frontend.notProvided}</dd>
               </div>
               <div>
                 <dt>Owner</dt>
-                <dd>{customer.owner ?? "Unassigned"}</dd>
+                <dd>{customer.owner ?? LOCALIZATION.frontend.unassigned}</dd>
               </div>
             </dl>
             <Link className="button button-secondary" to={"/customers/" + customer.id}>
-              View details
+              {LOCALIZATION.frontend.viewDetails}
             </Link>
           </article>
-        ))}
+          ))}
       </div>
     </section>
   );

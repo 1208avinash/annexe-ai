@@ -1,0 +1,96 @@
+{
+  "applicationType": "pos",
+  "projectId": "point-of-sale",
+  "projectName": "Point of Sale",
+  "industry": "POS",
+  "challenge": "Need a POS system for checkout, inventory, and sales reporting",
+  "solution": "Compose reusable capabilities into a production-ready POS application",
+  "requirements": [
+    "Authentication",
+    "Checkout",
+    "Inventory",
+    "Reporting",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "pos",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Checkout",
+      "Inventory",
+      "Reporting",
+      "Notifications"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787556685624",
+      "title": "Point of Sale Proposal",
+      "industry": "POS",
+      "businessType": "Point of Sale",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Checkout",
+        "Inventory",
+        "Reporting",
+        "Notifications"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "inventory",
+        "pos",
+        "notifications",
+        "audit-logs",
+        "email",
+        "settings",
+        "search",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

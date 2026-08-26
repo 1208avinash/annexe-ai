@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "version",
+  "description": "Build version reporting and deployment metadata capability.",
+  "dependencies": [],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "version badge"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/version"
+    ]
+  },
+  "routes": [
+    "/version"
+  ],
+  "permissions": [
+    "system:read"
+  ],
+  "database": [
+    "releases"
+  ],
+  "events": [
+    "version.published"
+  ]
+}

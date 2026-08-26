@@ -1,0 +1,46 @@
+{
+  "proposalId": "PROP-1787563721069",
+  "title": "Point of Sale Proposal",
+  "industry": "POS",
+  "businessType": "Point of Sale",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Checkout",
+    "Inventory",
+    "Reporting",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "pos",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

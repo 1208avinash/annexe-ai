@@ -1,0 +1,13 @@
+{
+  "reportId": "DEVOPSREP-1787562649426",
+  "projectId": "operations-erp",
+  "projectName": "Operations ERP",
+  "operationsScore": 95,
+  "deployment": "READY",
+  "monitoring": "REVIEW",
+  "scaling": "READY",
+  "recovery": "READY",
+  "recommendation": "DEPLOY",
+  "status": "APPROVED",
+  "generatedAt": "2026-08-24T09:10:49.426Z"
+}

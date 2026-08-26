@@ -1,0 +1,295 @@
+{
+  "architectureId": "ARCH-1787638080119",
+  "projectId": "enterprise-crm",
+  "generatedAt": "2026-08-25T06:08:00.119Z",
+  "stack": {
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "capabilityComposition": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "architecture": {
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "deployment": "Docker"
+  },
+  "database": {
+    "entities": [
+      {
+        "name": "User",
+        "table": "user"
+      },
+      {
+        "name": "Role",
+        "table": "role"
+      },
+      {
+        "name": "Permission",
+        "table": "permission"
+      },
+      {
+        "name": "Customer",
+        "table": "customer"
+      },
+      {
+        "name": "Lead",
+        "table": "lead"
+      },
+      {
+        "name": "Contact",
+        "table": "contact"
+      },
+      {
+        "name": "Company",
+        "table": "company"
+      },
+      {
+        "name": "Opportunity",
+        "table": "opportunity"
+      },
+      {
+        "name": "Task",
+        "table": "task"
+      },
+      {
+        "name": "Activity",
+        "table": "activity"
+      },
+      {
+        "name": "Notification",
+        "table": "notification"
+      }
+    ]
+  },
+  "api": {
+    "endpoints": [
+      "/auth",
+      "/users",
+      "/customers",
+      "/leads",
+      "/contacts",
+      "/companies",
+      "/tasks",
+      "/reports"
+    ]
+  },
+  "specification": {
+    "specificationId": "SPEC-1787637995092",
+    "projectId": "enterprise-crm"
+  },
+  "engineeringPlan": {
+    "planId": "PLAN-1787637995093",
+    "milestones": [
+      {
+        "sprint": 1,
+        "name": "Foundation",
+        "tasks": [
+          {
+            "id": "TASK-001",
+            "name": "Project Setup",
+            "priority": "High",
+            "dependsOn": []
+          }
+        ]
+      },
+      {
+        "sprint": 2,
+        "name": "Core Development",
+        "tasks": [
+          {
+            "id": "TASK-002",
+            "name": "Backend Development",
+            "priority": "High",
+            "dependsOn": [
+              "TASK-001"
+            ]
+          },
+          {
+            "id": "TASK-003",
+            "name": "Frontend Development",
+            "priority": "High",
+            "dependsOn": [
+              "TASK-001"
+            ]
+          },
+          {
+            "id": "TASK-004",
+            "name": "Database Design",
+            "priority": "Medium",
+            "dependsOn": [
+              "TASK-002"
+            ]
+          }
+        ]
+      },
+      {
+        "sprint": 3,
+        "name": "Testing & Delivery",
+        "tasks": [
+          {
+            "id": "TASK-005",
+            "name": "Testing & QA",
+            "priority": "High",
+            "dependsOn": [
+              "TASK-002",
+              "TASK-003",
+              "TASK-004"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "TASK-001",
+        "name": "Project Setup",
+        "priority": "High",
+        "dependsOn": []
+      },
+      {
+        "id": "TASK-002",
+        "name": "Backend Development",
+        "priority": "High",
+        "dependsOn": [
+          "TASK-001"
+        ]
+      },
+      {
+        "id": "TASK-003",
+        "name": "Frontend Development",
+        "priority": "High",
+        "dependsOn": [
+          "TASK-001"
+        ]
+      },
+      {
+        "id": "TASK-004",
+        "name": "Database Design",
+        "priority": "Medium",
+        "dependsOn": [
+          "TASK-002"
+        ]
+      },
+      {
+        "id": "TASK-005",
+        "name": "Testing & QA",
+        "priority": "High",
+        "dependsOn": [
+          "TASK-002",
+          "TASK-003",
+          "TASK-004"
+        ]
+      }
+    ]
+  },
+  "executionPlan": {
+    "executionPlanId": "EPLAN-1787637995094",
+    "version": "1.0.0",
+    "createdAt": "2026-08-25T06:06:35.094Z",
+    "specificationId": "SPEC-1787637995092",
+    "projectId": "enterprise-crm",
+    "strategy": "parallel-where-possible",
+    "priority": "normal",
+    "estimatedDuration": "",
+    "stages": [
+      {
+        "stage": 1,
+        "name": "Backend Foundation",
+        "parallel": true,
+        "workers": [
+          "Backend Worker",
+          "Database Worker"
+        ]
+      },
+      {
+        "stage": 2,
+        "name": "Frontend",
+        "parallel": false,
+        "workers": [
+          "Frontend Worker"
+        ]
+      },
+      {
+        "stage": 3,
+        "name": "Quality Assurance",
+        "parallel": false,
+        "workers": [
+          "QA Worker"
+        ]
+      },
+      {
+        "stage": 5,
+        "name": "Deployment",
+        "parallel": false,
+        "workers": [
+          "Deployment Worker"
+        ]
+      }
+    ],
+    "requiredWorkers": [
+      "Backend Worker",
+      "Database Worker",
+      "Frontend Worker",
+      "QA Worker",
+      "Deployment Worker"
+    ],
+    "dependencies": [
+      {
+        "from": 1,
+        "to": 2
+      },
+      {
+        "from": 2,
+        "to": 3
+      },
+      {
+        "from": 4,
+        "to": 5
+      }
+    ],
+    "qualityGates": [
+      "Implementation Complete",
+      "Code Review",
+      "Unit Tests",
+      "Integration Tests",
+      "Documentation",
+      "Ready for Deployment"
+    ],
+    "risks": [],
+    "totalStages": 4,
+    "totalWorkers": 5
+  },
+  "readiness": {
+    "platform": "ready",
+    "commercial": "ready"
+  },
+  "remainingTechnicalDebt": [
+    "Production credentials must be supplied by the deployment environment.",
+    "Domain-specific workflows can be expanded in later releases."
+  ],
+  "recommendedV8Roadmap": [
+    "Expand automation coverage",
+    "Add multi-tenant controls",
+    "Add analytics and reporting hardening",
+    "Introduce role-based feature flags"
+  ]
+}

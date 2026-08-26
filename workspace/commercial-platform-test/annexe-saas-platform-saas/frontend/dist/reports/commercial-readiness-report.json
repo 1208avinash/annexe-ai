@@ -1,0 +1,10 @@
+{
+  "platformReadinessPercent": 100,
+  "commercialReadinessPercent": 100,
+  "generatedAt": "2026-08-24T07:56:16.540Z",
+  "platformRoot": "D:\\annex-web\\workspace\\commercial-platform-test\\annexe-saas-platform-saas",
+  "notes": [
+    "Portal, company orchestrator, and benchmark suite are wired together.",
+    "All major build and validation checks passed for the seeded commercial project."
+  ]
+}

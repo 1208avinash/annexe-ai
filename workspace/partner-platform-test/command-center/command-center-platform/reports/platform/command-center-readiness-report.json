@@ -1,0 +1,240 @@
+{
+  "generatedAt": "2026-08-24T09:37:57.782Z",
+  "platformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\command-center\\command-center-platform",
+  "customerExperienceScore": 100,
+  "dashboardReadiness": 100,
+  "realtimeStatus": "READY",
+  "aiVisibilityScore": 100,
+  "uxReadiness": 100,
+  "customerCommandCenter": {
+    "aiCompanyStatus": [
+      {
+        "department": "CEO",
+        "status": "Strategizing",
+        "activeTasks": 1,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "Product",
+        "status": "Planning",
+        "activeTasks": 2,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "Architecture",
+        "status": "Designing",
+        "activeTasks": 2,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "Engineering",
+        "status": "Building",
+        "activeTasks": 4,
+        "completedTasks": 2,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "QA",
+        "status": "Testing",
+        "activeTasks": 2,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "Security",
+        "status": "Auditing",
+        "activeTasks": 1,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      },
+      {
+        "department": "DevOps",
+        "status": "Deploying",
+        "activeTasks": 1,
+        "completedTasks": 1,
+        "reportsGenerated": 1
+      }
+    ],
+    "projectCommandCenter": {
+      "projectName": "ANNEXE Production CRM",
+      "projectId": "PRO-1787564277484-aeee3d18",
+      "progress": 0,
+      "currentDepartment": "CEO",
+      "timeline": {
+        "startedAt": "2026-08-24T09:37:57.780Z",
+        "estimatedCompletion": "Pending",
+        "phases": [
+          "AI CEO",
+          "Product",
+          "Architecture",
+          "Engineering",
+          "QA",
+          "Security",
+          "Deployment"
+        ]
+      },
+      "milestones": [
+        {
+          "title": "Project approved",
+          "status": "complete"
+        },
+        {
+          "title": "Foundation generated",
+          "status": "complete"
+        },
+        {
+          "title": "Execution in progress",
+          "status": "active"
+        }
+      ],
+      "blockers": [],
+      "nextAction": "Monitor live AI company activity"
+    },
+    "liveAiFactory": {
+      "stages": [
+        {
+          "department": "CEO",
+          "status": "Strategizing",
+          "activeTasks": 1,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "Product",
+          "status": "Planning",
+          "activeTasks": 2,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "Architecture",
+          "status": "Designing",
+          "activeTasks": 2,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "Engineering",
+          "status": "Building",
+          "activeTasks": 4,
+          "completedTasks": 2,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "QA",
+          "status": "Testing",
+          "activeTasks": 2,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "Security",
+          "status": "Auditing",
+          "activeTasks": 1,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        },
+        {
+          "department": "DevOps",
+          "status": "Deploying",
+          "activeTasks": 1,
+          "completedTasks": 1,
+          "reportsGenerated": 1
+        }
+      ],
+      "liveEvents": [
+        "Architecture completed",
+        "Engineering started module creation",
+        "QA found issue",
+        "Security approved release"
+      ],
+      "totalActiveTasks": 13,
+      "totalCompletedTasks": 8,
+      "currentStatus": "Operating"
+    },
+    "documentCenter": {
+      "proposal": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\proposal\\proposal.md",
+      "architectureDocument": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\architecture\\architecture.md",
+      "engineeringReports": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\engineering\\engineering-plan.json",
+      "qaCertificate": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\qa\\quality-report.json",
+      "securityCertificate": null,
+      "deploymentReport": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\deployment\\deployment-guide.md",
+      "evolutionReports": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "paymentCenter": {
+      "projectCost": 0,
+      "advancePayment": 0,
+      "remainingPayment": 0,
+      "invoices": [],
+      "upgradePayments": "50% advance / 50% completion",
+      "subscriptions": []
+    },
+    "evolutionCenter": {
+      "recommendations": [
+        "Modernize technology stack",
+        "Expand market-driven features",
+        "Improve product workflows",
+        "Optimize performance hotspots",
+        "Strengthen security posture",
+        "Advance AI automation"
+      ],
+      "actions": [
+        "Request Upgrade",
+        "Approve Evolution Plan"
+      ]
+    },
+    "aiCeoAssistant": {
+      "question": "How is partner revenue performing?",
+      "answer": "Your AI company is working on ANNEXE Production CRM. Current status: CEO, expected completion: Pending.",
+      "generatedAt": "2026-08-24T09:37:57.782Z"
+    },
+    "realtime": {
+      "liveEvents": [
+        "Architecture completed",
+        "Engineering started module creation",
+        "QA found issue",
+        "Security approved release"
+      ]
+    }
+  },
+  "adminCommandCenter": {
+    "sections": {
+      "ceo": {
+        "revenue": "$0",
+        "projects": 1,
+        "customers": 1
+      },
+      "sales": {
+        "leads": 1,
+        "proposals": 1,
+        "conversions": 1
+      },
+      "engineering": {
+        "activeProjects": 1,
+        "workload": "Balanced"
+      },
+      "qa": {
+        "certifications": 1
+      },
+      "security": {
+        "vulnerabilities": 0
+      },
+      "devops": {
+        "deployments": 1
+      },
+      "upgrade": {
+        "recurringRevenue": "Maintenance and upgrade subscriptions"
+      }
+    },
+    "revenueDashboard": "$0"
+  },
+  "aiCeoAssistant": {
+    "question": "How is partner revenue performing?",
+    "answer": "Your AI company is working on ANNEXE Production CRM. Current status: CEO, expected completion: Pending.",
+    "generatedAt": "2026-08-24T09:37:57.782Z"
+  },
+  "status": "READY"
+}

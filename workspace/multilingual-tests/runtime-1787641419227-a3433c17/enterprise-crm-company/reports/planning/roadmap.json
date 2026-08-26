@@ -1,0 +1,170 @@
+{
+  "roadmapId": "ROAD-1787641533691",
+  "projectId": "enterprise-crm",
+  "generatedAt": "2026-08-25T07:05:33.691Z",
+  "milestones": [
+    {
+      "phase": "Discovery & Requirements",
+      "deliverable": "Confirmed project scope and architecture plan",
+      "week": 1
+    },
+    {
+      "phase": "Architecture & Setup",
+      "deliverable": "Technical foundation, environments, and integrations configured",
+      "week": 2
+    },
+    {
+      "phase": "Development",
+      "deliverable": "Core platform and AI agent pipeline built and tested internally",
+      "week": 4
+    },
+    {
+      "phase": "QA & Testing",
+      "deliverable": "Full test suite passed, performance baselines confirmed",
+      "week": 4
+    },
+    {
+      "phase": "Deployment & Handover",
+      "deliverable": "Live deployment, client training, and documentation delivered",
+      "week": 4
+    }
+  ],
+  "sprintPlan": [
+    {
+      "sprint": 1,
+      "name": "Foundation",
+      "tasks": [
+        {
+          "id": "TASK-001",
+          "name": "Project Setup",
+          "priority": "High",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "sprint": 2,
+      "name": "Core Development",
+      "tasks": [
+        {
+          "id": "TASK-002",
+          "name": "Backend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ]
+        },
+        {
+          "id": "TASK-003",
+          "name": "Frontend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ]
+        },
+        {
+          "id": "TASK-004",
+          "name": "Database Design",
+          "priority": "Medium",
+          "dependsOn": [
+            "TASK-002"
+          ]
+        }
+      ]
+    },
+    {
+      "sprint": 3,
+      "name": "Testing & Delivery",
+      "tasks": [
+        {
+          "id": "TASK-005",
+          "name": "Testing & QA",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-002",
+            "TASK-003",
+            "TASK-004"
+          ]
+        }
+      ]
+    }
+  ],
+  "risks": [],
+  "dependencies": [
+    {
+      "id": "TASK-001",
+      "name": "Project Setup",
+      "priority": "High",
+      "dependsOn": []
+    },
+    {
+      "id": "TASK-002",
+      "name": "Backend Development",
+      "priority": "High",
+      "dependsOn": [
+        "TASK-001"
+      ]
+    },
+    {
+      "id": "TASK-003",
+      "name": "Frontend Development",
+      "priority": "High",
+      "dependsOn": [
+        "TASK-001"
+      ]
+    },
+    {
+      "id": "TASK-004",
+      "name": "Database Design",
+      "priority": "Medium",
+      "dependsOn": [
+        "TASK-002"
+      ]
+    },
+    {
+      "id": "TASK-005",
+      "name": "Testing & QA",
+      "priority": "High",
+      "dependsOn": [
+        "TASK-002",
+        "TASK-003",
+        "TASK-004"
+      ]
+    }
+  ],
+  "executionStages": [
+    {
+      "stage": 1,
+      "name": "Backend Foundation",
+      "parallel": true,
+      "workers": [
+        "Backend Worker",
+        "Database Worker"
+      ]
+    },
+    {
+      "stage": 2,
+      "name": "Frontend",
+      "parallel": false,
+      "workers": [
+        "Frontend Worker"
+      ]
+    },
+    {
+      "stage": 3,
+      "name": "Quality Assurance",
+      "parallel": false,
+      "workers": [
+        "QA Worker"
+      ]
+    },
+    {
+      "stage": 5,
+      "name": "Deployment",
+      "parallel": false,
+      "workers": [
+        "Deployment Worker"
+      ]
+    }
+  ]
+}

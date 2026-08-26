@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "hrms",
+  "description": "Human resource management capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "reports",
+    "notifications",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "employee directory",
+      "leave management",
+      "payroll dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/hrms"
+    ]
+  },
+  "routes": [
+    "/hrms"
+  ],
+  "permissions": [
+    "hrms:read",
+    "hrms:write"
+  ],
+  "database": [
+    "employees",
+    "leave_requests",
+    "payroll_runs"
+  ],
+  "events": [
+    "hrms.employee.created",
+    "hrms.payroll.executed"
+  ]
+}

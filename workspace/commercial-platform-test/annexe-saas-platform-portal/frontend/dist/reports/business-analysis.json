@@ -1,0 +1,93 @@
+{
+  "analysisId": "RA-1787555695806",
+  "generatedAt": "2026-08-24T07:14:56.166Z",
+  "conversation": "Create a CRM for a real estate agency with customer management, proposal approval, billing, tracking, and upgrade requests.",
+  "industry": "Real Estate",
+  "businessType": "CRM",
+  "projectType": "crm",
+  "projectName": "Real Estate CRM",
+  "projectId": "real-estate-crm",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "stakeholders": [
+    "Administrators",
+    "Operational Users",
+    "Operations",
+    "Sales",
+    "Management"
+  ],
+  "businessRequirements": [
+    "Support the core needs of a CRM.",
+    "Provide a production-ready workflow for Real Estate.",
+    "Deliver a buildable software foundation that can be extended."
+  ],
+  "functionalRequirements": [
+    "Customer Management",
+    "payments",
+    "Authentication",
+    "Dashboard"
+  ],
+  "nonFunctionalRequirements": [
+    "Secure by default",
+    "Responsive UI",
+    "FastAPI backend",
+    "JWT-based authentication",
+    "Structured JSON APIs",
+    "Buildable React frontend"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "successCriteria": [
+    "Customers can sign in securely",
+    "Users can manage customer records",
+    "The dashboard renders successfully",
+    "The application builds without errors",
+    "The backend responds to health and docs requests"
+  ],
+  "productDecision": {
+    "decision": "reuse",
+    "matchScore": 100,
+    "reasoning": "'ANNEXE AI Trading Platform' covers 100% of requirements. Full reuse recommended."
+  },
+  "estimate": {
+    "estimatedWeeks": 2,
+    "estimatedCost": 800,
+    "currency": "USD"
+  },
+  "proposal": {
+    "proposalId": "PROP-1787555696165",
+    "title": "AI Mobile Application"
+  },
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "pos"
+  ],
+  "assumptions": [
+    "The customer wants a production-ready foundation, not a scaffold.",
+    "Reusable capabilities should be preferred over duplicated modules."
+  ]
+}

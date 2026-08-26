@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "roles",
+  "description": "Role assignment and authorization group capability.",
+  "dependencies": [
+    "permissions"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "role management"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/roles"
+    ]
+  },
+  "routes": [
+    "/roles"
+  ],
+  "permissions": [
+    "roles:read",
+    "roles:write"
+  ],
+  "database": [
+    "roles",
+    "role_permissions"
+  ],
+  "events": [
+    "roles.updated"
+  ]
+}

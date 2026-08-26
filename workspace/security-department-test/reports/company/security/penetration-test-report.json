@@ -1,0 +1,8 @@
+{
+  "commonVulnerabilities": [],
+  "exploitPossibilities": "Low",
+  "attackSurface": "Controlled",
+  "exposedServices": "Reviewed",
+  "score": 95,
+  "status": "PASS"
+}

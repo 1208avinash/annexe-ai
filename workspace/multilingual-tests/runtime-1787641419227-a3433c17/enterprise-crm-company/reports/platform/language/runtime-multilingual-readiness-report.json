@@ -1,0 +1,51 @@
+{
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "requestedLanguage": "French",
+  "detectedLanguage": "French",
+  "detectedLocale": "fr-FR",
+  "generatedDefaultLocale": "fr-FR",
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "runtimeSwitching": true,
+  "preferencePersistence": true,
+  "frontendLocalization": {
+    "resources": true,
+    "selector": true
+  },
+  "backendLocalization": true,
+  "fallbackBehavior": {
+    "englishFallback": true,
+    "fallbackLocale": "en-US"
+  },
+  "rtlReady": false,
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  },
+  "generation": {
+    "success": true,
+    "filesWritten": 183,
+    "projectRoot": null
+  },
+  "score": 100,
+  "generatedAt": "2026-08-25T07:05:33.890Z"
+}

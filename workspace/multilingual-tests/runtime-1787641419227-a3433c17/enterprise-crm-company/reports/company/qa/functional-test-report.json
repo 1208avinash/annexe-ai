@@ -1,0 +1,13 @@
+{
+  "coverage": [
+    "User workflows",
+    "Business features",
+    "Application behaviour",
+    "User journeys"
+  ],
+  "verifiedStories": 24,
+  "verifiedFeatures": 24,
+  "uiImplementationSignals": true,
+  "score": 96,
+  "status": "PASS"
+}

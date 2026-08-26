@@ -1,0 +1,49 @@
+{
+  "applicationType": "crm",
+  "analysisId": "RA-1787553786173",
+  "requestText": "Create a CRM for a real estate agency with customer management, proposal approval, billing, tracking, and upgrade requests.",
+  "normalizedText": "create a crm for a real estate agency with customer management, proposal approval, billing, tracking, and upgrade requests.",
+  "industry": "Real Estate",
+  "businessType": "CRM",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Customer Management"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Real Estate CRM",
+  "projectId": "real-estate-crm-company",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "pos"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 18,
+    "source": "natural-language-analysis"
+  }
+}

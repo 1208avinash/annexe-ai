@@ -1,0 +1,94 @@
+{
+  "applicationType": "inventory",
+  "projectId": "inventory-management",
+  "projectName": "Inventory Management",
+  "industry": "Inventory",
+  "challenge": "Need inventory software for stock, warehouses, and reorder control",
+  "solution": "Compose reusable capabilities into a production-ready inventory application",
+  "requirements": [
+    "Authentication",
+    "Stock Management",
+    "Warehouses",
+    "Reporting",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Stock Management",
+      "Warehouses",
+      "Reporting",
+      "Notifications"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787554687197",
+      "title": "Inventory Management Proposal",
+      "industry": "Inventory",
+      "businessType": "Inventory Management",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Stock Management",
+        "Warehouses",
+        "Reporting",
+        "Notifications"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "inventory",
+        "notifications",
+        "audit-logs",
+        "email",
+        "settings",
+        "search",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

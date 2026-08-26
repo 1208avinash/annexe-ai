@@ -1,0 +1,14 @@
+{
+  "reportId": "QAREP-1787562649355",
+  "projectId": "operations-erp",
+  "functionalScore": 96,
+  "apiScore": 97,
+  "securityScore": 97,
+  "performanceScore": 96,
+  "accessibilityScore": 98,
+  "regressionScore": 96,
+  "qualityScore": 97,
+  "status": "APPROVED",
+  "releaseRecommendation": "READY",
+  "generatedAt": "2026-08-24T09:10:49.355Z"
+}

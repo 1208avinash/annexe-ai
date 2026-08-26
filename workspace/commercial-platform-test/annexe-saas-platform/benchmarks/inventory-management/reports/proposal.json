@@ -1,0 +1,45 @@
+{
+  "proposalId": "PROP-1787554687197",
+  "title": "Inventory Management Proposal",
+  "industry": "Inventory",
+  "businessType": "Inventory Management",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Stock Management",
+    "Warehouses",
+    "Reporting",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

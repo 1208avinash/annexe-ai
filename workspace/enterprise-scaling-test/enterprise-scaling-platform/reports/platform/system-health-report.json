@@ -1,0 +1,27 @@
+{
+  "dashboard": {
+    "health": {
+      "api": "healthy",
+      "database": "healthy",
+      "queue": "healthy",
+      "storage": "healthy",
+      "checkedAt": "2026-08-24T09:07:53.047Z"
+    },
+    "metrics": {
+      "activeCustomers": 10000,
+      "queueDepth": 0
+    },
+    "alerts": [
+      {
+        "type": "info",
+        "message": "Enterprise scaling layer initialized",
+        "createdAt": "2026-08-24T09:07:53.002Z"
+      }
+    ]
+  },
+  "metrics": {
+    "activeCustomers": 10000,
+    "queueDepth": 0
+  },
+  "status": "READY"
+}

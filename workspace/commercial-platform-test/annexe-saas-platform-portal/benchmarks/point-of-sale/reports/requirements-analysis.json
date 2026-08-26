@@ -1,0 +1,53 @@
+{
+  "applicationType": "pos",
+  "analysisId": "RA-1787556616262",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "POS",
+  "businessType": "Point of Sale",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Checkout",
+    "Inventory",
+    "Reporting",
+    "Notifications"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Point of Sale",
+  "projectId": "point-of-sale",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "pos",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

@@ -1,0 +1,13 @@
+{
+  "reportId": "DEVOPSREP-1787553335213",
+  "projectId": "TEST-DEVOPS-001",
+  "projectName": "DevOps Department Test",
+  "operationsScore": 96,
+  "deployment": "READY",
+  "monitoring": "ENABLED",
+  "scaling": "READY",
+  "recovery": "READY",
+  "recommendation": "DEPLOY",
+  "status": "APPROVED",
+  "generatedAt": "2026-08-24T06:35:35.213Z"
+}

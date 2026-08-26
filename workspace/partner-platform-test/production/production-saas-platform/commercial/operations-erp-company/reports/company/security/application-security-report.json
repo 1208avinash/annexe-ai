@@ -1,0 +1,10 @@
+{
+  "authentication": "Validated",
+  "authorization": "Validated",
+  "apiSecurity": "Reviewed",
+  "inputValidation": "Reviewed",
+  "sessionSecurity": "Reviewed",
+  "accessControl": "Reviewed",
+  "score": 97,
+  "status": "PASS"
+}

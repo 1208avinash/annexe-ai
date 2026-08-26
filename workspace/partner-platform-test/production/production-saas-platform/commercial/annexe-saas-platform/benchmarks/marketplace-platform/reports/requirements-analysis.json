@@ -1,0 +1,54 @@
+{
+  "applicationType": "marketplace",
+  "analysisId": "RA-1787563438060",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "Marketplace",
+  "businessType": "Marketplace Platform",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Catalog",
+    "Orders",
+    "Sellers",
+    "Search",
+    "Notifications"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Marketplace Platform",
+  "projectId": "marketplace-platform",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "marketplace",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "search",
+    "settings",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

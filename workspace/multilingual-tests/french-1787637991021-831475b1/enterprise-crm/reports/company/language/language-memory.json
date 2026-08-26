@@ -1,0 +1,27 @@
+{
+  "customerLanguage": "French",
+  "preferredLanguage": "French",
+  "preferredLocale": "fr-FR",
+  "projectLanguage": "French",
+  "projectLocale": "fr-FR",
+  "generatedApplicationDefaultLocale": "fr-FR",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "localizationRequired": true,
+  "culturalAdaptationRequired": true,
+  "region": "France",
+  "conversationLanguage": "French",
+  "direction": "ltr",
+  "source": "detector",
+  "updatedAt": "2026-08-25T06:06:34.373Z"
+}

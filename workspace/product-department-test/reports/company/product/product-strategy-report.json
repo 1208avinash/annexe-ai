@@ -1,0 +1,240 @@
+{
+  "reportId": "PRODREP-1787553334272",
+  "projectId": "product-department-test",
+  "vision": "AI powered CRM platform",
+  "roadmap": {
+    "phases": [
+      {
+        "phase": 1,
+        "title": "MVP Foundation",
+        "features": [
+          "Authentication",
+          "Customer Management",
+          "Dashboard"
+        ]
+      },
+      {
+        "phase": 2,
+        "title": "Automation Growth",
+        "features": [
+          "Automation",
+          "Notifications",
+          "Analytics"
+        ]
+      },
+      {
+        "phase": 3,
+        "title": "AI Intelligence",
+        "features": [
+          "AI Lead Scoring",
+          "AI Summaries",
+          "Predictive Insights"
+        ]
+      }
+    ],
+    "featureTimeline": [
+      "Authentication",
+      "Customer Management",
+      "Dashboard",
+      "Automation",
+      "Notifications",
+      "Analytics",
+      "AI Lead Scoring"
+    ],
+    "releaseStrategy": "Release MVP first, then expand into automation and AI intelligence."
+  },
+  "priorities": [
+    {
+      "feature": "Authentication",
+      "impact": "Medium",
+      "customerValue": "Medium",
+      "developmentEffort": "Medium",
+      "urgency": "High",
+      "dependency": "None",
+      "priority": "P1"
+    },
+    {
+      "feature": "Customer Management",
+      "impact": "Medium",
+      "customerValue": "High",
+      "developmentEffort": "Medium",
+      "urgency": "High",
+      "dependency": "Core platform",
+      "priority": "P1"
+    },
+    {
+      "feature": "Dashboard",
+      "impact": "Medium",
+      "customerValue": "Medium",
+      "developmentEffort": "Medium",
+      "urgency": "High",
+      "dependency": "Core platform",
+      "priority": "P1"
+    },
+    {
+      "feature": "Automation",
+      "impact": "Medium",
+      "customerValue": "Medium",
+      "developmentEffort": "Medium",
+      "urgency": "Medium",
+      "dependency": "Core platform",
+      "priority": "P2"
+    },
+    {
+      "feature": "Notifications",
+      "impact": "Medium",
+      "customerValue": "Medium",
+      "developmentEffort": "Medium",
+      "urgency": "Medium",
+      "dependency": "Core platform",
+      "priority": "P2"
+    },
+    {
+      "feature": "Analytics",
+      "impact": "Medium",
+      "customerValue": "Medium",
+      "developmentEffort": "Medium",
+      "urgency": "Medium",
+      "dependency": "Core platform",
+      "priority": "P2"
+    },
+    {
+      "feature": "AI Lead Scoring",
+      "impact": "High",
+      "customerValue": "Medium",
+      "developmentEffort": "High",
+      "urgency": "Medium",
+      "dependency": "Core platform",
+      "priority": "P3"
+    }
+  ],
+  "userStories": [
+    {
+      "feature": "Authentication",
+      "story": "As a Real estate sales teams I want authentication so I can achieve better business outcomes.",
+      "requirements": [
+        "Support authentication.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "Customer Management",
+      "story": "As a Real estate sales teams I want customer management so I can achieve better business outcomes.",
+      "requirements": [
+        "Support customer management.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "Dashboard",
+      "story": "As a Real estate sales teams I want dashboard so I can achieve better business outcomes.",
+      "requirements": [
+        "Support dashboard.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "Automation",
+      "story": "As a Real estate sales teams I want automation so I can achieve better business outcomes.",
+      "requirements": [
+        "Support automation.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "Notifications",
+      "story": "As a Real estate sales teams I want notifications so I can achieve better business outcomes.",
+      "requirements": [
+        "Support notifications.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "Analytics",
+      "story": "As a Real estate sales teams I want analytics so I can achieve better business outcomes.",
+      "requirements": [
+        "Support analytics.",
+        "Work reliably in the company workflow."
+      ]
+    },
+    {
+      "feature": "AI Lead Scoring",
+      "story": "As a Real estate sales teams I want ai lead scoring so I can achieve better business outcomes.",
+      "requirements": [
+        "Support ai lead scoring.",
+        "Work reliably in the company workflow."
+      ]
+    }
+  ],
+  "acceptanceCriteria": [
+    {
+      "feature": "Authentication",
+      "must": [
+        "Display and support authentication.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "Customer Management",
+      "must": [
+        "Display and support customer management.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "Dashboard",
+      "must": [
+        "Display and support dashboard.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "Automation",
+      "must": [
+        "Display and support automation.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "Notifications",
+      "must": [
+        "Display and support notifications.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "Analytics",
+      "must": [
+        "Display and support analytics.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    },
+    {
+      "feature": "AI Lead Scoring",
+      "must": [
+        "Display and support ai lead scoring.",
+        "Pass QA checks.",
+        "Respect user permissions.",
+        "Deliver consistent product behavior."
+      ]
+    }
+  ],
+  "recommendations": [
+    "Ship the MVP first.",
+    "Use high-priority features to anchor the roadmap.",
+    "Align execution with validated customer and sales signals."
+  ],
+  "generatedAt": "2026-08-24T06:35:34.272Z"
+}

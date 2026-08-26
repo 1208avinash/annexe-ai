@@ -1,0 +1,66 @@
+{
+  "reportId": "UPGRADEREP-1787554021946",
+  "projectId": "real-estate-crm",
+  "requestedUpgrade": "Create a CRM for a real estate agency with customer management, proposal approval, billing, tracking, and upgrade requests.",
+  "analysis": {
+    "outdatedComponents": [
+      "UI modules",
+      "workflow modules"
+    ],
+    "missingFeatures": [],
+    "improvementOpportunities": [
+      "Performance tuning",
+      "Technology modernization"
+    ],
+    "technologyUpgrades": [
+      "Framework updates",
+      "Dependency refresh"
+    ],
+    "customerRequests": [
+      "Create a CRM for a real estate agency with customer management, proposal approval, billing, tracking, and upgrade requests."
+    ],
+    "score": 96,
+    "status": "READY"
+  },
+  "impact": {
+    "affectedModules": [
+      "frontend",
+      "backend",
+      "reports"
+    ],
+    "databaseChanges": "Minimal",
+    "apiImpact": "Controlled",
+    "frontendImpact": "Moderate",
+    "securityImpact": "Reviewed",
+    "deploymentImpact": "Low to moderate",
+    "score": 95,
+    "status": "READY"
+  },
+  "cost": {
+    "complexity": "Moderate",
+    "engineeringEffort": "Medium",
+    "risk": "Managed",
+    "requiredResources": [
+      "Engineering",
+      "QA",
+      "Security",
+      "DevOps"
+    ],
+    "estimatedCost": 8600,
+    "currency": "USD",
+    "score": 95
+  },
+  "paymentStatus": "PENDING",
+  "executionStatus": "BLOCKED",
+  "validationResult": {
+    "upgradeSuccess": false,
+    "oldFeaturesWorking": true,
+    "newFeaturesWorking": false,
+    "securityMaintained": true,
+    "performanceMaintained": true,
+    "score": 90,
+    "status": "BLOCKED"
+  },
+  "completionStatus": "PENDING",
+  "generatedAt": "2026-08-24T06:47:01.946Z"
+}

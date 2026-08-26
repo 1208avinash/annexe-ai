@@ -1,0 +1,7 @@
+{
+  "databaseBackup": {
+    "sourceLabel": "cloud-postgres",
+    "backupPath": "D:\\annex-web\\workspace\\cloud-infrastructure-test\\cloud-infrastructure-platform\\backups\\cloud-postgres-1787630304303.json",
+    "status": "READY"
+  }
+}

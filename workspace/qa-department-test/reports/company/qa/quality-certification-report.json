@@ -1,0 +1,14 @@
+{
+  "reportId": "QAREP-1787553334463",
+  "projectId": "TEST-QA-001",
+  "functionalScore": 96,
+  "apiScore": 97,
+  "securityScore": 97,
+  "performanceScore": 96,
+  "accessibilityScore": 98,
+  "regressionScore": 84,
+  "qualityScore": 95,
+  "status": "APPROVED",
+  "releaseRecommendation": "READY",
+  "generatedAt": "2026-08-24T06:35:34.463Z"
+}

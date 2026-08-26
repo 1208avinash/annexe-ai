@@ -1,0 +1,208 @@
+{
+  "projectId": "enterprise-crm-company",
+  "analysis": {
+    "analysisId": "BA-1787641917739",
+    "projectId": "enterprise-crm-company",
+    "projectName": "Enterprise CRM",
+    "industry": "CRM",
+    "projectType": "crm",
+    "templateId": "crm-enterprise",
+    "businessGoals": [
+      "Manage customer relationships",
+      "Qualify leads automatically",
+      "Track pipeline progress",
+      "Improve team productivity"
+    ],
+    "features": [
+      "authentication",
+      "dashboard",
+      "crm",
+      "contacts",
+      "leads",
+      "reports",
+      "notifications",
+      "automation"
+    ],
+    "recommendedCapabilities": [
+      "authentication",
+      "users",
+      "roles",
+      "permissions",
+      "dashboard",
+      "notifications",
+      "audit-logs",
+      "email",
+      "file-storage",
+      "settings",
+      "search",
+      "reports",
+      "health",
+      "version",
+      "logging",
+      "crm"
+    ],
+    "risks": [
+      "Data model scope can expand quickly",
+      "Role and permission design needs early confirmation",
+      "CRM workflow breadth can increase implementation time"
+    ]
+  },
+  "specificationId": "SPEC-1787641917810",
+  "planId": "PLAN-1787641917810",
+  "workflowId": "WF-1787641917811",
+  "schedule": {
+    "workflowId": "WF-1787641917811",
+    "batches": [
+      [
+        {
+          "id": "TASK-001",
+          "name": "Project Setup",
+          "priority": "High",
+          "dependsOn": [],
+          "taskId": "TASK-001",
+          "dependencies": []
+        }
+      ],
+      [
+        {
+          "id": "TASK-002",
+          "name": "Backend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ],
+          "taskId": "TASK-002",
+          "dependencies": [
+            "TASK-001"
+          ]
+        },
+        {
+          "id": "TASK-003",
+          "name": "Frontend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ],
+          "taskId": "TASK-003",
+          "dependencies": [
+            "TASK-001"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "TASK-004",
+          "name": "Database Design",
+          "priority": "Medium",
+          "dependsOn": [
+            "TASK-002"
+          ],
+          "taskId": "TASK-004",
+          "dependencies": [
+            "TASK-002"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "TASK-005",
+          "name": "Testing & QA",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-002",
+            "TASK-003",
+            "TASK-004"
+          ],
+          "taskId": "TASK-005",
+          "dependencies": [
+            "TASK-002",
+            "TASK-003",
+            "TASK-004"
+          ]
+        }
+      ]
+    ],
+    "totalBatches": 4,
+    "totalTasks": 5
+  },
+  "execution": {
+    "workflowId": "WF-1787641917811",
+    "batches": 4,
+    "completed": [
+      {
+        "workflowId": "WF-1787641917811",
+        "completed": 1,
+        "results": [
+          {
+            "taskId": "TASK-001",
+            "worker": "Engineering Worker",
+            "status": "COMPLETED",
+            "result": {
+              "taskId": "TASK-001",
+              "name": "Project Setup",
+              "completed": true
+            }
+          }
+        ]
+      },
+      {
+        "workflowId": "WF-1787641917811",
+        "completed": 2,
+        "results": [
+          {
+            "taskId": "TASK-002",
+            "worker": "Engineering Worker",
+            "status": "COMPLETED",
+            "result": {
+              "taskId": "TASK-002",
+              "name": "Backend Development",
+              "completed": true
+            }
+          },
+          {
+            "taskId": "TASK-003",
+            "worker": "Engineering Worker",
+            "status": "COMPLETED",
+            "result": {
+              "taskId": "TASK-003",
+              "name": "Frontend Development",
+              "completed": true
+            }
+          }
+        ]
+      },
+      {
+        "workflowId": "WF-1787641917811",
+        "completed": 1,
+        "results": [
+          {
+            "taskId": "TASK-004",
+            "worker": "Engineering Worker",
+            "status": "COMPLETED",
+            "result": {
+              "taskId": "TASK-004",
+              "name": "Database Design",
+              "completed": true
+            }
+          }
+        ]
+      },
+      {
+        "workflowId": "WF-1787641917811",
+        "completed": 1,
+        "results": [
+          {
+            "taskId": "TASK-005",
+            "worker": "Engineering Worker",
+            "status": "COMPLETED",
+            "result": {
+              "taskId": "TASK-005",
+              "name": "Testing & QA",
+              "completed": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

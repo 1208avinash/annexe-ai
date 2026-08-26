@@ -1,0 +1,412 @@
+{
+  "reportId": "LANG-1787641669230",
+  "projectId": "enterprise-crm",
+  "detectedLanguage": "French",
+  "locale": "fr-FR",
+  "confidence": 0.98,
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "languageContext": {
+    "language": "French",
+    "locale": "fr-FR",
+    "confidence": 0.98,
+    "source": "detector",
+    "customerLanguage": "French",
+    "projectLanguage": "French",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "translationRequired": true,
+    "generatedApplicationDefaultLocale": "fr-FR",
+    "localization": {
+      "language": "French",
+      "locale": "fr-FR",
+      "uiLabels": {
+        "login": "Connexion",
+        "dashboard": "Tableau de bord",
+        "settings": "Paramètres",
+        "customers": "Clients",
+        "reports": "Rapports",
+        "search": "Rechercher",
+        "save": "Enregistrer",
+        "cancel": "Annuler"
+      },
+      "menuLabels": {
+        "home": "Accueil",
+        "customers": "Clients",
+        "analytics": "Analyses",
+        "settings": "Paramètres"
+      },
+      "errorMessages": {
+        "generic": "Une erreur est survenue.",
+        "network": "La requête réseau a échoué.",
+        "validation": "Veuillez vérifier les champs surlignés."
+      },
+      "createdAt": "2026-08-25T07:07:49.215Z"
+    },
+    "culturalAdaptation": {
+      "language": "French",
+      "locale": "fr-FR",
+      "region": "France",
+      "dateFormat": "DD/MM/YYYY",
+      "currency": "EUR",
+      "readingDirection": "ltr",
+      "communicationTone": "formal, concise, and professional",
+      "localizationNotes": [
+        "Use DD/MM/YYYY date formatting.",
+        "Prefer EUR for financial presentation.",
+        "Preserve left-to-right layout."
+      ],
+      "adaptedAt": "2026-08-25T07:07:49.215Z"
+    },
+    "softwareLocalization": {
+      "language": "French",
+      "locale": "fr-FR",
+      "localizedStrings": {
+        "login": "Connexion",
+        "dashboard": "Tableau de bord",
+        "customers": "Gestion des clients",
+        "settings": "Paramètres",
+        "reports": "Rapports",
+        "enter": "Entrer dans ANNEXE AI",
+        "explore": "Explorer les capacités",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "network": "La requête réseau a échoué.",
+        "generic": "Impossible de terminer l'action."
+      },
+      "screens": {
+        "login": "Connexion",
+        "dashboard": "Tableau de bord",
+        "customers": "Gestion des clients",
+        "settings": "Paramètres",
+        "reports": "Rapports"
+      },
+      "buttons": {
+        "enter": "Entrer dans ANNEXE AI",
+        "explore": "Explorer les capacités",
+        "save": "Enregistrer",
+        "cancel": "Annuler"
+      },
+      "errorMessages": {
+        "network": "La requête réseau a échoué.",
+        "generic": "Impossible de terminer l'action."
+      },
+      "rtl": false,
+      "localizedAt": "2026-08-25T07:07:49.215Z"
+    },
+    "documentationLocalization": {
+      "language": "French",
+      "locale": "fr-FR",
+      "userManual": {
+        "title": "Manuel utilisateur",
+        "summary": "Operational guidance for using the platform in French.",
+        "sections": [
+          "Getting started",
+          "Authentication",
+          "Customer workflows",
+          "Reporting"
+        ]
+      },
+      "apiDocumentation": {
+        "title": "Documentation API",
+        "summary": "API reference delivered in French.",
+        "sections": [
+          "Health endpoint",
+          "Authentication endpoints",
+          "Customer APIs",
+          "Reporting APIs"
+        ]
+      },
+      "reports": {
+        "title": "Localized Company Reports",
+        "language": "French",
+        "sections": [
+          "Executive summary",
+          "Delivery report",
+          "Quality report"
+        ]
+      },
+      "proposals": {
+        "title": "Proposition",
+        "summary": "Commercial proposal localized for French.",
+        "sections": [
+          "Business value",
+          "Implementation plan",
+          "Pricing",
+          "Payment milestones"
+        ]
+      },
+      "generatedAt": "2026-08-25T07:07:49.215Z"
+    },
+    "languageMemory": {
+      "customerLanguage": "French",
+      "preferredLanguage": "French",
+      "preferredLocale": "fr-FR",
+      "projectLanguage": "French",
+      "projectLocale": "fr-FR",
+      "generatedApplicationDefaultLocale": "fr-FR",
+      "supportedLanguages": [
+        "English",
+        "French",
+        "Spanish",
+        "German",
+        "Arabic",
+        "Hindi",
+        "Chinese",
+        "Japanese",
+        "Portuguese",
+        "Italian"
+      ],
+      "supportedLocales": [
+        "en-US",
+        "fr-FR",
+        "es-ES",
+        "de-DE",
+        "ar-SA",
+        "hi-IN",
+        "zh-CN",
+        "ja-JP",
+        "pt-BR",
+        "it-IT"
+      ],
+      "localizationRequired": true,
+      "culturalAdaptationRequired": true,
+      "region": "France",
+      "conversationLanguage": "French",
+      "direction": "ltr",
+      "runtimeSwitching": true,
+      "userPreferencePersistence": true,
+      "rtlSupport": false,
+      "source": "detector",
+      "updatedAt": "2026-08-25T07:07:49.218Z"
+    }
+  },
+  "localizationReadiness": {
+    "ui": true,
+    "documentation": true,
+    "cultural": true,
+    "memory": true
+  },
+  "softwareTranslationReadiness": {
+    "uiLabels": true,
+    "menus": true,
+    "buttons": true,
+    "errorMessages": true
+  },
+  "documentationLocalizationReadiness": {
+    "userManual": true,
+    "apiDocumentation": true,
+    "proposals": true,
+    "reports": true
+  },
+  "languageMemory": {
+    "customerLanguage": "French",
+    "preferredLanguage": "French",
+    "preferredLocale": "fr-FR",
+    "projectLanguage": "French",
+    "projectLocale": "fr-FR",
+    "generatedApplicationDefaultLocale": "fr-FR",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": true,
+    "culturalAdaptationRequired": true,
+    "region": "France",
+    "conversationLanguage": "French",
+    "direction": "ltr",
+    "runtimeSwitching": true,
+    "userPreferencePersistence": true,
+    "rtlSupport": false,
+    "source": "detector",
+    "updatedAt": "2026-08-25T07:07:49.218Z"
+  },
+  "localization": {
+    "language": "French",
+    "locale": "fr-FR",
+    "uiLabels": {
+      "login": "Connexion",
+      "dashboard": "Tableau de bord",
+      "settings": "Paramètres",
+      "customers": "Clients",
+      "reports": "Rapports",
+      "search": "Rechercher",
+      "save": "Enregistrer",
+      "cancel": "Annuler"
+    },
+    "menuLabels": {
+      "home": "Accueil",
+      "customers": "Clients",
+      "analytics": "Analyses",
+      "settings": "Paramètres"
+    },
+    "errorMessages": {
+      "generic": "Une erreur est survenue.",
+      "network": "La requête réseau a échoué.",
+      "validation": "Veuillez vérifier les champs surlignés."
+    },
+    "createdAt": "2026-08-25T07:07:49.215Z"
+  },
+  "culturalAdaptation": {
+    "language": "French",
+    "locale": "fr-FR",
+    "region": "France",
+    "dateFormat": "DD/MM/YYYY",
+    "currency": "EUR",
+    "readingDirection": "ltr",
+    "communicationTone": "formal, concise, and professional",
+    "localizationNotes": [
+      "Use DD/MM/YYYY date formatting.",
+      "Prefer EUR for financial presentation.",
+      "Preserve left-to-right layout."
+    ],
+    "adaptedAt": "2026-08-25T07:07:49.215Z"
+  },
+  "softwareLocalization": {
+    "language": "French",
+    "locale": "fr-FR",
+    "localizedStrings": {
+      "login": "Connexion",
+      "dashboard": "Tableau de bord",
+      "customers": "Gestion des clients",
+      "settings": "Paramètres",
+      "reports": "Rapports",
+      "enter": "Entrer dans ANNEXE AI",
+      "explore": "Explorer les capacités",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "network": "La requête réseau a échoué.",
+      "generic": "Impossible de terminer l'action."
+    },
+    "screens": {
+      "login": "Connexion",
+      "dashboard": "Tableau de bord",
+      "customers": "Gestion des clients",
+      "settings": "Paramètres",
+      "reports": "Rapports"
+    },
+    "buttons": {
+      "enter": "Entrer dans ANNEXE AI",
+      "explore": "Explorer les capacités",
+      "save": "Enregistrer",
+      "cancel": "Annuler"
+    },
+    "errorMessages": {
+      "network": "La requête réseau a échoué.",
+      "generic": "Impossible de terminer l'action."
+    },
+    "rtl": false,
+    "localizedAt": "2026-08-25T07:07:49.215Z"
+  },
+  "documentationLocalization": {
+    "language": "French",
+    "locale": "fr-FR",
+    "userManual": {
+      "title": "Manuel utilisateur",
+      "summary": "Operational guidance for using the platform in French.",
+      "sections": [
+        "Getting started",
+        "Authentication",
+        "Customer workflows",
+        "Reporting"
+      ]
+    },
+    "apiDocumentation": {
+      "title": "Documentation API",
+      "summary": "API reference delivered in French.",
+      "sections": [
+        "Health endpoint",
+        "Authentication endpoints",
+        "Customer APIs",
+        "Reporting APIs"
+      ]
+    },
+    "reports": {
+      "title": "Localized Company Reports",
+      "language": "French",
+      "sections": [
+        "Executive summary",
+        "Delivery report",
+        "Quality report"
+      ]
+    },
+    "proposals": {
+      "title": "Proposition",
+      "summary": "Commercial proposal localized for French.",
+      "sections": [
+        "Business value",
+        "Implementation plan",
+        "Pricing",
+        "Payment milestones"
+      ]
+    },
+    "generatedAt": "2026-08-25T07:07:49.215Z"
+  },
+  "generatedAt": "2026-08-25T07:07:49.230Z"
+}

@@ -1,0 +1,99 @@
+{
+  "applicationType": "hospital",
+  "projectId": "hospital-system",
+  "projectName": "Hospital System",
+  "industry": "Hospital",
+  "challenge": "Need a hospital system for patients, appointments, and operations",
+  "solution": "Compose reusable capabilities into a production-ready hospital application",
+  "requirements": [
+    "Authentication",
+    "Patients",
+    "Appointments",
+    "Clinical Reporting",
+    "Notifications",
+    "File Storage"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "hospital",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Patients",
+      "Appointments",
+      "Clinical Reporting",
+      "Notifications",
+      "File Storage"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787627032654",
+      "title": "Hospital System Proposal",
+      "industry": "Hospital",
+      "businessType": "Hospital System",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Patients",
+        "Appointments",
+        "Clinical Reporting",
+        "Notifications",
+        "File Storage"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "hospital",
+        "notifications",
+        "audit-logs",
+        "email",
+        "file-storage",
+        "settings",
+        "search",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

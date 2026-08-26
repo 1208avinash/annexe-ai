@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "dashboard",
+  "description": "Workspace overview, KPI cards, and recent activity surface.",
+  "dependencies": [
+    "authentication",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "dashboard cards",
+      "recent activity"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/dashboard"
+    ]
+  },
+  "routes": [
+    "/dashboard",
+    "/crm/summary"
+  ],
+  "permissions": [
+    "dashboard:read"
+  ],
+  "database": [
+    "dashboards",
+    "dashboard_widgets"
+  ],
+  "events": [
+    "dashboard.refreshed"
+  ]
+}

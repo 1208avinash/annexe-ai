@@ -1,0 +1,10 @@
+{
+  "commonVulnerabilities": [
+    "API validation not fully confirmed."
+  ],
+  "exploitPossibilities": "Review required",
+  "attackSurface": "Expanded",
+  "exposedServices": "Reviewed",
+  "score": 89,
+  "status": "WARN"
+}

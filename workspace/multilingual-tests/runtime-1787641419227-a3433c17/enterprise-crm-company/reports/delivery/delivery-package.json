@@ -1,0 +1,1167 @@
+{
+  "projectId": "enterprise-crm",
+  "status": "READY_FOR_CLIENT",
+  "package": {
+    "projectSummary": {
+      "projectId": "enterprise-crm",
+      "generatedAt": "2026-08-25T07:05:33.692Z",
+      "frontend": "Not specified",
+      "backend": "Not specified",
+      "database": "Not specified",
+      "modules": [],
+      "totalGeneratedFiles": 183
+    },
+    "architectureDocument": {
+      "frontend": {
+        "framework": "Not specified",
+        "modules": []
+      },
+      "backend": {
+        "framework": "Not specified",
+        "services": []
+      },
+      "database": {
+        "engine": "Not specified",
+        "tables": []
+      },
+      "aiArchitecture": {
+        "components": []
+      },
+      "integrations": []
+    },
+    "generatedFiles": [
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\enterprise-crm.blueprint.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\requirements.txt",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\Dockerfile",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\config.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\database.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\security.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\models\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\models\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\schemas\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\schemas\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\repositories\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\repositories\\crm_repository.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\services\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\services\\crm_service.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\dependencies.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\routers\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\routers\\health.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\routers\\auth.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\routers\\customers.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\routers\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\main.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\package.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\vite.config.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\index.html",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\public\\.gitkeep",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\scripts\\check.mjs",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\main.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\App.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\layouts\\MainLayout.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\contexts\\AuthContext.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\services\\api.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\services\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\layouts\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\contexts\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\components\\StatCard.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\components\\LanguageSelector.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\components\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\localization\\resources.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\localization\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\pages\\Login.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\pages\\Dashboard.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\pages\\Customers.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\pages\\CustomerDetails.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\hooks\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\assets\\.gitkeep",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\src\\styles.css",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\version.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\logging_config.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\app\\localization.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\alembic.ini",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\alembic\\env.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\alembic\\versions\\0001_initial.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\scripts\\migrate.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\pytest.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\tests\\test_health.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\tests\\test_auth.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\backend\\tests\\test_customers.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\Dockerfile",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\docker-compose.yml",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\nginx.conf",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\.dockerignore",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\.github\\workflows\\ci.yml",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\frontend\\tests\\smoke.mjs",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\index.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\permissions\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\users\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\roles\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\logging\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\health\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\authentication\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\search\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\audit-logs\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\reports\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\version\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\dashboard\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\notifications\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\email\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\file-storage\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\settings\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\crm\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\inventory\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\capabilities\\erp\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\reports\\project-structure.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\reports\\engineering-plan.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\multilingual-tests\\runtime-1787641419227-a3433c17\\enterprise-crm-company\\enterprise-crm-summary.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      }
+    ],
+    "testReport": {
+      "available": true,
+      "summary": "Tests completed",
+      "passed": null,
+      "failed": null,
+      "coverage": null,
+      "suites": []
+    },
+    "repositoryInfo": {
+      "available": true,
+      "repositoryUrl": null,
+      "branch": null,
+      "pullRequest": null,
+      "status": "not_available"
+    },
+    "deploymentGuide": {
+      "steps": [
+        "1. Clone the repository from the provided branch",
+        "2. Install backend dependencies (see project README)",
+        "3. Configure environment variables — database (see schema), API keys",
+        "4. Run database migrations",
+        "5. Start backend service",
+        "6. Install frontend dependencies (see project README)",
+        "7. Build and serve frontend",
+        "8. Verify all health-check endpoints",
+        "9. Review pull request and merge to main when approved"
+      ],
+      "notes": [
+        "This guide is auto-generated from factory output.",
+        "Review all environment variables before deployment.",
+        "Do not merge the pull request without human code review."
+      ]
+    }
+  },
+  "generatedAt": "2026-08-25T07:05:33.848Z"
+}

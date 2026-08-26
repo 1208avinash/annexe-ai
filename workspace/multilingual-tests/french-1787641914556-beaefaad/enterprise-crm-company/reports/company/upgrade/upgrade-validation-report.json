@@ -1,0 +1,9 @@
+{
+  "upgradeSuccess": false,
+  "oldFeaturesWorking": true,
+  "newFeaturesWorking": false,
+  "securityMaintained": true,
+  "performanceMaintained": true,
+  "score": 90,
+  "status": "BLOCKED"
+}

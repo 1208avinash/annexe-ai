@@ -1,0 +1,9 @@
+{
+  "vulnerabilities": [],
+  "authenticationSecurity": "Validated",
+  "authorizationSecurity": "Validated",
+  "dataExposure": "None detected",
+  "dependencyRisks": "Low",
+  "score": 97,
+  "status": "PASS"
+}

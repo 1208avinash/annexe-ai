@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "1.0.0",
+  "databaseId": "d0aaba38-72b0-4bdc-a8a7-e14bde4b1030",
+  "generatedAt": "2026-08-25T03:58:43.411Z",
+  "collections": {
+    "users": [
+      {
+        "id": "USE-1787630324932-020f862a",
+        "createdAt": "2026-08-25T03:58:44.932Z",
+        "updatedAt": "2026-08-25T03:58:47.338Z",
+        "email": "admin@annexe.ai",
+        "name": "ANNEXE Admin",
+        "role": "admin",
+        "organizationId": null,
+        "status": "active",
+        "passwordHash": "65733e6afc96297081581d19f7b5d78b3dca9bef55876dc853e99fbed5f52017d87d36f678105637437ac20691f9b1717608fa6e06cccb631643f2a935a6c058",
+        "passwordSalt": "911ab42516de4b66ff10ac57a6ee6978",
+        "passwordAlgorithm": "scrypt",
+        "lastLoginAt": "2026-08-25T03:58:47.254Z"
+      }
+    ],
+    "organizations": [
+      {
+        "id": "ORG-1787630326536-f09710d7",
+        "createdAt": "2026-08-25T03:58:46.536Z",
+        "updatedAt": "2026-08-25T03:58:46.536Z",
+        "name": "ANNEXE Production SaaS",
+        "industry": "Technology",
+        "ownerUserId": "USE-1787630324932-020f862a",
+        "plan": "enterprise",
+        "status": "active"
+      },
+      {
+        "id": "ORG-1787630327634-f9f2a6b1",
+        "createdAt": "2026-08-25T03:58:47.634Z",
+        "updatedAt": "2026-08-25T03:58:47.634Z",
+        "name": "Demo Enterprise",
+        "industry": "Real Estate",
+        "ownerUserId": "USE-1787630324932-020f862a",
+        "plan": "enterprise",
+        "status": "active"
+      }
+    ],
+    "projects": [
+      {
+        "id": "PRO-1787630326618-4392e9cd",
+        "createdAt": "2026-08-25T03:58:46.618Z",
+        "updatedAt": "2026-08-25T03:58:46.618Z",
+        "organizationId": "ORG-1787630326536-f09710d7",
+        "ownerUserId": "USE-1787630324932-020f862a",
+        "name": "ANNEXE Production CRM",
+        "industry": "CRM",
+        "description": "Create a production SaaS platform with auth, billing, realtime operations, and secure persistence.",
+        "status": "active",
+        "billingStatus": "advance-required",
+        "progress": 5
+      },
+      {
+        "id": "PRO-1787630327699-432265a6",
+        "createdAt": "2026-08-25T03:58:47.699Z",
+        "updatedAt": "2026-08-25T03:58:47.955Z",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "ownerUserId": "USE-1787630324932-020f862a",
+        "name": "Production CRM",
+        "industry": "CRM",
+        "description": "",
+        "status": "active",
+        "billingStatus": "advance-paid",
+        "progress": 25
+      }
+    ],
+    "projectReports": [],
+    "payments": [
+      {
+        "id": "PAY-1787630326623-6fd455b9",
+        "createdAt": "2026-08-25T03:58:46.623Z",
+        "updatedAt": "2026-08-25T03:58:46.623Z",
+        "projectId": "PRO-1787630326618-4392e9cd",
+        "organizationId": "ORG-1787630326536-f09710d7",
+        "invoiceId": "INV-1787630326619-f552c4",
+        "amount": 50000,
+        "currency": "USD",
+        "status": "invoiced",
+        "milestone": "invoice",
+        "gateway": "invoice"
+      },
+      {
+        "id": "PAY-1787630326630-07c88a57",
+        "createdAt": "2026-08-25T03:58:46.630Z",
+        "updatedAt": "2026-08-25T03:58:46.630Z",
+        "projectId": "PRO-1787630326618-4392e9cd",
+        "organizationId": "ORG-1787630326536-f09710d7",
+        "invoiceId": "INV-1787630326619-f552c4",
+        "amount": 25000,
+        "currency": "USD",
+        "status": "approved",
+        "milestone": "advance",
+        "gateway": "internal-ledger"
+      },
+      {
+        "id": "PAY-1787630327702-abb56e61",
+        "createdAt": "2026-08-25T03:58:47.702Z",
+        "updatedAt": "2026-08-25T03:58:47.702Z",
+        "projectId": "PRO-1787630327699-432265a6",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "invoiceId": "INV-1787630327700-3b26f3",
+        "amount": 40000,
+        "currency": "USD",
+        "status": "invoiced",
+        "milestone": "invoice",
+        "gateway": "invoice"
+      },
+      {
+        "id": "PAY-1787630327751-1f7285ef",
+        "createdAt": "2026-08-25T03:58:47.751Z",
+        "updatedAt": "2026-08-25T03:58:47.751Z",
+        "projectId": "PRO-1787630327699-432265a6",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "invoiceId": "INV-1787630327700-3b26f3",
+        "amount": 20000,
+        "currency": "USD",
+        "status": "approved",
+        "milestone": "advance",
+        "gateway": "internal-ledger"
+      },
+      {
+        "id": "PAY-1787630328048-da5db050",
+        "createdAt": "2026-08-25T03:58:48.039Z",
+        "updatedAt": "2026-08-25T03:58:48.039Z",
+        "projectId": "PRO-1787630327699-432265a6",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "invoiceId": "INV-1787630327988-6436e2",
+        "amount": 40000,
+        "currency": "USD",
+        "status": "invoiced",
+        "milestone": "invoice",
+        "gateway": "invoice"
+      },
+      {
+        "id": "PAY-1787630328188-aab56586",
+        "createdAt": "2026-08-25T03:58:48.188Z",
+        "updatedAt": "2026-08-25T03:58:48.188Z",
+        "projectId": "PRO-1787630327699-432265a6",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "invoiceId": "INV-1787630327988-6436e2",
+        "amount": 20000,
+        "currency": "USD",
+        "status": "approved",
+        "milestone": "advance",
+        "gateway": "internal-ledger"
+      }
+    ],
+    "upgrades": [
+      {
+        "id": "UPG-1787630326752-8f9317cf",
+        "createdAt": "2026-08-25T03:58:46.751Z",
+        "updatedAt": "2026-08-25T03:58:46.751Z",
+        "projectId": "PRO-1787630326618-4392e9cd",
+        "organizationId": "ORG-1787630326536-f09710d7",
+        "title": "Production scaling upgrade",
+        "description": "Enable autoscaling, observability, and stronger SLAs.",
+        "status": "quote-generated",
+        "advancePercent": 50,
+        "completionPercent": 50,
+        "estimate": 12000,
+        "milestones": {
+          "advanceAmount": 6000,
+          "completionAmount": 6000
+        }
+      },
+      {
+        "id": "UPG-1787630328199-14b42cc8",
+        "createdAt": "2026-08-25T03:58:48.199Z",
+        "updatedAt": "2026-08-25T03:58:48.199Z",
+        "projectId": "PRO-1787630327699-432265a6",
+        "organizationId": "ORG-1787630327634-f9f2a6b1",
+        "title": "Realtime Analytics Upgrade",
+        "description": "Add realtime dashboards and stronger billing controls.",
+        "status": "quote-generated",
+        "advancePercent": 50,
+        "completionPercent": 50,
+        "estimate": 12000,
+        "milestones": {
+          "advanceAmount": 6000,
+          "completionAmount": 6000
+        }
+      }
+    ],
+    "auditLogs": [
+      {
+        "id": "AUD-1787630326868-84d83d23",
+        "createdAt": "2026-08-25T03:58:46.868Z",
+        "updatedAt": "2026-08-25T03:58:46.868Z",
+        "actorId": "USE-1787630324932-020f862a",
+        "action": "platform.initialize",
+        "entityType": "platform",
+        "entityId": "D:\\annex-web\\workspace\\production-platform-test\\production-saas-platform",
+        "metadata": {
+          "requestText": "Create a production SaaS platform with auth, billing, realtime operations, and secure persistence.",
+          "commercialPlatformRoot": null
+        }
+      },
+      {
+        "id": "AUD-1787630327482-fe36a425",
+        "createdAt": "2026-08-25T03:58:47.482Z",
+        "updatedAt": "2026-08-25T03:58:47.482Z",
+        "actorId": "USE-1787630324932-020f862a",
+        "action": "auth.login",
+        "entityType": "user",
+        "entityId": "USE-1787630324932-020f862a",
+        "metadata": {
+          "email": "admin@annexe.ai"
+        }
+      },
+      {
+        "id": "AUD-1787630327638-4820d5dd",
+        "createdAt": "2026-08-25T03:58:47.638Z",
+        "updatedAt": "2026-08-25T03:58:47.638Z",
+        "actorId": "USE-1787630324932-020f862a",
+        "action": "organizations.create",
+        "entityType": "organization",
+        "entityId": "ORG-1787630327634-f9f2a6b1",
+        "metadata": {
+          "name": "Demo Enterprise",
+          "industry": "Real Estate",
+          "plan": "enterprise"
+        }
+      },
+      {
+        "id": "AUD-1787630327807-41a767ae",
+        "createdAt": "2026-08-25T03:58:47.807Z",
+        "updatedAt": "2026-08-25T03:58:47.807Z",
+        "actorId": "USE-1787630324932-020f862a",
+        "action": "projects.create",
+        "entityType": "project",
+        "entityId": "PRO-1787630327699-432265a6",
+        "metadata": {
+          "organizationId": "ORG-1787630327634-f9f2a6b1",
+          "name": "Production CRM",
+          "industry": "CRM",
+          "totalAmount": 40000
+        }
+      },
+      {
+        "id": "AUD-1787630328203-402e79fc",
+        "createdAt": "2026-08-25T03:58:48.203Z",
+        "updatedAt": "2026-08-25T03:58:48.203Z",
+        "actorId": "USE-1787630324932-020f862a",
+        "action": "upgrades.create",
+        "entityType": "upgrade",
+        "entityId": "UPG-1787630328199-14b42cc8",
+        "metadata": {
+          "organizationId": "ORG-1787630327634-f9f2a6b1",
+          "projectId": "PRO-1787630327699-432265a6",
+          "title": "Realtime Analytics Upgrade",
+          "description": "Add realtime dashboards and stronger billing controls.",
+          "estimate": 12000
+        }
+      }
+    ],
+    "events": [
+      {
+        "id": "EVE-1787630326835-e47902d8",
+        "createdAt": "2026-08-25T03:58:46.835Z",
+        "updatedAt": "2026-08-25T03:58:46.835Z",
+        "stream": "project:PRO-1787630326618-4392e9cd",
+        "eventType": "platform.initialized",
+        "payload": {
+          "projectId": "PRO-1787630326618-4392e9cd",
+          "organizationId": "ORG-1787630326536-f09710d7",
+          "userId": "USE-1787630324932-020f862a"
+        }
+      },
+      {
+        "id": "EVE-1787630326857-f17cd135",
+        "createdAt": "2026-08-25T03:58:46.857Z",
+        "updatedAt": "2026-08-25T03:58:46.857Z",
+        "stream": "notifications",
+        "eventType": "notification.created",
+        "payload": {
+          "userId": "USE-1787630324932-020f862a",
+          "title": "Project update for PRO-1787630326618-4392e9cd",
+          "message": "platform.initialized",
+          "channel": "project-stream"
+        }
+      },
+      {
+        "id": "EVE-1787630326942-a31cfdad",
+        "createdAt": "2026-08-25T03:58:46.942Z",
+        "updatedAt": "2026-08-25T03:58:46.942Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787630326868-84d83d23",
+          "createdAt": "2026-08-25T03:58:46.868Z",
+          "updatedAt": "2026-08-25T03:58:46.868Z",
+          "actorId": "USE-1787630324932-020f862a",
+          "action": "platform.initialize",
+          "entityType": "platform",
+          "entityId": "D:\\annex-web\\workspace\\production-platform-test\\production-saas-platform",
+          "metadata": {
+            "requestText": "Create a production SaaS platform with auth, billing, realtime operations, and secure persistence.",
+            "commercialPlatformRoot": null
+          }
+        }
+      },
+      {
+        "id": "EVE-1787630327486-5f6e8fdd",
+        "createdAt": "2026-08-25T03:58:47.486Z",
+        "updatedAt": "2026-08-25T03:58:47.486Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787630327482-fe36a425",
+          "createdAt": "2026-08-25T03:58:47.482Z",
+          "updatedAt": "2026-08-25T03:58:47.482Z",
+          "actorId": "USE-1787630324932-020f862a",
+          "action": "auth.login",
+          "entityType": "user",
+          "entityId": "USE-1787630324932-020f862a",
+          "metadata": {
+            "email": "admin@annexe.ai"
+          }
+        }
+      },
+      {
+        "id": "EVE-1787630327687-d817a6d3",
+        "createdAt": "2026-08-25T03:58:47.687Z",
+        "updatedAt": "2026-08-25T03:58:47.687Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787630327638-4820d5dd",
+          "createdAt": "2026-08-25T03:58:47.638Z",
+          "updatedAt": "2026-08-25T03:58:47.638Z",
+          "actorId": "USE-1787630324932-020f862a",
+          "action": "organizations.create",
+          "entityType": "organization",
+          "entityId": "ORG-1787630327634-f9f2a6b1",
+          "metadata": {
+            "name": "Demo Enterprise",
+            "industry": "Real Estate",
+            "plan": "enterprise"
+          }
+        }
+      },
+      {
+        "id": "EVE-1787630327788-2d1ec133",
+        "createdAt": "2026-08-25T03:58:47.788Z",
+        "updatedAt": "2026-08-25T03:58:47.788Z",
+        "stream": "project:PRO-1787630327699-432265a6",
+        "eventType": "project.created",
+        "payload": {
+          "projectId": "PRO-1787630327699-432265a6",
+          "billing": {
+            "requiredAdvancePercent": 50,
+            "approved": true
+          }
+        }
+      },
+      {
+        "id": "EVE-1787630327801-bbb2b713",
+        "createdAt": "2026-08-25T03:58:47.801Z",
+        "updatedAt": "2026-08-25T03:58:47.801Z",
+        "stream": "notifications",
+        "eventType": "notification.created",
+        "payload": {
+          "userId": "USE-1787630324932-020f862a",
+          "title": "Project update for PRO-1787630327699-432265a6",
+          "message": "project.created",
+          "channel": "project-stream"
+        }
+      },
+      {
+        "id": "EVE-1787630327948-b3d09893",
+        "createdAt": "2026-08-25T03:58:47.948Z",
+        "updatedAt": "2026-08-25T03:58:47.948Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787630327807-41a767ae",
+          "createdAt": "2026-08-25T03:58:47.807Z",
+          "updatedAt": "2026-08-25T03:58:47.807Z",
+          "actorId": "USE-1787630324932-020f862a",
+          "action": "projects.create",
+          "entityType": "project",
+          "entityId": "PRO-1787630327699-432265a6",
+          "metadata": {
+            "organizationId": "ORG-1787630327634-f9f2a6b1",
+            "name": "Production CRM",
+            "industry": "CRM",
+            "totalAmount": 40000
+          }
+        }
+      },
+      {
+        "id": "EVE-1787630328344-3e6344d5",
+        "createdAt": "2026-08-25T03:58:48.344Z",
+        "updatedAt": "2026-08-25T03:58:48.344Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787630328203-402e79fc",
+          "createdAt": "2026-08-25T03:58:48.203Z",
+          "updatedAt": "2026-08-25T03:58:48.203Z",
+          "actorId": "USE-1787630324932-020f862a",
+          "action": "upgrades.create",
+          "entityType": "upgrade",
+          "entityId": "UPG-1787630328199-14b42cc8",
+          "metadata": {
+            "organizationId": "ORG-1787630327634-f9f2a6b1",
+            "projectId": "PRO-1787630327699-432265a6",
+            "title": "Realtime Analytics Upgrade",
+            "description": "Add realtime dashboards and stronger billing controls.",
+            "estimate": 12000
+          }
+        }
+      }
+    ],
+    "sessions": [
+      {
+        "id": "SES-1787630325452-ce87bce3",
+        "createdAt": "2026-08-25T03:58:45.452Z",
+        "updatedAt": "2026-08-25T03:58:45.452Z",
+        "userId": "USE-1787630324932-020f862a",
+        "tokenId": "a9f1274b5f2314e5cda78751",
+        "expiresAt": "2026-08-25T11:58:45.295Z",
+        "status": "active"
+      },
+      {
+        "id": "SES-1787630325996-55b9a732",
+        "createdAt": "2026-08-25T03:58:45.996Z",
+        "updatedAt": "2026-08-25T03:58:45.996Z",
+        "userId": "USE-1787630324932-020f862a",
+        "tokenId": "7e233de5b4cec9233eaf9c6e",
+        "expiresAt": "2026-08-25T11:58:45.851Z",
+        "status": "active"
+      },
+      {
+        "id": "SES-1787630327472-4fec92d0",
+        "createdAt": "2026-08-25T03:58:47.472Z",
+        "updatedAt": "2026-08-25T03:58:47.472Z",
+        "userId": "USE-1787630324932-020f862a",
+        "tokenId": "15f6716c1a936ffad8591926",
+        "expiresAt": "2026-08-25T11:58:47.382Z",
+        "status": "active"
+      }
+    ]
+  }
+}

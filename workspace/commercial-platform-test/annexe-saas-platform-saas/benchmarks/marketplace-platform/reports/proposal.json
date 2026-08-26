@@ -1,0 +1,47 @@
+{
+  "proposalId": "PROP-1787557945446",
+  "title": "Marketplace Platform Proposal",
+  "industry": "Marketplace",
+  "businessType": "Marketplace Platform",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Catalog",
+    "Orders",
+    "Sellers",
+    "Search",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "marketplace",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "search",
+    "settings",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

@@ -1,5 +1,5 @@
 {
-  "blueprintId": "BLUEPRINT-1786162903016",
+  "blueprintId": "BLUEPRINT-1787640697507",
   "templateId": "crm-enterprise",
   "projectId": "factory-health-crm",
   "architecture": {
@@ -100,6 +100,7 @@
   "metadata": {
     "industry": "CRM",
     "projectName": "Factory Health CRM",
+    "languageContext": null,
     "stack": {
       "backend": "FastAPI",
       "frontend": "React 19",
@@ -610,13 +611,21 @@
       "framework": "FastAPI",
       "runtime": "Python",
       "packageManager": "pip",
-      "buildCommand": "python -m compileall backend"
+      "buildCommand": "python -m compileall backend",
+      "defaultLocale": "en-US",
+      "supportedLocales": [
+        "en-US"
+      ]
     },
     "frontend": {
       "framework": "React 19",
       "runtime": "Node.js",
       "packageManager": "npm",
-      "buildCommand": "npm run build"
+      "buildCommand": "npm run build",
+      "defaultLocale": "en-US",
+      "supportedLocales": [
+        "en-US"
+      ]
     }
   },
   "requiredFiles": [
@@ -1679,7 +1688,7 @@
     ]
   },
   "applicationAssembly": {
-    "assemblyId": "CA-1786162903015",
+    "assemblyId": "CA-1787640697506",
     "projectId": "factory-health-crm",
     "recommendedCapabilities": [
       "authentication",

@@ -1,0 +1,27 @@
+{
+  "customerLanguage": "English",
+  "preferredLanguage": "English",
+  "preferredLocale": "en-US",
+  "projectLanguage": "English",
+  "projectLocale": "en-US",
+  "generatedApplicationDefaultLocale": "en-US",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "localizationRequired": false,
+  "culturalAdaptationRequired": false,
+  "region": "Global",
+  "conversationLanguage": "English",
+  "direction": "ltr",
+  "source": "detector",
+  "updatedAt": "2026-08-25T06:06:31.493Z"
+}

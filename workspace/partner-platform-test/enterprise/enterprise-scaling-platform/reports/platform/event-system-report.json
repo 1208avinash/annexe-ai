@@ -1,0 +1,68 @@
+{
+  "eventCount": 8,
+  "consumerState": {
+    "consumedCount": 8,
+    "status": "active"
+  },
+  "events": [
+    {
+      "eventType": "PROJECT_CREATED",
+      "payload": {
+        "projectId": "enterprise-project",
+        "organizationId": "ORG-1787564277474-4ca1d317"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "PAYMENT_COMPLETED",
+      "payload": {
+        "amount": 50000,
+        "currency": "USD"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "BUILD_STARTED",
+      "payload": {
+        "buildId": "build-enterprise"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "BUILD_COMPLETED",
+      "payload": {
+        "buildId": "build-enterprise"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "QA_COMPLETED",
+      "payload": {
+        "projectId": "enterprise-project"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "SECURITY_APPROVED",
+      "payload": {
+        "level": "enterprise"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "DEPLOYMENT_COMPLETED",
+      "payload": {
+        "environment": "production"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    },
+    {
+      "eventType": "UPGRADE_REQUESTED",
+      "payload": {
+        "projectId": "enterprise-project"
+      },
+      "createdAt": "2026-08-24T09:37:57.721Z"
+    }
+  ],
+  "status": "READY"
+}

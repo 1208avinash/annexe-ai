@@ -1,0 +1,25 @@
+{
+  "platformReadinessPercent": 100,
+  "customerJourneyLength": 6,
+  "saasCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "pos"
+  ],
+  "generatedAt": "2026-08-24T07:00:25.910Z"
+}

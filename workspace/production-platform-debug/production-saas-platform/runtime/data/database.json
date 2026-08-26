@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "1.0.0",
+  "databaseId": "a4ded746-d8a4-46aa-8749-09fd1b7fe749",
+  "generatedAt": "2026-08-24T07:28:19.567Z",
+  "collections": {
+    "users": [
+      {
+        "id": "USE-1787556499826-0a9240c9",
+        "createdAt": "2026-08-24T07:28:19.826Z",
+        "updatedAt": "2026-08-24T07:28:21.497Z",
+        "email": "admin@annexe.ai",
+        "name": "ANNEXE Admin",
+        "role": "admin",
+        "organizationId": null,
+        "status": "active",
+        "passwordHash": "8997f5f2cfc0b829bd11f66195b16011edce2a34a60f59f762baf2b8ee53ee10a3e3b09e4245a3df9323fad7d236c774fba6cccb64b8473253ef330a98991c29",
+        "passwordSalt": "ba0ef1f38ae1c57e0deb5a7f212d905f",
+        "passwordAlgorithm": "scrypt",
+        "lastLoginAt": "2026-08-24T07:28:21.424Z"
+      }
+    ],
+    "organizations": [
+      {
+        "id": "ORG-1787556500284-19c8adaf",
+        "createdAt": "2026-08-24T07:28:20.284Z",
+        "updatedAt": "2026-08-24T07:28:20.284Z",
+        "name": "ANNEXE Production SaaS",
+        "industry": "Technology",
+        "ownerUserId": "USE-1787556499826-0a9240c9",
+        "plan": "enterprise",
+        "status": "active"
+      }
+    ],
+    "projects": [
+      {
+        "id": "PRO-1787556500291-eac0aa29",
+        "createdAt": "2026-08-24T07:28:20.291Z",
+        "updatedAt": "2026-08-24T07:28:20.291Z",
+        "organizationId": "ORG-1787556500284-19c8adaf",
+        "ownerUserId": "USE-1787556499826-0a9240c9",
+        "name": "ANNEXE Production CRM",
+        "industry": "CRM",
+        "description": "Create a production-ready SaaS platform with auth, billing, and realtime operations.",
+        "status": "active",
+        "billingStatus": "advance-required",
+        "progress": 5
+      }
+    ],
+    "projectReports": [],
+    "payments": [
+      {
+        "id": "PAY-1787556500393-7f7bb318",
+        "createdAt": "2026-08-24T07:28:20.393Z",
+        "updatedAt": "2026-08-24T07:28:20.393Z",
+        "projectId": "PRO-1787556500291-eac0aa29",
+        "organizationId": "ORG-1787556500284-19c8adaf",
+        "invoiceId": "INV-1787556500292-c68c5b",
+        "amount": 50000,
+        "currency": "USD",
+        "status": "invoiced",
+        "milestone": "invoice",
+        "gateway": "invoice"
+      },
+      {
+        "id": "PAY-1787556500491-2b7b917d",
+        "createdAt": "2026-08-24T07:28:20.490Z",
+        "updatedAt": "2026-08-24T07:28:20.490Z",
+        "projectId": "PRO-1787556500291-eac0aa29",
+        "organizationId": "ORG-1787556500284-19c8adaf",
+        "invoiceId": "INV-1787556500292-c68c5b",
+        "amount": 25000,
+        "currency": "USD",
+        "status": "approved",
+        "milestone": "advance",
+        "gateway": "internal-ledger"
+      }
+    ],
+    "upgrades": [
+      {
+        "id": "UPG-1787556500545-54926e01",
+        "createdAt": "2026-08-24T07:28:20.545Z",
+        "updatedAt": "2026-08-24T07:28:20.545Z",
+        "projectId": "PRO-1787556500291-eac0aa29",
+        "organizationId": "ORG-1787556500284-19c8adaf",
+        "title": "Production scaling upgrade",
+        "description": "Enable autoscaling, observability, and stronger SLAs.",
+        "status": "quote-generated",
+        "advancePercent": 50,
+        "completionPercent": 50,
+        "estimate": 12000,
+        "milestones": {
+          "advanceAmount": 6000,
+          "completionAmount": 6000
+        }
+      }
+    ],
+    "auditLogs": [
+      {
+        "id": "AUD-1787556500858-2cb5ae5e",
+        "createdAt": "2026-08-24T07:28:20.858Z",
+        "updatedAt": "2026-08-24T07:28:20.858Z",
+        "actorId": "USE-1787556499826-0a9240c9",
+        "action": "platform.initialize",
+        "entityType": "platform",
+        "entityId": "D:\\annex-web\\workspace\\production-platform-debug\\production-saas-platform",
+        "metadata": {
+          "requestText": "Create a production-ready SaaS platform with auth, billing, and realtime operations.",
+          "commercialPlatformRoot": null
+        }
+      }
+    ],
+    "events": [
+      {
+        "id": "EVE-1787556500650-0d674ee5",
+        "createdAt": "2026-08-24T07:28:20.650Z",
+        "updatedAt": "2026-08-24T07:28:20.650Z",
+        "stream": "project:PRO-1787556500291-eac0aa29",
+        "eventType": "platform.initialized",
+        "payload": {
+          "projectId": "PRO-1787556500291-eac0aa29",
+          "organizationId": "ORG-1787556500284-19c8adaf",
+          "userId": "USE-1787556499826-0a9240c9"
+        }
+      },
+      {
+        "id": "EVE-1787556500658-0ee40aae",
+        "createdAt": "2026-08-24T07:28:20.658Z",
+        "updatedAt": "2026-08-24T07:28:20.658Z",
+        "stream": "notifications",
+        "eventType": "notification.created",
+        "payload": {
+          "userId": "USE-1787556499826-0a9240c9",
+          "title": "Project update for PRO-1787556500291-eac0aa29",
+          "message": "platform.initialized",
+          "channel": "project-stream"
+        }
+      },
+      {
+        "id": "EVE-1787556501045-eb26d992",
+        "createdAt": "2026-08-24T07:28:21.045Z",
+        "updatedAt": "2026-08-24T07:28:21.045Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787556500858-2cb5ae5e",
+          "createdAt": "2026-08-24T07:28:20.858Z",
+          "updatedAt": "2026-08-24T07:28:20.858Z",
+          "actorId": "USE-1787556499826-0a9240c9",
+          "action": "platform.initialize",
+          "entityType": "platform",
+          "entityId": "D:\\annex-web\\workspace\\production-platform-debug\\production-saas-platform",
+          "metadata": {
+            "requestText": "Create a production-ready SaaS platform with auth, billing, and realtime operations.",
+            "commercialPlatformRoot": null
+          }
+        }
+      }
+    ],
+    "sessions": [
+      {
+        "id": "SES-1787556499995-29aae454",
+        "createdAt": "2026-08-24T07:28:19.995Z",
+        "updatedAt": "2026-08-24T07:28:19.995Z",
+        "userId": "USE-1787556499826-0a9240c9",
+        "tokenId": "89e36ca5a32551ac3ebbeff4",
+        "expiresAt": "2026-08-24T15:28:19.967Z",
+        "status": "active"
+      },
+      {
+        "id": "SES-1787556500280-e7d37d89",
+        "createdAt": "2026-08-24T07:28:20.280Z",
+        "updatedAt": "2026-08-24T07:28:20.280Z",
+        "userId": "USE-1787556499826-0a9240c9",
+        "tokenId": "31d59a9b1eac06c19ffc96f3",
+        "expiresAt": "2026-08-24T15:28:20.270Z",
+        "status": "active"
+      },
+      {
+        "id": "SES-1787556501582-7246876b",
+        "createdAt": "2026-08-24T07:28:21.581Z",
+        "updatedAt": "2026-08-24T07:28:21.581Z",
+        "userId": "USE-1787556499826-0a9240c9",
+        "tokenId": "27b21f40f48a38fed5c5c7ab",
+        "expiresAt": "2026-08-24T15:28:21.506Z",
+        "status": "active"
+      }
+    ]
+  }
+}

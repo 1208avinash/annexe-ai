@@ -1,0 +1,17 @@
+{
+  "name": "settings",
+  "version": "1.0.0",
+  "dependencies": [
+    "authentication",
+    "users",
+    "logging"
+  ],
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  }
+}

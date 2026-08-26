@@ -1,0 +1,8 @@
+{
+  "incidentResponsePlan": "READY",
+  "failures": "Classified",
+  "outages": "Classified",
+  "serviceDegradation": "Covered",
+  "userImpact": "Covered",
+  "score": 96
+}

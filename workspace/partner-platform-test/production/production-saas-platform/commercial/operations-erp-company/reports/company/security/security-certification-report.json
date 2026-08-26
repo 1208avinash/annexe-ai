@@ -1,0 +1,13 @@
+{
+  "reportId": "SECREP-1787562649410",
+  "projectId": "operations-erp",
+  "projectName": "Operations ERP",
+  "securityScore": 96,
+  "status": "APPROVED",
+  "vulnerabilities": 0,
+  "compliance": "READY",
+  "privacy": "PASS",
+  "penetration": "WARN",
+  "recommendation": "DEPLOY",
+  "generatedAt": "2026-08-24T09:10:49.410Z"
+}

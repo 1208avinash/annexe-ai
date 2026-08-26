@@ -1,0 +1,10 @@
+{
+  "cloudOperationsPlan": "READY",
+  "infrastructureRecommendations": [
+    "Use managed runtime services",
+    "Keep backups and environment separation",
+    "Prefer observability-first operations"
+  ],
+  "resourceStrategy": "Right-size and autoscale core services",
+  "score": 96
+}

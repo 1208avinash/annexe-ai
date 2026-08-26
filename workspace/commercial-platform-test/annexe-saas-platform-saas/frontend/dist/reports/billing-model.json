@@ -1,0 +1,13 @@
+{
+  "initialProject": {
+    "advance": 50,
+    "completion": 50
+  },
+  "upgrade": {
+    "advance": 50,
+    "completion": 50
+  },
+  "maintenance": {
+    "type": "Monthly subscription"
+  }
+}

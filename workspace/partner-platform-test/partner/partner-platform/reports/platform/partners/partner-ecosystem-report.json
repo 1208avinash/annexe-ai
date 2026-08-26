@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-08-24T09:37:57.839Z",
+  "platformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\partner\\partner-platform",
+  "partnerCount": 2,
+  "customersManaged": 2,
+  "revenueGenerated": 46952,
+  "commissionStatus": "READY",
+  "whiteLabelReadiness": 100,
+  "ecosystemScore": 100,
+  "dashboardSections": [
+    "Dashboard",
+    "Customers",
+    "Projects",
+    "Products",
+    "Sales",
+    "Revenue",
+    "Commissions",
+    "Reports",
+    "Brand Settings"
+  ],
+  "partnerNames": [
+    "ABC Digital",
+    "Northstar Consulting"
+  ],
+  "status": "READY"
+}

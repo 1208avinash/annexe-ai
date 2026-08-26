@@ -1,0 +1,9 @@
+{
+  "sourceLabel": "enterprise-platform",
+  "generatedAt": "2026-08-24T09:37:57.705Z",
+  "payload": {
+    "requestText": "Scale ANNEXE AI for enterprise customers.",
+    "platformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\enterprise\\enterprise-scaling-platform",
+    "productionPlatformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform"
+  }
+}

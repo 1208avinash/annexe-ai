@@ -1,0 +1,8 @@
+{
+  "responseTime": "Pass",
+  "scalability": "Horizontal ready",
+  "bottlenecks": [],
+  "resourceUsage": "Within expected baseline",
+  "score": 96,
+  "status": "PASS"
+}

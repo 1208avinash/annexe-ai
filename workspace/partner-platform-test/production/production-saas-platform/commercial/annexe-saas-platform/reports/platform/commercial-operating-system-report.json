@@ -1,0 +1,73 @@
+{
+  "customerJourney": [
+    "Visitor",
+    "Create Account",
+    "Describe Business Idea",
+    "AI Questionnaire",
+    "AI Business Analysis",
+    "AI Proposal"
+  ],
+  "revenueModel": {
+    "initialProject": {
+      "advance": 50,
+      "completion": 50
+    },
+    "upgrade": {
+      "advance": 50,
+      "completion": 50
+    },
+    "maintenance": {
+      "type": "Monthly subscription"
+    }
+  },
+  "platformReadiness": 100,
+  "saasCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "erp",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "invoices"
+  ],
+  "adminDashboard": {
+    "ceo": {
+      "revenue": "$0",
+      "projects": 1,
+      "customers": 1
+    },
+    "sales": {
+      "leads": 1,
+      "proposals": 1,
+      "conversions": 1
+    },
+    "engineering": {
+      "activeProjects": 1,
+      "workload": "Balanced"
+    },
+    "qa": {
+      "certifications": 1
+    },
+    "security": {
+      "vulnerabilities": 0
+    },
+    "devops": {
+      "deployments": 1
+    },
+    "upgrade": {
+      "recurringRevenue": "Maintenance and upgrade subscriptions"
+    }
+  },
+  "generatedAt": "2026-08-24T09:36:16.612Z"
+}

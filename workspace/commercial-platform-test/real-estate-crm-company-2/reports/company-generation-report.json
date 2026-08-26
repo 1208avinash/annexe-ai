@@ -1,0 +1,245 @@
+{
+  "projectId": "real-estate-crm",
+  "projectName": "Real Estate CRM",
+  "applicationType": "crm",
+  "generatedAt": "2026-08-24T06:49:15.246Z",
+  "outputDirectory": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2",
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "invoices",
+    "pos"
+  ],
+  "generation": {
+    "success": true,
+    "finalStatus": "completed",
+    "filesWritten": 185
+  },
+  "customerIntelligence": {
+    "classification": "REQUEST",
+    "priority": "MEDIUM",
+    "assignedDepartment": "Billing",
+    "actionPlan": [
+      "Review the request.",
+      "Assign the appropriate owner.",
+      "Respond with the next action.",
+      "Close the request after confirmation."
+    ],
+    "reportId": "CSR-1787554155189"
+  },
+  "repairIntelligence": {
+    "issueDetected": true,
+    "category": "BUG",
+    "severity": "HIGH",
+    "costEstimate": 3300,
+    "paymentGateCreated": true,
+    "reportId": "RPR-1787554155198"
+  },
+  "ceoDepartment": {
+    "marketAnalysis": true,
+    "strategy": true,
+    "financialForecast": true,
+    "riskAnalysis": true,
+    "reportId": "CEO-1787554081543",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\ceo\\ceo-strategy-report.json"
+  },
+  "salesDepartment": {
+    "leadScore": 80,
+    "customerType": "Enterprise",
+    "proposalGenerated": true,
+    "forecastGenerated": true,
+    "reportId": "SALES-1787554081716",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\sales\\sales-intelligence-report.json"
+  },
+  "productDepartment": {
+    "vision": "AI powered CRM platform",
+    "roadmapGenerated": true,
+    "prioritiesGenerated": 25,
+    "storiesGenerated": 25,
+    "reportId": "PRODREP-1787554081720",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\product\\product-strategy-report.json"
+  },
+  "architectureDepartment": {
+    "solutionGenerated": true,
+    "cloudGenerated": true,
+    "securityGenerated": true,
+    "databaseGenerated": true,
+    "integrationGenerated": true,
+    "scalingGenerated": true,
+    "reportId": "ARCHREP-1787554081724",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\architecture\\enterprise-architecture-report.json"
+  },
+  "engineeringDepartment": {
+    "frontendPlanGenerated": true,
+    "backendPlanGenerated": true,
+    "databasePlanGenerated": true,
+    "aiPlanGenerated": true,
+    "integrationPlanGenerated": true,
+    "reviewGenerated": true,
+    "performanceGenerated": true,
+    "reportId": "ENGREP-1787554081731",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\engineering\\engineering-execution-report.json"
+  },
+  "qaDepartment": {
+    "functionalGenerated": true,
+    "apiGenerated": true,
+    "securityGenerated": true,
+    "performanceGenerated": true,
+    "accessibilityGenerated": true,
+    "regressionGenerated": true,
+    "releaseStatus": "APPROVED",
+    "reportId": "QAREP-1787554155124",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\qa\\quality-certification-report.json"
+  },
+  "securityDepartment": {
+    "auditGenerated": true,
+    "applicationGenerated": true,
+    "dependencyGenerated": true,
+    "complianceGenerated": true,
+    "privacyGenerated": true,
+    "penetrationGenerated": true,
+    "status": "APPROVED",
+    "reportId": "SECREP-1787554155132",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\security\\security-certification-report.json"
+  },
+  "devopsDepartment": {
+    "deploymentGenerated": true,
+    "cloudOperationsGenerated": true,
+    "monitoringGenerated": true,
+    "incidentResponseGenerated": true,
+    "scalingGenerated": true,
+    "recoveryGenerated": true,
+    "optimizationGenerated": true,
+    "status": "APPROVED",
+    "reportId": "DEVOPSREP-1787554155145",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\devops\\devops-operations-report.json"
+  },
+  "upgradeDepartment": {
+    "analysisGenerated": true,
+    "impactGenerated": true,
+    "planGenerated": true,
+    "costGenerated": true,
+    "paymentGateGenerated": true,
+    "executionGenerated": true,
+    "validationGenerated": true,
+    "completionStatus": "PENDING",
+    "reportId": "UPGRADEREP-1787554155160",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\upgrade\\upgrade-lifecycle-report.json"
+  },
+  "evolutionDepartment": {
+    "technologyGenerated": true,
+    "marketGenerated": true,
+    "productGenerated": true,
+    "performanceGenerated": true,
+    "securityGenerated": true,
+    "aiGenerated": true,
+    "recommendationGenerated": true,
+    "roadmapGenerated": true,
+    "evolutionScore": 97,
+    "reportId": "EVOLREP-1787554155172",
+    "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\evolution\\software-evolution-report.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  },
+  "reportPaths": {
+    "proposal": {
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\proposal\\proposal.md",
+      "quotation": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\proposal\\quotation.json",
+      "estimate": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\proposal\\project-estimate.json"
+    },
+    "analysis": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\analysis\\business-analysis.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\analysis\\requirements.md"
+    },
+    "architecture": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\architecture\\architecture.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\architecture\\architecture.md",
+      "databaseSchema": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\architecture\\database-schema.json",
+      "apiDesign": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\architecture\\api-design.json",
+      "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\architecture\\enterprise-architecture-report.json"
+    },
+    "planning": {
+      "roadmap": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\planning\\roadmap.json",
+      "sprintPlan": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\planning\\sprint-plan.json",
+      "riskAnalysis": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\planning\\risk-analysis.json"
+    },
+    "engineering": {
+      "executionPlan": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\engineering\\engineering-plan.json",
+      "executionReport": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\engineering\\engineering-execution-report.json",
+      "reportPath": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\engineering\\engineering-execution-report.json"
+    },
+    "qa": {
+      "quality": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\qa\\quality-report.json",
+      "coverage": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\qa\\coverage.json"
+    },
+    "security": {
+      "certification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\security\\security-certification-report.json"
+    },
+    "devops": {
+      "certification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\devops\\devops-operations-report.json"
+    },
+    "upgrade": {
+      "certification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\upgrade\\upgrade-lifecycle-report.json"
+    },
+    "evolution": {
+      "certification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "deployment": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\deployment\\deployment-package.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\deployment\\deployment-guide.md"
+    },
+    "delivery": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\delivery\\delivery-package.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\delivery\\delivery-summary.md"
+    },
+    "company": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company-generation-report.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company-architecture-report.md",
+      "ceo": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\ceo\\ceo-strategy-report.json",
+      "sales": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\sales\\sales-intelligence-report.json",
+      "product": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\product\\product-strategy-report.json",
+      "architecture": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\architecture\\enterprise-architecture-report.json",
+      "qa": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\qa\\quality-certification-report.json",
+      "security": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\security\\security-certification-report.json",
+      "devops": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\devops\\devops-operations-report.json",
+      "upgrade": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+      "evolution": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "repair": {
+      "json": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\repair\\repair-report.json",
+      "markdown": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\repair\\repair-report.md"
+    },
+    "ceo": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\ceo\\ceo-strategy-report.json",
+    "sales": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\sales\\sales-intelligence-report.json",
+    "product": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm\\reports\\company\\product\\product-strategy-report.json",
+    "qaCertification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\qa\\quality-certification-report.json",
+    "securityCertification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\security\\security-certification-report.json",
+    "devopsCertification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\devops\\devops-operations-report.json",
+    "upgradeCertification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+    "evolutionCertification": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2\\reports\\company\\evolution\\software-evolution-report.json"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "upgradeSafety": "Validated",
+  "backwardCompatibility": "Preserved",
+  "existingFeatures": "Validated",
+  "score": 96,
+  "status": "PASS"
+}

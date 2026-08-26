@@ -1,0 +1,19 @@
+{
+  "slowComponents": [
+    "Reports",
+    "Dashboards"
+  ],
+  "expensiveOperations": [
+    "Heavy analytics queries"
+  ],
+  "scalabilityOpportunities": [
+    "Cache hot paths",
+    "Scale background jobs"
+  ],
+  "infrastructureImprovements": [
+    "Optimize resources",
+    "Tune database access"
+  ],
+  "score": 96,
+  "status": "READY"
+}

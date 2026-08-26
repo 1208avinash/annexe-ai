@@ -1,0 +1,412 @@
+{
+  "reportId": "LANG-1787641914590",
+  "projectId": "en-check",
+  "detectedLanguage": "English",
+  "locale": "en-US",
+  "confidence": 0.4,
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "languageContext": {
+    "language": "English",
+    "locale": "en-US",
+    "confidence": 0.4,
+    "source": "detector",
+    "customerLanguage": "English",
+    "projectLanguage": "English",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": false,
+    "culturalAdaptationRequired": false,
+    "translationRequired": false,
+    "generatedApplicationDefaultLocale": "en-US",
+    "localization": {
+      "language": "English",
+      "locale": "en-US",
+      "uiLabels": {
+        "login": "Login",
+        "dashboard": "Dashboard",
+        "settings": "Settings",
+        "customers": "Customers",
+        "reports": "Reports",
+        "search": "Search",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "menuLabels": {
+        "home": "Home",
+        "customers": "Customers",
+        "analytics": "Analytics",
+        "settings": "Settings"
+      },
+      "errorMessages": {
+        "generic": "Something went wrong.",
+        "network": "Network request failed.",
+        "validation": "Please review the highlighted fields."
+      },
+      "createdAt": "2026-08-25T07:11:54.575Z"
+    },
+    "culturalAdaptation": {
+      "language": "English",
+      "locale": "en-US",
+      "region": "Global",
+      "dateFormat": "MM/DD/YYYY",
+      "currency": "USD",
+      "readingDirection": "ltr",
+      "communicationTone": "clear, direct, and business-friendly",
+      "localizationNotes": [
+        "Use MM/DD/YYYY date formatting.",
+        "Prefer USD for financial presentation.",
+        "Preserve left-to-right layout."
+      ],
+      "adaptedAt": "2026-08-25T07:11:54.575Z"
+    },
+    "softwareLocalization": {
+      "language": "English",
+      "locale": "en-US",
+      "localizedStrings": {
+        "login": "Login",
+        "dashboard": "Dashboard",
+        "customers": "Customer Management",
+        "settings": "Settings",
+        "reports": "Reports",
+        "enter": "Enter ANNEXE AI",
+        "explore": "Explore Capabilities",
+        "save": "Save",
+        "cancel": "Cancel",
+        "network": "Network request failed.",
+        "generic": "Unable to complete the action."
+      },
+      "screens": {
+        "login": "Login",
+        "dashboard": "Dashboard",
+        "customers": "Customer Management",
+        "settings": "Settings",
+        "reports": "Reports"
+      },
+      "buttons": {
+        "enter": "Enter ANNEXE AI",
+        "explore": "Explore Capabilities",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "errorMessages": {
+        "network": "Network request failed.",
+        "generic": "Unable to complete the action."
+      },
+      "rtl": false,
+      "localizedAt": "2026-08-25T07:11:54.576Z"
+    },
+    "documentationLocalization": {
+      "language": "English",
+      "locale": "en-US",
+      "userManual": {
+        "title": "User Manual",
+        "summary": "Operational guidance for using the platform in English.",
+        "sections": [
+          "Getting started",
+          "Authentication",
+          "Customer workflows",
+          "Reporting"
+        ]
+      },
+      "apiDocumentation": {
+        "title": "API Documentation",
+        "summary": "API reference delivered in English.",
+        "sections": [
+          "Health endpoint",
+          "Authentication endpoints",
+          "Customer APIs",
+          "Reporting APIs"
+        ]
+      },
+      "reports": {
+        "title": "Localized Company Reports",
+        "language": "English",
+        "sections": [
+          "Executive summary",
+          "Delivery report",
+          "Quality report"
+        ]
+      },
+      "proposals": {
+        "title": "Proposal",
+        "summary": "Commercial proposal localized for English.",
+        "sections": [
+          "Business value",
+          "Implementation plan",
+          "Pricing",
+          "Payment milestones"
+        ]
+      },
+      "generatedAt": "2026-08-25T07:11:54.576Z"
+    },
+    "languageMemory": {
+      "customerLanguage": "English",
+      "preferredLanguage": "English",
+      "preferredLocale": "en-US",
+      "projectLanguage": "English",
+      "projectLocale": "en-US",
+      "generatedApplicationDefaultLocale": "en-US",
+      "supportedLanguages": [
+        "English",
+        "French",
+        "Spanish",
+        "German",
+        "Arabic",
+        "Hindi",
+        "Chinese",
+        "Japanese",
+        "Portuguese",
+        "Italian"
+      ],
+      "supportedLocales": [
+        "en-US",
+        "fr-FR",
+        "es-ES",
+        "de-DE",
+        "ar-SA",
+        "hi-IN",
+        "zh-CN",
+        "ja-JP",
+        "pt-BR",
+        "it-IT"
+      ],
+      "localizationRequired": false,
+      "culturalAdaptationRequired": false,
+      "region": "Global",
+      "conversationLanguage": "English",
+      "direction": "ltr",
+      "runtimeSwitching": true,
+      "userPreferencePersistence": true,
+      "rtlSupport": false,
+      "source": "detector",
+      "updatedAt": "2026-08-25T07:11:54.577Z"
+    }
+  },
+  "localizationReadiness": {
+    "ui": true,
+    "documentation": true,
+    "cultural": true,
+    "memory": true
+  },
+  "softwareTranslationReadiness": {
+    "uiLabels": true,
+    "menus": true,
+    "buttons": true,
+    "errorMessages": true
+  },
+  "documentationLocalizationReadiness": {
+    "userManual": true,
+    "apiDocumentation": true,
+    "proposals": true,
+    "reports": true
+  },
+  "languageMemory": {
+    "customerLanguage": "English",
+    "preferredLanguage": "English",
+    "preferredLocale": "en-US",
+    "projectLanguage": "English",
+    "projectLocale": "en-US",
+    "generatedApplicationDefaultLocale": "en-US",
+    "supportedLanguages": [
+      "English",
+      "French",
+      "Spanish",
+      "German",
+      "Arabic",
+      "Hindi",
+      "Chinese",
+      "Japanese",
+      "Portuguese",
+      "Italian"
+    ],
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationRequired": false,
+    "culturalAdaptationRequired": false,
+    "region": "Global",
+    "conversationLanguage": "English",
+    "direction": "ltr",
+    "runtimeSwitching": true,
+    "userPreferencePersistence": true,
+    "rtlSupport": false,
+    "source": "detector",
+    "updatedAt": "2026-08-25T07:11:54.577Z"
+  },
+  "localization": {
+    "language": "English",
+    "locale": "en-US",
+    "uiLabels": {
+      "login": "Login",
+      "dashboard": "Dashboard",
+      "settings": "Settings",
+      "customers": "Customers",
+      "reports": "Reports",
+      "search": "Search",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "menuLabels": {
+      "home": "Home",
+      "customers": "Customers",
+      "analytics": "Analytics",
+      "settings": "Settings"
+    },
+    "errorMessages": {
+      "generic": "Something went wrong.",
+      "network": "Network request failed.",
+      "validation": "Please review the highlighted fields."
+    },
+    "createdAt": "2026-08-25T07:11:54.575Z"
+  },
+  "culturalAdaptation": {
+    "language": "English",
+    "locale": "en-US",
+    "region": "Global",
+    "dateFormat": "MM/DD/YYYY",
+    "currency": "USD",
+    "readingDirection": "ltr",
+    "communicationTone": "clear, direct, and business-friendly",
+    "localizationNotes": [
+      "Use MM/DD/YYYY date formatting.",
+      "Prefer USD for financial presentation.",
+      "Preserve left-to-right layout."
+    ],
+    "adaptedAt": "2026-08-25T07:11:54.575Z"
+  },
+  "softwareLocalization": {
+    "language": "English",
+    "locale": "en-US",
+    "localizedStrings": {
+      "login": "Login",
+      "dashboard": "Dashboard",
+      "customers": "Customer Management",
+      "settings": "Settings",
+      "reports": "Reports",
+      "enter": "Enter ANNEXE AI",
+      "explore": "Explore Capabilities",
+      "save": "Save",
+      "cancel": "Cancel",
+      "network": "Network request failed.",
+      "generic": "Unable to complete the action."
+    },
+    "screens": {
+      "login": "Login",
+      "dashboard": "Dashboard",
+      "customers": "Customer Management",
+      "settings": "Settings",
+      "reports": "Reports"
+    },
+    "buttons": {
+      "enter": "Enter ANNEXE AI",
+      "explore": "Explore Capabilities",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "errorMessages": {
+      "network": "Network request failed.",
+      "generic": "Unable to complete the action."
+    },
+    "rtl": false,
+    "localizedAt": "2026-08-25T07:11:54.576Z"
+  },
+  "documentationLocalization": {
+    "language": "English",
+    "locale": "en-US",
+    "userManual": {
+      "title": "User Manual",
+      "summary": "Operational guidance for using the platform in English.",
+      "sections": [
+        "Getting started",
+        "Authentication",
+        "Customer workflows",
+        "Reporting"
+      ]
+    },
+    "apiDocumentation": {
+      "title": "API Documentation",
+      "summary": "API reference delivered in English.",
+      "sections": [
+        "Health endpoint",
+        "Authentication endpoints",
+        "Customer APIs",
+        "Reporting APIs"
+      ]
+    },
+    "reports": {
+      "title": "Localized Company Reports",
+      "language": "English",
+      "sections": [
+        "Executive summary",
+        "Delivery report",
+        "Quality report"
+      ]
+    },
+    "proposals": {
+      "title": "Proposal",
+      "summary": "Commercial proposal localized for English.",
+      "sections": [
+        "Business value",
+        "Implementation plan",
+        "Pricing",
+        "Payment milestones"
+      ]
+    },
+    "generatedAt": "2026-08-25T07:11:54.576Z"
+  },
+  "generatedAt": "2026-08-25T07:11:54.590Z"
+}

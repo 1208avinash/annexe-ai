@@ -1,0 +1,15 @@
+{
+  "sessionCache": {
+    "token": "cached-enterprise-session",
+    "status": "ready"
+  },
+  "projectCache": {
+    "status": "active",
+    "progress": 100
+  },
+  "cacheStats": {
+    "entries": 2,
+    "status": "ready"
+  },
+  "status": "READY"
+}

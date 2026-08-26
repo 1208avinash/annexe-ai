@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-08-25T02:23:56.457Z",
+  "platformRoot": "D:\\annex-web\\workspace\\governance-debug\\enterprise-governance-platform",
+  "identityReadiness": 100,
+  "ssoReadiness": 100,
+  "mfaReadiness": 100,
+  "policyReadiness": 0,
+  "complianceScores": {
+    "gdpr": 95,
+    "soc2": 96,
+    "iso27001": 94,
+    "hipaa": 93
+  },
+  "complianceScore": 95,
+  "auditReadiness": 100,
+  "dataGovernanceScore": 94,
+  "overallGovernanceScore": 93,
+  "status": "READY"
+}

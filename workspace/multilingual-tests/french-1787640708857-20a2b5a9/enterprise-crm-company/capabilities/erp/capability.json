@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "erp",
+  "description": "Enterprise resource planning coordination capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "reports",
+    "notifications",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "erp shell",
+      "finance overview",
+      "operations dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/erp",
+      "/inventory"
+    ]
+  },
+  "routes": [
+    "/erp",
+    "/inventory"
+  ],
+  "permissions": [
+    "erp:read",
+    "erp:write"
+  ],
+  "database": [
+    "erp_accounts",
+    "erp_transactions"
+  ],
+  "events": [
+    "erp.record.created",
+    "erp.record.updated"
+  ]
+}

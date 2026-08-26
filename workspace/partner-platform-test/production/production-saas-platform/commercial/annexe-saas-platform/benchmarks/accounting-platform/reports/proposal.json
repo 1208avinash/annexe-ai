@@ -1,0 +1,47 @@
+{
+  "proposalId": "PROP-1787564035376",
+  "title": "Accounting Platform Proposal",
+  "industry": "Accounting",
+  "businessType": "Accounting Platform",
+  "employees": null,
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Ledger",
+    "Invoices",
+    "Reporting",
+    "Approvals",
+    "Notifications"
+  ],
+  "integrations": [],
+  "budget": null,
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "invoices",
+    "reports",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "health",
+    "version",
+    "logging"
+  ],
+  "summary": ""
+}

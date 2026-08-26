@@ -1,0 +1,99 @@
+{
+  "applicationType": "marketplace",
+  "projectId": "marketplace-platform",
+  "projectName": "Marketplace Platform",
+  "industry": "Marketplace",
+  "challenge": "Need a marketplace for catalog, sellers, and order management",
+  "solution": "Compose reusable capabilities into a production-ready marketplace application",
+  "requirements": [
+    "Authentication",
+    "Catalog",
+    "Orders",
+    "Sellers",
+    "Search",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "marketplace",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "search",
+    "settings",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Catalog",
+      "Orders",
+      "Sellers",
+      "Search",
+      "Notifications"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787554544998",
+      "title": "Marketplace Platform Proposal",
+      "industry": "Marketplace",
+      "businessType": "Marketplace Platform",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Catalog",
+        "Orders",
+        "Sellers",
+        "Search",
+        "Notifications"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "marketplace",
+        "notifications",
+        "audit-logs",
+        "email",
+        "file-storage",
+        "search",
+        "settings",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

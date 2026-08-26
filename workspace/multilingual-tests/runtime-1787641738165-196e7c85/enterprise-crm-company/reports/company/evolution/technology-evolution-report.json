@@ -1,0 +1,16 @@
+{
+  "outdatedFrameworks": [],
+  "deprecatedLibraries": [],
+  "architectureImprovements": [
+    "Framework modernization",
+    "Dependency refresh",
+    "Architecture improvements"
+  ],
+  "modernizationOpportunities": [
+    "Framework modernization",
+    "Dependency refresh",
+    "Architecture improvements"
+  ],
+  "score": 98,
+  "status": "READY"
+}

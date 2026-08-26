@@ -1,0 +1,34 @@
+{
+  "reportId": "EVOLREP-1787641133777",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "evolutionScore": 98,
+  "softwareHealth": "EXCELLENT",
+  "technologyScore": 98,
+  "productScore": 98,
+  "performanceScore": 96,
+  "securityScore": 97,
+  "aiImprovementScore": 98,
+  "recommendedActions": 6,
+  "futureRoadmap": {
+    "immediateImprovements": [
+      "Refresh dependencies",
+      "Improve dashboard performance"
+    ],
+    "quarterlyImprovements": [
+      "Release AI workflow upgrades",
+      "Expand automation coverage"
+    ],
+    "longTermEvolution": [
+      "Continuous modernization program",
+      "Adaptive product intelligence"
+    ],
+    "nextEvolutionCycle": "READY",
+    "score": 98,
+    "status": "READY"
+  },
+  "evolutionConfidenceScore": 98,
+  "priority": "HIGH",
+  "nextEvolutionCycle": "READY",
+  "generatedAt": "2026-08-25T06:58:53.777Z"
+}

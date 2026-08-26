@@ -1,0 +1,90 @@
+{
+  "coverageId": "COV-1787555918916",
+  "projectRoot": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206",
+  "generatedAt": "2026-08-24T07:18:38.916Z",
+  "backend": {
+    "compileall": true,
+    "pytest": true
+  },
+  "frontend": {
+    "install": true,
+    "build": true,
+    "smoke": true
+  },
+  "api": {
+    "api": {
+      "health": {
+        "passed": false
+      },
+      "docs": {
+        "passed": false
+      },
+      "openapi": {
+        "passed": false
+      },
+      "latencyMs": null
+    },
+    "security": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "security module",
+          "passed": true
+        },
+        {
+          "name": "auth router",
+          "passed": true
+        },
+        {
+          "name": "environment example",
+          "passed": true
+        }
+      ]
+    },
+    "performance": {
+      "passed": false,
+      "checks": [
+        {
+          "name": "frontend build completed",
+          "passed": true
+        },
+        {
+          "name": "api health responded",
+          "passed": false
+        }
+      ],
+      "durationMs": 15802,
+      "healthLatencyMs": null
+    },
+    "accessibility": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "html lang attribute",
+          "passed": true
+        },
+        {
+          "name": "viewport meta tag",
+          "passed": true
+        },
+        {
+          "name": "semantic main landmark",
+          "passed": true
+        },
+        {
+          "name": "semantic section or nav",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "totalChecks": 6,
+  "passedChecks": [
+    "backend.compileall",
+    "backend.pytest",
+    "frontend.install",
+    "frontend.build",
+    "frontend.smoke",
+    "api.health"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "rateLimitState": {
+    "allowed": true,
+    "count": 1,
+    "resetAt": 1787562532817
+  },
+  "threatState": {
+    "suspicious": false,
+    "severity": "low",
+    "inspectedAt": "2026-08-24T09:07:52.817Z"
+  },
+  "accessState": {
+    "actorId": "USE-1787562471156-a1fb3e71",
+    "action": "enterprise-scaling-evaluation",
+    "recordedAt": "2026-08-24T09:07:52.871Z"
+  },
+  "status": "READY"
+}

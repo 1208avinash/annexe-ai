@@ -1,0 +1,14 @@
+{
+  "reportId": "QAREP-1787555918434",
+  "projectId": "real-estate-crm",
+  "functionalScore": 96,
+  "apiScore": 97,
+  "securityScore": 97,
+  "performanceScore": 86,
+  "accessibilityScore": 98,
+  "regressionScore": 96,
+  "qualityScore": 95,
+  "status": "APPROVED",
+  "releaseRecommendation": "READY",
+  "generatedAt": "2026-08-24T07:18:38.434Z"
+}

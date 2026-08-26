@@ -5,6 +5,8 @@
 - React Router powered navigation
 - Login screen backed by the API client
 - Dashboard, customer list, and customer detail views
+- Default locale: en-US
+- Supported locales: en-US
 
 ## Default Login
 

@@ -1,0 +1,8 @@
+{
+  "vulnerablePackages": [],
+  "outdatedLibraries": [],
+  "supplyChainRisks": "Low",
+  "dependencyHealth": "Healthy",
+  "score": 98,
+  "status": "PASS"
+}

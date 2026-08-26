@@ -1,0 +1,54 @@
+{
+  "applicationType": "hospital",
+  "analysisId": "RA-1787554343354",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "Hospital",
+  "businessType": "Hospital System",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Patients",
+    "Appointments",
+    "Clinical Reporting",
+    "Notifications",
+    "File Storage"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Hospital System",
+  "projectId": "hospital-system",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "hospital",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 16,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

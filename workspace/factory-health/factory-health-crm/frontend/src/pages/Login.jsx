@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { LanguageSelector } from "../components/LanguageSelector.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
+import { LOCALIZATION } from "../localization/index.js";
 
 const DEFAULT_EMAIL = "admin@annexe.ai";
 const DEFAULT_PASSWORD = "Admin123!";
@@ -25,7 +27,7 @@ export default function Login() {
       const destination = location.state?.from || "/";
       navigate(destination, { replace: true });
     } catch (err) {
-      setError(err.message || "Unable to sign in");
+      setError(err.message || LOCALIZATION.frontend.unableToSignIn);
     } finally {
       setSubmitting(false);
     }
@@ -34,19 +36,22 @@ export default function Login() {
   return (
     <main className="auth-shell">
       <section className="auth-card">
-        <p className="eyebrow">Enterprise CRM</p>
-        <h1>Sign in to your workspace</h1>
+        <div className="auth-card-header">
+          <p className="eyebrow">{LOCALIZATION.screens.login}</p>
+          <LanguageSelector />
+        </div>
+        <h1>Factory Health CRM</h1>
         <p className="auth-copy">
-          Access the seeded dashboard, protected customer records, and the full CRM shell.
+          {LOCALIZATION.buttons.enter}
         </p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <label>
-            Email
+            {LOCALIZATION.frontend.email}
             <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" />
           </label>
           <label>
-            Password
+            {LOCALIZATION.frontend.password}
             <input
               value={password}
               onChange={(event) => setPassword(event.target.value)}
@@ -57,12 +62,12 @@ export default function Login() {
           {error ? <div className="form-error">{error}</div> : null}
 
           <button type="submit" className="button button-primary" disabled={submitting}>
-            {submitting ? "Signing in..." : "Sign in"}
+            {submitting ? LOCALIZATION.frontend.signInProgress : LOCALIZATION.frontend.signIn}
           </button>
         </form>
 
         <p className="helper-text">
-          Default credentials: <strong>{DEFAULT_EMAIL}</strong> / <strong>{DEFAULT_PASSWORD}</strong>
+          {LOCALIZATION.frontend.defaultCredentials}: <strong>{DEFAULT_EMAIL}</strong> / <strong>{DEFAULT_PASSWORD}</strong>
         </p>
       </section>
     </main>

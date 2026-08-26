@@ -7,6 +7,8 @@
 - SQLAlchemy persistence
 - Customer CRUD endpoints
 - Seeded admin user and sample customers
+- Default locale: en-US
+- Supported locales: en-US
 
 ## Default Login
 

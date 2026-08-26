@@ -1,0 +1,42 @@
+{
+  "customerLanguage": "Hindi",
+  "preferredLanguage": "Hindi",
+  "preferredLocale": "hi-IN",
+  "projectLanguage": "Hindi",
+  "projectLocale": "hi-IN",
+  "generatedApplicationDefaultLocale": "hi-IN",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "localizationRequired": true,
+  "culturalAdaptationRequired": true,
+  "region": "India",
+  "conversationLanguage": "Hindi",
+  "direction": "ltr",
+  "runtimeSwitching": true,
+  "userPreferencePersistence": true,
+  "rtlSupport": false,
+  "source": "detector",
+  "updatedAt": "2026-08-25T06:51:49.304Z"
+}

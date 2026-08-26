@@ -1,0 +1,87 @@
+{
+  "qualityId": "QA-1787562649570",
+  "projectRoot": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company",
+  "generatedAt": "2026-08-24T09:10:49.570Z",
+  "backendTests": {
+    "compileall": true,
+    "pytest": true
+  },
+  "frontendTests": {
+    "install": true,
+    "build": true,
+    "smoke": true
+  },
+  "apiTests": {
+    "health": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "docs": {
+      "passed": true,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    "openapi": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "latencyMs": 334
+  },
+  "securityScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "security module",
+        "passed": true
+      },
+      {
+        "name": "auth router",
+        "passed": true
+      },
+      {
+        "name": "environment example",
+        "passed": true
+      }
+    ]
+  },
+  "performanceScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "frontend build completed",
+        "passed": true
+      },
+      {
+        "name": "api health responded",
+        "passed": true
+      }
+    ],
+    "durationMs": 10128,
+    "healthLatencyMs": 334
+  },
+  "accessibility": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "html lang attribute",
+        "passed": true
+      },
+      {
+        "name": "viewport meta tag",
+        "passed": true
+      },
+      {
+        "name": "semantic main landmark",
+        "passed": true
+      },
+      {
+        "name": "semantic section or nav",
+        "passed": true
+      }
+    ]
+  },
+  "overallStatus": "pass",
+  "durationMs": 10375
+}

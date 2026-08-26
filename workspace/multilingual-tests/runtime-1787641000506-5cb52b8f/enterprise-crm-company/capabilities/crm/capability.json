@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "crm",
+  "description": "Customer management, dashboard, and CRM shell capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "dashboard",
+    "reports",
+    "notifications",
+    "settings"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "customer list",
+      "customer detail",
+      "crm shell"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/customers",
+      "/crm/summary"
+    ]
+  },
+  "routes": [
+    "/customers",
+    "/crm/summary"
+  ],
+  "permissions": [
+    "crm:read",
+    "crm:write"
+  ],
+  "database": [
+    "customers",
+    "activities"
+  ],
+  "events": [
+    "crm.customer.created",
+    "crm.customer.updated"
+  ]
+}

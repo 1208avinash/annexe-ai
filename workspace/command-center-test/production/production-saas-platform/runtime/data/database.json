@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "databaseId": "19613e90-030f-4f70-8f90-bc05a6d115f8",
+  "generatedAt": "2026-08-25T02:55:12.644Z",
+  "collections": {
+    "users": [],
+    "organizations": [],
+    "projects": [],
+    "projectReports": [],
+    "payments": [],
+    "upgrades": [],
+    "auditLogs": [],
+    "events": [],
+    "sessions": []
+  }
+}

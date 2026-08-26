@@ -1,0 +1,94 @@
+{
+  "applicationType": "manufacturing",
+  "projectId": "manufacturing-platform",
+  "projectName": "Manufacturing Platform",
+  "industry": "Manufacturing",
+  "challenge": "Need a manufacturing system for production planning, inventory, and operations",
+  "solution": "Compose reusable capabilities into a production-ready manufacturing application",
+  "requirements": [
+    "Authentication",
+    "Production Planning",
+    "Inventory",
+    "Reporting",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "reports",
+    "notifications",
+    "audit-logs",
+    "email",
+    "settings",
+    "search",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Production Planning",
+      "Inventory",
+      "Reporting",
+      "Notifications"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787558176352",
+      "title": "Manufacturing Platform Proposal",
+      "industry": "Manufacturing",
+      "businessType": "Manufacturing Platform",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Production Planning",
+        "Inventory",
+        "Reporting",
+        "Notifications"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "inventory",
+        "reports",
+        "notifications",
+        "audit-logs",
+        "email",
+        "settings",
+        "search",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

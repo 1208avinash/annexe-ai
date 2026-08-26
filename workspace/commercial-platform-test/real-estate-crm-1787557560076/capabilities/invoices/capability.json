@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "invoices",
+  "description": "Invoice generation, billing, and payment tracking capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "reports"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "invoice list",
+      "invoice detail",
+      "billing dashboard"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/invoices"
+    ]
+  },
+  "routes": [
+    "/invoices"
+  ],
+  "permissions": [
+    "invoices:read",
+    "invoices:write"
+  ],
+  "database": [
+    "invoices",
+    "invoice_items",
+    "payments"
+  ],
+  "events": [
+    "invoices.created",
+    "invoices.paid"
+  ]
+}

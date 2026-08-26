@@ -1,0 +1,20 @@
+{
+  "projectId": "operations-erp",
+  "endpoints": [
+    "/auth",
+    "/users",
+    "/customers",
+    "/leads",
+    "/contacts",
+    "/companies",
+    "/tasks",
+    "/reports"
+  ],
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "generatedAt": "2026-08-25T02:57:38.446Z"
+}

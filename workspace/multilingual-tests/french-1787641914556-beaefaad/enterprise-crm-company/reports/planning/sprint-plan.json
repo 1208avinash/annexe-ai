@@ -1,0 +1,64 @@
+{
+  "projectId": "enterprise-crm",
+  "sprints": [
+    {
+      "sprint": 1,
+      "name": "Foundation",
+      "tasks": [
+        {
+          "id": "TASK-001",
+          "name": "Project Setup",
+          "priority": "High",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "sprint": 2,
+      "name": "Core Development",
+      "tasks": [
+        {
+          "id": "TASK-002",
+          "name": "Backend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ]
+        },
+        {
+          "id": "TASK-003",
+          "name": "Frontend Development",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-001"
+          ]
+        },
+        {
+          "id": "TASK-004",
+          "name": "Database Design",
+          "priority": "Medium",
+          "dependsOn": [
+            "TASK-002"
+          ]
+        }
+      ]
+    },
+    {
+      "sprint": 3,
+      "name": "Testing & Delivery",
+      "tasks": [
+        {
+          "id": "TASK-005",
+          "name": "Testing & QA",
+          "priority": "High",
+          "dependsOn": [
+            "TASK-002",
+            "TASK-003",
+            "TASK-004"
+          ]
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2026-08-25T07:13:27.337Z"
+}

@@ -1,0 +1,55 @@
+{
+  "applicationType": "erp",
+  "analysisId": "RA-1787557681753",
+  "requestText": "",
+  "normalizedText": "",
+  "industry": "ERP",
+  "businessType": "Enterprise ERP",
+  "users": [
+    "Administrators",
+    "Operational Users"
+  ],
+  "requiredFeatures": [
+    "Authentication",
+    "Inventory",
+    "Operations",
+    "Reporting",
+    "Approvals",
+    "Notifications"
+  ],
+  "integrations": [],
+  "deployment": "Docker + PostgreSQL",
+  "security": [
+    "Authentication",
+    "JWT",
+    "RBAC",
+    "Password hashing"
+  ],
+  "projectName": "Enterprise ERP",
+  "projectId": "enterprise-erp",
+  "recommendedCapabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "inventory",
+    "erp",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging"
+  ],
+  "capabilitySummary": {
+    "selectedCount": 17,
+    "source": "application-composition"
+  },
+  "budget": null,
+  "mobileAccess": false
+}

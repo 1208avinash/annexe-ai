@@ -1,0 +1,99 @@
+{
+  "applicationType": "accounting",
+  "projectId": "accounting-platform",
+  "projectName": "Accounting Platform",
+  "industry": "Accounting",
+  "challenge": "Need an accounting system for ledger, billing, tax, and reporting",
+  "solution": "Compose reusable capabilities into a production-ready accounting application",
+  "requirements": [
+    "Authentication",
+    "Ledger",
+    "Invoices",
+    "Reporting",
+    "Approvals",
+    "Notifications"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "invoices",
+    "reports",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "health",
+    "version",
+    "logging"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Ledger",
+      "Invoices",
+      "Reporting",
+      "Approvals",
+      "Notifications"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787564035376",
+      "title": "Accounting Platform Proposal",
+      "industry": "Accounting",
+      "businessType": "Accounting Platform",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Ledger",
+        "Invoices",
+        "Reporting",
+        "Approvals",
+        "Notifications"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "invoices",
+        "reports",
+        "notifications",
+        "audit-logs",
+        "email",
+        "file-storage",
+        "settings",
+        "search",
+        "health",
+        "version",
+        "logging"
+      ],
+      "summary": ""
+    }
+  }
+}

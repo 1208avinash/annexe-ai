@@ -1,0 +1,16 @@
+{
+  "endpoints": [
+    "/health",
+    "/auth/login",
+    "/customers"
+  ],
+  "authentication": "JWT",
+  "authorization": "RBAC",
+  "contracts": [
+    "Request/response validation",
+    "Error handling validation",
+    "Protected endpoint validation"
+  ],
+  "score": 97,
+  "status": "PASS"
+}

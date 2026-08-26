@@ -1,0 +1,45 @@
+{
+  "project": "ANNEXE AI Commercial SaaS Platform",
+  "reports": [
+    {
+      "name": "Commercial Operating System",
+      "path": "/reports/platform/commercial-operating-system-report.json"
+    },
+    {
+      "name": "Billing Model",
+      "path": "/reports/platform/billing-model.json"
+    },
+    {
+      "name": "Proposal",
+      "path": "/reports/proposal.md"
+    },
+    {
+      "name": "Business Analysis",
+      "path": "/reports/business-analysis.json"
+    },
+    {
+      "name": "Architecture",
+      "path": "/reports/architecture.md"
+    },
+    {
+      "name": "Sprint Plan",
+      "path": "/reports/sprint-plan.json"
+    },
+    {
+      "name": "Engineering Report",
+      "path": "/reports/engineering-report.json"
+    },
+    {
+      "name": "Quality Report",
+      "path": "/reports/quality-report.json"
+    },
+    {
+      "name": "Deployment Report",
+      "path": "/reports/deployment-report.md"
+    },
+    {
+      "name": "Delivery Package",
+      "path": "/reports/delivery-package.json"
+    }
+  ]
+}

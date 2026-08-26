@@ -1,0 +1,13 @@
+{
+  "reportId": "DEVOPSREP-1787626659389",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "operationsScore": 95,
+  "deployment": "READY",
+  "monitoring": "REVIEW",
+  "scaling": "READY",
+  "recovery": "READY",
+  "recommendation": "DEPLOY",
+  "status": "APPROVED",
+  "generatedAt": "2026-08-25T02:57:39.389Z"
+}

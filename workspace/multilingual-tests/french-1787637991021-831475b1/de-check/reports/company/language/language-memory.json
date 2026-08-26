@@ -1,0 +1,27 @@
+{
+  "customerLanguage": "German",
+  "preferredLanguage": "German",
+  "preferredLocale": "de-DE",
+  "projectLanguage": "German",
+  "projectLocale": "de-DE",
+  "generatedApplicationDefaultLocale": "de-DE",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "localizationRequired": true,
+  "culturalAdaptationRequired": true,
+  "region": "Germany",
+  "conversationLanguage": "German",
+  "direction": "ltr",
+  "source": "detector",
+  "updatedAt": "2026-08-25T06:06:34.229Z"
+}

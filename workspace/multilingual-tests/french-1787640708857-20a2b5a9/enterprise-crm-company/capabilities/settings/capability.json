@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "compatibility": {
+    "frontend": [
+      "React 19",
+      "React + Vite"
+    ],
+    "backend": "FastAPI",
+    "database": "PostgreSQL"
+  },
+  "aliases": [],
+  "name": "settings",
+  "description": "Application settings and tenant configuration capability.",
+  "dependencies": [
+    "authentication",
+    "users",
+    "logging"
+  ],
+  "frontend": {
+    "framework": "React + Vite",
+    "modules": [
+      "settings forms"
+    ]
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "routes": [
+      "/settings"
+    ]
+  },
+  "routes": [
+    "/settings"
+  ],
+  "permissions": [
+    "settings:read",
+    "settings:write"
+  ],
+  "database": [
+    "settings"
+  ],
+  "events": [
+    "settings.updated"
+  ]
+}

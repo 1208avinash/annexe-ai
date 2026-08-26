@@ -1,0 +1,22 @@
+{
+  "deploymentState": {
+    "staging": {
+      "name": "staging",
+      "status": "ready",
+      "createdAt": "2026-08-24T09:37:57.615Z"
+    },
+    "production": {
+      "name": "production",
+      "status": "ready",
+      "createdAt": "2026-08-24T09:37:57.615Z"
+    },
+    "release": {
+      "version": "1.0.0",
+      "releasedAt": "2026-08-24T09:37:57.616Z"
+    },
+    "rollbackEnabled": true
+  },
+  "rollbackSupported": true,
+  "versionManagement": true,
+  "status": "READY"
+}

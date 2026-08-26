@@ -1,0 +1,96 @@
+{
+  "coverageId": "COV-1787638080204",
+  "projectRoot": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787637991021-831475b1\\enterprise-crm-company",
+  "generatedAt": "2026-08-25T06:08:00.204Z",
+  "backend": {
+    "compileall": true,
+    "pytest": true
+  },
+  "frontend": {
+    "install": true,
+    "build": true,
+    "smoke": true
+  },
+  "api": {
+    "api": {
+      "health": {
+        "passed": true,
+        "status": 200,
+        "contentType": "application/json"
+      },
+      "docs": {
+        "passed": true,
+        "status": 200,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "openapi": {
+        "passed": true,
+        "status": 200,
+        "contentType": "application/json"
+      },
+      "latencyMs": 198
+    },
+    "security": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "security module",
+          "passed": true
+        },
+        {
+          "name": "auth router",
+          "passed": true
+        },
+        {
+          "name": "environment example",
+          "passed": true
+        }
+      ]
+    },
+    "performance": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "frontend build completed",
+          "passed": true
+        },
+        {
+          "name": "api health responded",
+          "passed": true
+        }
+      ],
+      "durationMs": 9198,
+      "healthLatencyMs": 198
+    },
+    "accessibility": {
+      "passed": true,
+      "checks": [
+        {
+          "name": "html lang attribute",
+          "passed": true
+        },
+        {
+          "name": "viewport meta tag",
+          "passed": true
+        },
+        {
+          "name": "semantic main landmark",
+          "passed": true
+        },
+        {
+          "name": "semantic section or nav",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "totalChecks": 6,
+  "passedChecks": [
+    "backend.compileall",
+    "backend.pytest",
+    "frontend.install",
+    "frontend.build",
+    "frontend.smoke",
+    "api.health"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "monitoringStrategy": "REVIEW",
+  "applicationHealth": "Tracked",
+  "apiPerformance": "Tracked",
+  "errors": "Tracked",
+  "uptime": "Tracked",
+  "resources": "Tracked",
+  "score": 89
+}

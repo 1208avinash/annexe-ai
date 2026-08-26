@@ -1,0 +1,2527 @@
+{
+  "blueprintId": "BLUEPRINT-1787564035912",
+  "templateId": "crm-enterprise",
+  "projectId": "manufacturing-platform",
+  "architecture": {
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "deployment": "Docker"
+  },
+  "modules": [
+    "Authentication",
+    "Dashboard",
+    "Customers",
+    "Leads",
+    "Contacts",
+    "Companies",
+    "Sales Pipeline",
+    "Tasks",
+    "Calendar",
+    "Reports",
+    "Notifications",
+    "Settings"
+  ],
+  "entities": [
+    "User",
+    "Role",
+    "Permission",
+    "Customer",
+    "Lead",
+    "Contact",
+    "Company",
+    "Opportunity",
+    "Task",
+    "Activity",
+    "Notification"
+  ],
+  "services": [
+    "Authentication Service",
+    "Customer Service",
+    "Lead Service",
+    "Contact Service",
+    "Reporting Service",
+    "Notification Service"
+  ],
+  "apis": [
+    "/auth",
+    "/users",
+    "/customers",
+    "/leads",
+    "/contacts",
+    "/companies",
+    "/tasks",
+    "/reports"
+  ],
+  "roles": [
+    "Administrator",
+    "Manager",
+    "Sales Executive",
+    "Support Executive"
+  ],
+  "workflows": [
+    "Lead Qualification",
+    "Customer Onboarding",
+    "Sales Opportunity",
+    "Task Assignment",
+    "Customer Follow-up",
+    "Reporting"
+  ],
+  "engineeringTasks": [],
+  "dependencies": [
+    "permissions",
+    "users",
+    "roles",
+    "logging",
+    "health",
+    "authentication",
+    "search",
+    "audit-logs",
+    "reports",
+    "version",
+    "dashboard",
+    "notifications",
+    "settings"
+  ],
+  "deployment": {
+    "platform": "Docker",
+    "strategy": "Docker"
+  },
+  "testing": [
+    "Unit Tests",
+    "Integration Tests",
+    "API Tests"
+  ],
+  "documentation": [
+    "API Documentation",
+    "User Manual",
+    "Deployment Guide"
+  ],
+  "metadata": {
+    "industry": "Manufacturing",
+    "projectName": "Manufacturing Platform",
+    "stack": {
+      "backend": "FastAPI",
+      "frontend": "React 19",
+      "database": "PostgreSQL",
+      "deployment": "Docker"
+    }
+  },
+  "engineeringPlan": {
+    "projectType": "enterprise",
+    "frontend": "React 19",
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "deployment": "Docker",
+    "functionalRequirements": [
+      "Authentication",
+      "JWT Session Management",
+      "Dashboard",
+      "Customer Management",
+      "Lead Management",
+      "Reporting",
+      "Notifications",
+      "Automation"
+    ],
+    "nonFunctionalRequirements": [
+      "Secure by default",
+      "Responsive UI",
+      "Production ready"
+    ],
+    "frontendModules": [
+      "Authentication",
+      "Dashboard",
+      "Customers",
+      "Leads",
+      "Contacts",
+      "Companies",
+      "Sales Pipeline",
+      "Tasks",
+      "Calendar",
+      "Reports",
+      "Notifications",
+      "Settings"
+    ],
+    "backendServices": [
+      "Authentication Service",
+      "Customer Service",
+      "Lead Service",
+      "Contact Service",
+      "Reporting Service",
+      "Notification Service"
+    ],
+    "entities": [
+      "User",
+      "Role",
+      "Permission",
+      "Customer",
+      "Lead",
+      "Contact",
+      "Company",
+      "Opportunity",
+      "Task",
+      "Activity",
+      "Notification"
+    ],
+    "endpoints": [
+      "/auth",
+      "/users",
+      "/customers",
+      "/leads",
+      "/contacts",
+      "/companies",
+      "/tasks",
+      "/reports"
+    ],
+    "capabilities": [
+      "permissions",
+      "users",
+      "roles",
+      "logging",
+      "health",
+      "authentication",
+      "search",
+      "audit-logs",
+      "reports",
+      "version",
+      "dashboard",
+      "notifications",
+      "settings",
+      "inventory",
+      "email"
+    ],
+    "authentication": "JWT",
+    "authorization": "RBAC",
+    "securityRequirements": [
+      "Password hashing",
+      "Role based access control",
+      "Audit logging",
+      "Rate limiting"
+    ],
+    "acceptanceCriteria": [
+      "Users can authenticate",
+      "Users can navigate the app through protected routes",
+      "Leads can be tracked",
+      "Customers can be managed",
+      "Reports can be viewed"
+    ],
+    "successMetrics": [
+      "Core CRM pages render and route correctly",
+      "Backend health endpoint responds",
+      "Scaffold is written to workspace",
+      "Capabilities are resolved and assembled"
+    ],
+    "risks": [
+      "Enterprise scope can expand during delivery"
+    ],
+    "assumptions": [
+      "CRM is the first enterprise target",
+      "The template should be used as the baseline scaffold",
+      "Capabilities should be composed rather than duplicated"
+    ],
+    "projectId": "manufacturing-platform"
+  },
+  "files": [
+    {
+      "path": "reports/project-structure.json",
+      "type": "artifact",
+      "language": "json",
+      "content": "{\n  \"structure\": {\n    \"backend\": {\n      \"stack\": \"FastAPI\",\n      \"root\": \"backend\",\n      \"directories\": [\n        \"backend\",\n        \"backend/app\",\n        \"backend/app/routers\",\n        \"backend/app/models\",\n        \"backend/app/schemas\",\n        \"backend/app/services\",\n        \"backend/app/repositories\",\n        \"backend/alembic\",\n        \"backend/alembic/versions\",\n        \"backend/scripts\",\n        \"backend/tests\",\n        \"capabilities\"\n      ],\n      \"requiredFiles\": [\n        \"backend/requirements.txt\",\n        \"backend/Dockerfile\",\n        \"backend/.env.example\",\n        \"backend/README.md\",\n        \"backend/alembic.ini\",\n        \"backend/app/__init__.py\",\n        \"backend/app/main.py\",\n        \"backend/app/config.py\",\n        \"backend/app/database.py\",\n        \"backend/app/dependencies.py\",\n        \"backend/app/logging_config.py\",\n        \"backend/app/security.py\",\n        \"backend/app/version.py\",\n        \"backend/app/routers/__init__.py\",\n        \"backend/app/routers/health.py\",\n        \"backend/app/routers/auth.py\",\n        \"backend/app/routers/customers.py\",\n        \"backend/app/routers/crm.py\",\n        \"backend/app/models/__init__.py\",\n        \"backend/app/models/crm.py\",\n        \"backend/app/schemas/__init__.py\",\n        \"backend/app/schemas/crm.py\",\n        \"backend/app/services/__init__.py\",\n        \"backend/app/services/crm_service.py\",\n        \"backend/app/repositories/__init__.py\",\n        \"backend/app/repositories/crm_repository.py\",\n        \"backend/alembic/env.py\",\n        \"backend/alembic/versions/0001_initial.py\",\n        \"backend/scripts/migrate.py\",\n        \"backend/tests/test_health.py\",\n        \"backend/tests/test_auth.py\",\n        \"backend/tests/test_customers.py\",\n        \"backend/pytest.py\",\n        \"capabilities/index.json\",\n        \"capabilities/README.md\"\n      ]\n    },\n    \"frontend\": {\n      \"stack\": \"React + Vite\",\n      \"root\": \"frontend\",\n      \"directories\": [\n        \"frontend\",\n        \"frontend/public\",\n        \"frontend/src\",\n        \"frontend/src/pages\",\n        \"frontend/src/components\",\n        \"frontend/src/layouts\",\n        \"frontend/src/hooks\",\n        \"frontend/src/services\",\n        \"frontend/src/contexts\",\n        \"frontend/src/assets\",\n        \"frontend/tests\"\n      ],\n      \"requiredFiles\": [\n        \"frontend/package.json\",\n        \"frontend/vite.config.js\",\n        \"frontend/index.html\",\n        \"frontend/README.md\",\n        \"frontend/.env.example\",\n        \"frontend/Dockerfile\",\n        \"frontend/src/main.jsx\",\n        \"frontend/src/App.jsx\",\n        \"frontend/src/pages/Login.jsx\",\n        \"frontend/src/pages/Dashboard.jsx\",\n        \"frontend/src/pages/Customers.jsx\",\n        \"frontend/src/pages/CustomerDetails.jsx\",\n        \"frontend/src/layouts/MainLayout.jsx\",\n        \"frontend/src/services/api.js\",\n        \"frontend/src/contexts/AuthContext.jsx\",\n        \"frontend/tests/smoke.mjs\"\n      ]\n    },\n    \"capabilities\": {\n      \"root\": \"capabilities\",\n      \"selected\": [\n        \"permissions\",\n        \"users\",\n        \"roles\",\n        \"logging\",\n        \"health\",\n        \"authentication\",\n        \"search\",\n        \"audit-logs\",\n        \"reports\",\n        \"version\",\n        \"dashboard\",\n        \"notifications\",\n        \"settings\",\n        \"inventory\",\n        \"email\"\n      ],\n      \"directories\": [\n        \"capabilities/permissions\",\n        \"capabilities/permissions/backend\",\n        \"capabilities/permissions/frontend\",\n        \"capabilities/permissions/tests\",\n        \"capabilities/permissions/docs\",\n        \"capabilities/users\",\n        \"capabilities/users/backend\",\n        \"capabilities/users/frontend\",\n        \"capabilities/users/tests\",\n        \"capabilities/users/docs\",\n        \"capabilities/roles\",\n        \"capabilities/roles/backend\",\n        \"capabilities/roles/frontend\",\n        \"capabilities/roles/tests\",\n        \"capabilities/roles/docs\",\n        \"capabilities/logging\",\n        \"capabilities/logging/backend\",\n        \"capabilities/logging/frontend\",\n        \"capabilities/logging/tests\",\n        \"capabilities/logging/docs\",\n        \"capabilities/health\",\n        \"capabilities/health/backend\",\n        \"capabilities/health/frontend\",\n        \"capabilities/health/tests\",\n        \"capabilities/health/docs\",\n        \"capabilities/authentication\",\n        \"capabilities/authentication/backend\",\n        \"capabilities/authentication/frontend\",\n        \"capabilities/authentication/tests\",\n        \"capabilities/authentication/docs\",\n        \"capabilities/search\",\n        \"capabilities/search/backend\",\n        \"capabilities/search/frontend\",\n        \"capabilities/search/tests\",\n        \"capabilities/search/docs\",\n        \"capabilities/audit-logs\",\n        \"capabilities/audit-logs/backend\",\n        \"capabilities/audit-logs/frontend\",\n        \"capabilities/audit-logs/tests\",\n        \"capabilities/audit-logs/docs\",\n        \"capabilities/reports\",\n        \"capabilities/reports/backend\",\n        \"capabilities/reports/frontend\",\n        \"capabilities/reports/tests\",\n        \"capabilities/reports/docs\",\n        \"capabilities/version\",\n        \"capabilities/version/backend\",\n        \"capabilities/version/frontend\",\n        \"capabilities/version/tests\",\n        \"capabilities/version/docs\",\n        \"capabilities/dashboard\",\n        \"capabilities/dashboard/backend\",\n        \"capabilities/dashboard/frontend\",\n        \"capabilities/dashboard/tests\",\n        \"capabilities/dashboard/docs\",\n        \"capabilities/notifications\",\n        \"capabilities/notifications/backend\",\n        \"capabilities/notifications/frontend\",\n        \"capabilities/notifications/tests\",\n        \"capabilities/notifications/docs\",\n        \"capabilities/settings\",\n        \"capabilities/settings/backend\",\n        \"capabilities/settings/frontend\",\n        \"capabilities/settings/tests\",\n        \"capabilities/settings/docs\",\n        \"capabilities/inventory\",\n        \"capabilities/inventory/backend\",\n        \"capabilities/inventory/frontend\",\n        \"capabilities/inventory/tests\",\n        \"capabilities/inventory/docs\",\n        \"capabilities/email\",\n        \"capabilities/email/backend\",\n        \"capabilities/email/frontend\",\n        \"capabilities/email/tests\",\n        \"capabilities/email/docs\"\n      ],\n      \"requiredFiles\": [\n        \"capabilities/permissions/capability.json\",\n        \"capabilities/permissions/backend/README.md\",\n        \"capabilities/permissions/frontend/README.md\",\n        \"capabilities/permissions/tests/README.md\",\n        \"capabilities/permissions/docs/README.md\",\n        \"capabilities/permissions/dependencies.json\",\n        \"capabilities/users/capability.json\",\n        \"capabilities/users/backend/README.md\",\n        \"capabilities/users/frontend/README.md\",\n        \"capabilities/users/tests/README.md\",\n        \"capabilities/users/docs/README.md\",\n        \"capabilities/users/dependencies.json\",\n        \"capabilities/roles/capability.json\",\n        \"capabilities/roles/backend/README.md\",\n        \"capabilities/roles/frontend/README.md\",\n        \"capabilities/roles/tests/README.md\",\n        \"capabilities/roles/docs/README.md\",\n        \"capabilities/roles/dependencies.json\",\n        \"capabilities/logging/capability.json\",\n        \"capabilities/logging/backend/README.md\",\n        \"capabilities/logging/frontend/README.md\",\n        \"capabilities/logging/tests/README.md\",\n        \"capabilities/logging/docs/README.md\",\n        \"capabilities/logging/dependencies.json\",\n        \"capabilities/health/capability.json\",\n        \"capabilities/health/backend/README.md\",\n        \"capabilities/health/frontend/README.md\",\n        \"capabilities/health/tests/README.md\",\n        \"capabilities/health/docs/README.md\",\n        \"capabilities/health/dependencies.json\",\n        \"capabilities/authentication/capability.json\",\n        \"capabilities/authentication/backend/README.md\",\n        \"capabilities/authentication/frontend/README.md\",\n        \"capabilities/authentication/tests/README.md\",\n        \"capabilities/authentication/docs/README.md\",\n        \"capabilities/authentication/dependencies.json\",\n        \"capabilities/search/capability.json\",\n        \"capabilities/search/backend/README.md\",\n        \"capabilities/search/frontend/README.md\",\n        \"capabilities/search/tests/README.md\",\n        \"capabilities/search/docs/README.md\",\n        \"capabilities/search/dependencies.json\",\n        \"capabilities/audit-logs/capability.json\",\n        \"capabilities/audit-logs/backend/README.md\",\n        \"capabilities/audit-logs/frontend/README.md\",\n        \"capabilities/audit-logs/tests/README.md\",\n        \"capabilities/audit-logs/docs/README.md\",\n        \"capabilities/audit-logs/dependencies.json\",\n        \"capabilities/reports/capability.json\",\n        \"capabilities/reports/backend/README.md\",\n        \"capabilities/reports/frontend/README.md\",\n        \"capabilities/reports/tests/README.md\",\n        \"capabilities/reports/docs/README.md\",\n        \"capabilities/reports/dependencies.json\",\n        \"capabilities/version/capability.json\",\n        \"capabilities/version/backend/README.md\",\n        \"capabilities/version/frontend/README.md\",\n        \"capabilities/version/tests/README.md\",\n        \"capabilities/version/docs/README.md\",\n        \"capabilities/version/dependencies.json\",\n        \"capabilities/dashboard/capability.json\",\n        \"capabilities/dashboard/backend/README.md\",\n        \"capabilities/dashboard/frontend/README.md\",\n        \"capabilities/dashboard/tests/README.md\",\n        \"capabilities/dashboard/docs/README.md\",\n        \"capabilities/dashboard/dependencies.json\",\n        \"capabilities/notifications/capability.json\",\n        \"capabilities/notifications/backend/README.md\",\n        \"capabilities/notifications/frontend/README.md\",\n        \"capabilities/notifications/tests/README.md\",\n        \"capabilities/notifications/docs/README.md\",\n        \"capabilities/notifications/dependencies.json\",\n        \"capabilities/settings/capability.json\",\n        \"capabilities/settings/backend/README.md\",\n        \"capabilities/settings/frontend/README.md\",\n        \"capabilities/settings/tests/README.md\",\n        \"capabilities/settings/docs/README.md\",\n        \"capabilities/settings/dependencies.json\",\n        \"capabilities/inventory/capability.json\",\n        \"capabilities/inventory/backend/README.md\",\n        \"capabilities/inventory/frontend/README.md\",\n        \"capabilities/inventory/tests/README.md\",\n        \"capabilities/inventory/docs/README.md\",\n        \"capabilities/inventory/dependencies.json\",\n        \"capabilities/email/capability.json\",\n        \"capabilities/email/backend/README.md\",\n        \"capabilities/email/frontend/README.md\",\n        \"capabilities/email/tests/README.md\",\n        \"capabilities/email/docs/README.md\",\n        \"capabilities/email/dependencies.json\"\n      ]\n    },\n    \"domain\": {\n      \"projectType\": \"enterprise\",\n      \"modules\": [\n        \"Authentication\",\n        \"Dashboard\",\n        \"Customers\",\n        \"Leads\",\n        \"Contacts\",\n        \"Companies\",\n        \"Sales Pipeline\",\n        \"Tasks\",\n        \"Calendar\",\n        \"Reports\",\n        \"Notifications\",\n        \"Settings\"\n      ],\n      \"entities\": [\n        \"User\",\n        \"Role\",\n        \"Permission\",\n        \"Customer\",\n        \"Lead\",\n        \"Contact\",\n        \"Company\",\n        \"Opportunity\",\n        \"Task\",\n        \"Activity\",\n        \"Notification\"\n      ],\n      \"services\": [\n        \"Authentication Service\",\n        \"Customer Service\",\n        \"Lead Service\",\n        \"Contact Service\",\n        \"Reporting Service\",\n        \"Notification Service\"\n      ],\n      \"apis\": [\n        \"/auth\",\n        \"/users\",\n        \"/customers\",\n        \"/leads\",\n        \"/contacts\",\n        \"/companies\",\n        \"/tasks\",\n        \"/reports\"\n      ],\n      \"workflows\": [\n        \"Lead Qualification\",\n        \"Customer Onboarding\",\n        \"Sales Opportunity\",\n        \"Task Assignment\",\n        \"Customer Follow-up\",\n        \"Reporting\"\n      ],\n      \"capabilities\": [\n        \"permissions\",\n        \"users\",\n        \"roles\",\n        \"logging\",\n        \"health\",\n        \"authentication\",\n        \"search\",\n        \"audit-logs\",\n        \"reports\",\n        \"version\",\n        \"dashboard\",\n        \"notifications\",\n        \"settings\",\n        \"inventory\",\n        \"email\"\n      ]\n    }\n  },\n  \"stackMetadata\": {\n    \"backend\": {\n      \"framework\": \"FastAPI\",\n      \"runtime\": \"Python\",\n      \"packageManager\": \"pip\",\n      \"buildCommand\": \"python -m compileall backend\"\n    },\n    \"frontend\": {\n      \"framework\": \"React 19\",\n      \"runtime\": \"Node.js\",\n      \"packageManager\": \"npm\",\n      \"buildCommand\": \"npm run build\"\n    }\n  },\n  \"requiredFiles\": [\n    \"backend/requirements.txt\",\n    \"backend/Dockerfile\",\n    \"backend/.env.example\",\n    \"backend/README.md\",\n    \"backend/alembic.ini\",\n    \"backend/app/__init__.py\",\n    \"backend/app/main.py\",\n    \"backend/app/config.py\",\n    \"backend/app/database.py\",\n    \"backend/app/dependencies.py\",\n    \"backend/app/logging_config.py\",\n    \"backend/app/security.py\",\n    \"backend/app/version.py\",\n    \"backend/app/routers/__init__.py\",\n    \"backend/app/routers/health.py\",\n    \"backend/app/routers/auth.py\",\n    \"backend/app/routers/customers.py\",\n    \"backend/app/routers/crm.py\",\n    \"backend/app/models/__init__.py\",\n    \"backend/app/models/crm.py\",\n    \"backend/app/schemas/__init__.py\",\n    \"backend/app/schemas/crm.py\",\n    \"backend/app/services/__init__.py\",\n    \"backend/app/services/crm_service.py\",\n    \"backend/app/repositories/__init__.py\",\n    \"backend/app/repositories/crm_repository.py\",\n    \"backend/alembic/env.py\",\n    \"backend/alembic/versions/0001_initial.py\",\n    \"backend/scripts/migrate.py\",\n    \"backend/tests/test_health.py\",\n    \"backend/tests/test_auth.py\",\n    \"backend/tests/test_customers.py\",\n    \"backend/pytest.py\",\n    \"capabilities/index.json\",\n    \"capabilities/README.md\",\n    \"frontend/package.json\",\n    \"frontend/vite.config.js\",\n    \"frontend/index.html\",\n    \"frontend/README.md\",\n    \"frontend/.env.example\",\n    \"frontend/Dockerfile\",\n    \"frontend/src/main.jsx\",\n    \"frontend/src/App.jsx\",\n    \"frontend/src/pages/Login.jsx\",\n    \"frontend/src/pages/Dashboard.jsx\",\n    \"frontend/src/pages/Customers.jsx\",\n    \"frontend/src/pages/CustomerDetails.jsx\",\n    \"frontend/src/layouts/MainLayout.jsx\",\n    \"frontend/src/services/api.js\",\n    \"frontend/src/contexts/AuthContext.jsx\",\n    \"frontend/tests/smoke.mjs\"\n  ],\n  \"directories\": [\n    \"backend\",\n    \"backend/app\",\n    \"backend/app/routers\",\n    \"backend/app/models\",\n    \"backend/app/schemas\",\n    \"backend/app/services\",\n    \"backend/app/repositories\",\n    \"backend/alembic\",\n    \"backend/alembic/versions\",\n    \"backend/scripts\",\n    \"backend/tests\",\n    \"capabilities\",\n    \"frontend\",\n    \"frontend/public\",\n    \"frontend/src\",\n    \"frontend/src/pages\",\n    \"frontend/src/components\",\n    \"frontend/src/layouts\",\n    \"frontend/src/hooks\",\n    \"frontend/src/services\",\n    \"frontend/src/contexts\",\n    \"frontend/src/assets\",\n    \"frontend/tests\"\n  ],\n  \"businessModules\": {\n    \"projectType\": \"enterprise\",\n    \"modules\": [\n      \"Authentication\",\n      \"Dashboard\",\n      \"Customers\",\n      \"Leads\",\n      \"Contacts\",\n      \"Companies\",\n      \"Sales Pipeline\",\n      \"Tasks\",\n      \"Calendar\",\n      \"Reports\",\n      \"Notifications\",\n      \"Settings\"\n    ],\n    \"entities\": [\n      \"User\",\n      \"Role\",\n      \"Permission\",\n      \"Customer\",\n      \"Lead\",\n      \"Contact\",\n      \"Company\",\n      \"Opportunity\",\n      \"Task\",\n      \"Activity\",\n      \"Notification\"\n    ],\n    \"services\": [\n      \"Authentication Service\",\n      \"Customer Service\",\n      \"Lead Service\",\n      \"Contact Service\",\n      \"Reporting Service\",\n      \"Notification Service\"\n    ],\n    \"apis\": [\n      \"/auth\",\n      \"/users\",\n      \"/customers\",\n      \"/leads\",\n      \"/contacts\",\n      \"/companies\",\n      \"/tasks\",\n      \"/reports\"\n    ],\n    \"workflows\": [\n      \"Lead Qualification\",\n      \"Customer Onboarding\",\n      \"Sales Opportunity\",\n      \"Task Assignment\",\n      \"Customer Follow-up\",\n      \"Reporting\"\n    ],\n    \"capabilities\": [\n      \"permissions\",\n      \"users\",\n      \"roles\",\n      \"logging\",\n      \"health\",\n      \"authentication\",\n      \"search\",\n      \"audit-logs\",\n      \"reports\",\n      \"version\",\n      \"dashboard\",\n      \"notifications\",\n      \"settings\",\n      \"inventory\",\n      \"email\"\n    ]\n  }\n}"
+    },
+    {
+      "path": "reports/engineering-plan.json",
+      "type": "artifact",
+      "language": "json",
+      "content": "{\n  \"projectType\": \"enterprise\",\n  \"frontend\": \"React 19\",\n  \"backend\": \"FastAPI\",\n  \"database\": \"PostgreSQL\",\n  \"deployment\": \"Docker\",\n  \"functionalRequirements\": [\n    \"Authentication\",\n    \"JWT Session Management\",\n    \"Dashboard\",\n    \"Customer Management\",\n    \"Lead Management\",\n    \"Reporting\",\n    \"Notifications\",\n    \"Automation\"\n  ],\n  \"nonFunctionalRequirements\": [\n    \"Secure by default\",\n    \"Responsive UI\",\n    \"Production ready\"\n  ],\n  \"frontendModules\": [\n    \"Authentication\",\n    \"Dashboard\",\n    \"Customers\",\n    \"Leads\",\n    \"Contacts\",\n    \"Companies\",\n    \"Sales Pipeline\",\n    \"Tasks\",\n    \"Calendar\",\n    \"Reports\",\n    \"Notifications\",\n    \"Settings\"\n  ],\n  \"backendServices\": [\n    \"Authentication Service\",\n    \"Customer Service\",\n    \"Lead Service\",\n    \"Contact Service\",\n    \"Reporting Service\",\n    \"Notification Service\"\n  ],\n  \"entities\": [\n    \"User\",\n    \"Role\",\n    \"Permission\",\n    \"Customer\",\n    \"Lead\",\n    \"Contact\",\n    \"Company\",\n    \"Opportunity\",\n    \"Task\",\n    \"Activity\",\n    \"Notification\"\n  ],\n  \"endpoints\": [\n    \"/auth\",\n    \"/users\",\n    \"/customers\",\n    \"/leads\",\n    \"/contacts\",\n    \"/companies\",\n    \"/tasks\",\n    \"/reports\"\n  ],\n  \"capabilities\": [\n    \"permissions\",\n    \"users\",\n    \"roles\",\n    \"logging\",\n    \"health\",\n    \"authentication\",\n    \"search\",\n    \"audit-logs\",\n    \"reports\",\n    \"version\",\n    \"dashboard\",\n    \"notifications\",\n    \"settings\",\n    \"inventory\",\n    \"email\"\n  ],\n  \"authentication\": \"JWT\",\n  \"authorization\": \"RBAC\",\n  \"securityRequirements\": [\n    \"Password hashing\",\n    \"Role based access control\",\n    \"Audit logging\",\n    \"Rate limiting\"\n  ],\n  \"acceptanceCriteria\": [\n    \"Users can authenticate\",\n    \"Users can navigate the app through protected routes\",\n    \"Leads can be tracked\",\n    \"Customers can be managed\",\n    \"Reports can be viewed\"\n  ],\n  \"successMetrics\": [\n    \"Core CRM pages render and route correctly\",\n    \"Backend health endpoint responds\",\n    \"Scaffold is written to workspace\",\n    \"Capabilities are resolved and assembled\"\n  ],\n  \"risks\": [\n    \"Enterprise scope can expand during delivery\"\n  ],\n  \"assumptions\": [\n    \"CRM is the first enterprise target\",\n    \"The template should be used as the baseline scaffold\",\n    \"Capabilities should be composed rather than duplicated\"\n  ],\n  \"projectId\": \"manufacturing-platform\"\n}"
+    }
+  ],
+  "structure": {
+    "backend": {
+      "stack": "FastAPI",
+      "root": "backend",
+      "directories": [
+        "backend",
+        "backend/app",
+        "backend/app/routers",
+        "backend/app/models",
+        "backend/app/schemas",
+        "backend/app/services",
+        "backend/app/repositories",
+        "backend/alembic",
+        "backend/alembic/versions",
+        "backend/scripts",
+        "backend/tests",
+        "capabilities"
+      ],
+      "requiredFiles": [
+        "backend/requirements.txt",
+        "backend/Dockerfile",
+        "backend/.env.example",
+        "backend/README.md",
+        "backend/alembic.ini",
+        "backend/app/__init__.py",
+        "backend/app/main.py",
+        "backend/app/config.py",
+        "backend/app/database.py",
+        "backend/app/dependencies.py",
+        "backend/app/logging_config.py",
+        "backend/app/security.py",
+        "backend/app/version.py",
+        "backend/app/routers/__init__.py",
+        "backend/app/routers/health.py",
+        "backend/app/routers/auth.py",
+        "backend/app/routers/customers.py",
+        "backend/app/routers/crm.py",
+        "backend/app/models/__init__.py",
+        "backend/app/models/crm.py",
+        "backend/app/schemas/__init__.py",
+        "backend/app/schemas/crm.py",
+        "backend/app/services/__init__.py",
+        "backend/app/services/crm_service.py",
+        "backend/app/repositories/__init__.py",
+        "backend/app/repositories/crm_repository.py",
+        "backend/alembic/env.py",
+        "backend/alembic/versions/0001_initial.py",
+        "backend/scripts/migrate.py",
+        "backend/tests/test_health.py",
+        "backend/tests/test_auth.py",
+        "backend/tests/test_customers.py",
+        "backend/pytest.py",
+        "capabilities/index.json",
+        "capabilities/README.md"
+      ]
+    },
+    "frontend": {
+      "stack": "React + Vite",
+      "root": "frontend",
+      "directories": [
+        "frontend",
+        "frontend/public",
+        "frontend/src",
+        "frontend/src/pages",
+        "frontend/src/components",
+        "frontend/src/layouts",
+        "frontend/src/hooks",
+        "frontend/src/services",
+        "frontend/src/contexts",
+        "frontend/src/assets",
+        "frontend/tests"
+      ],
+      "requiredFiles": [
+        "frontend/package.json",
+        "frontend/vite.config.js",
+        "frontend/index.html",
+        "frontend/README.md",
+        "frontend/.env.example",
+        "frontend/Dockerfile",
+        "frontend/src/main.jsx",
+        "frontend/src/App.jsx",
+        "frontend/src/pages/Login.jsx",
+        "frontend/src/pages/Dashboard.jsx",
+        "frontend/src/pages/Customers.jsx",
+        "frontend/src/pages/CustomerDetails.jsx",
+        "frontend/src/layouts/MainLayout.jsx",
+        "frontend/src/services/api.js",
+        "frontend/src/contexts/AuthContext.jsx",
+        "frontend/tests/smoke.mjs"
+      ]
+    },
+    "capabilities": {
+      "root": "capabilities",
+      "selected": [
+        "permissions",
+        "users",
+        "roles",
+        "logging",
+        "health",
+        "authentication",
+        "search",
+        "audit-logs",
+        "reports",
+        "version",
+        "dashboard",
+        "notifications",
+        "settings",
+        "inventory",
+        "email"
+      ],
+      "directories": [
+        "capabilities/permissions",
+        "capabilities/permissions/backend",
+        "capabilities/permissions/frontend",
+        "capabilities/permissions/tests",
+        "capabilities/permissions/docs",
+        "capabilities/users",
+        "capabilities/users/backend",
+        "capabilities/users/frontend",
+        "capabilities/users/tests",
+        "capabilities/users/docs",
+        "capabilities/roles",
+        "capabilities/roles/backend",
+        "capabilities/roles/frontend",
+        "capabilities/roles/tests",
+        "capabilities/roles/docs",
+        "capabilities/logging",
+        "capabilities/logging/backend",
+        "capabilities/logging/frontend",
+        "capabilities/logging/tests",
+        "capabilities/logging/docs",
+        "capabilities/health",
+        "capabilities/health/backend",
+        "capabilities/health/frontend",
+        "capabilities/health/tests",
+        "capabilities/health/docs",
+        "capabilities/authentication",
+        "capabilities/authentication/backend",
+        "capabilities/authentication/frontend",
+        "capabilities/authentication/tests",
+        "capabilities/authentication/docs",
+        "capabilities/search",
+        "capabilities/search/backend",
+        "capabilities/search/frontend",
+        "capabilities/search/tests",
+        "capabilities/search/docs",
+        "capabilities/audit-logs",
+        "capabilities/audit-logs/backend",
+        "capabilities/audit-logs/frontend",
+        "capabilities/audit-logs/tests",
+        "capabilities/audit-logs/docs",
+        "capabilities/reports",
+        "capabilities/reports/backend",
+        "capabilities/reports/frontend",
+        "capabilities/reports/tests",
+        "capabilities/reports/docs",
+        "capabilities/version",
+        "capabilities/version/backend",
+        "capabilities/version/frontend",
+        "capabilities/version/tests",
+        "capabilities/version/docs",
+        "capabilities/dashboard",
+        "capabilities/dashboard/backend",
+        "capabilities/dashboard/frontend",
+        "capabilities/dashboard/tests",
+        "capabilities/dashboard/docs",
+        "capabilities/notifications",
+        "capabilities/notifications/backend",
+        "capabilities/notifications/frontend",
+        "capabilities/notifications/tests",
+        "capabilities/notifications/docs",
+        "capabilities/settings",
+        "capabilities/settings/backend",
+        "capabilities/settings/frontend",
+        "capabilities/settings/tests",
+        "capabilities/settings/docs",
+        "capabilities/inventory",
+        "capabilities/inventory/backend",
+        "capabilities/inventory/frontend",
+        "capabilities/inventory/tests",
+        "capabilities/inventory/docs",
+        "capabilities/email",
+        "capabilities/email/backend",
+        "capabilities/email/frontend",
+        "capabilities/email/tests",
+        "capabilities/email/docs"
+      ],
+      "requiredFiles": [
+        "capabilities/permissions/capability.json",
+        "capabilities/permissions/backend/README.md",
+        "capabilities/permissions/frontend/README.md",
+        "capabilities/permissions/tests/README.md",
+        "capabilities/permissions/docs/README.md",
+        "capabilities/permissions/dependencies.json",
+        "capabilities/users/capability.json",
+        "capabilities/users/backend/README.md",
+        "capabilities/users/frontend/README.md",
+        "capabilities/users/tests/README.md",
+        "capabilities/users/docs/README.md",
+        "capabilities/users/dependencies.json",
+        "capabilities/roles/capability.json",
+        "capabilities/roles/backend/README.md",
+        "capabilities/roles/frontend/README.md",
+        "capabilities/roles/tests/README.md",
+        "capabilities/roles/docs/README.md",
+        "capabilities/roles/dependencies.json",
+        "capabilities/logging/capability.json",
+        "capabilities/logging/backend/README.md",
+        "capabilities/logging/frontend/README.md",
+        "capabilities/logging/tests/README.md",
+        "capabilities/logging/docs/README.md",
+        "capabilities/logging/dependencies.json",
+        "capabilities/health/capability.json",
+        "capabilities/health/backend/README.md",
+        "capabilities/health/frontend/README.md",
+        "capabilities/health/tests/README.md",
+        "capabilities/health/docs/README.md",
+        "capabilities/health/dependencies.json",
+        "capabilities/authentication/capability.json",
+        "capabilities/authentication/backend/README.md",
+        "capabilities/authentication/frontend/README.md",
+        "capabilities/authentication/tests/README.md",
+        "capabilities/authentication/docs/README.md",
+        "capabilities/authentication/dependencies.json",
+        "capabilities/search/capability.json",
+        "capabilities/search/backend/README.md",
+        "capabilities/search/frontend/README.md",
+        "capabilities/search/tests/README.md",
+        "capabilities/search/docs/README.md",
+        "capabilities/search/dependencies.json",
+        "capabilities/audit-logs/capability.json",
+        "capabilities/audit-logs/backend/README.md",
+        "capabilities/audit-logs/frontend/README.md",
+        "capabilities/audit-logs/tests/README.md",
+        "capabilities/audit-logs/docs/README.md",
+        "capabilities/audit-logs/dependencies.json",
+        "capabilities/reports/capability.json",
+        "capabilities/reports/backend/README.md",
+        "capabilities/reports/frontend/README.md",
+        "capabilities/reports/tests/README.md",
+        "capabilities/reports/docs/README.md",
+        "capabilities/reports/dependencies.json",
+        "capabilities/version/capability.json",
+        "capabilities/version/backend/README.md",
+        "capabilities/version/frontend/README.md",
+        "capabilities/version/tests/README.md",
+        "capabilities/version/docs/README.md",
+        "capabilities/version/dependencies.json",
+        "capabilities/dashboard/capability.json",
+        "capabilities/dashboard/backend/README.md",
+        "capabilities/dashboard/frontend/README.md",
+        "capabilities/dashboard/tests/README.md",
+        "capabilities/dashboard/docs/README.md",
+        "capabilities/dashboard/dependencies.json",
+        "capabilities/notifications/capability.json",
+        "capabilities/notifications/backend/README.md",
+        "capabilities/notifications/frontend/README.md",
+        "capabilities/notifications/tests/README.md",
+        "capabilities/notifications/docs/README.md",
+        "capabilities/notifications/dependencies.json",
+        "capabilities/settings/capability.json",
+        "capabilities/settings/backend/README.md",
+        "capabilities/settings/frontend/README.md",
+        "capabilities/settings/tests/README.md",
+        "capabilities/settings/docs/README.md",
+        "capabilities/settings/dependencies.json",
+        "capabilities/inventory/capability.json",
+        "capabilities/inventory/backend/README.md",
+        "capabilities/inventory/frontend/README.md",
+        "capabilities/inventory/tests/README.md",
+        "capabilities/inventory/docs/README.md",
+        "capabilities/inventory/dependencies.json",
+        "capabilities/email/capability.json",
+        "capabilities/email/backend/README.md",
+        "capabilities/email/frontend/README.md",
+        "capabilities/email/tests/README.md",
+        "capabilities/email/docs/README.md",
+        "capabilities/email/dependencies.json"
+      ]
+    },
+    "domain": {
+      "projectType": "enterprise",
+      "modules": [
+        "Authentication",
+        "Dashboard",
+        "Customers",
+        "Leads",
+        "Contacts",
+        "Companies",
+        "Sales Pipeline",
+        "Tasks",
+        "Calendar",
+        "Reports",
+        "Notifications",
+        "Settings"
+      ],
+      "entities": [
+        "User",
+        "Role",
+        "Permission",
+        "Customer",
+        "Lead",
+        "Contact",
+        "Company",
+        "Opportunity",
+        "Task",
+        "Activity",
+        "Notification"
+      ],
+      "services": [
+        "Authentication Service",
+        "Customer Service",
+        "Lead Service",
+        "Contact Service",
+        "Reporting Service",
+        "Notification Service"
+      ],
+      "apis": [
+        "/auth",
+        "/users",
+        "/customers",
+        "/leads",
+        "/contacts",
+        "/companies",
+        "/tasks",
+        "/reports"
+      ],
+      "workflows": [
+        "Lead Qualification",
+        "Customer Onboarding",
+        "Sales Opportunity",
+        "Task Assignment",
+        "Customer Follow-up",
+        "Reporting"
+      ],
+      "capabilities": [
+        "permissions",
+        "users",
+        "roles",
+        "logging",
+        "health",
+        "authentication",
+        "search",
+        "audit-logs",
+        "reports",
+        "version",
+        "dashboard",
+        "notifications",
+        "settings",
+        "inventory",
+        "email"
+      ]
+    }
+  },
+  "stackMetadata": {
+    "backend": {
+      "framework": "FastAPI",
+      "runtime": "Python",
+      "packageManager": "pip",
+      "buildCommand": "python -m compileall backend"
+    },
+    "frontend": {
+      "framework": "React 19",
+      "runtime": "Node.js",
+      "packageManager": "npm",
+      "buildCommand": "npm run build"
+    }
+  },
+  "requiredFiles": [
+    "backend/requirements.txt",
+    "backend/Dockerfile",
+    "backend/.env.example",
+    "backend/README.md",
+    "backend/alembic.ini",
+    "backend/app/__init__.py",
+    "backend/app/main.py",
+    "backend/app/config.py",
+    "backend/app/database.py",
+    "backend/app/dependencies.py",
+    "backend/app/logging_config.py",
+    "backend/app/security.py",
+    "backend/app/version.py",
+    "backend/app/routers/__init__.py",
+    "backend/app/routers/health.py",
+    "backend/app/routers/auth.py",
+    "backend/app/routers/customers.py",
+    "backend/app/routers/crm.py",
+    "backend/app/models/__init__.py",
+    "backend/app/models/crm.py",
+    "backend/app/schemas/__init__.py",
+    "backend/app/schemas/crm.py",
+    "backend/app/services/__init__.py",
+    "backend/app/services/crm_service.py",
+    "backend/app/repositories/__init__.py",
+    "backend/app/repositories/crm_repository.py",
+    "backend/alembic/env.py",
+    "backend/alembic/versions/0001_initial.py",
+    "backend/scripts/migrate.py",
+    "backend/tests/test_health.py",
+    "backend/tests/test_auth.py",
+    "backend/tests/test_customers.py",
+    "backend/pytest.py",
+    "capabilities/index.json",
+    "capabilities/README.md",
+    "frontend/package.json",
+    "frontend/vite.config.js",
+    "frontend/index.html",
+    "frontend/README.md",
+    "frontend/.env.example",
+    "frontend/Dockerfile",
+    "frontend/src/main.jsx",
+    "frontend/src/App.jsx",
+    "frontend/src/pages/Login.jsx",
+    "frontend/src/pages/Dashboard.jsx",
+    "frontend/src/pages/Customers.jsx",
+    "frontend/src/pages/CustomerDetails.jsx",
+    "frontend/src/layouts/MainLayout.jsx",
+    "frontend/src/services/api.js",
+    "frontend/src/contexts/AuthContext.jsx",
+    "frontend/tests/smoke.mjs",
+    "capabilities/permissions/capability.json",
+    "capabilities/permissions/backend/README.md",
+    "capabilities/permissions/frontend/README.md",
+    "capabilities/permissions/tests/README.md",
+    "capabilities/permissions/docs/README.md",
+    "capabilities/permissions/dependencies.json",
+    "capabilities/users/capability.json",
+    "capabilities/users/backend/README.md",
+    "capabilities/users/frontend/README.md",
+    "capabilities/users/tests/README.md",
+    "capabilities/users/docs/README.md",
+    "capabilities/users/dependencies.json",
+    "capabilities/roles/capability.json",
+    "capabilities/roles/backend/README.md",
+    "capabilities/roles/frontend/README.md",
+    "capabilities/roles/tests/README.md",
+    "capabilities/roles/docs/README.md",
+    "capabilities/roles/dependencies.json",
+    "capabilities/logging/capability.json",
+    "capabilities/logging/backend/README.md",
+    "capabilities/logging/frontend/README.md",
+    "capabilities/logging/tests/README.md",
+    "capabilities/logging/docs/README.md",
+    "capabilities/logging/dependencies.json",
+    "capabilities/health/capability.json",
+    "capabilities/health/backend/README.md",
+    "capabilities/health/frontend/README.md",
+    "capabilities/health/tests/README.md",
+    "capabilities/health/docs/README.md",
+    "capabilities/health/dependencies.json",
+    "capabilities/authentication/capability.json",
+    "capabilities/authentication/backend/README.md",
+    "capabilities/authentication/frontend/README.md",
+    "capabilities/authentication/tests/README.md",
+    "capabilities/authentication/docs/README.md",
+    "capabilities/authentication/dependencies.json",
+    "capabilities/search/capability.json",
+    "capabilities/search/backend/README.md",
+    "capabilities/search/frontend/README.md",
+    "capabilities/search/tests/README.md",
+    "capabilities/search/docs/README.md",
+    "capabilities/search/dependencies.json",
+    "capabilities/audit-logs/capability.json",
+    "capabilities/audit-logs/backend/README.md",
+    "capabilities/audit-logs/frontend/README.md",
+    "capabilities/audit-logs/tests/README.md",
+    "capabilities/audit-logs/docs/README.md",
+    "capabilities/audit-logs/dependencies.json",
+    "capabilities/reports/capability.json",
+    "capabilities/reports/backend/README.md",
+    "capabilities/reports/frontend/README.md",
+    "capabilities/reports/tests/README.md",
+    "capabilities/reports/docs/README.md",
+    "capabilities/reports/dependencies.json",
+    "capabilities/version/capability.json",
+    "capabilities/version/backend/README.md",
+    "capabilities/version/frontend/README.md",
+    "capabilities/version/tests/README.md",
+    "capabilities/version/docs/README.md",
+    "capabilities/version/dependencies.json",
+    "capabilities/dashboard/capability.json",
+    "capabilities/dashboard/backend/README.md",
+    "capabilities/dashboard/frontend/README.md",
+    "capabilities/dashboard/tests/README.md",
+    "capabilities/dashboard/docs/README.md",
+    "capabilities/dashboard/dependencies.json",
+    "capabilities/notifications/capability.json",
+    "capabilities/notifications/backend/README.md",
+    "capabilities/notifications/frontend/README.md",
+    "capabilities/notifications/tests/README.md",
+    "capabilities/notifications/docs/README.md",
+    "capabilities/notifications/dependencies.json",
+    "capabilities/settings/capability.json",
+    "capabilities/settings/backend/README.md",
+    "capabilities/settings/frontend/README.md",
+    "capabilities/settings/tests/README.md",
+    "capabilities/settings/docs/README.md",
+    "capabilities/settings/dependencies.json",
+    "capabilities/inventory/capability.json",
+    "capabilities/inventory/backend/README.md",
+    "capabilities/inventory/frontend/README.md",
+    "capabilities/inventory/tests/README.md",
+    "capabilities/inventory/docs/README.md",
+    "capabilities/inventory/dependencies.json",
+    "capabilities/email/capability.json",
+    "capabilities/email/backend/README.md",
+    "capabilities/email/frontend/README.md",
+    "capabilities/email/tests/README.md",
+    "capabilities/email/docs/README.md",
+    "capabilities/email/dependencies.json"
+  ],
+  "directories": [
+    "backend",
+    "backend/app",
+    "backend/app/routers",
+    "backend/app/models",
+    "backend/app/schemas",
+    "backend/app/services",
+    "backend/app/repositories",
+    "backend/alembic",
+    "backend/alembic/versions",
+    "backend/scripts",
+    "backend/tests",
+    "capabilities",
+    "frontend",
+    "frontend/public",
+    "frontend/src",
+    "frontend/src/pages",
+    "frontend/src/components",
+    "frontend/src/layouts",
+    "frontend/src/hooks",
+    "frontend/src/services",
+    "frontend/src/contexts",
+    "frontend/src/assets",
+    "frontend/tests",
+    "capabilities/permissions",
+    "capabilities/permissions/backend",
+    "capabilities/permissions/frontend",
+    "capabilities/permissions/tests",
+    "capabilities/permissions/docs",
+    "capabilities/users",
+    "capabilities/users/backend",
+    "capabilities/users/frontend",
+    "capabilities/users/tests",
+    "capabilities/users/docs",
+    "capabilities/roles",
+    "capabilities/roles/backend",
+    "capabilities/roles/frontend",
+    "capabilities/roles/tests",
+    "capabilities/roles/docs",
+    "capabilities/logging",
+    "capabilities/logging/backend",
+    "capabilities/logging/frontend",
+    "capabilities/logging/tests",
+    "capabilities/logging/docs",
+    "capabilities/health",
+    "capabilities/health/backend",
+    "capabilities/health/frontend",
+    "capabilities/health/tests",
+    "capabilities/health/docs",
+    "capabilities/authentication",
+    "capabilities/authentication/backend",
+    "capabilities/authentication/frontend",
+    "capabilities/authentication/tests",
+    "capabilities/authentication/docs",
+    "capabilities/search",
+    "capabilities/search/backend",
+    "capabilities/search/frontend",
+    "capabilities/search/tests",
+    "capabilities/search/docs",
+    "capabilities/audit-logs",
+    "capabilities/audit-logs/backend",
+    "capabilities/audit-logs/frontend",
+    "capabilities/audit-logs/tests",
+    "capabilities/audit-logs/docs",
+    "capabilities/reports",
+    "capabilities/reports/backend",
+    "capabilities/reports/frontend",
+    "capabilities/reports/tests",
+    "capabilities/reports/docs",
+    "capabilities/version",
+    "capabilities/version/backend",
+    "capabilities/version/frontend",
+    "capabilities/version/tests",
+    "capabilities/version/docs",
+    "capabilities/dashboard",
+    "capabilities/dashboard/backend",
+    "capabilities/dashboard/frontend",
+    "capabilities/dashboard/tests",
+    "capabilities/dashboard/docs",
+    "capabilities/notifications",
+    "capabilities/notifications/backend",
+    "capabilities/notifications/frontend",
+    "capabilities/notifications/tests",
+    "capabilities/notifications/docs",
+    "capabilities/settings",
+    "capabilities/settings/backend",
+    "capabilities/settings/frontend",
+    "capabilities/settings/tests",
+    "capabilities/settings/docs",
+    "capabilities/inventory",
+    "capabilities/inventory/backend",
+    "capabilities/inventory/frontend",
+    "capabilities/inventory/tests",
+    "capabilities/inventory/docs",
+    "capabilities/email",
+    "capabilities/email/backend",
+    "capabilities/email/frontend",
+    "capabilities/email/tests",
+    "capabilities/email/docs"
+  ],
+  "businessModules": {
+    "projectType": "enterprise",
+    "modules": [
+      "Authentication",
+      "Dashboard",
+      "Customers",
+      "Leads",
+      "Contacts",
+      "Companies",
+      "Sales Pipeline",
+      "Tasks",
+      "Calendar",
+      "Reports",
+      "Notifications",
+      "Settings"
+    ],
+    "entities": [
+      "User",
+      "Role",
+      "Permission",
+      "Customer",
+      "Lead",
+      "Contact",
+      "Company",
+      "Opportunity",
+      "Task",
+      "Activity",
+      "Notification"
+    ],
+    "services": [
+      "Authentication Service",
+      "Customer Service",
+      "Lead Service",
+      "Contact Service",
+      "Reporting Service",
+      "Notification Service"
+    ],
+    "apis": [
+      "/auth",
+      "/users",
+      "/customers",
+      "/leads",
+      "/contacts",
+      "/companies",
+      "/tasks",
+      "/reports"
+    ],
+    "workflows": [
+      "Lead Qualification",
+      "Customer Onboarding",
+      "Sales Opportunity",
+      "Task Assignment",
+      "Customer Follow-up",
+      "Reporting"
+    ],
+    "capabilities": [
+      "permissions",
+      "users",
+      "roles",
+      "logging",
+      "health",
+      "authentication",
+      "search",
+      "audit-logs",
+      "reports",
+      "version",
+      "dashboard",
+      "notifications",
+      "settings",
+      "inventory",
+      "email"
+    ]
+  },
+  "capabilities": [
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "permissions",
+      "description": "Central permission definitions for application access control.",
+      "dependencies": [],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "role gating",
+          "route guards"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/permissions"
+        ]
+      },
+      "routes": [
+        "/permissions"
+      ],
+      "permissions": [
+        "permissions:read",
+        "permissions:write"
+      ],
+      "database": [
+        "permissions",
+        "permission_assignments"
+      ],
+      "events": [
+        "permissions.updated"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "users",
+      "description": "User identity, profile, and account management capability.",
+      "dependencies": [
+        "permissions"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "user profile",
+          "user administration"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/users"
+        ]
+      },
+      "routes": [
+        "/users"
+      ],
+      "permissions": [
+        "users:read",
+        "users:write"
+      ],
+      "database": [
+        "users"
+      ],
+      "events": [
+        "users.created",
+        "users.updated"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "roles",
+      "description": "Role assignment and authorization group capability.",
+      "dependencies": [
+        "permissions"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "role management"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/roles"
+        ]
+      },
+      "routes": [
+        "/roles"
+      ],
+      "permissions": [
+        "roles:read",
+        "roles:write"
+      ],
+      "database": [
+        "roles",
+        "role_permissions"
+      ],
+      "events": [
+        "roles.updated"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "logging",
+      "description": "Structured request and application logging capability.",
+      "dependencies": [],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "observability panels"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/logs"
+        ]
+      },
+      "routes": [
+        "/logs"
+      ],
+      "permissions": [
+        "logs:read"
+      ],
+      "database": [
+        "log_entries"
+      ],
+      "events": [
+        "logs.emitted"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "health",
+      "description": "Service health checks and readiness validation capability.",
+      "dependencies": [],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "service health view"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/health"
+        ]
+      },
+      "routes": [
+        "/health",
+        "/ready"
+      ],
+      "permissions": [
+        "system:read"
+      ],
+      "database": [
+        "health_checks"
+      ],
+      "events": [
+        "health.checked"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "authentication",
+      "description": "JWT login, token validation, and session bootstrap capability.",
+      "dependencies": [
+        "users",
+        "roles",
+        "permissions",
+        "logging",
+        "health"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "login",
+          "session hydration"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/auth/login",
+          "/auth/me"
+        ]
+      },
+      "routes": [
+        "/auth/login",
+        "/auth/me"
+      ],
+      "permissions": [
+        "auth:login",
+        "auth:read"
+      ],
+      "database": [
+        "users",
+        "sessions"
+      ],
+      "events": [
+        "auth.signed_in",
+        "auth.signed_out"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "search",
+      "description": "Cross-entity search and discovery capability.",
+      "dependencies": [
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "global search"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/search"
+        ]
+      },
+      "routes": [
+        "/search"
+      ],
+      "permissions": [
+        "search:read"
+      ],
+      "database": [
+        "search_indexes"
+      ],
+      "events": [
+        "search.executed"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "audit-logs",
+      "description": "Operational audit trail and compliance logging capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "audit viewer"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/audit-logs"
+        ]
+      },
+      "routes": [
+        "/audit-logs"
+      ],
+      "permissions": [
+        "audit:read"
+      ],
+      "database": [
+        "audit_logs"
+      ],
+      "events": [
+        "audit.logged"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "reports",
+      "description": "Operational reporting and export capability.",
+      "dependencies": [
+        "search",
+        "audit-logs",
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "reports",
+          "export center"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/reports"
+        ]
+      },
+      "routes": [
+        "/reports"
+      ],
+      "permissions": [
+        "reports:read",
+        "reports:export"
+      ],
+      "database": [
+        "report_definitions",
+        "report_runs"
+      ],
+      "events": [
+        "reports.generated"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "version",
+      "description": "Build version reporting and deployment metadata capability.",
+      "dependencies": [],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "version badge"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/version"
+        ]
+      },
+      "routes": [
+        "/version"
+      ],
+      "permissions": [
+        "system:read"
+      ],
+      "database": [
+        "releases"
+      ],
+      "events": [
+        "version.published"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "dashboard",
+      "description": "Workspace overview, KPI cards, and recent activity surface.",
+      "dependencies": [
+        "authentication",
+        "reports",
+        "health",
+        "version",
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "dashboard cards",
+          "recent activity"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/dashboard"
+        ]
+      },
+      "routes": [
+        "/dashboard",
+        "/crm/summary"
+      ],
+      "permissions": [
+        "dashboard:read"
+      ],
+      "database": [
+        "dashboards",
+        "dashboard_widgets"
+      ],
+      "events": [
+        "dashboard.refreshed"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "notifications",
+      "description": "Notification delivery and activity alert capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "notification center",
+          "toast alerts"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/notifications"
+        ]
+      },
+      "routes": [
+        "/notifications"
+      ],
+      "permissions": [
+        "notifications:read",
+        "notifications:write"
+      ],
+      "database": [
+        "notifications"
+      ],
+      "events": [
+        "notifications.queued",
+        "notifications.delivered"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "settings",
+      "description": "Application settings and tenant configuration capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "logging"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "settings forms"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/settings"
+        ]
+      },
+      "routes": [
+        "/settings"
+      ],
+      "permissions": [
+        "settings:read",
+        "settings:write"
+      ],
+      "database": [
+        "settings"
+      ],
+      "events": [
+        "settings.updated"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "inventory",
+      "description": "Inventory control, stock movement, and stock valuation capability.",
+      "dependencies": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "reports",
+        "notifications",
+        "search",
+        "settings"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "stock ledger",
+          "reorder alerts",
+          "warehouse dashboard"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/inventory"
+        ]
+      },
+      "routes": [
+        "/inventory"
+      ],
+      "permissions": [
+        "inventory:read",
+        "inventory:write"
+      ],
+      "database": [
+        "stock_items",
+        "stock_moves",
+        "warehouses"
+      ],
+      "events": [
+        "inventory.stock.updated",
+        "inventory.reorder.triggered"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "compatibility": {
+        "frontend": [
+          "React 19",
+          "React + Vite"
+        ],
+        "backend": "FastAPI",
+        "database": "PostgreSQL"
+      },
+      "aliases": [],
+      "name": "email",
+      "description": "Transactional email composition and delivery capability.",
+      "dependencies": [
+        "authentication",
+        "users"
+      ],
+      "frontend": {
+        "framework": "React + Vite",
+        "modules": [
+          "email templates",
+          "delivery queue"
+        ]
+      },
+      "backend": {
+        "framework": "FastAPI",
+        "routes": [
+          "/email"
+        ]
+      },
+      "routes": [
+        "/email"
+      ],
+      "permissions": [
+        "email:send"
+      ],
+      "database": [
+        "email_messages"
+      ],
+      "events": [
+        "email.queued",
+        "email.sent"
+      ]
+    }
+  ],
+  "capabilityRegistry": {
+    "totalCapabilities": 25,
+    "selectedCapabilities": [
+      "permissions",
+      "users",
+      "roles",
+      "logging",
+      "health",
+      "authentication",
+      "search",
+      "audit-logs",
+      "reports",
+      "version",
+      "dashboard",
+      "notifications",
+      "settings",
+      "inventory",
+      "email"
+    ]
+  },
+  "applicationAssembly": {
+    "assemblyId": "CA-1787564035911",
+    "projectId": "manufacturing-platform",
+    "recommendedCapabilities": [
+      "authentication",
+      "users",
+      "roles",
+      "permissions",
+      "dashboard",
+      "inventory",
+      "reports",
+      "notifications",
+      "audit-logs",
+      "email",
+      "settings",
+      "search",
+      "health",
+      "version",
+      "logging"
+    ],
+    "selectedCapabilities": [
+      "permissions",
+      "users",
+      "roles",
+      "logging",
+      "health",
+      "authentication",
+      "search",
+      "audit-logs",
+      "reports",
+      "version",
+      "dashboard",
+      "notifications",
+      "settings",
+      "inventory",
+      "email"
+    ],
+    "capabilities": [
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "permissions",
+        "description": "Central permission definitions for application access control.",
+        "dependencies": [],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "role gating",
+            "route guards"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/permissions"
+          ]
+        },
+        "routes": [
+          "/permissions"
+        ],
+        "permissions": [
+          "permissions:read",
+          "permissions:write"
+        ],
+        "database": [
+          "permissions",
+          "permission_assignments"
+        ],
+        "events": [
+          "permissions.updated"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "users",
+        "description": "User identity, profile, and account management capability.",
+        "dependencies": [
+          "permissions"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "user profile",
+            "user administration"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/users"
+          ]
+        },
+        "routes": [
+          "/users"
+        ],
+        "permissions": [
+          "users:read",
+          "users:write"
+        ],
+        "database": [
+          "users"
+        ],
+        "events": [
+          "users.created",
+          "users.updated"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "roles",
+        "description": "Role assignment and authorization group capability.",
+        "dependencies": [
+          "permissions"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "role management"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/roles"
+          ]
+        },
+        "routes": [
+          "/roles"
+        ],
+        "permissions": [
+          "roles:read",
+          "roles:write"
+        ],
+        "database": [
+          "roles",
+          "role_permissions"
+        ],
+        "events": [
+          "roles.updated"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "logging",
+        "description": "Structured request and application logging capability.",
+        "dependencies": [],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "observability panels"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/logs"
+          ]
+        },
+        "routes": [
+          "/logs"
+        ],
+        "permissions": [
+          "logs:read"
+        ],
+        "database": [
+          "log_entries"
+        ],
+        "events": [
+          "logs.emitted"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "health",
+        "description": "Service health checks and readiness validation capability.",
+        "dependencies": [],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "service health view"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/health"
+          ]
+        },
+        "routes": [
+          "/health",
+          "/ready"
+        ],
+        "permissions": [
+          "system:read"
+        ],
+        "database": [
+          "health_checks"
+        ],
+        "events": [
+          "health.checked"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "authentication",
+        "description": "JWT login, token validation, and session bootstrap capability.",
+        "dependencies": [
+          "users",
+          "roles",
+          "permissions",
+          "logging",
+          "health"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "login",
+            "session hydration"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/auth/login",
+            "/auth/me"
+          ]
+        },
+        "routes": [
+          "/auth/login",
+          "/auth/me"
+        ],
+        "permissions": [
+          "auth:login",
+          "auth:read"
+        ],
+        "database": [
+          "users",
+          "sessions"
+        ],
+        "events": [
+          "auth.signed_in",
+          "auth.signed_out"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "search",
+        "description": "Cross-entity search and discovery capability.",
+        "dependencies": [
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "global search"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/search"
+          ]
+        },
+        "routes": [
+          "/search"
+        ],
+        "permissions": [
+          "search:read"
+        ],
+        "database": [
+          "search_indexes"
+        ],
+        "events": [
+          "search.executed"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "audit-logs",
+        "description": "Operational audit trail and compliance logging capability.",
+        "dependencies": [
+          "authentication",
+          "users",
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "audit viewer"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/audit-logs"
+          ]
+        },
+        "routes": [
+          "/audit-logs"
+        ],
+        "permissions": [
+          "audit:read"
+        ],
+        "database": [
+          "audit_logs"
+        ],
+        "events": [
+          "audit.logged"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "reports",
+        "description": "Operational reporting and export capability.",
+        "dependencies": [
+          "search",
+          "audit-logs",
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "reports",
+            "export center"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/reports"
+          ]
+        },
+        "routes": [
+          "/reports"
+        ],
+        "permissions": [
+          "reports:read",
+          "reports:export"
+        ],
+        "database": [
+          "report_definitions",
+          "report_runs"
+        ],
+        "events": [
+          "reports.generated"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "version",
+        "description": "Build version reporting and deployment metadata capability.",
+        "dependencies": [],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "version badge"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/version"
+          ]
+        },
+        "routes": [
+          "/version"
+        ],
+        "permissions": [
+          "system:read"
+        ],
+        "database": [
+          "releases"
+        ],
+        "events": [
+          "version.published"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "dashboard",
+        "description": "Workspace overview, KPI cards, and recent activity surface.",
+        "dependencies": [
+          "authentication",
+          "reports",
+          "health",
+          "version",
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "dashboard cards",
+            "recent activity"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/dashboard"
+          ]
+        },
+        "routes": [
+          "/dashboard",
+          "/crm/summary"
+        ],
+        "permissions": [
+          "dashboard:read"
+        ],
+        "database": [
+          "dashboards",
+          "dashboard_widgets"
+        ],
+        "events": [
+          "dashboard.refreshed"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "notifications",
+        "description": "Notification delivery and activity alert capability.",
+        "dependencies": [
+          "authentication",
+          "users",
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "notification center",
+            "toast alerts"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/notifications"
+          ]
+        },
+        "routes": [
+          "/notifications"
+        ],
+        "permissions": [
+          "notifications:read",
+          "notifications:write"
+        ],
+        "database": [
+          "notifications"
+        ],
+        "events": [
+          "notifications.queued",
+          "notifications.delivered"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "settings",
+        "description": "Application settings and tenant configuration capability.",
+        "dependencies": [
+          "authentication",
+          "users",
+          "logging"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "settings forms"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/settings"
+          ]
+        },
+        "routes": [
+          "/settings"
+        ],
+        "permissions": [
+          "settings:read",
+          "settings:write"
+        ],
+        "database": [
+          "settings"
+        ],
+        "events": [
+          "settings.updated"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "inventory",
+        "description": "Inventory control, stock movement, and stock valuation capability.",
+        "dependencies": [
+          "authentication",
+          "users",
+          "roles",
+          "permissions",
+          "dashboard",
+          "reports",
+          "notifications",
+          "search",
+          "settings"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "stock ledger",
+            "reorder alerts",
+            "warehouse dashboard"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/inventory"
+          ]
+        },
+        "routes": [
+          "/inventory"
+        ],
+        "permissions": [
+          "inventory:read",
+          "inventory:write"
+        ],
+        "database": [
+          "stock_items",
+          "stock_moves",
+          "warehouses"
+        ],
+        "events": [
+          "inventory.stock.updated",
+          "inventory.reorder.triggered"
+        ]
+      },
+      {
+        "version": "1.0.0",
+        "compatibility": {
+          "frontend": [
+            "React 19",
+            "React + Vite"
+          ],
+          "backend": "FastAPI",
+          "database": "PostgreSQL"
+        },
+        "aliases": [],
+        "name": "email",
+        "description": "Transactional email composition and delivery capability.",
+        "dependencies": [
+          "authentication",
+          "users"
+        ],
+        "frontend": {
+          "framework": "React + Vite",
+          "modules": [
+            "email templates",
+            "delivery queue"
+          ]
+        },
+        "backend": {
+          "framework": "FastAPI",
+          "routes": [
+            "/email"
+          ]
+        },
+        "routes": [
+          "/email"
+        ],
+        "permissions": [
+          "email:send"
+        ],
+        "database": [
+          "email_messages"
+        ],
+        "events": [
+          "email.queued",
+          "email.sent"
+        ]
+      }
+    ],
+    "capabilityPaths": [
+      "capabilities/permissions",
+      "capabilities/users",
+      "capabilities/roles",
+      "capabilities/logging",
+      "capabilities/health",
+      "capabilities/authentication",
+      "capabilities/search",
+      "capabilities/audit-logs",
+      "capabilities/reports",
+      "capabilities/version",
+      "capabilities/dashboard",
+      "capabilities/notifications",
+      "capabilities/settings",
+      "capabilities/inventory",
+      "capabilities/email"
+    ],
+    "dependencies": [
+      "permissions",
+      "users",
+      "roles",
+      "logging",
+      "health",
+      "authentication",
+      "search",
+      "audit-logs",
+      "reports",
+      "version",
+      "dashboard",
+      "notifications",
+      "settings"
+    ],
+    "stackMetadata": {
+      "frontend": "React 19",
+      "backend": "FastAPI",
+      "database": "PostgreSQL"
+    },
+    "directories": [
+      "capabilities",
+      "capabilities/permissions",
+      "capabilities/users",
+      "capabilities/roles",
+      "capabilities/logging",
+      "capabilities/health",
+      "capabilities/authentication",
+      "capabilities/search",
+      "capabilities/audit-logs",
+      "capabilities/reports",
+      "capabilities/version",
+      "capabilities/dashboard",
+      "capabilities/notifications",
+      "capabilities/settings",
+      "capabilities/inventory",
+      "capabilities/email",
+      "capabilities/permissions/backend",
+      "capabilities/permissions/frontend",
+      "capabilities/permissions/tests",
+      "capabilities/permissions/docs",
+      "capabilities/users/backend",
+      "capabilities/users/frontend",
+      "capabilities/users/tests",
+      "capabilities/users/docs",
+      "capabilities/roles/backend",
+      "capabilities/roles/frontend",
+      "capabilities/roles/tests",
+      "capabilities/roles/docs",
+      "capabilities/logging/backend",
+      "capabilities/logging/frontend",
+      "capabilities/logging/tests",
+      "capabilities/logging/docs",
+      "capabilities/health/backend",
+      "capabilities/health/frontend",
+      "capabilities/health/tests",
+      "capabilities/health/docs",
+      "capabilities/authentication/backend",
+      "capabilities/authentication/frontend",
+      "capabilities/authentication/tests",
+      "capabilities/authentication/docs",
+      "capabilities/search/backend",
+      "capabilities/search/frontend",
+      "capabilities/search/tests",
+      "capabilities/search/docs",
+      "capabilities/audit-logs/backend",
+      "capabilities/audit-logs/frontend",
+      "capabilities/audit-logs/tests",
+      "capabilities/audit-logs/docs",
+      "capabilities/reports/backend",
+      "capabilities/reports/frontend",
+      "capabilities/reports/tests",
+      "capabilities/reports/docs",
+      "capabilities/version/backend",
+      "capabilities/version/frontend",
+      "capabilities/version/tests",
+      "capabilities/version/docs",
+      "capabilities/dashboard/backend",
+      "capabilities/dashboard/frontend",
+      "capabilities/dashboard/tests",
+      "capabilities/dashboard/docs",
+      "capabilities/notifications/backend",
+      "capabilities/notifications/frontend",
+      "capabilities/notifications/tests",
+      "capabilities/notifications/docs",
+      "capabilities/settings/backend",
+      "capabilities/settings/frontend",
+      "capabilities/settings/tests",
+      "capabilities/settings/docs",
+      "capabilities/inventory/backend",
+      "capabilities/inventory/frontend",
+      "capabilities/inventory/tests",
+      "capabilities/inventory/docs",
+      "capabilities/email/backend",
+      "capabilities/email/frontend",
+      "capabilities/email/tests",
+      "capabilities/email/docs"
+    ],
+    "requiredFiles": [
+      "capabilities/index.json",
+      "capabilities/README.md",
+      "capabilities/permissions/capability.json",
+      "capabilities/permissions/backend/README.md",
+      "capabilities/permissions/frontend/README.md",
+      "capabilities/permissions/tests/README.md",
+      "capabilities/permissions/docs/README.md",
+      "capabilities/permissions/dependencies.json",
+      "capabilities/users/capability.json",
+      "capabilities/users/backend/README.md",
+      "capabilities/users/frontend/README.md",
+      "capabilities/users/tests/README.md",
+      "capabilities/users/docs/README.md",
+      "capabilities/users/dependencies.json",
+      "capabilities/roles/capability.json",
+      "capabilities/roles/backend/README.md",
+      "capabilities/roles/frontend/README.md",
+      "capabilities/roles/tests/README.md",
+      "capabilities/roles/docs/README.md",
+      "capabilities/roles/dependencies.json",
+      "capabilities/logging/capability.json",
+      "capabilities/logging/backend/README.md",
+      "capabilities/logging/frontend/README.md",
+      "capabilities/logging/tests/README.md",
+      "capabilities/logging/docs/README.md",
+      "capabilities/logging/dependencies.json",
+      "capabilities/health/capability.json",
+      "capabilities/health/backend/README.md",
+      "capabilities/health/frontend/README.md",
+      "capabilities/health/tests/README.md",
+      "capabilities/health/docs/README.md",
+      "capabilities/health/dependencies.json",
+      "capabilities/authentication/capability.json",
+      "capabilities/authentication/backend/README.md",
+      "capabilities/authentication/frontend/README.md",
+      "capabilities/authentication/tests/README.md",
+      "capabilities/authentication/docs/README.md",
+      "capabilities/authentication/dependencies.json",
+      "capabilities/search/capability.json",
+      "capabilities/search/backend/README.md",
+      "capabilities/search/frontend/README.md",
+      "capabilities/search/tests/README.md",
+      "capabilities/search/docs/README.md",
+      "capabilities/search/dependencies.json",
+      "capabilities/audit-logs/capability.json",
+      "capabilities/audit-logs/backend/README.md",
+      "capabilities/audit-logs/frontend/README.md",
+      "capabilities/audit-logs/tests/README.md",
+      "capabilities/audit-logs/docs/README.md",
+      "capabilities/audit-logs/dependencies.json",
+      "capabilities/reports/capability.json",
+      "capabilities/reports/backend/README.md",
+      "capabilities/reports/frontend/README.md",
+      "capabilities/reports/tests/README.md",
+      "capabilities/reports/docs/README.md",
+      "capabilities/reports/dependencies.json",
+      "capabilities/version/capability.json",
+      "capabilities/version/backend/README.md",
+      "capabilities/version/frontend/README.md",
+      "capabilities/version/tests/README.md",
+      "capabilities/version/docs/README.md",
+      "capabilities/version/dependencies.json",
+      "capabilities/dashboard/capability.json",
+      "capabilities/dashboard/backend/README.md",
+      "capabilities/dashboard/frontend/README.md",
+      "capabilities/dashboard/tests/README.md",
+      "capabilities/dashboard/docs/README.md",
+      "capabilities/dashboard/dependencies.json",
+      "capabilities/notifications/capability.json",
+      "capabilities/notifications/backend/README.md",
+      "capabilities/notifications/frontend/README.md",
+      "capabilities/notifications/tests/README.md",
+      "capabilities/notifications/docs/README.md",
+      "capabilities/notifications/dependencies.json",
+      "capabilities/settings/capability.json",
+      "capabilities/settings/backend/README.md",
+      "capabilities/settings/frontend/README.md",
+      "capabilities/settings/tests/README.md",
+      "capabilities/settings/docs/README.md",
+      "capabilities/settings/dependencies.json",
+      "capabilities/inventory/capability.json",
+      "capabilities/inventory/backend/README.md",
+      "capabilities/inventory/frontend/README.md",
+      "capabilities/inventory/tests/README.md",
+      "capabilities/inventory/docs/README.md",
+      "capabilities/inventory/dependencies.json",
+      "capabilities/email/capability.json",
+      "capabilities/email/backend/README.md",
+      "capabilities/email/frontend/README.md",
+      "capabilities/email/tests/README.md",
+      "capabilities/email/docs/README.md",
+      "capabilities/email/dependencies.json"
+    ],
+    "validation": {
+      "approved": true,
+      "count": 15
+    }
+  }
+}

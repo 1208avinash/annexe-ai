@@ -1,0 +1,42 @@
+{
+  "customerLanguage": "German",
+  "preferredLanguage": "German",
+  "preferredLocale": "de-DE",
+  "projectLanguage": "German",
+  "projectLocale": "de-DE",
+  "generatedApplicationDefaultLocale": "de-DE",
+  "supportedLanguages": [
+    "English",
+    "French",
+    "Spanish",
+    "German",
+    "Arabic",
+    "Hindi",
+    "Chinese",
+    "Japanese",
+    "Portuguese",
+    "Italian"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "de-DE",
+    "ar-SA",
+    "hi-IN",
+    "zh-CN",
+    "ja-JP",
+    "pt-BR",
+    "it-IT"
+  ],
+  "localizationRequired": true,
+  "culturalAdaptationRequired": true,
+  "region": "Germany",
+  "conversationLanguage": "German",
+  "direction": "ltr",
+  "runtimeSwitching": true,
+  "userPreferencePersistence": true,
+  "rtlSupport": false,
+  "source": "detector",
+  "updatedAt": "2026-08-25T07:11:54.636Z"
+}

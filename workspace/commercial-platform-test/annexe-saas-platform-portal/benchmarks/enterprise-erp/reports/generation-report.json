@@ -1,0 +1,37 @@
+{
+  "applicationType": "erp",
+  "generatedAt": "2026-08-24T07:23:21.422Z",
+  "project": {
+    "id": "enterprise-erp",
+    "name": "Enterprise ERP",
+    "outputDirectory": "D:\\annex-web\\workspace\\commercial-platform-test\\annexe-saas-platform-portal\\benchmarks\\enterprise-erp"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 173
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

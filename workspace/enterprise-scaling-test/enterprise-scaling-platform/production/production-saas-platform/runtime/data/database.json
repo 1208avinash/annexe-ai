@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "1.0.0",
+  "databaseId": "7796a318-191e-4d8c-99aa-70f48f128e8a",
+  "generatedAt": "2026-08-24T09:07:50.167Z",
+  "collections": {
+    "users": [
+      {
+        "id": "USE-1787562471156-a1fb3e71",
+        "createdAt": "2026-08-24T09:07:51.156Z",
+        "updatedAt": "2026-08-24T09:07:52.114Z",
+        "email": "admin@annexe.ai",
+        "name": "ANNEXE Admin",
+        "role": "admin",
+        "organizationId": null,
+        "status": "active",
+        "passwordHash": "b1498984d440cec2d36ca42c3ba77ae8ed217bab5b861b8308bfe377375832ade32ddc42a4fb15b4398520a220aa15ae3a679e9c35661aa9d2e475f228225a18",
+        "passwordSalt": "0bacd0f87146da9507c8e1e696470817",
+        "passwordAlgorithm": "scrypt",
+        "lastLoginAt": "2026-08-24T09:07:52.033Z"
+      }
+    ],
+    "organizations": [
+      {
+        "id": "ORG-1787562472215-6057f33e",
+        "createdAt": "2026-08-24T09:07:52.215Z",
+        "updatedAt": "2026-08-24T09:07:52.215Z",
+        "name": "ANNEXE Production SaaS",
+        "industry": "Technology",
+        "ownerUserId": "USE-1787562471156-a1fb3e71",
+        "plan": "enterprise",
+        "status": "active"
+      }
+    ],
+    "projects": [
+      {
+        "id": "PRO-1787562472219-0cad45b7",
+        "createdAt": "2026-08-24T09:07:52.219Z",
+        "updatedAt": "2026-08-24T09:07:52.219Z",
+        "organizationId": "ORG-1787562472215-6057f33e",
+        "ownerUserId": "USE-1787562471156-a1fb3e71",
+        "name": "ANNEXE Production CRM",
+        "industry": "CRM",
+        "description": "Scale ANNEXE AI for thousands of customers, organizations, and concurrent AI projects.",
+        "status": "active",
+        "billingStatus": "advance-required",
+        "progress": 5
+      }
+    ],
+    "projectReports": [],
+    "payments": [
+      {
+        "id": "PAY-1787562472232-914bcbfb",
+        "createdAt": "2026-08-24T09:07:52.232Z",
+        "updatedAt": "2026-08-24T09:07:52.232Z",
+        "projectId": "PRO-1787562472219-0cad45b7",
+        "organizationId": "ORG-1787562472215-6057f33e",
+        "invoiceId": "INV-1787562472220-ab722d",
+        "amount": 50000,
+        "currency": "USD",
+        "status": "invoiced",
+        "milestone": "invoice",
+        "gateway": "invoice"
+      },
+      {
+        "id": "PAY-1787562472237-5eb2a386",
+        "createdAt": "2026-08-24T09:07:52.237Z",
+        "updatedAt": "2026-08-24T09:07:52.237Z",
+        "projectId": "PRO-1787562472219-0cad45b7",
+        "organizationId": "ORG-1787562472215-6057f33e",
+        "invoiceId": "INV-1787562472220-ab722d",
+        "amount": 25000,
+        "currency": "USD",
+        "status": "approved",
+        "milestone": "advance",
+        "gateway": "internal-ledger"
+      }
+    ],
+    "upgrades": [
+      {
+        "id": "UPG-1787562472246-e865964f",
+        "createdAt": "2026-08-24T09:07:52.246Z",
+        "updatedAt": "2026-08-24T09:07:52.246Z",
+        "projectId": "PRO-1787562472219-0cad45b7",
+        "organizationId": "ORG-1787562472215-6057f33e",
+        "title": "Production scaling upgrade",
+        "description": "Enable autoscaling, observability, and stronger SLAs.",
+        "status": "quote-generated",
+        "advancePercent": 50,
+        "completionPercent": 50,
+        "estimate": 12000,
+        "milestones": {
+          "advanceAmount": 6000,
+          "completionAmount": 6000
+        }
+      }
+    ],
+    "auditLogs": [
+      {
+        "id": "AUD-1787562472667-b4c86c8d",
+        "createdAt": "2026-08-24T09:07:52.667Z",
+        "updatedAt": "2026-08-24T09:07:52.667Z",
+        "actorId": "USE-1787562471156-a1fb3e71",
+        "action": "platform.initialize",
+        "entityType": "platform",
+        "entityId": "D:\\annex-web\\workspace\\enterprise-scaling-test\\enterprise-scaling-platform\\production\\production-saas-platform",
+        "metadata": {
+          "requestText": "Scale ANNEXE AI for thousands of customers, organizations, and concurrent AI projects.",
+          "commercialPlatformRoot": null
+        }
+      }
+    ],
+    "events": [
+      {
+        "id": "EVE-1787562472638-fbb4409a",
+        "createdAt": "2026-08-24T09:07:52.638Z",
+        "updatedAt": "2026-08-24T09:07:52.638Z",
+        "stream": "project:PRO-1787562472219-0cad45b7",
+        "eventType": "platform.initialized",
+        "payload": {
+          "projectId": "PRO-1787562472219-0cad45b7",
+          "organizationId": "ORG-1787562472215-6057f33e",
+          "userId": "USE-1787562471156-a1fb3e71"
+        }
+      },
+      {
+        "id": "EVE-1787562472651-09ac6034",
+        "createdAt": "2026-08-24T09:07:52.651Z",
+        "updatedAt": "2026-08-24T09:07:52.651Z",
+        "stream": "notifications",
+        "eventType": "notification.created",
+        "payload": {
+          "userId": "USE-1787562471156-a1fb3e71",
+          "title": "Project update for PRO-1787562472219-0cad45b7",
+          "message": "platform.initialized",
+          "channel": "project-stream"
+        }
+      },
+      {
+        "id": "EVE-1787562472683-a3f3dc3d",
+        "createdAt": "2026-08-24T09:07:52.683Z",
+        "updatedAt": "2026-08-24T09:07:52.683Z",
+        "stream": "audit",
+        "eventType": "audit.recorded",
+        "payload": {
+          "id": "AUD-1787562472667-b4c86c8d",
+          "createdAt": "2026-08-24T09:07:52.667Z",
+          "updatedAt": "2026-08-24T09:07:52.667Z",
+          "actorId": "USE-1787562471156-a1fb3e71",
+          "action": "platform.initialize",
+          "entityType": "platform",
+          "entityId": "D:\\annex-web\\workspace\\enterprise-scaling-test\\enterprise-scaling-platform\\production\\production-saas-platform",
+          "metadata": {
+            "requestText": "Scale ANNEXE AI for thousands of customers, organizations, and concurrent AI projects.",
+            "commercialPlatformRoot": null
+          }
+        }
+      }
+    ],
+    "sessions": [
+      {
+        "id": "SES-1787562471499-48118fdf",
+        "createdAt": "2026-08-24T09:07:51.498Z",
+        "updatedAt": "2026-08-24T09:07:51.498Z",
+        "userId": "USE-1787562471156-a1fb3e71",
+        "tokenId": "0c82bdf06bf82f1f5b284187",
+        "expiresAt": "2026-08-24T17:07:51.166Z",
+        "status": "active"
+      },
+      {
+        "id": "SES-1787562472198-b71e6abd",
+        "createdAt": "2026-08-24T09:07:52.198Z",
+        "updatedAt": "2026-08-24T09:07:52.198Z",
+        "userId": "USE-1787562471156-a1fb3e71",
+        "tokenId": "6b5ebd00b0aab58da9af7b08",
+        "expiresAt": "2026-08-24T17:07:52.116Z",
+        "status": "active"
+      }
+    ]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "applicationType": "crm",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "industry": "CRM",
+  "challenge": "Need an enterprise CRM for customers, leads, and sales pipeline automation",
+  "solution": "Generate a production-ready CRM scaffold with backend, frontend, and deployment files",
+  "requirements": [
+    "Authentication",
+    "Dashboard",
+    "Customers",
+    "Leads",
+    "Reporting",
+    "Notifications",
+    "Automation"
+  ],
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm"
+  ],
+  "analysis": {
+    "requiredFeatures": [
+      "Authentication",
+      "Dashboard",
+      "Customers",
+      "Leads",
+      "Reporting",
+      "Notifications",
+      "Automation"
+    ],
+    "integrations": [],
+    "security": [
+      "Authentication",
+      "JWT",
+      "RBAC",
+      "Password hashing"
+    ],
+    "deployment": "Docker + PostgreSQL",
+    "proposal": {
+      "proposalId": "PROP-1787557681695",
+      "title": "Enterprise CRM Proposal",
+      "industry": "CRM",
+      "businessType": "Enterprise CRM",
+      "employees": null,
+      "users": [
+        "Administrators",
+        "Operational Users"
+      ],
+      "requiredFeatures": [
+        "Authentication",
+        "Dashboard",
+        "Customers",
+        "Leads",
+        "Reporting",
+        "Notifications",
+        "Automation"
+      ],
+      "integrations": [],
+      "budget": null,
+      "deployment": "Docker + PostgreSQL",
+      "security": [
+        "Authentication",
+        "JWT",
+        "RBAC",
+        "Password hashing"
+      ],
+      "recommendedCapabilities": [
+        "authentication",
+        "users",
+        "roles",
+        "permissions",
+        "dashboard",
+        "notifications",
+        "audit-logs",
+        "email",
+        "file-storage",
+        "settings",
+        "search",
+        "reports",
+        "health",
+        "version",
+        "logging",
+        "crm"
+      ],
+      "summary": ""
+    }
+  }
+}

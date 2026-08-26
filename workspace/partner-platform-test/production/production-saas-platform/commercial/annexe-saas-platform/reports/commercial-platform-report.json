@@ -1,0 +1,309 @@
+{
+  "platformRoot": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform",
+  "generatedAt": "2026-08-24T09:37:56.585Z",
+  "company": {
+    "proposal": {
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\proposal\\proposal.md",
+      "quotation": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\proposal\\quotation.json",
+      "estimate": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\proposal\\project-estimate.json"
+    },
+    "analysis": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\analysis\\business-analysis.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\analysis\\requirements.md"
+    },
+    "architecture": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\architecture\\architecture.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\architecture\\architecture.md",
+      "databaseSchema": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\architecture\\database-schema.json",
+      "apiDesign": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\architecture\\api-design.json",
+      "reportPath": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\company\\architecture\\enterprise-architecture-report.json"
+    },
+    "planning": {
+      "roadmap": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\planning\\roadmap.json",
+      "sprintPlan": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\planning\\sprint-plan.json",
+      "riskAnalysis": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\planning\\risk-analysis.json"
+    },
+    "engineering": {
+      "executionPlan": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\engineering\\engineering-plan.json",
+      "executionReport": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\engineering\\engineering-execution-report.json",
+      "reportPath": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\company\\engineering\\engineering-execution-report.json"
+    },
+    "qa": {
+      "quality": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\qa\\quality-report.json",
+      "coverage": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\qa\\coverage.json"
+    },
+    "security": {
+      "certification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\security\\security-certification-report.json"
+    },
+    "devops": {
+      "certification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\devops\\devops-operations-report.json"
+    },
+    "upgrade": {
+      "certification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json"
+    },
+    "evolution": {
+      "certification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "deployment": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\deployment\\deployment-package.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\deployment\\deployment-guide.md"
+    },
+    "delivery": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\delivery\\delivery-package.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\delivery\\delivery-summary.md"
+    },
+    "company": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company-generation-report.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company-architecture-report.md",
+      "ceo": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\ceo\\ceo-strategy-report.json",
+      "sales": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\sales\\sales-intelligence-report.json",
+      "product": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\product\\product-strategy-report.json",
+      "architecture": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\architecture\\enterprise-architecture-report.json",
+      "qa": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\qa\\quality-certification-report.json",
+      "security": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\security\\security-certification-report.json",
+      "devops": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\devops\\devops-operations-report.json",
+      "upgrade": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+      "evolution": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "repair": {
+      "json": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\repair\\repair-report.json",
+      "markdown": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\repair\\repair-report.md"
+    },
+    "ceo": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\company\\ceo\\ceo-strategy-report.json",
+    "sales": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\company\\sales\\sales-intelligence-report.json",
+    "product": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp\\reports\\company\\product\\product-strategy-report.json",
+    "qaCertification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\qa\\quality-certification-report.json",
+    "securityCertification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\security\\security-certification-report.json",
+    "devopsCertification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\devops\\devops-operations-report.json",
+    "upgradeCertification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+    "evolutionCertification": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\operations-erp-company\\reports\\company\\evolution\\software-evolution-report.json"
+  },
+  "benchmarks": {
+    "benchmarkId": "BENCH-1787564176482",
+    "generatedAt": "2026-08-24T09:36:16.482Z",
+    "totalBenchmarks": 10,
+    "successfulBenchmarks": 10,
+    "validatedBenchmarks": 10,
+    "successRate": 100,
+    "runs": [
+      {
+        "applicationType": "crm",
+        "success": true,
+        "projectId": "enterprise-crm",
+        "projectName": "Enterprise CRM",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\enterprise-crm",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 137336
+      },
+      {
+        "applicationType": "erp",
+        "success": true,
+        "projectId": "enterprise-erp",
+        "projectName": "Enterprise ERP",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\enterprise-erp",
+        "filesWritten": 173,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 183907
+      },
+      {
+        "applicationType": "hrms",
+        "success": true,
+        "projectId": "enterprise-hrms",
+        "projectName": "Enterprise HRMS",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\enterprise-hrms",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 152333
+      },
+      {
+        "applicationType": "hospital",
+        "success": true,
+        "projectId": "hospital-system",
+        "projectName": "Hospital System",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\hospital-system",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 188024
+      },
+      {
+        "applicationType": "school",
+        "success": true,
+        "projectId": "school-management",
+        "projectName": "School Management",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\school-management",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 126819
+      },
+      {
+        "applicationType": "marketplace",
+        "success": true,
+        "projectId": "marketplace-platform",
+        "projectName": "Marketplace Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\marketplace-platform",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 114335
+      },
+      {
+        "applicationType": "pos",
+        "success": true,
+        "projectId": "point-of-sale",
+        "projectName": "Point of Sale",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\point-of-sale",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 168898
+      },
+      {
+        "applicationType": "inventory",
+        "success": true,
+        "projectId": "inventory-management",
+        "projectName": "Inventory Management",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\inventory-management",
+        "filesWritten": 161,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 129306
+      },
+      {
+        "applicationType": "accounting",
+        "success": true,
+        "projectId": "accounting-platform",
+        "projectName": "Accounting Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\accounting-platform",
+        "filesWritten": 167,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 185300
+      },
+      {
+        "applicationType": "manufacturing",
+        "success": true,
+        "projectId": "manufacturing-platform",
+        "projectName": "Manufacturing Platform",
+        "outputDirectory": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\benchmarks\\manufacturing-platform",
+        "filesWritten": 161,
+        "validation": {
+          "backend": {
+            "compileall": true,
+            "pytest": true
+          },
+          "frontend": {
+            "install": true,
+            "build": true,
+            "smoke": true
+          },
+          "docker": false
+        },
+        "durationMs": 140572
+      }
+    ]
+  },
+  "customerPortal": {
+    "customerOperatingSystem": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\reports\\platform\\commercial-operating-system-report.json",
+    "commercialReadiness": "D:\\annex-web\\workspace\\partner-platform-test\\production\\production-saas-platform\\commercial\\annexe-saas-platform\\reports\\platform\\commercial-readiness-report.json"
+  },
+  "data": {
+    "projectCount": 1,
+    "reportCount": 10
+  }
+}

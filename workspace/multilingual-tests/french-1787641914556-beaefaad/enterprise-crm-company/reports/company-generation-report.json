@@ -1,0 +1,300 @@
+{
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "applicationType": "crm",
+  "generatedAt": "2026-08-25T07:13:27.375Z",
+  "outputDirectory": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company",
+  "capabilities": [
+    "authentication",
+    "users",
+    "roles",
+    "permissions",
+    "dashboard",
+    "notifications",
+    "audit-logs",
+    "email",
+    "file-storage",
+    "settings",
+    "search",
+    "reports",
+    "health",
+    "version",
+    "logging",
+    "crm",
+    "erp"
+  ],
+  "generation": {
+    "success": true,
+    "finalStatus": "completed",
+    "filesWritten": 183
+  },
+  "customerIntelligence": {
+    "classification": "REQUEST",
+    "priority": "MEDIUM",
+    "assignedDepartment": "Operations",
+    "actionPlan": [
+      "Review the request.",
+      "Assign the appropriate owner.",
+      "Respond with the next action.",
+      "Close the request after confirmation."
+    ],
+    "reportId": "CSR-1787642007234"
+  },
+  "repairIntelligence": {
+    "issueDetected": true,
+    "category": "BUG",
+    "severity": "HIGH",
+    "costEstimate": 3300,
+    "paymentGateCreated": true,
+    "reportId": "RPR-1787642007293"
+  },
+  "ceoDepartment": {
+    "marketAnalysis": true,
+    "strategy": true,
+    "financialForecast": true,
+    "riskAnalysis": true,
+    "reportId": "CEO-1787641914711",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\ceo\\ceo-strategy-report.json"
+  },
+  "salesDepartment": {
+    "leadScore": 55,
+    "customerType": "SMB",
+    "proposalGenerated": true,
+    "forecastGenerated": true,
+    "reportId": "SALES-1787641916435",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\sales\\sales-intelligence-report.json"
+  },
+  "productDepartment": {
+    "vision": "AI powered CRM platform",
+    "roadmapGenerated": true,
+    "prioritiesGenerated": 24,
+    "storiesGenerated": 24,
+    "reportId": "PRODREP-1787641916524",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\product\\product-strategy-report.json"
+  },
+  "architectureDepartment": {
+    "solutionGenerated": true,
+    "cloudGenerated": true,
+    "securityGenerated": true,
+    "databaseGenerated": true,
+    "integrationGenerated": true,
+    "scalingGenerated": true,
+    "reportId": "ARCHREP-1787641917010",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\architecture\\enterprise-architecture-report.json"
+  },
+  "engineeringDepartment": {
+    "frontendPlanGenerated": true,
+    "backendPlanGenerated": true,
+    "databasePlanGenerated": true,
+    "aiPlanGenerated": true,
+    "integrationPlanGenerated": true,
+    "reviewGenerated": true,
+    "performanceGenerated": true,
+    "reportId": "ENGREP-1787641917167",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\engineering\\engineering-execution-report.json"
+  },
+  "qaDepartment": {
+    "functionalGenerated": true,
+    "apiGenerated": true,
+    "securityGenerated": true,
+    "performanceGenerated": true,
+    "accessibilityGenerated": true,
+    "regressionGenerated": true,
+    "releaseStatus": "APPROVED",
+    "reportId": "QAREP-1787642007120",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\qa\\quality-certification-report.json"
+  },
+  "securityDepartment": {
+    "auditGenerated": true,
+    "applicationGenerated": true,
+    "dependencyGenerated": true,
+    "complianceGenerated": true,
+    "privacyGenerated": true,
+    "penetrationGenerated": true,
+    "status": "APPROVED",
+    "reportId": "SECREP-1787642007141",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\security\\security-certification-report.json"
+  },
+  "devopsDepartment": {
+    "deploymentGenerated": true,
+    "cloudOperationsGenerated": true,
+    "monitoringGenerated": true,
+    "incidentResponseGenerated": true,
+    "scalingGenerated": true,
+    "recoveryGenerated": true,
+    "optimizationGenerated": true,
+    "status": "APPROVED",
+    "reportId": "DEVOPSREP-1787642007154",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\devops\\devops-operations-report.json"
+  },
+  "upgradeDepartment": {
+    "analysisGenerated": true,
+    "impactGenerated": true,
+    "planGenerated": true,
+    "costGenerated": true,
+    "paymentGateGenerated": true,
+    "executionGenerated": true,
+    "validationGenerated": true,
+    "completionStatus": "PENDING",
+    "reportId": "UPGRADEREP-1787642007173",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json"
+  },
+  "evolutionDepartment": {
+    "technologyGenerated": true,
+    "marketGenerated": true,
+    "productGenerated": true,
+    "performanceGenerated": true,
+    "securityGenerated": true,
+    "aiGenerated": true,
+    "recommendationGenerated": true,
+    "roadmapGenerated": true,
+    "evolutionScore": 98,
+    "reportId": "EVOLREP-1787642007207",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\evolution\\software-evolution-report.json"
+  },
+  "languageDepartment": {
+    "detectedLanguage": "French",
+    "locale": "fr-FR",
+    "confidence": 0.98,
+    "projectLanguage": "French",
+    "generatedApplicationDefaultLocale": "fr-FR",
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "localizationReady": true,
+    "softwareTranslationReady": true,
+    "documentationLocalizationReady": true,
+    "reportId": "LANG-1787641914705",
+    "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\language\\language-intelligence-report.json"
+  },
+  "runtimeLanguage": {
+    "supportedLocales": [
+      "en-US",
+      "fr-FR",
+      "es-ES",
+      "de-DE",
+      "ar-SA",
+      "hi-IN",
+      "zh-CN",
+      "ja-JP",
+      "pt-BR",
+      "it-IT"
+    ],
+    "generatedDefaultLocale": "fr-FR",
+    "runtimeSwitching": true,
+    "preferencePersistence": true,
+    "rtlSupport": false,
+    "frontendLocalizationReady": true,
+    "backendLocalizationReady": true,
+    "fallbackBehavior": "English fallback available"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  },
+  "reportPaths": {
+    "proposal": {
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\proposal\\proposal.md",
+      "quotation": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\proposal\\quotation.json",
+      "estimate": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\proposal\\project-estimate.json"
+    },
+    "analysis": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\analysis\\business-analysis.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\analysis\\requirements.md"
+    },
+    "architecture": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\architecture\\architecture.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\architecture\\architecture.md",
+      "databaseSchema": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\architecture\\database-schema.json",
+      "apiDesign": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\architecture\\api-design.json",
+      "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\architecture\\enterprise-architecture-report.json"
+    },
+    "planning": {
+      "roadmap": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\planning\\roadmap.json",
+      "sprintPlan": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\planning\\sprint-plan.json",
+      "riskAnalysis": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\planning\\risk-analysis.json"
+    },
+    "engineering": {
+      "executionPlan": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\engineering\\engineering-plan.json",
+      "executionReport": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\engineering\\engineering-execution-report.json",
+      "reportPath": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\engineering\\engineering-execution-report.json"
+    },
+    "qa": {
+      "quality": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\qa\\quality-report.json",
+      "coverage": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\qa\\coverage.json"
+    },
+    "security": {
+      "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\security\\security-certification-report.json"
+    },
+    "devops": {
+      "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\devops\\devops-operations-report.json"
+    },
+    "upgrade": {
+      "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json"
+    },
+    "evolution": {
+      "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\evolution\\software-evolution-report.json"
+    },
+    "language": {
+      "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\language\\language-intelligence-report.json",
+      "memory": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\language\\language-memory.json"
+    },
+    "languagePropagation": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\platform\\language\\universal-language-propagation-report.json",
+    "runtimeLanguage": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\platform\\language\\runtime-multilingual-readiness-report.json",
+    "deployment": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\deployment\\deployment-package.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\deployment\\deployment-guide.md"
+    },
+    "delivery": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\delivery\\delivery-package.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\delivery\\delivery-summary.md"
+    },
+    "company": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company-generation-report.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company-architecture-report.md",
+      "ceo": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\ceo\\ceo-strategy-report.json",
+      "sales": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\sales\\sales-intelligence-report.json",
+      "product": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\product\\product-strategy-report.json",
+      "architecture": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\architecture\\enterprise-architecture-report.json",
+      "qa": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\qa\\quality-certification-report.json",
+      "security": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\security\\security-certification-report.json",
+      "devops": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\devops\\devops-operations-report.json",
+      "upgrade": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+      "evolution": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\evolution\\software-evolution-report.json",
+      "language": {
+        "certification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\language\\language-intelligence-report.json",
+        "memory": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\language\\language-memory.json"
+      }
+    },
+    "repair": {
+      "json": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\repair\\repair-report.json",
+      "markdown": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\repair\\repair-report.md"
+    },
+    "ceo": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\ceo\\ceo-strategy-report.json",
+    "sales": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\sales\\sales-intelligence-report.json",
+    "product": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm\\reports\\company\\product\\product-strategy-report.json",
+    "qaCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\qa\\quality-certification-report.json",
+    "securityCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\security\\security-certification-report.json",
+    "devopsCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\devops\\devops-operations-report.json",
+    "upgradeCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\upgrade\\upgrade-lifecycle-report.json",
+    "evolutionCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\evolution\\software-evolution-report.json",
+    "languageCertification": "D:\\annex-web\\workspace\\multilingual-tests\\french-1787641914556-beaefaad\\enterprise-crm-company\\reports\\company\\language\\language-intelligence-report.json"
+  }
+}

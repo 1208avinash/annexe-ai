@@ -1,0 +1,29 @@
+{
+  "queueStatus": {
+    "queueStatus": "healthy",
+    "workerStatus": {
+      "workers": 1,
+      "status": "ready"
+    },
+    "checkedAt": "2026-08-24T09:37:57.721Z"
+  },
+  "sampledJob": {
+    "jobId": "JOB-1787564277721",
+    "type": "ai-analysis",
+    "priority": "high",
+    "status": "scheduled",
+    "scheduledAt": "2026-08-24T09:37:57.721Z",
+    "payload": {
+      "requestText": "Scale ANNEXE AI for enterprise customers."
+    }
+  },
+  "backgroundJobs": [
+    "AI analysis",
+    "software generation",
+    "testing",
+    "deployment",
+    "report generation",
+    "notifications"
+  ],
+  "status": "READY"
+}

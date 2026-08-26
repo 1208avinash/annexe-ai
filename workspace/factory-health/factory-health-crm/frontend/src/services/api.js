@@ -1,3 +1,5 @@
+import { LOCALIZATION, getCurrentLocale } from "../localization/index.js";
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000";
 const TOKEN_KEY = "annexe.crm.token";
 
@@ -22,10 +24,13 @@ async function request(path, options = {}) {
   } = options;
 
   const authToken = token === undefined ? getStoredToken() : token;
+  const locale = getCurrentLocale();
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method,
     headers: {
       "Content-Type": "application/json",
+      "Accept-Language": locale,
+      "X-Locale": locale,
       ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
       ...headers
     },
@@ -34,7 +39,7 @@ async function request(path, options = {}) {
 
   const payload = await response.json().catch(() => null);
   if (!response.ok) {
-    throw new Error(payload?.detail || payload?.message || "Request failed");
+    throw new Error(payload?.detail || payload?.message || LOCALIZATION.errorMessages.network);
   }
 
   return payload;

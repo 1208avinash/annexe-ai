@@ -1,0 +1,37 @@
+{
+  "applicationType": "hospital",
+  "generatedAt": "2026-08-24T06:53:24.860Z",
+  "project": {
+    "id": "hospital-system",
+    "name": "Hospital System",
+    "outputDirectory": "D:\\annex-web\\workspace\\commercial-platform-test\\annexe-saas-platform\\benchmarks\\hospital-system"
+  },
+  "factory": {
+    "success": true,
+    "pipeline": {
+      "blueprintStatus": "completed",
+      "planStatus": "completed",
+      "workflowStatus": "completed",
+      "executionStatus": "completed",
+      "finalStatus": "completed"
+    },
+    "filesWritten": 167
+  },
+  "artifacts": {
+    "requirementsAnalysis": "requirements-analysis.json",
+    "applicationComposition": "application-composition.json",
+    "proposal": "proposal.json"
+  },
+  "validation": {
+    "backend": {
+      "compileall": true,
+      "pytest": true
+    },
+    "frontend": {
+      "install": true,
+      "build": true,
+      "smoke": true
+    },
+    "docker": false
+  }
+}

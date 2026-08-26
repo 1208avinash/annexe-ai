@@ -1,0 +1,13 @@
+{
+  "reportId": "SECREP-1787557626726",
+  "projectId": "real-estate-crm",
+  "projectName": "Real Estate CRM",
+  "securityScore": 96,
+  "status": "APPROVED",
+  "vulnerabilities": 0,
+  "compliance": "READY",
+  "privacy": "PASS",
+  "penetration": "WARN",
+  "recommendation": "DEPLOY",
+  "generatedAt": "2026-08-24T07:47:06.726Z"
+}

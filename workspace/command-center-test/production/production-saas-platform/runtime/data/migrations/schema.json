@@ -1,0 +1,393 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-08-25T02:55:12.607Z",
+  "collections": {
+    "users": {
+      "name": "users",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true,
+          "unique": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "role": {
+          "type": "string",
+          "required": true
+        },
+        "organizationId": {
+          "type": "string",
+          "required": false
+        },
+        "passwordHash": {
+          "type": "string",
+          "required": true
+        },
+        "passwordSalt": {
+          "type": "string",
+          "required": true
+        },
+        "passwordAlgorithm": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "organizations": {
+      "name": "organizations",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "industry": {
+          "type": "string",
+          "required": false
+        },
+        "ownerUserId": {
+          "type": "string",
+          "required": true
+        },
+        "plan": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "projects": {
+      "name": "projects",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "organizationId": {
+          "type": "string",
+          "required": true
+        },
+        "ownerUserId": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "industry": {
+          "type": "string",
+          "required": false
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        },
+        "billingStatus": {
+          "type": "string",
+          "required": true
+        },
+        "progress": {
+          "type": "number",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "projectReports": {
+      "name": "projectReports",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "projectId": {
+          "type": "string",
+          "required": true
+        },
+        "organizationId": {
+          "type": "string",
+          "required": true
+        },
+        "reportType": {
+          "type": "string",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "payload": {
+          "type": "object",
+          "required": true
+        }
+      }
+    },
+    "payments": {
+      "name": "payments",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "projectId": {
+          "type": "string",
+          "required": true
+        },
+        "organizationId": {
+          "type": "string",
+          "required": true
+        },
+        "invoiceId": {
+          "type": "string",
+          "required": true
+        },
+        "amount": {
+          "type": "number",
+          "required": true
+        },
+        "currency": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        },
+        "milestone": {
+          "type": "string",
+          "required": true
+        },
+        "gateway": {
+          "type": "string",
+          "required": false
+        }
+      }
+    },
+    "upgrades": {
+      "name": "upgrades",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "projectId": {
+          "type": "string",
+          "required": true
+        },
+        "organizationId": {
+          "type": "string",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        },
+        "advancePercent": {
+          "type": "number",
+          "required": true
+        },
+        "completionPercent": {
+          "type": "number",
+          "required": true
+        },
+        "estimate": {
+          "type": "number",
+          "required": false
+        },
+        "milestones": {
+          "type": "object",
+          "required": false
+        }
+      }
+    },
+    "auditLogs": {
+      "name": "auditLogs",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "actorId": {
+          "type": "string",
+          "required": false
+        },
+        "action": {
+          "type": "string",
+          "required": true
+        },
+        "entityType": {
+          "type": "string",
+          "required": true
+        },
+        "entityId": {
+          "type": "string",
+          "required": false
+        },
+        "metadata": {
+          "type": "object",
+          "required": true
+        }
+      }
+    },
+    "events": {
+      "name": "events",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "stream": {
+          "type": "string",
+          "required": true
+        },
+        "eventType": {
+          "type": "string",
+          "required": true
+        },
+        "payload": {
+          "type": "object",
+          "required": true
+        }
+      }
+    },
+    "sessions": {
+      "name": "sessions",
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        },
+        "userId": {
+          "type": "string",
+          "required": true
+        },
+        "tokenId": {
+          "type": "string",
+          "required": true
+        },
+        "expiresAt": {
+          "type": "string",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  }
+}

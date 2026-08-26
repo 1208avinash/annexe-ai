@@ -1,0 +1,14 @@
+{
+  "artifactPath": "D:\\annex-web\\workspace\\enterprise-scaling-test\\enterprise-scaling-platform\\storage\\artifacts\\enterprise-scaling\\summary.txt",
+  "storedReportPath": "D:\\annex-web\\workspace\\enterprise-scaling-test\\enterprise-scaling-platform\\reports\\platform\\enterprise-scaling-summary.json",
+  "storedBackupMirror": "D:\\annex-web\\workspace\\enterprise-scaling-test\\enterprise-scaling-platform\\storage\\backups\\enterprise-scaling-backup.json",
+  "supportedAssets": [
+    "generated applications",
+    "reports",
+    "invoices",
+    "certificates",
+    "project files",
+    "customer assets"
+  ],
+  "status": "READY"
+}

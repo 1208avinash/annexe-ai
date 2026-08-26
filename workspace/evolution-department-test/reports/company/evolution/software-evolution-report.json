@@ -1,0 +1,34 @@
+{
+  "reportId": "EVOLREP-1787553334264",
+  "projectId": "TEST-EVOL-001",
+  "projectName": "Evolution Department Test",
+  "evolutionScore": 97,
+  "softwareHealth": "EXCELLENT",
+  "technologyScore": 94,
+  "productScore": 98,
+  "performanceScore": 96,
+  "securityScore": 97,
+  "aiImprovementScore": 98,
+  "recommendedActions": 6,
+  "futureRoadmap": {
+    "immediateImprovements": [
+      "Refresh dependencies",
+      "Improve dashboard performance"
+    ],
+    "quarterlyImprovements": [
+      "Release AI workflow upgrades",
+      "Expand automation coverage"
+    ],
+    "longTermEvolution": [
+      "Continuous modernization program",
+      "Adaptive product intelligence"
+    ],
+    "nextEvolutionCycle": "READY",
+    "score": 98,
+    "status": "READY"
+  },
+  "evolutionConfidenceScore": 97,
+  "priority": "HIGH",
+  "nextEvolutionCycle": "READY",
+  "generatedAt": "2026-08-24T06:35:34.264Z"
+}

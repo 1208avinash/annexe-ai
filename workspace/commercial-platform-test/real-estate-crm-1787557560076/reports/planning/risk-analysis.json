@@ -1,0 +1,17 @@
+{
+  "riskId": "RISK-1787557626779",
+  "projectId": "real-estate-crm",
+  "generatedAt": "2026-08-24T07:47:06.779Z",
+  "riskScore": 7,
+  "decision": "reuse",
+  "risks": [
+    "Scope may expand after client review.",
+    "Deployment credentials must be configured.",
+    "Future feature growth may require additional capability modules."
+  ],
+  "mitigations": [
+    "Keep the capability composition reusable.",
+    "Maintain backend and frontend template parity.",
+    "Validate every generated workspace before delivery."
+  ]
+}

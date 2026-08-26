@@ -1,0 +1,1179 @@
+{
+  "projectId": "real-estate-crm",
+  "status": "READY_FOR_CLIENT",
+  "package": {
+    "projectSummary": {
+      "projectId": "real-estate-crm",
+      "generatedAt": "2026-08-24T07:18:38.716Z",
+      "frontend": "Not specified",
+      "backend": "Not specified",
+      "database": "Not specified",
+      "modules": [],
+      "totalGeneratedFiles": 185
+    },
+    "architectureDocument": {
+      "frontend": {
+        "framework": "Not specified",
+        "modules": []
+      },
+      "backend": {
+        "framework": "Not specified",
+        "services": []
+      },
+      "database": {
+        "engine": "Not specified",
+        "tables": []
+      },
+      "aiArchitecture": {
+        "components": []
+      },
+      "integrations": []
+    },
+    "generatedFiles": [
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\enterprise-crm.blueprint.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\requirements.txt",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\Dockerfile",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\config.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\database.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\security.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\models\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\models\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\schemas\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\schemas\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\repositories\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\repositories\\crm_repository.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\services\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\services\\crm_service.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\dependencies.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\routers\\__init__.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\routers\\health.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\routers\\auth.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\routers\\customers.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\routers\\crm.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\main.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\package.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\vite.config.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\index.html",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\public\\.gitkeep",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\scripts\\check.mjs",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\main.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\App.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\layouts\\MainLayout.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\contexts\\AuthContext.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\services\\api.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\services\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\layouts\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\contexts\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\components\\StatCard.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\components\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\pages\\Login.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\pages\\Dashboard.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\pages\\Customers.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\pages\\CustomerDetails.jsx",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\hooks\\index.js",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\assets\\.gitkeep",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\src\\styles.css",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\version.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\app\\logging_config.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\alembic.ini",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\alembic\\env.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\alembic\\versions\\0001_initial.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\scripts\\migrate.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\pytest.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\tests\\test_health.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\tests\\test_auth.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\backend\\tests\\test_customers.py",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\Dockerfile",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\docker-compose.yml",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\nginx.conf",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\.dockerignore",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\.env.example",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\.github\\workflows\\ci.yml",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\frontend\\tests\\smoke.mjs",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\index.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\permissions\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\users\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\roles\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\logging\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\health\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\authentication\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\search\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\audit-logs\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\reports\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\version\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\dashboard\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\notifications\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\email\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\file-storage\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\settings\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\crm\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\invoices\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\inventory\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\capability.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\dependencies.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\backend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\frontend\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\tests\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\capabilities\\pos\\docs\\README.md",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\reports\\project-structure.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\reports\\engineering-plan.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      },
+      {
+        "path": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-1787555696206\\enterprise-crm-summary.json",
+        "type": "file",
+        "status": "generated",
+        "sizeHint": null
+      }
+    ],
+    "testReport": {
+      "available": true,
+      "summary": "Tests completed",
+      "passed": null,
+      "failed": null,
+      "coverage": null,
+      "suites": []
+    },
+    "repositoryInfo": {
+      "available": true,
+      "repositoryUrl": null,
+      "branch": null,
+      "pullRequest": null,
+      "status": "not_available"
+    },
+    "deploymentGuide": {
+      "steps": [
+        "1. Clone the repository from the provided branch",
+        "2. Install backend dependencies (see project README)",
+        "3. Configure environment variables — database (see schema), API keys",
+        "4. Run database migrations",
+        "5. Start backend service",
+        "6. Install frontend dependencies (see project README)",
+        "7. Build and serve frontend",
+        "8. Verify all health-check endpoints",
+        "9. Review pull request and merge to main when approved"
+      ],
+      "notes": [
+        "This guide is auto-generated from factory output.",
+        "Review all environment variables before deployment.",
+        "Do not merge the pull request without human code review."
+      ]
+    }
+  },
+  "generatedAt": "2026-08-24T07:18:38.948Z"
+}

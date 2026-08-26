@@ -1,0 +1,25 @@
+{
+  "estimateId": "EST-1787641856484",
+  "projectId": "enterprise-crm",
+  "projectName": "Enterprise CRM",
+  "industry": "CRM",
+  "decision": "build",
+  "estimatedWeeks": 4,
+  "estimatedCost": 4000,
+  "currency": "USD",
+  "confidenceScore": 65,
+  "riskScore": 15,
+  "requiredAgents": [
+    "architect_agent",
+    "developer_agent"
+  ],
+  "assumptions": [
+    "Decision type 'build' applies a 100% effort multiplier.",
+    "Complexity band 'low' is based on 0 detected feature(s).",
+    "Base weekly rate: $1000 USD.",
+    "Timeline assumes a single focused development team.",
+    "Estimates exclude third-party licensing costs.",
+    "No features detected — minimum baseline estimate applied."
+  ],
+  "createdAt": "2026-08-25T07:10:56.484Z"
+}

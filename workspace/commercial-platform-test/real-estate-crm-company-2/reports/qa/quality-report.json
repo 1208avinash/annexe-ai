@@ -1,0 +1,87 @@
+{
+  "qualityId": "QA-1787554155215",
+  "projectRoot": "D:\\annex-web\\workspace\\commercial-platform-test\\real-estate-crm-company-2",
+  "generatedAt": "2026-08-24T06:49:15.215Z",
+  "backendTests": {
+    "compileall": true,
+    "pytest": true
+  },
+  "frontendTests": {
+    "install": true,
+    "build": true,
+    "smoke": true
+  },
+  "apiTests": {
+    "health": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "docs": {
+      "passed": true,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8"
+    },
+    "openapi": {
+      "passed": true,
+      "status": 200,
+      "contentType": "application/json"
+    },
+    "latencyMs": 167
+  },
+  "securityScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "security module",
+        "passed": true
+      },
+      {
+        "name": "auth router",
+        "passed": true
+      },
+      {
+        "name": "environment example",
+        "passed": true
+      }
+    ]
+  },
+  "performanceScan": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "frontend build completed",
+        "passed": true
+      },
+      {
+        "name": "api health responded",
+        "passed": true
+      }
+    ],
+    "durationMs": 7758,
+    "healthLatencyMs": 167
+  },
+  "accessibility": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "html lang attribute",
+        "passed": true
+      },
+      {
+        "name": "viewport meta tag",
+        "passed": true
+      },
+      {
+        "name": "semantic main landmark",
+        "passed": true
+      },
+      {
+        "name": "semantic section or nav",
+        "passed": true
+      }
+    ]
+  },
+  "overallStatus": "pass",
+  "durationMs": 7850
+}
