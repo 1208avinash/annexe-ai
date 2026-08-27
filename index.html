@@ -6399,9 +6399,9 @@
     const applyReactorFraming = () => {
         if (!window.__reactor) return;
         const isMobile = !!(window.__perf && window.__perf.isMobile);
-        const scale = isMobile ? 0.56 : 4.2;
-        const cameraY = isMobile ? 4.8 : 4.15;
-        const cameraZ = isMobile ? 10.6 : 8.1;
+        const scale = isMobile ? 0.7 : 6.8;
+        const cameraY = isMobile ? 4.2 : 3.25;
+        const cameraZ = isMobile ? 9.2 : 6.6;
         window.__reactor.group.scale.set(scale, scale, scale);
         window.__reactor.group.position.set(0, 0, 0);
         window.__reactor.group.rotation.set(0, 0, 0);
@@ -6638,13 +6638,13 @@
             neuralCloud.visible = false; // replaced by tighter field below
 
             // â”€â”€ PATCH 1B.1 FIX-B: reactor camera framing â”€â”€
-            camera.position.set(0, window.__perf.isMobile ? 4.8 : 4.15, window.__perf.isMobile ? 10.6 : 8.1);
+            camera.position.set(0, window.__perf.isMobile ? 4.2 : 3.25, window.__perf.isMobile ? 9.2 : 6.6);
             camera.lookAt(0, 0, 0);
 
             // â”€â”€ Reactor root group â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             reactorGroup = new THREE.Group();
             // â”€â”€ PATCH 1B.7: cinematic position â€” up and recessed â”€â”€â”€â”€â”€â”€â”€â”€
-            const reactorScale = window.__perf.isMobile ? 0.56 : 4.2;
+            const reactorScale = window.__perf.isMobile ? 0.7 : 6.8;
             reactorGroup.scale.set(reactorScale, reactorScale, reactorScale);
             reactorGroup.position.set(0, 0, 0);
             scene.add(reactorGroup);
@@ -8296,10 +8296,10 @@ chatSend.addEventListener('click', handleSendMessage);
                 // REACTOR PATH
                 const R = window.__reactor;
 
-                // Camera: keep the reactor centered with only subtle parallax
-                camera.position.x = mouseX * (window.__perf.isMobile ? 0.18 : 0.35);
-                camera.position.y = (window.__perf.isMobile ? 4.8 : 4.15) + mouseY * (window.__perf.isMobile ? 0.08 : 0.18);
-                camera.position.z = window.__perf.isMobile ? 10.6 : 8.1;
+                // Camera: keep the reactor fixed behind the headline center
+                camera.position.x = 0;
+                camera.position.y = window.__perf.isMobile ? 4.2 : 3.25;
+                camera.position.z = window.__perf.isMobile ? 9.2 : 6.6;
                 camera.lookAt(0, 0, 0);
 
                 // Nucleus rotation (same rates as original orb)
