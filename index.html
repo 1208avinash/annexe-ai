@@ -3609,6 +3609,7 @@
     <div id="hud-sweep"></div>
     <canvas id="webgl-canvas"></canvas>
     <div class="vignette"></div>
+    
     <!-- cursor glow removed -->
 
     <!-- Mobile menu overlay -->
@@ -6257,10 +6258,21 @@
     let traceMat = { color: { setHex(){} } };
     let particleMat = { color: { setHex(){} } };
 
+    const initializeNeuralCore = () => {
     try { // â† WebGL guard: decorative scene only, rest of page is independent
         if (typeof THREE === 'undefined') throw new Error('Three.js not loaded');
         // --- 1. Scene & Camera Setup ---
-        const canvas = document.querySelector('#webgl-canvas');
+        let canvas = document.querySelector('#webgl-canvas');
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'webgl-canvas';
+            const vignetteAnchor = document.querySelector('.vignette');
+            if (vignetteAnchor && vignetteAnchor.parentNode) {
+                vignetteAnchor.parentNode.insertBefore(canvas, vignetteAnchor);
+            } else {
+                document.body.prepend(canvas);
+            }
+        }
         scene = new THREE.Scene();
         // Slightly darker fog for more depth
         scene.fog = new THREE.FogExp2(0x020202, 0.02); 
@@ -6282,7 +6294,6 @@
         const maxDPR = window.__perf.isLowPower ? 1 : 2;
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
         renderer.setClearColor(0x020202, 0);
-        console.log('THREE READY');
 
         // â”€â”€ PATCH 1B.1 FIX-A: physical rendering required for glass transmission â”€â”€
         renderer.physicallyCorrectLights = true;
@@ -6438,7 +6449,6 @@
 
         neuralCloud = new THREE.Points(particleGeo, particleMat);
         scene.add(neuralCloud);
-        console.log('PARTICLES CREATED');
 
         // â”€â”€ PATCH 1B.1 â€” ANNEXE Intelligence Reactor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         // Feature flag: set false to instantly revert to PCB scene
@@ -6683,7 +6693,6 @@
                 ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
                 arcGroup, cpuLight: reactorLight
             };
-            console.log('ANNEXE CORE INITIALIZED');
 
         } // end USE_INTELLIGENCE_REACTOR
         // â”€â”€ END PATCH 1B.1 construction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -6874,6 +6883,12 @@
                 requestAnimationFrame(drawFallback);
             }
         }
+    }
+    };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeNeuralCore, { once: true });
+    } else {
+        initializeNeuralCore();
     }
     // --- STREAMING_CHUNK:Interactive Logic & Animation ---
 
@@ -8091,7 +8106,6 @@ chatSend.addEventListener('click', handleSendMessage);
             // Skip rendering when tab is hidden or page is backgrounded
             if (window.__perf && window.__perf.paused) return;
             if (!__animationLoopLogged) {
-                console.log('ANIMATION LOOP RUNNING');
                 __animationLoopLogged = true;
             }
             const time = clock.getElapsedTime();
@@ -10729,7 +10743,6 @@ chatSend.addEventListener('click', handleSendMessage);
     </script>
 </body>
 </html>
-
 
 
 
