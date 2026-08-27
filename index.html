@@ -6248,6 +6248,7 @@
     // visual effect is skipped â€” the rest of the page (content reveal,
     // chat, calculators, nav, etc.) always runs regardless.
     let __threeOK = false;
+    let __animationLoopLogged = false;
     let scene, camera, renderer, mobo, orb, ring1, ring2, neuralCloud,
         linesGroup, particleCount, cpuLight;
     let orbMat = { emissive: { setHex(){} }, emissiveIntensity: 0.5 };
@@ -6280,6 +6281,8 @@
         // Cap pixel ratio: 1 on low-power mobile, 2 elsewhere
         const maxDPR = window.__perf.isLowPower ? 1 : 2;
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
+        renderer.setClearColor(0x020202, 0);
+        console.log('THREE READY');
 
         // â”€â”€ PATCH 1B.1 FIX-A: physical rendering required for glass transmission â”€â”€
         renderer.physicallyCorrectLights = true;
@@ -6435,6 +6438,7 @@
 
         neuralCloud = new THREE.Points(particleGeo, particleMat);
         scene.add(neuralCloud);
+        console.log('PARTICLES CREATED');
 
         // â”€â”€ PATCH 1B.1 â€” ANNEXE Intelligence Reactor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         // Feature flag: set false to instantly revert to PCB scene
@@ -6452,13 +6456,15 @@
             neuralCloud.visible = false; // replaced by tighter field below
 
             // â”€â”€ PATCH 1B.1 FIX-B: reactor camera framing â”€â”€
-            camera.position.set(0, 8, 18);
+            camera.position.set(0, 6.2, 14);
+            camera.lookAt(0, 0, 0);
 
             // â”€â”€ Reactor root group â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             reactorGroup = new THREE.Group();
             // â”€â”€ PATCH 1B.7: cinematic position â€” up and recessed â”€â”€â”€â”€â”€â”€â”€â”€
-            reactorGroup.scale.set(1.8, 1.8, 1.8);
-            reactorGroup.position.set(0, -0.6, -2.5);
+            const reactorScale = window.__perf.isMobile ? 1.95 : 2.55;
+            reactorGroup.scale.set(reactorScale, reactorScale, reactorScale);
+            reactorGroup.position.set(0, 0.15, 0);
             scene.add(reactorGroup);
 
             // 1. GLASS CONTAINMENT SHELL â€” PATCH 1B.7
@@ -6677,6 +6683,7 @@
                 ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
                 arcGroup, cpuLight: reactorLight
             };
+            console.log('ANNEXE CORE INITIALIZED');
 
         } // end USE_INTELLIGENCE_REACTOR
         // â”€â”€ END PATCH 1B.1 construction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -8083,6 +8090,10 @@ chatSend.addEventListener('click', handleSendMessage);
             requestAnimationFrame(animate);
             // Skip rendering when tab is hidden or page is backgrounded
             if (window.__perf && window.__perf.paused) return;
+            if (!__animationLoopLogged) {
+                console.log('ANIMATION LOOP RUNNING');
+                __animationLoopLogged = true;
+            }
             const time = clock.getElapsedTime();
             
             // â”€â”€ PATCH 1B.1: branched animation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -10718,8 +10729,6 @@ chatSend.addEventListener('click', handleSendMessage);
     </script>
 </body>
 </html>
-
-
 
 
 
