@@ -3363,6 +3363,35 @@
             gap: 12px;
         }
         .annexe-hero-live .annexe-live-chip strong { display:block; font-size: 18px; color:#fff; }
+        .renderer-diagnostic-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px auto 0;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(56,189,248,0.22);
+            background: rgba(56,189,248,0.06);
+            color: rgba(56,189,248,0.95);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            box-shadow: 0 0 22px rgba(56,189,248,0.08);
+        }
+        .renderer-diagnostic-badge[data-mode="fallback"] {
+            color: rgba(245,158,11,0.98);
+            border-color: rgba(245,158,11,0.3);
+            background: rgba(245,158,11,0.08);
+            box-shadow: 0 0 22px rgba(245,158,11,0.08);
+        }
+        .renderer-diagnostic-badge[data-mode="error"] {
+            color: rgba(248,113,113,0.98);
+            border-color: rgba(248,113,113,0.3);
+            background: rgba(248,113,113,0.08);
+            box-shadow: 0 0 22px rgba(248,113,113,0.08);
+        }
         @keyframes annexePulse {
             0%,100% { opacity: 1; }
             50% { opacity: 0.45; }
@@ -3809,6 +3838,7 @@
                 <span class="w-px h-3 bg-white/10"></span>
                 <span class="text-[11px] text-white/40 font-mono">14,289 tasks running</span>
             </div>
+            <div id="renderer-diagnostic-badge" class="renderer-diagnostic-badge" data-mode="unknown">RENDERER: UNKNOWN</div>
 
             <!-- Headline with glitch -->
         <h1 class="text-[42px] md:text-[72px] lg:text-[88px] font-bold mb-6 tracking-[-0.04em] text-white leading-[1.0] decode-text glitch" data-glitch="Intelligence that runs your business." data-value="Intelligence that runs your business.">
@@ -6257,9 +6287,151 @@
     let dieMat = { emissive: { setHex(){} } };
     let traceMat = { color: { setHex(){} } };
     let particleMat = { color: { setHex(){} } };
+    const updateRendererBadge = (mode, reason = '') => {
+        const badge = document.getElementById('renderer-diagnostic-badge');
+        if (badge) {
+            badge.textContent = reason ? `RENDERER: ${mode} ${reason}` : `RENDERER: ${mode}`;
+            badge.dataset.mode = String(mode || 'unknown').toLowerCase();
+            badge.dataset.reason = reason;
+        }
+        document.documentElement.dataset.rendererMode = String(mode || 'unknown').toLowerCase();
+        document.documentElement.dataset.rendererReason = reason;
+        document.documentElement.dataset.rendererError = reason;
+    };
+    const traceRenderer = (label, payload) => {
+        if (typeof payload === 'undefined') {
+            console.log(label);
+        } else {
+            console.log(label, payload);
+        }
+    };
+    const makeFallbackRenderer = (reason, webglErr) => {
+        console.warn(`FALLBACK_TRIGGERED(${reason})`, webglErr || '');
+        updateRendererBadge('FALLBACK', reason);
+        document.documentElement.dataset.rendererFallbackReason = reason;
+
+        const fallbackCanvas = document.getElementById('webgl-canvas');
+        if (fallbackCanvas) {
+            fallbackCanvas.style.position = 'absolute';
+            fallbackCanvas.style.inset = '0';
+            fallbackCanvas.style.zIndex = '0';
+            fallbackCanvas.dataset.fallback = '1';
+
+            const ctx = fallbackCanvas.getContext && fallbackCanvas.getContext('2d');
+            if (ctx) {
+                const resize = () => {
+                    const dpr = Math.min(window.devicePixelRatio || 1, window.__perf && window.__perf.isMobile ? 1.2 : 1.6);
+                    fallbackCanvas.width = Math.floor(window.innerWidth * dpr);
+                    fallbackCanvas.height = Math.floor(window.innerHeight * dpr);
+                    fallbackCanvas.style.width = '100vw';
+                    fallbackCanvas.style.height = '100vh';
+                    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                };
+
+                const lowPower = !!(window.__perf && (window.__perf.isLowPower || window.__perf.prefersReduced));
+                const nodeCount = lowPower ? 18 : 42;
+                const particleCount = lowPower ? 70 : 160;
+                const ringCount = lowPower ? 3 : 5;
+
+                const nodes = Array.from({ length: nodeCount }, (_, index) => {
+                    const layer = index % 3;
+                    return {
+                        angle: (index / nodeCount) * Math.PI * 2,
+                        radius: 86 + layer * 32 + (index % 5) * 4,
+                        speed: 0.00028 + layer * 0.00009 + (index % 4) * 0.00002,
+                        pulse: 0.7 + (index % 7) * 0.13,
+                        tint: layer === 0 ? '56,189,248' : layer === 1 ? '129,140,248' : '52,211,153'
+                    };
+                });
+
+                const particles = Array.from({ length: particleCount }, (_, index) => ({
+                    angle: Math.random() * Math.PI * 2,
+                    radius: 34 + Math.random() * 230,
+                    speed: 0.0003 + Math.random() * 0.00025,
+                    drift: 0.2 + Math.random() * 0.8,
+                    tint: index % 3 === 0 ? '56,189,248' : index % 3 === 1 ? '129,140,248' : '52,211,153'
+                }));
+
+                const rings = Array.from({ length: ringCount }, (_, index) => ({
+                    radius: 68 + index * 28,
+                    speed: index % 2 === 0 ? 0.0012 + index * 0.0002 : -0.0011 - index * 0.00012,
+                    alpha: 0.2 - index * 0.025
+                }));
+
+                resize();
+                window.addEventListener('resize', resize, { passive: true });
+
+                const drawFallback = (time) => {
+                    if (window.__perf && window.__perf.paused) {
+                        requestAnimationFrame(drawFallback);
+                        return;
+                    }
+
+                    const width = window.innerWidth;
+                    const height = window.innerHeight;
+                    const cx = width * 0.5;
+                    const cy = height * 0.38;
+                    const phase = time * 0.001;
+
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.save();
+                    ctx.globalCompositeOperation = 'lighter';
+
+                    const backgroundGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(width, height) * 0.8);
+                    backgroundGlow.addColorStop(0, 'rgba(56,189,248,0.22)');
+                    backgroundGlow.addColorStop(0.2, 'rgba(56,189,248,0.12)');
+                    backgroundGlow.addColorStop(0.44, 'rgba(129,140,248,0.08)');
+                    backgroundGlow.addColorStop(1, 'rgba(2,4,10,0)');
+                    ctx.fillStyle = backgroundGlow;
+                    ctx.fillRect(0, 0, width, height);
+
+                    const corePulse = 0.5 + Math.sin(phase * 2.2) * 0.12;
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, Math.max(70, Math.min(width, height) * 0.11), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(56,189,248,${0.18 + corePulse * 0.18})`;
+                    ctx.fill();
+
+                    nodes.forEach((node, index) => {
+                        const a = node.angle + phase * node.speed * 700;
+                        const x = cx + Math.cos(a) * node.radius;
+                        const y = cy + Math.sin(a * 1.12) * (node.radius * 0.42);
+                        ctx.beginPath();
+                        ctx.arc(x, y, 3 + Math.sin(phase * 2 + index) * 1.2, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${node.tint},${0.32 + Math.sin(phase * 4 + index) * 0.08})`;
+                        ctx.fill();
+                    });
+
+                    particles.forEach((particle) => {
+                        const a = particle.angle + phase * particle.speed * 1000;
+                        const radius = particle.radius + Math.sin(phase * 3 + particle.drift) * 12;
+                        const x = cx + Math.cos(a) * radius;
+                        const y = cy + Math.sin(a * 0.9) * radius * 0.58;
+                        ctx.beginPath();
+                        ctx.arc(x, y, 1.1 + Math.sin(phase * 6 + particle.drift) * 0.4, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(${particle.tint},0.45)`;
+                        ctx.fill();
+                    });
+
+                    rings.forEach((ring) => {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(56,189,248,${ring.alpha})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.arc(cx, cy, ring.radius + Math.sin(phase * ring.speed * 1200) * 6, 0, Math.PI * 2);
+                        ctx.stroke();
+                    });
+
+                    ctx.restore();
+                    requestAnimationFrame(drawFallback);
+                };
+                drawFallback(performance.now());
+            }
+        }
+    };
 
     const initializeNeuralCore = () => {
-    try { // â† WebGL guard: decorative scene only, rest of page is independent
+        updateRendererBadge('UNKNOWN');
+    try {
+        traceRenderer('THREE_LOADED', typeof THREE !== 'undefined');
         if (typeof THREE === 'undefined') throw new Error('Three.js not loaded');
         // --- 1. Scene & Camera Setup ---
         let canvas = document.querySelector('#webgl-canvas');
@@ -6273,7 +6445,12 @@
                 document.body.prepend(canvas);
             }
         }
+        const webglProbeCanvas = document.createElement('canvas');
+        const webglAvailable = !!(webglProbeCanvas.getContext && (webglProbeCanvas.getContext('webgl') || webglProbeCanvas.getContext('experimental-webgl')));
+        traceRenderer('WEBGL_AVAILABLE', webglAvailable);
+        if (!webglAvailable) throw new Error('WebGL unavailable');
         scene = new THREE.Scene();
+        traceRenderer('SCENE_CREATED');
         // Slightly darker fog for more depth
         scene.fog = new THREE.FogExp2(0x020202, 0.02); 
         
@@ -6294,12 +6471,24 @@
         const maxDPR = window.__perf.isLowPower ? 1 : 2;
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
         renderer.setClearColor(0x020202, 0);
+        traceRenderer('RENDERER_CREATED');
 
         // â”€â”€ PATCH 1B.1 FIX-A: physical rendering required for glass transmission â”€â”€
         renderer.physicallyCorrectLights = true;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.1;
 
+        const safeBuild = (label, fn) => {
+            try {
+                return fn();
+            } catch (buildErr) {
+                console.warn(`SKIP_${label}`, buildErr);
+                document.documentElement.dataset.rendererWarning = `${label}:${buildErr && buildErr.message ? buildErr.message : buildErr}`;
+                return null;
+            }
+        };
+
+        safeBuild('NEURAL_SCENE', () => {
         mobo = new THREE.Group();
         scene.add(mobo);
 
@@ -6693,12 +6882,18 @@
                 ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
                 arcGroup, cpuLight: reactorLight
             };
+            traceRenderer('CORE_CREATED');
 
         } // end USE_INTELLIGENCE_REACTOR
         // â”€â”€ END PATCH 1B.1 construction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
+        }); // end safeBuild('NEURAL_SCENE', ...)
         __threeOK = true;
+        updateRendererBadge('THREE');
     } catch(webglErr) {
+        const fallbackReason = webglErr && webglErr.message ? webglErr.message : String(webglErr || 'unknown-error');
+        makeFallbackRenderer(fallbackReason, webglErr);
+        return;
         // WebGL / Three.js crashed â€” the decorative scene is skipped,
         // but everything else on the page (below) still works normally.
 
@@ -8107,6 +8302,7 @@ chatSend.addEventListener('click', handleSendMessage);
             if (window.__perf && window.__perf.paused) return;
             if (!__animationLoopLogged) {
                 __animationLoopLogged = true;
+                console.log('ANIMATION LOOP RUNNING');
             }
             const time = clock.getElapsedTime();
             
@@ -8165,36 +8361,50 @@ chatSend.addEventListener('click', handleSendMessage);
                 camera.position.y += ((15 + mouseY * 2) - camera.position.y) * 0.05;
                 camera.lookAt(0, 0, 0);
 
-                orb.rotation.y = time * 0.5;
-                orb.rotation.x = time * 0.3;
-                ring1.rotation.y = time * 1.2;
-                ring1.rotation.z = time * 0.8;
-                ring2.rotation.x = -time * 1.1;
-                ring2.rotation.z = -time * 0.7;
-
-                const positions = neuralCloud.geometry.attributes.position.array;
-                const phases = neuralCloud.geometry.attributes.phase.array;
-                for(let i=0; i < particleCount; i++) {
-                    const i3 = i * 3;
-                    positions[i3+1] += Math.sin(time * 0.5 + phases[i]) * 0.015;
+                if (orb) {
+                    orb.rotation.y = time * 0.5;
+                    orb.rotation.x = time * 0.3;
                 }
-                neuralCloud.geometry.attributes.position.needsUpdate = true;
-                neuralCloud.rotation.y = time * 0.02;
+                if (ring1) {
+                    ring1.rotation.y = time * 1.2;
+                    ring1.rotation.z = time * 0.8;
+                }
+                if (ring2) {
+                    ring2.rotation.x = -time * 1.1;
+                    ring2.rotation.z = -time * 0.7;
+                }
+
+                if (neuralCloud && neuralCloud.geometry && neuralCloud.geometry.attributes && neuralCloud.geometry.attributes.position && neuralCloud.geometry.attributes.phase) {
+                    const positions = neuralCloud.geometry.attributes.position.array;
+                    const phases = neuralCloud.geometry.attributes.phase.array;
+                    for(let i=0; i < particleCount; i++) {
+                        const i3 = i * 3;
+                        positions[i3+1] += Math.sin(time * 0.5 + phases[i]) * 0.015;
+                    }
+                    neuralCloud.geometry.attributes.position.needsUpdate = true;
+                    neuralCloud.rotation.y = time * 0.02;
+                }
 
                 traceSpeed += (0.01 - traceSpeed) * 0.05;
-                linesGroup.children.forEach(line => {
-                    line.material.dashOffset -= traceSpeed;
-                });
+                if (linesGroup && linesGroup.children) {
+                    linesGroup.children.forEach(line => {
+                        line.material.dashOffset -= traceSpeed;
+                    });
+                }
 
-                mobo.position.y = Math.sin(time * 0.5) * 0.5;
+                if (mobo) {
+                    mobo.position.y = Math.sin(time * 0.5) * 0.5;
+                }
 
-                if(!isProcessing) {
+                if(!isProcessing && cpuLight) {
                     cpuLight.intensity = 1.0 + Math.sin(time * 2) * 0.5;
                 }
             }
             // â”€â”€ END PATCH 1B.1 animation branch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-            renderer.render(scene, camera);
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
         }
         
         animate();
@@ -10743,8 +10953,3 @@ chatSend.addEventListener('click', handleSendMessage);
     </script>
 </body>
 </html>
-
-
-
-
-
