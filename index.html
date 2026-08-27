@@ -3363,35 +3363,6 @@
             gap: 12px;
         }
         .annexe-hero-live .annexe-live-chip strong { display:block; font-size: 18px; color:#fff; }
-        .renderer-diagnostic-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin: 10px auto 0;
-            padding: 7px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(56,189,248,0.22);
-            background: rgba(56,189,248,0.06);
-            color: rgba(56,189,248,0.95);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            box-shadow: 0 0 22px rgba(56,189,248,0.08);
-        }
-        .renderer-diagnostic-badge[data-mode="fallback"] {
-            color: rgba(245,158,11,0.98);
-            border-color: rgba(245,158,11,0.3);
-            background: rgba(245,158,11,0.08);
-            box-shadow: 0 0 22px rgba(245,158,11,0.08);
-        }
-        .renderer-diagnostic-badge[data-mode="error"] {
-            color: rgba(248,113,113,0.98);
-            border-color: rgba(248,113,113,0.3);
-            background: rgba(248,113,113,0.08);
-            box-shadow: 0 0 22px rgba(248,113,113,0.08);
-        }
         @keyframes annexePulse {
             0%,100% { opacity: 1; }
             50% { opacity: 0.45; }
@@ -3838,8 +3809,6 @@
                 <span class="w-px h-3 bg-white/10"></span>
                 <span class="text-[11px] text-white/40 font-mono">14,289 tasks running</span>
             </div>
-            <div id="renderer-diagnostic-badge" class="renderer-diagnostic-badge" data-mode="unknown">RENDERER: UNKNOWN</div>
-
             <!-- Headline with glitch -->
         <h1 class="text-[42px] md:text-[72px] lg:text-[88px] font-bold mb-6 tracking-[-0.04em] text-white leading-[1.0] decode-text glitch" data-glitch="Intelligence that runs your business." data-value="Intelligence that runs your business.">
             Intelligence that runs your business.<br/>
@@ -6427,6 +6396,20 @@
             }
         }
     };
+    const applyReactorFraming = () => {
+        if (!window.__reactor) return;
+        const isMobile = !!(window.__perf && window.__perf.isMobile);
+        const scale = isMobile ? 0.56 : 4.2;
+        const cameraY = isMobile ? 4.8 : 4.15;
+        const cameraZ = isMobile ? 10.6 : 8.1;
+        window.__reactor.group.scale.set(scale, scale, scale);
+        window.__reactor.group.position.set(0, 0, 0);
+        window.__reactor.group.rotation.set(0, 0, 0);
+        if (camera) {
+            camera.position.set(0, cameraY, cameraZ);
+            camera.lookAt(0, 0, 0);
+        }
+    };
 
     const initializeNeuralCore = () => {
         updateRendererBadge('UNKNOWN');
@@ -6655,15 +6638,15 @@
             neuralCloud.visible = false; // replaced by tighter field below
 
             // â”€â”€ PATCH 1B.1 FIX-B: reactor camera framing â”€â”€
-            camera.position.set(0, 6.2, 14);
+            camera.position.set(0, window.__perf.isMobile ? 4.8 : 4.15, window.__perf.isMobile ? 10.6 : 8.1);
             camera.lookAt(0, 0, 0);
 
             // â”€â”€ Reactor root group â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             reactorGroup = new THREE.Group();
             // â”€â”€ PATCH 1B.7: cinematic position â€” up and recessed â”€â”€â”€â”€â”€â”€â”€â”€
-            const reactorScale = window.__perf.isMobile ? 1.95 : 2.55;
+            const reactorScale = window.__perf.isMobile ? 0.56 : 4.2;
             reactorGroup.scale.set(reactorScale, reactorScale, reactorScale);
-            reactorGroup.position.set(0, 0.15, 0);
+            reactorGroup.position.set(0, 0, 0);
             scene.add(reactorGroup);
 
             // 1. GLASS CONTAINMENT SHELL â€” PATCH 1B.7
@@ -6882,6 +6865,7 @@
                 ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
                 arcGroup, cpuLight: reactorLight
             };
+            applyReactorFraming();
             traceRenderer('CORE_CREATED');
 
         } // end USE_INTELLIGENCE_REACTOR
@@ -7211,6 +7195,7 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+            applyReactorFraming();
         });
 
         // Live Mission Control Terminal
@@ -8311,10 +8296,10 @@ chatSend.addEventListener('click', handleSendMessage);
                 // REACTOR PATH
                 const R = window.__reactor;
 
-                // Camera: closer, equatorial framing, gentler parallax
-                camera.position.x += (mouseX * 2 - camera.position.x) * 0.04;
-                camera.position.y += ((8 + mouseY * 1.5) - camera.position.y) * 0.04;
-                camera.position.z += (18 - camera.position.z) * 0.04;
+                // Camera: keep the reactor centered with only subtle parallax
+                camera.position.x = mouseX * (window.__perf.isMobile ? 0.18 : 0.35);
+                camera.position.y = (window.__perf.isMobile ? 4.8 : 4.15) + mouseY * (window.__perf.isMobile ? 0.08 : 0.18);
+                camera.position.z = window.__perf.isMobile ? 10.6 : 8.1;
                 camera.lookAt(0, 0, 0);
 
                 // Nucleus rotation (same rates as original orb)
