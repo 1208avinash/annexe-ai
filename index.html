@@ -530,12 +530,19 @@
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html,
+        body {
+            width: 100%;
+            min-width: 100%;
+        }
+
+
         body { 
             background-color: var(--c-bg);
             color: var(--c-text);
             transition: background-color 0.35s ease, color 0.35s ease;
             font-family: 'Space Grotesk', 'Inter', sans-serif;
-            overflow-x: clip;
+            overflow-x: hidden;
             overflow-y: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -580,6 +587,36 @@
         #warp-canvas   { z-index: -1; }
         #rain-canvas   { z-index: -2; }
         #aurora-canvas { z-index: -3; }
+
+        #main-wrap {
+            width: 100%;
+            min-width: 100%;
+            overflow-x: hidden;
+        }
+
+        #page-content {
+            width: 100%;
+            max-width: none;
+            align-items: stretch;
+        }
+
+        #page-content > header {
+            width: 100%;
+            max-width: none;
+            min-height: 100vh;
+            padding-top: clamp(7rem, 14vh, 10rem);
+            padding-bottom: 5rem;
+        }
+
+        #page-content > header.reveal-up {
+            opacity: 1;
+            transform: none;
+        }
+
+        #page-content > header .annexe-hero-live {
+            width: 100%;
+        }
+
 
         /* Ambient cursor glow removed */
 
@@ -3766,19 +3803,19 @@
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-[#38bdf8] shadow-[0_0_6px_#38bdf8]"></span>
                 </div>
-                <span class="text-[11px] font-semibold tracking-[0.15em] uppercase text-[var(--c-brand)] font-mono">Neural Core v5.0 // Live</span>
+                <span class="text-[11px] font-semibold tracking-[0.15em] uppercase text-[var(--c-brand)] font-mono">Neural Core v5.1 // Live</span>
                 <span class="w-px h-3 bg-white/10"></span>
                 <span class="text-[11px] text-white/40 font-mono">14,289 tasks running</span>
             </div>
 
             <!-- Headline with glitch -->
-        <h1 class="text-[42px] md:text-[72px] lg:text-[88px] font-bold mb-6 tracking-[-0.04em] text-white leading-[1.0] decode-text glitch" data-glitch="Your Autonomous AI Software Operating System." data-value="Your Autonomous AI Software Operating System.">
-            Your Autonomous AI Software Operating System<br/>
-            <span class="text-gradient">Transform ideas into production software through autonomous AI departments.</span>
+        <h1 class="text-[42px] md:text-[72px] lg:text-[88px] font-bold mb-6 tracking-[-0.04em] text-white leading-[1.0] decode-text glitch" data-glitch="Intelligence that runs your business." data-value="Intelligence that runs your business.">
+            Intelligence that runs your business.<br/>
+            <span class="text-gradient">ANNEXE AI transforms ideas into production software through autonomous AI departments.</span>
             </h1>
             
-        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-normal decode-text" data-value="Transform ideas into production software through autonomous AI departments.">
-            Transform ideas into production software through autonomous AI departments.
+        <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-normal decode-text" data-value="ANNEXE AI transforms ideas into production software through autonomous AI departments.">
+            ANNEXE AI transforms ideas into production software through autonomous AI departments.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
@@ -3905,7 +3942,7 @@
                             <div class="t-dot" style="background:#ff5f57"></div>
                             <div class="t-dot" style="background:#febc2e"></div>
                             <div class="t-dot" style="background:#28c840"></div>
-                            <span style="margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(226,234,244,0.3);">ANNEXE AI // Company Terminal v5.0</span>
+                            <span style="margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(226,234,244,0.3);">ANNEXE AI // Company Terminal v5.1</span>
                             <span style="margin-left:auto;width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 6px #34d399;display:inline-block;"></span>
                         </div>
                         <div id="terminal-output">
@@ -6647,7 +6684,81 @@
     } catch(webglErr) {
         // WebGL / Three.js crashed — the decorative scene is skipped,
         // but everything else on the page (below) still works normally.
-        console.warn('WebGL init error (non-fatal):', webglErr);
+
+        const fallbackCanvas = document.getElementById('webgl-canvas');
+        if (fallbackCanvas) {
+            fallbackCanvas.style.zIndex = '0';
+            fallbackCanvas.dataset.fallback = '1';
+
+            const ctx = fallbackCanvas.getContext && fallbackCanvas.getContext('2d');
+            if (ctx) {
+                const resize = () => {
+                    fallbackCanvas.width = window.innerWidth;
+                    fallbackCanvas.height = window.innerHeight;
+                };
+
+                const rings = [
+                    { radius: 72, speed: 0.8, alpha: 0.26 },
+                    { radius: 124, speed: -0.55, alpha: 0.18 },
+                    { radius: 192, speed: 0.35, alpha: 0.12 }
+                ];
+                const nodes = Array.from({ length: 28 }, (_, index) => ({
+                    angle: (index / 28) * Math.PI * 2,
+                    radius: 92 + (index % 7) * 18,
+                    speed: 0.00035 + (index % 5) * 0.00012,
+                    hue: index % 3
+                }));
+
+                resize();
+                window.addEventListener('resize', resize, { passive: true });
+
+                const drawFallback = (time) => {
+                    if (window.__perf && window.__perf.paused) {
+                        requestAnimationFrame(drawFallback);
+                        return;
+                    }
+
+                    const width = fallbackCanvas.width;
+                    const height = fallbackCanvas.height;
+                    const cx = width * 0.5;
+                    const cy = height * 0.38;
+
+                    ctx.clearRect(0, 0, width, height);
+
+                    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(width, height) * 0.72);
+                    glow.addColorStop(0, 'rgba(56,189,248,0.18)');
+                    glow.addColorStop(0.22, 'rgba(56,189,248,0.08)');
+                    glow.addColorStop(0.5, 'rgba(129,140,248,0.05)');
+                    glow.addColorStop(1, 'rgba(2,4,10,0)');
+                    ctx.fillStyle = glow;
+                    ctx.fillRect(0, 0, width, height);
+
+                    ctx.globalCompositeOperation = 'lighter';
+                    rings.forEach((ring, index) => {
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(56,189,248,' + ring.alpha + ')';
+                        ctx.lineWidth = 1.4 + index * 0.2;
+                        ctx.arc(cx, cy, ring.radius + Math.sin(time * 0.0012 * ring.speed) * 8, 0, Math.PI * 2);
+                        ctx.stroke();
+                    });
+
+                    nodes.forEach((node, index) => {
+                        const angle = node.angle + time * node.speed;
+                        const radius = node.radius + Math.sin(time * 0.001 + index) * 10;
+                        const x = cx + Math.cos(angle) * radius;
+                        const y = cy + Math.sin(angle * 1.2) * radius * 0.48;
+                        const tint = node.hue === 0 ? '56,189,248' : node.hue === 1 ? '129,140,248' : '52,211,153';
+                        ctx.fillStyle = 'rgba(' + tint + ',' + (0.55 + (index % 4) * 0.08) + ')';
+                        ctx.fillRect(x, y, 2.2, 2.2);
+                    });
+
+                    ctx.globalCompositeOperation = 'source-over';
+                    requestAnimationFrame(drawFallback);
+                };
+
+                requestAnimationFrame(drawFallback);
+            }
+        }
     }
 
     // --- STREAMING_CHUNK:Interactive Logic & Animation ---
