@@ -6435,12 +6435,11 @@ RENDER SIZE: 0x0</div>
     };
     const applyReactorFraming = () => {
         if (!window.__reactor) return;
-        const isMobile = !!(window.__perf && window.__perf.isMobile);
-        const scale = isMobile ? 0.7 : 6.8;
-        const cameraY = isMobile ? 4.2 : 3.25;
-        const cameraZ = isMobile ? 9.2 : 6.6;
+        const scale = 1.8;
+        const cameraY = 8;
+        const cameraZ = 18;
         window.__reactor.group.scale.set(scale, scale, scale);
-        window.__reactor.group.position.set(0, 0, 0);
+        window.__reactor.group.position.set(0, -0.6, -2.5);
         window.__reactor.group.rotation.set(0, 0, 0);
         if (camera) {
             camera.position.set(0, cameraY, cameraZ);
@@ -6676,15 +6675,14 @@ RENDER SIZE: 0x0</div>
             neuralCloud.visible = false; // replaced by tighter field below
 
             // â”€â”€ PATCH 1B.1 FIX-B: reactor camera framing â”€â”€
-            camera.position.set(0, window.__perf.isMobile ? 4.2 : 3.25, window.__perf.isMobile ? 9.2 : 6.6);
+            camera.position.set(0, 8, 18);
             camera.lookAt(0, 0, 0);
 
             // â”€â”€ Reactor root group â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             reactorGroup = new THREE.Group();
             // â”€â”€ PATCH 1B.7: cinematic position â€” up and recessed â”€â”€â”€â”€â”€â”€â”€â”€
-            const reactorScale = window.__perf.isMobile ? 0.7 : 6.8;
-            reactorGroup.scale.set(reactorScale, reactorScale, reactorScale);
-            reactorGroup.position.set(0, 0, 0);
+            reactorGroup.scale.set(1.8, 1.8, 1.8);
+            reactorGroup.position.set(0, -0.6, -2.5);
             scene.add(reactorGroup);
 
             // 1. GLASS CONTAINMENT SHELL â€” PATCH 1B.7
@@ -6708,7 +6706,7 @@ RENDER SIZE: 0x0</div>
                 depthWrite: false
             });
             reactorShell = new THREE.Mesh(
-                new THREE.SphereGeometry(5.8, 64, 64),
+                new THREE.SphereGeometry(3.5, 48, 48),
                 shellMat
             );
             reactorGroup.add(reactorShell);
@@ -6727,7 +6725,7 @@ RENDER SIZE: 0x0</div>
                 depthWrite: false
             });
             const nucleusCore = new THREE.Mesh(
-                new THREE.SphereGeometry(1.35, 48, 48),
+                new THREE.SphereGeometry(0.42, 32, 32),
                 nucleusCoreMat
             );
             reactorGroup.add(nucleusCore);
@@ -6746,7 +6744,7 @@ RENDER SIZE: 0x0</div>
                 depthWrite: false
             });
             nucleus = new THREE.Mesh(
-                new THREE.IcosahedronGeometry(2.8, 3),
+                new THREE.IcosahedronGeometry(1.0, 2),
                 nucleusMat
             );
             reactorGroup.add(nucleus);
@@ -6765,7 +6763,7 @@ RENDER SIZE: 0x0</div>
                 side: THREE.DoubleSide,
                 depthWrite: false
             });
-            const ringGeoR = new THREE.TorusGeometry(4.8, 0.06, 10, 128);
+            const ringGeoR = new THREE.TorusGeometry(2.2, 0.022, 8, 96);
 
             reactorRing1 = new THREE.Mesh(ringGeoR, rRingMat);
             // equatorial plane
@@ -6790,7 +6788,7 @@ RENDER SIZE: 0x0</div>
                 roughness: 0.2,
                 metalness: 0.8
             });
-            const spireGeo = new THREE.ConeGeometry(0.08, 3.2, 6);
+            const spireGeo = new THREE.ConeGeometry(0.04, 1.8, 4);
             for (let s = 0; s < 6; s++) {
                 const angle = (s / 6) * Math.PI * 2;
                 const spire = new THREE.Mesh(spireGeo, spireMat);
@@ -6815,13 +6813,13 @@ RENDER SIZE: 0x0</div>
                 opacity: 0.32,
                 blending: THREE.AdditiveBlending
             });
-            const MAX_ARC_R = 6.2; // hard ceiling â€” well inside shell
+            const MAX_ARC_R = 2.8; // hard ceiling â€” well inside shell (r=3.5)
             for (let a = 0; a < 8; a++) {
                 const t0    = (a / 8) * Math.PI * 2;
                 const span  = Math.PI * (0.35 + (a % 3) * 0.12); // deterministic span
                 const t1    = t0 + span;
-                const arcR  = 3.6 + (a % 4) * 0.55; // larger deterministic radius
-                const elevA = ((a % 3) - 1) * 1.1;  // stronger elevation arc
+                const arcR  = 1.8 + (a % 4) * 0.22; // deterministic radius, max 2.46
+                const elevA = ((a % 3) - 1) * 0.6;  // deterministic elevation arc
                 const pts   = [];
                 const steps = 24;
                 for (let k = 0; k <= steps; k++) {
@@ -6872,8 +6870,8 @@ RENDER SIZE: 0x0</div>
             for (let i = 0; i < rfCount; i++) {
                 const isHalo = i < rfCount * 0.22;
                 const radius = isHalo
-                    ? 6.0 + Math.random() * 2.2   // larger shell halo
-                    : 10.0 + Math.random() * 20;   // wider intelligence field
+                    ? 3.6 + Math.random() * 1.4   // tight shell halo
+                    : 5.5 + Math.random() * 12;    // wider intelligence field
                 const theta  = Math.random() * Math.PI * 2;
                 const phi    = Math.acos(2 * Math.random() - 1); // sphere distribution
                 rfPos[i*3]   = radius * Math.sin(phi) * Math.cos(theta);
@@ -6884,7 +6882,7 @@ RENDER SIZE: 0x0</div>
             rfGeo.setAttribute('position', new THREE.BufferAttribute(rfPos, 3));
             rfGeo.setAttribute('phase',    new THREE.BufferAttribute(rfPhase, 1));
             const rfMat = new THREE.PointsMaterial({
-                size: 0.22,
+                size: 0.11,
                 color: 0x38bdf8,
                 transparent: true,
                 opacity: 0.32,
@@ -6904,6 +6902,20 @@ RENDER SIZE: 0x0</div>
                 arcGroup, cpuLight: reactorLight
             };
             applyReactorFraming();
+            console.log('ANNEXE CORE DEBUG', {
+                camera: {
+                    x: camera.position.x,
+                    y: camera.position.y,
+                    z: camera.position.z
+                },
+                reactor: {
+                    x: reactorGroup.position.x,
+                    y: reactorGroup.position.y,
+                    z: reactorGroup.position.z
+                },
+                scale: reactorGroup.scale.x,
+                children: reactorGroup.children.length
+            });
             traceRenderer('CORE_CREATED');
 
         } // end USE_INTELLIGENCE_REACTOR
@@ -8335,10 +8347,10 @@ chatSend.addEventListener('click', handleSendMessage);
                 // REACTOR PATH
                 const R = window.__reactor;
 
-                // Camera: keep the reactor fixed behind the headline center
-                camera.position.x = 0;
-                camera.position.y = window.__perf.isMobile ? 4.2 : 3.25;
-                camera.position.z = window.__perf.isMobile ? 9.2 : 6.6;
+                // Camera: closer, equatorial framing, gentler parallax
+                camera.position.x += (mouseX * 2 - camera.position.x) * 0.04;
+                camera.position.y += ((8 + mouseY * 1.5) - camera.position.y) * 0.04;
+                camera.position.z += (18 - camera.position.z) * 0.04;
                 camera.lookAt(0, 0, 0);
 
                 // Nucleus rotation (same rates as original orb)
