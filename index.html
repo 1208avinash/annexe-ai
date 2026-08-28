@@ -571,12 +571,16 @@
         
         /* The Canvas Background */
         #webgl-canvas { 
-            position: absolute; 
-            inset: 0; 
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100vw; 
             height: 100vh; 
-            z-index: 0; 
+            display: block;
+            opacity: 1;
+            z-index: 1;
             pointer-events: none;
+            background: rgba(0, 100, 255, 0.05);
         }
 
         /* PATCH 2.3.3 HERO CORE RESTORE (merged into 2.3.4b)
@@ -584,7 +588,7 @@
            composited #webgl-canvas behind the page background. Fix: lift
            canvas to z-index:0 and shift overlay layers up by 1. */
         #webgl-canvas  { z-index:  0; }
-        .vignette      { z-index:  1; }
+        .vignette      { z-index:  0; }
         #warp-canvas   { z-index: -1; }
         #rain-canvas   { z-index: -2; }
         #aurora-canvas { z-index: -3; }
@@ -607,6 +611,8 @@
             min-height: 100vh;
             padding-top: clamp(7rem, 14vh, 10rem);
             padding-bottom: 5rem;
+            position: relative;
+            z-index: 2;
         }
 
         #page-content > header.reveal-up {
@@ -626,8 +632,26 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(ellipse at 50% 0%, transparent 20%, rgba(2,4,8,0.7) 70%, rgba(2,4,8,0.97) 100%);
-            z-index: -1;
+            z-index: 1;
             pointer-events: none;
+        }
+        #renderer-visibility-debug {
+            position: fixed;
+            left: 16px;
+            bottom: 16px;
+            z-index: 2147483647;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(56,189,248,0.3);
+            background: rgba(5,9,18,0.82);
+            color: rgba(226,234,244,0.92);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            pointer-events: none;
+            white-space: pre;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.35);
         }
         .vignette::after {
             content: "";
@@ -3790,6 +3814,9 @@
     </script>
 
     <div id="page-content" class="relative z-10 pt-28 px-6 max-w-7xl mx-auto flex flex-col items-center">
+        <div id="renderer-visibility-debug" aria-hidden="true">CANVAS WIDTH: 0
+CANVAS HEIGHT: 0
+RENDER SIZE: 0x0</div>
         
         <header class="text-center flex flex-col justify-center items-center w-full max-w-5xl reveal-up" style="position:relative;">
             <!-- 1A.6b: Cinematic text-readability gradient â€” behind content, above neural bg -->
@@ -6267,6 +6294,16 @@
         document.documentElement.dataset.rendererReason = reason;
         document.documentElement.dataset.rendererError = reason;
     };
+    const updateCanvasVisibilityDebug = () => {
+        const panel = document.getElementById('renderer-visibility-debug');
+        const canvas = document.getElementById('webgl-canvas');
+        if (!panel || !canvas || !renderer) return;
+        panel.textContent = [
+            `CANVAS WIDTH: ${canvas.clientWidth}`,
+            `CANVAS HEIGHT: ${canvas.clientHeight}`,
+            `RENDER SIZE: ${renderer.domElement.width}x${renderer.domElement.height}`,
+        ].join('\n');
+    };
     const traceRenderer = (label, payload) => {
         if (typeof payload === 'undefined') {
             console.log(label);
@@ -6455,6 +6492,7 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, maxDPR));
         renderer.setClearColor(0x020202, 0);
         traceRenderer('RENDERER_CREATED');
+        updateCanvasVisibilityDebug();
 
         // â”€â”€ PATCH 1B.1 FIX-A: physical rendering required for glass transmission â”€â”€
         renderer.physicallyCorrectLights = true;
@@ -7196,6 +7234,7 @@
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
             applyReactorFraming();
+            updateCanvasVisibilityDebug();
         });
 
         // Live Mission Control Terminal
