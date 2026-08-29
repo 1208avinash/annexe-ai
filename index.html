@@ -6902,18 +6902,13 @@ RENDER SIZE: 0x0</div>
                 arcGroup, cpuLight: reactorLight
             };
             applyReactorFraming();
-            console.log('ANNEXE CORE DEBUG', {
+            console.log({
                 camera: {
                     x: camera.position.x,
                     y: camera.position.y,
                     z: camera.position.z
                 },
-                reactor: {
-                    x: reactorGroup.position.x,
-                    y: reactorGroup.position.y,
-                    z: reactorGroup.position.z
-                },
-                scale: reactorGroup.scale.x,
+                reactorScale: reactorGroup.scale,
                 children: reactorGroup.children.length
             });
             traceRenderer('CORE_CREATED');
