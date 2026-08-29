@@ -571,14 +571,12 @@
         
         /* The Canvas Background */
         #webgl-canvas { 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw; 
-            height: 100vh; 
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             display: block;
             opacity: 1;
-            z-index: 1;
             pointer-events: none;
             background: rgba(0, 100, 255, 0.05);
         }
@@ -612,6 +610,12 @@
             padding-top: clamp(7rem, 14vh, 10rem);
             padding-bottom: 5rem;
             position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        #page-content > header > :not(#webgl-canvas) {
+            position: relative;
             z-index: 2;
         }
 
@@ -634,24 +638,6 @@
             background: radial-gradient(ellipse at 50% 0%, transparent 20%, rgba(2,4,8,0.7) 70%, rgba(2,4,8,0.97) 100%);
             z-index: 1;
             pointer-events: none;
-        }
-        #renderer-visibility-debug {
-            position: fixed;
-            left: 16px;
-            bottom: 16px;
-            z-index: 2147483647;
-            padding: 10px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(56,189,248,0.3);
-            background: rgba(5,9,18,0.82);
-            color: rgba(226,234,244,0.92);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.04em;
-            line-height: 1.5;
-            pointer-events: none;
-            white-space: pre;
-            box-shadow: 0 14px 36px rgba(0,0,0,0.35);
         }
         .vignette::after {
             content: "";
@@ -3631,7 +3617,6 @@
     <canvas id="rain-canvas"></canvas>
     <canvas id="warp-canvas"></canvas>
     <div id="hud-sweep"></div>
-    <canvas id="webgl-canvas"></canvas>
     <div class="vignette"></div>
     
     <!-- cursor glow removed -->
@@ -3814,11 +3799,9 @@
     </script>
 
     <div id="page-content" class="relative z-10 pt-28 px-6 max-w-7xl mx-auto flex flex-col items-center">
-        <div id="renderer-visibility-debug" aria-hidden="true">CANVAS WIDTH: 0
-CANVAS HEIGHT: 0
-RENDER SIZE: 0x0</div>
         
-        <header class="text-center flex flex-col justify-center items-center w-full max-w-5xl reveal-up" style="position:relative;">
+        <header class="text-center flex flex-col justify-center items-center w-full max-w-5xl reveal-up" style="position:relative;overflow:hidden;min-height:100vh;">
+            <canvas id="webgl-canvas"></canvas>
             <!-- 1A.6b: Cinematic text-readability gradient â€” behind content, above neural bg -->
             <div aria-hidden="true" style="
                 position:absolute;inset:-10% -20%;
