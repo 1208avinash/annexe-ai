@@ -6750,11 +6750,11 @@ const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token
                 const angle = (s / 6) * Math.PI * 2;
                 const spire = new THREE.Mesh(spireGeo, spireMat);
                 // Position at shell inner surface, point outward
-                spire.position.set(
-                    Math.cos(angle) * 5.5,
-                    0,
-                    Math.sin(angle) * 5.5
-                );
+            spire.position.set(
+                Math.cos(angle) * 3.1,
+                0,
+                Math.sin(angle) * 3.1
+            );
                 // Rotate so cone tip points away from centre
                 spire.rotation.z = -Math.PI / 2;
                 spire.rotation.y = -angle;
@@ -6858,6 +6858,10 @@ const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token
                 ring1: reactorRing1, ring2: reactorRing2, ring3: reactorRing3,
                 arcGroup, cpuLight: reactorLight
             };
+            console.log({
+                sceneChildren: scene.children.length,
+                reactorChildren: reactorGroup.children.length
+            });
             applyReactorFraming();
             console.log({
                 camera: {
